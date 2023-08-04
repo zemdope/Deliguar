@@ -36,7 +36,6 @@ background-color: #ffffff;
   }
   main {
     background-color:#FFFBF5;
-    
   } 
   section {
     max-width:1920px;

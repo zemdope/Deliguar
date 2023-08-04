@@ -36,7 +36,7 @@ export const List = styled.ul`
 		transition: transform 0.25s ease-out, opacity 0.25s ease-out;
 		a {
 			display: inline-block;
-			color: white;
+			color: ${({ theme }) => theme.color.white};
 			text-decoration: none;
 			font-weight: 400;
 			line-height: 2.8rem;
@@ -139,6 +139,7 @@ export const Navigation = styled.nav`
 				padding: 0;
 				font-size: 20px;
 				font-weight: normal;
+				color: ${({ theme }) => theme.color.white};
 			}
 		}
 	}
