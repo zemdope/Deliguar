@@ -14,6 +14,21 @@ module.exports = {
 				spaceId: 'w5u0yujeh638'
 			}
 		},
+		{
+			resolve: `gatsby-plugin-google-fonts`,
+			options: {
+				fonts: [`Open Sans`],
+				display: 'swap'
+			}
+		},
+		{
+			resolve: 'gatsby-source-filesystem',
+			options: {
+				name: 'images',
+				path: './src/assets/images/'
+			},
+			__key: 'images'
+		},
 		'gatsby-plugin-image',
 		'gatsby-plugin-sharp',
 		'gatsby-transformer-sharp',
