@@ -277,8 +277,10 @@ const IndexPage = () => {
 						<p>Zdrowie Twojego zwierzęcia ma być widoczne</p>
 					</HeaderWrapper>
 					<HeroImage>
+						<img className='d-lg-none' src={hero} alt='' />
 						<img
-							src={window.innerWidth < 1024 ? hero : heroDesktop}
+							className='d-none d-lg-block'
+							src={heroDesktop}
 							alt=''
 						/>
 					</HeroImage>
@@ -313,12 +315,14 @@ const IndexPage = () => {
 								Nieodpowiednie odżywianie i brak wsparcia dla
 								zdrowia jelit mogą spowodować trudności w
 								trawieniu pokarmu, słaby apetyt i pobranie wody
-								lub problemy ze skórą i sierścią. W wielu
-								przypadkach stosowanie suplementów nie przynosi
-								oczekiwanych rezultatów ponieważ ich strawnoś
-								jest ograniczona przez obniżoną funkcjonalność
-								jelit. W efekcie podajemy suplementy, których
-								organizm zwierzęcia nie może wykorzystać.
+								lub problemy ze skórą i sierścią.
+								<br />
+								<br />W wielu przypadkach stosowanie suplementów
+								nie przynosi oczekiwanych rezultatów ponieważ
+								ich strawnoś jest ograniczona przez obniżoną
+								funkcjonalność jelit. W efekcie podajemy
+								suplementy, których organizm zwierzęcia nie może
+								wykorzystać.
 							</p>
 						</Col>
 					</Row>
@@ -417,11 +421,13 @@ const IndexPage = () => {
 						</Col>
 						<Col md='3'>
 							<EffectImage
-								src={
-									window.innerWidth > 1280
-										? effectImage
-										: effect
-								}
+								className='d-none d-xl-block'
+								src={effectImage}
+								alt=''
+							/>
+							<EffectImage
+								className='d-xl-none'
+								src={effect}
 								alt=''
 							/>
 						</Col>

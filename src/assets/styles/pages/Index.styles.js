@@ -6,7 +6,7 @@ import range from '../../images/range.svg';
 const move = keyframes`
 from {
 	transform: rotate(-3deg) translateY(-8px);
-}
+} 
   to {
 	transform:rotate(3deg)  translateY(8px);
   }
@@ -582,6 +582,8 @@ export const TestWrapper = styled.div`
 			color: white;
 			font-size: 2rem;
 			line-height: 3rem;
+			width: 100%;
+			max-width: 280px;
 		}
 	}
 	a::after {
@@ -646,8 +648,8 @@ export const EffectRightItem = styled.div`
 		max-height: 165px;
 	}
 	animation: ${move} 2.5s 2.2s linear infinite alternate;
-	@media (max-width: 768px) {
-		right: -80px;
+	@media (max-width: 767px) {
+		right: -800px;
 	}
 	@media (min-width: 768px) {
 		img {
@@ -1101,7 +1103,7 @@ export const RangeContainer = styled.div`
 `;
 export const InstructionButton = styled.button`
 	display: flex;
-	width: 230px;
+	width: 100%;
 	max-width: 280px;
 	height: 46px;
 	padding: 8px 32px;
