@@ -1,0 +1,69 @@
+<svg
+  width="34"
+  height="34"
+  viewBox="0 0 34 34"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+<rect width="34" height="34" fill="#faecd8" />
+<g id="Sekcja 10">
+<g clip-path="url(#clip0_11_2)">
+<path
+        d="M-480 -3311C-480 -3366.23 -435.228 -3411 -380 -3411H1094C1149.23 -3411 1194 -3366.23 1194 -3311V2681H-480V-3311Z"
+        fill="#faecd8"
+      />
+<g id="Icon">
+<rect x="-370.5" y="-37.5" width="523" height="109" rx="15.5" fill="#faecd8" />
+<g id="Group 425">
+<g id="Group 382">
+<rect
+              id="Rectangle 127"
+              x="11.5742"
+              y="10.2071"
+              width="17.3333"
+              height="1.93333"
+              rx="0.966667"
+              transform="rotate(45 11.5742 10.2071)"
+              stroke="#5E286D"
+            />
+<rect
+              id="Rectangle 128"
+              x="10.1883"
+              y="22.0779"
+              width="17.3333"
+              height="1.93333"
+              rx="0.966667"
+              transform="rotate(-45 10.1883 22.0779)"
+              stroke="#5E286D"
+            />
+</g>
+<rect
+            id="Rectangle 130"
+            x="1"
+            y="1"
+            width="32"
+            height="32"
+            rx="8.5"
+            stroke="#5E286D"
+          />
+</g>
+<rect
+          x="-370.5"
+          y="-37.5"
+          width="523"
+          height="109"
+          rx="15.5"
+          stroke="#79747E"
+        />
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_11_2">
+<path
+        d="M-480 -3311C-480 -3366.23 -435.228 -3411 -380 -3411H1094C1149.23 -3411 1194 -3366.23 1194 -3311V2681H-480V-3311Z"
+        fill="#faecd8"
+      />
+</clipPath>
+</defs>
+</svg>

@@ -1,12 +1,19 @@
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-export const SocialWrapper = styled.div`
-	margin-left: auto;
-
+export const SocialWrapper = styled.li`
 	display: flex;
+	justify-content: flex-end;
+	gap: 16px;
+
+	position: absolute;
+	bottom: 30px;
+	right: 16px;
+	${({ theme }) => theme.mq.desktop} {
+		display: none;
+	}
 	img {
-		width: 100px;
+		width: 100%;
 	}
 `;
 
@@ -34,6 +41,7 @@ export const List = styled.ul`
 		transform: ${({ isOpen }) =>
 			isOpen ? 'translateX(0)' : 'translateX(-40px)'};
 		transition: transform 0.25s ease-out, opacity 0.25s ease-out;
+
 		a {
 			display: inline-block;
 			color: ${({ theme }) => theme.color.white};
@@ -41,6 +49,10 @@ export const List = styled.ul`
 			font-weight: 400;
 			line-height: 2.8rem;
 			font-size: ${({ theme }) => theme.font.size.parapgraph};
+			@media (min-width: 768px) {
+				line-height: 3.4rem;
+				font-size: 2.4rem;
+			}
 		}
 	}
 
@@ -127,8 +139,7 @@ export const Navigation = styled.nav`
 
 	${({ theme }) => theme.mq.desktop} {
 		height: 100px;
-
-		max-width: 1610px;
+		max-width: 1440px;
 		margin-inline: auto;
 
 		ul {
@@ -200,6 +211,8 @@ export const Button = styled.a`
 	width: 160px;
 	padding: 8px 32px !important;
 	margin-top: -8px;
+	position: relative;
+	z-index: 0;
 	justify-content: center;
 	align-items: center;
 	flex-shrink: 0;
@@ -211,5 +224,24 @@ export const Button = styled.a`
 
 	${({ theme }) => theme.mq.desktop} {
 		display: flex !important;
+	}
+	&::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+
+		border-radius: 32px;
+
+		box-shadow: 10px 10px 20px 0px rgba(22, 27, 29, 0.23),
+			-10px -10px 20px 0px rgba(250, 251, 255, 0.1);
+		transition: opacity 0.3s ease-in-out;
+	}
+
+	&:hover::after {
+		opacity: 1;
 	}
 `;
