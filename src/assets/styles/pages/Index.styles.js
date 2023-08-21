@@ -1558,7 +1558,7 @@ export const FaqWrapper = styled.div`
 	}
 	.accordion-item:first-of-type .accordion-button {
 		border-top-left-radius: 36px !important;
-		border-top-left-radius: 36px !important;
+		border-top-right-radius: 36px !important;
 	}
 	.accordion-item:last-of-type .accordion-button {
 		border-bottom-left-radius: 36px !important;
@@ -1664,11 +1664,12 @@ export const FaqWrapper = styled.div`
 			border-radius: 36px !important;
 			border-bottom-left-radius: 0;
 			border-bottom-right-radius: 0;
+			border: none !important;
 		}
 	}
 	.accordion-item.collapsed {
 		.accordion-header {
-			border: none !important;
+			border: 1px solid rgb(191, 167, 199);
 		}
 	}
 `;
