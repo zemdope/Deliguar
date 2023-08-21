@@ -1556,11 +1556,18 @@ export const FaqWrapper = styled.div`
 	.accordion-item :is(.accordion-collapse, .accordion-button) {
 		border-radius: 0px;
 	}
-	.accordion-item:first-of-type {
+	.accordion-item:first-of-type .accordion-button {
 		border-top-left-radius: 36px !important;
 		border-top-left-radius: 36px !important;
 	}
-
+	.accordion-item:last-of-type .accordion-button {
+		border-bottom-left-radius: 36px !important;
+		border-bottom-left-radius: 36px !important;
+	}
+	.accordion-header {
+		border: 1px solid #bfa7c7;
+		border-radius: 36px;
+	}
 	.accordion-item {
 		border-radius: 36px;
 		border: 1px solid #bfa7c7;
@@ -1646,7 +1653,7 @@ export const FaqWrapper = styled.div`
 	.accordion-item:not(.collapsed) {
 		background: rgba(191, 167, 199, 0.4);
 		.accordion-header {
-			border-radius: 36px;
+			border-radius: 36px !important;
 			border-bottom-left-radius: 0;
 			border-bottom-right-radius: 0;
 			border-bottom: none;
