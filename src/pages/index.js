@@ -959,7 +959,7 @@ const IndexPage = () => {
 					<h2>Baza wiedzy</h2>
 					<Swiper
 						spaceBetween={10}
-						initialSlide={1}
+						initialSlide={0}
 						keyboard={{
 							enabled: true
 						}}
