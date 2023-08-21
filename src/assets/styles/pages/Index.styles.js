@@ -1538,8 +1538,7 @@ export const FaqWrapper = styled.div`
 		color: #5e286d;
 		text-align: center;
 
-		/* H8 */
-		font-family: Open Sans;
+		font-family: 'Open Sans';
 		font-size: 16px;
 		font-style: normal;
 		font-weight: 700;
@@ -1557,6 +1556,10 @@ export const FaqWrapper = styled.div`
 	.accordion-item :is(.accordion-collapse, .accordion-button) {
 		border-radius: 0px;
 	}
+	.accordion-item:first-of-type {
+		border-top-left-radius: 36px !important;
+		border-top-left-radius: 36px !important;
+	}
 
 	.accordion-item {
 		border-radius: 36px;
@@ -1564,13 +1567,15 @@ export const FaqWrapper = styled.div`
 		background: #fffbf5;
 		.accordion-header {
 			margin: 0;
+			border: 1px solid #bfa7c7;
+			border-radius: 36px;
 		}
 		.accordion-body {
 			padding: 0 16px 20px;
 			color: #5e286d;
 
 			/* H5 */
-			font-family: Open Sans;
+			font-family: 'Open Sans';
 			font-size: 16px;
 			font-style: normal;
 			font-weight: 400;
@@ -1640,6 +1645,12 @@ export const FaqWrapper = styled.div`
 
 	.accordion-item:not(.collapsed) {
 		background: rgba(191, 167, 199, 0.4);
+		.accordion-header {
+			border-radius: 36px;
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+			border-bottom: none;
+		}
 	}
 `;
 export const SolutionsSection = styled.section``;

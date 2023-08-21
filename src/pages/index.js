@@ -964,18 +964,13 @@ const IndexPage = () => {
 							enabled: true
 						}}
 						loop
-						speed={3500}
-						autoplay={{
-							delay: 1,
-							pauseOnMouseEnter: true
-						}}
 						breakpoints={{
 							768: {
 								slidesPerView: 3
 							}
 						}}
 						centeredSlides={true}
-						modules={[Keyboard, Navigation, Autoplay]}
+						modules={[Keyboard, Navigation]}
 						slidesPerView={2.2}>
 						<SwiperSlide>
 							<iframe src='https://www.youtube.com/embed/VAH-ixdFWFs?si=RuSf6gPUX7LgTVYV'></iframe>
