@@ -1562,7 +1562,7 @@ export const FaqWrapper = styled.div`
 	}
 	.accordion-item:last-of-type .accordion-button {
 		border-bottom-left-radius: 36px !important;
-		border-bottom-left-radius: 36px !important;
+		border-bottom-right-radius: 36px !important;
 	}
 	.accordion-item:last-of-type {
 		border-bottom-right-radius: 36px !important;
@@ -1641,7 +1641,7 @@ export const FaqWrapper = styled.div`
 		will-change: color;
 		overflow: hidden;
 		background: #fffbf5;
-		color: $navy;
+		/* color: $navy; */
 
 		span {
 			z-index: 99;
@@ -1664,6 +1664,10 @@ export const FaqWrapper = styled.div`
 			border-radius: 36px !important;
 			border-bottom-left-radius: 0;
 			border-bottom-right-radius: 0;
+		}
+	}
+	.accordion-item.collapsed {
+		.accordion-header {
 			border: none !important;
 		}
 	}
