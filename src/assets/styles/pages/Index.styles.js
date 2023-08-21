@@ -1642,6 +1642,7 @@ export const FaqWrapper = styled.div`
 		overflow: hidden;
 		background: #fffbf5;
 		/* color: $navy; */
+		border: 1px solid rgb(191, 167, 199);
 
 		span {
 			z-index: 99;
