@@ -185,10 +185,7 @@ export const ParagraphCenter = styled.p`
 			width: 85%;
 		}
 		
-		@media (min-width: 768px) {
-			margin-left: 50px;
-			width: 114%;
-		}
+		
 		@media (min-width: 992px) {
 			bottom: -18px;
 			width: 111%;
