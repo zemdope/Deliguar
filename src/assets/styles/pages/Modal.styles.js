@@ -61,7 +61,7 @@ import styled from 'styled-components';
 export const ModalSliderDescription = styled.p`
 	max-width: 650px;
 	color: #5e286d;
-	font-family: Open Sans;
+	font-family: 'Open Sans';
 	font-size: 20px;
 	font-style: normal;
 	font-weight: 400;
@@ -69,6 +69,17 @@ export const ModalSliderDescription = styled.p`
 	max-height: 200px;
 	padding-right: 30px;
 	overflow-y: scroll;
+	span {
+		display: block;
+		color: #5e286d;
+		font-family: 'Open Sans';
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 21px;
+		text-align: right;
+		margin-top: 30px;
+	}
 	&::-webkit-scrollbar {
 		width: 16px;
 	}

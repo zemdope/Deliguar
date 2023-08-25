@@ -84,7 +84,7 @@ import bottleDesktop from '../assets/images/bottleDesktop.png';
 import eye from '../assets/images/eye.svg';
 import effect from '../assets/images/effect.png';
 import effectImage from '../assets/images/effectImage2.png';
-import effectItem3 from '../assets/images/effectItem3.png';
+import effectItem3 from '../assets/images/effectItem3.svg';
 import effectItem2 from '../assets/images/effectItem2.svg';
 import effectItem from '../assets/images/effectItem.svg';
 import smallCat from '../assets/images/smallCat.svg';
@@ -159,21 +159,24 @@ const IndexPage = () => {
 			title: 'Daisy',
 			subtitle: 'Beagle | 11y.',
 			description:
-				'Description Lorem ipsum dolor sit amet consectetur adipisicing elit. Error ipsa earum eligendi tenetur rerum debitis, autem ullam omnis molestiae eveniet, sequi commodi, necessitatibus corrupti laudantium accusantium veritatis at architecto laboriosam! for Slide 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi ad provident sapiente facere similique natus asperiores ipsa accusantium unde nostrum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, quos?'
+				'Description Lorem ipsum dolor sit amet consectetur adipisicing elit. Error ipsa earum eligendi tenetur rerum debitis, autem ullam omnis molestiae eveniet, sequi commodi, necessitatibus corrupti laudantium accusantium veritatis at architecto laboriosam! for Slide 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi ad provident sapiente facere similique natus asperiores ipsa accusantium unde nostrum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, quos?',
+			name: 'Agnieszka'
 		},
 		{
 			image: dog,
 			title: 'Alex',
 			subtitle: 'Beagle | 11y.',
 			description:
-				'Description Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni, fuga. Laborum at illum veritatis doloremque porro voluptatibus architecto, quos, voluptate exercitationem veniam, sapiente temporibus? Voluptates vitae ex tempora odio debitis. for Slide 2'
+				'Description Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni, fuga. Laborum at illum veritatis doloremque porro voluptatibus architecto, quos, voluptate exercitationem veniam, sapiente temporibus? Voluptates vitae ex tempora odio debitis. for Slide 2',
+			name: 'Agnieszka'
 		},
 		{
 			image: dog,
 			title: 'Daisy',
 			subtitle: 'Beagle | 11y.',
 			description:
-				'Description Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint omnis voluptate consequuntur ea qui sequi, exercitationem assumenda eaque doloremque quia incidunt sunt odit ullam repellat. Numquam, facilis saepe? Ipsum, molestiae. for Slide 3'
+				'Description Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint omnis voluptate consequuntur ea qui sequi, exercitationem assumenda eaque doloremque quia incidunt sunt odit ullam repellat. Numquam, facilis saepe? Ipsum, molestiae. for Slide 3',
+			name: 'Agnieszka'
 		},
 		{
 			image: dog,
@@ -187,7 +190,8 @@ const IndexPage = () => {
 			title: 'Daisy',
 			subtitle: 'Beagle | 11y.',
 			description:
-				'Description Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint omnis voluptate consequuntur ea qui sequi, exercitationem assumenda eaque doloremque quia incidunt sunt odit ullam repellat. Numquam, facilis saepe? Ipsum, molestiae. for Slide 3'
+				'Description Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint omnis voluptate consequuntur ea qui sequi, exercitationem assumenda eaque doloremque quia incidunt sunt odit ullam repellat. Numquam, facilis saepe? Ipsum, molestiae. for Slide 3',
+			name: 'Agnieszka'
 		}
 	];
 	gsap.registerPlugin(ScrollTrigger);
@@ -354,7 +358,7 @@ const IndexPage = () => {
 									alt=''
 								/>
 							</IdeaWrapperInner>
-							<LearnMoreWrapper className='d-none d-lg-block'>
+							{/* <LearnMoreWrapper className='d-none d-lg-block'>
 								<h3>
 									Dowiedz się więcej o DeliGuard i
 									postbiotykach
@@ -369,14 +373,14 @@ const IndexPage = () => {
 									zdrowym żywieniu twojego pupila.
 								</h4>
 								<a href=''>Pobierz e-book</a>
-							</LearnMoreWrapper>
+							</LearnMoreWrapper> */}
 						</Col>
 						<Col className='d-none d-md-block' xs='12' md='6'>
 							<IdeaBottleImage src={bottleDesktop} alt='' />
 						</Col>
 					</Row>
 				</IdeaWrapper>
-				<LearnMoreWrapper className='d-lg-none'>
+				{/* <LearnMoreWrapper className='d-lg-none'>
 					<h3>Dowiedz się więcej o DeliGuard i postbiotykach</h3>
 					<Link>Przeczytaj o produkcie</Link>
 					<p>
@@ -388,7 +392,7 @@ const IndexPage = () => {
 						żywieniu twojego pupila.
 					</h4>
 					<a href=''>Pobierz e-book</a>
-				</LearnMoreWrapper>
+				</LearnMoreWrapper> */}
 			</IdeaSection>
 			<TestSection>
 				<TestWrapper>
@@ -706,6 +710,9 @@ const IndexPage = () => {
 										</SlideSubheader>
 										<SlideDescription>
 											{slides[currentSlide].description}
+											<span>
+												{slides[currentSlide].name}
+											</span>
 										</SlideDescription>
 									</SlideContainer>
 								</SwiperSlide>
@@ -959,7 +966,6 @@ const IndexPage = () => {
 					<h2>Baza wiedzy</h2>
 					<Swiper
 						spaceBetween={10}
-						initialSlide={0}
 						keyboard={{
 							enabled: true
 						}}
@@ -972,6 +978,9 @@ const IndexPage = () => {
 						centeredSlides={true}
 						modules={[Keyboard, Navigation]}
 						slidesPerView={2.2}>
+						<SwiperSlide>
+							<iframe src='https://www.youtube.com/embed/VAH-ixdFWFs?si=RuSf6gPUX7LgTVYV'></iframe>
+						</SwiperSlide>
 						<SwiperSlide>
 							<iframe src='https://www.youtube.com/embed/VAH-ixdFWFs?si=RuSf6gPUX7LgTVYV'></iframe>
 						</SwiperSlide>

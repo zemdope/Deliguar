@@ -44,6 +44,7 @@ const Slider = ({ slides, onSlideClick }) => {
 							<div className='description'>
 								{slide.description}
 							</div>
+							<span className='name'>{slide.name}</span>
 						</div>
 					</div>
 				</SwiperSlide>

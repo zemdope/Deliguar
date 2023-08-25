@@ -37,7 +37,7 @@ const Navbar = () => {
 				</StyledBurger>
 				<List isOpen={isOpen}>
 					<li>
-						<Link to='/about'>O produkcie</Link>
+						<Link to='/o-produkcie'>O produkcie</Link>
 					</li>
 					<li>
 						<Link to='/'>Nasze Badania </Link>

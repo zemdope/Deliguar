@@ -55,5 +55,6 @@ background-color: #ffffff;
   }
   a {
     cursor: pointer;
+    white-space:nowrap;
   }
 `;

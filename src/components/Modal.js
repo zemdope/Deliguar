@@ -67,6 +67,7 @@ const Modal = ({ slides, initialSlide, onClose }) => {
 									</ModalSliderSubtitle>
 									<ModalSliderDescription>
 										{slide.description}
+										<span>{slide.name}</span>
 									</ModalSliderDescription>
 								</ModalSliderDetails>
 							</ModalSliderContent>
