@@ -25,7 +25,7 @@ import {
 import bottle from '../assets/images/bottole.png';
 import serum from '../assets/images/serum.png';
 import serum2 from '../assets/images/serum2.png';
-import effectItem3 from '../assets/images/effectItem3.svg';
+import effectItem3 from '../assets/images/EffectItem3.svg';
 import effectItem2 from '../assets/images/effectItem2.svg';
 import effectItem from '../assets/images/effectItem.svg';
 import zab from '../assets/images/zab.svg';

@@ -84,7 +84,7 @@ import bottleDesktop from '../assets/images/bottleDesktop.png';
 import eye from '../assets/images/eye.svg';
 import effect from '../assets/images/effect.png';
 import effectImage from '../assets/images/effectImage2.png';
-import effectItem3 from '../assets/images/effectItem3.svg';
+import effectItem3 from '../assets/images/EffectItem3.svg';
 import effectItem2 from '../assets/images/effectItem2.svg';
 import effectItem from '../assets/images/effectItem.svg';
 import smallCat from '../assets/images/smallCat.svg';
