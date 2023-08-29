@@ -22,7 +22,8 @@ export const ImageBottle = styled.img`
 	float: right;
 	shape-outside: circle(49%);
 	width: 40%;
-	min-width: 200px;
+	min-width: 210px;
+	transform: translateY(50px);
 	@media (max-width: 361px) {
 		shape-outside: circle(45%);
 	}
@@ -32,15 +33,14 @@ export const ImageBottle = styled.img`
 	}
 	@media (min-width: 768px) {
 		width: 100%;
-		scale: 1.1;
+		max-width: 570px;
 
 		display: block;
 	}
 	@media (min-width: 992px) {
-		scale: 1.1;
 	}
 	@media (min-width: 1200px) {
-		transform: translateY(-50px);
+		transform: translateY(87px);
 	}
 `;
 export const AboutProductHero = styled.section`
@@ -196,19 +196,18 @@ export const ParagraphTop = styled.p`
 		}
 		@media (min-width: 768px) {
 			margin-left: 50px;
-			width: 114%;
+			width: 120%;
 		}
 		@media (min-width: 992px) {
 			bottom: -18px;
-			width: 111%;
+			width: 120%;
 		}
 		@media (min-width: 1024px) {
 			margin-left: 90px;
-			width: 107%;
 		}
 		@media (min-width: 1280px) {
 			margin-left: 165px;
-			width: 100%;
+			width: 120%;
 		}
 	}
 `;
@@ -359,7 +358,7 @@ export const EffectWrapper = styled.div`
 		}
 	}
 	@media (min-width: 1280px) {
-		margin-top: 0px;
+		margin-top: 120px;
 		.effect-container {
 			transform: translateX(-100px);
 		}

@@ -23,6 +23,7 @@ import {
 	LeftItem
 } from '../assets/styles/pages/o-produkcir.styles';
 import bottle from '../assets/images/bottole.png';
+import newBottle from '../assets/images/newBottle.svg';
 import serum from '../assets/images/serum.png';
 import serum2 from '../assets/images/serum2.png';
 import effectItem3 from '../assets/images/EffectItem3.svg';
@@ -39,6 +40,8 @@ import item16 from '../assets/images/item16.svg';
 import item17 from '../assets/images/item17.svg';
 import buttonIcon from '../assets/images/buttonIcon.png';
 import solutionDesktop from '../assets/images/solutionImageDesktop.png';
+import solutionMobile from '../assets/images/solutionMobile.svg';
+import solutionn from '../assets/images/solutionn.svg';
 
 import { Link } from 'gatsby';
 import {
@@ -55,7 +58,7 @@ const AboutProduct = () => {
 				<Row className='hero-wrapper d-md-none'>
 					<h1>O produkcie</h1>
 					<Col>
-						<ImageBottle src={product} alt='' />
+						<ImageBottle src={newBottle} alt='' />
 
 						<ParagraphTop>
 							DeliGuard to postbiotyk <img src={plus2} alt='' />
@@ -101,7 +104,7 @@ const AboutProduct = () => {
 					<Col
 						md='6'
 						className='d-flex d-xl-block align-items-center'>
-						<ImageBottle src={bottle} alt='' />
+						<ImageBottle src={newBottle} alt='' />
 					</Col>
 				</Row>
 			</AboutProductHero>
@@ -247,12 +250,12 @@ const AboutProduct = () => {
 						<Col lg='5'>
 							<SolutionImage
 								className='d-lg-none'
-								src={solution}
+								src={solutionMobile}
 								alt=''
 							/>
 							<SolutionImage
 								className=' d-none d-lg-block img-about'
-								src={solutionDesktop}
+								src={solutionn}
 								alt=''
 							/>
 						</Col>

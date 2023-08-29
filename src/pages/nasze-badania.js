@@ -11,6 +11,8 @@ import actionImage3 from '../assets/images/actionImage3.svg';
 import buttonIcon from '../assets/images/buttonIcon.png';
 import solutionDesktop from '../assets/images/solutionImageDesktop.png';
 import solution from '../assets/images/solutionImage.png';
+import solutionMobile from '../assets/images/solutionMobile.svg';
+import solutionn from '../assets/images/solutionn.svg';
 import plus from '../assets/images/plus.svg';
 import bag from '../assets/images/bag.svg';
 import {
@@ -204,12 +206,12 @@ const OurTests = () => {
 						<Col lg='5'>
 							<SolutionImage
 								className='d-lg-none'
-								src={solution}
+								src={solutionMobile}
 								alt=''
 							/>
 							<SolutionImage
 								className=' d-none d-lg-block img-about'
-								src={solutionDesktop}
+								src={solutionn}
 								alt=''
 							/>
 						</Col>

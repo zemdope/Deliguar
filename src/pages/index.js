@@ -76,14 +76,15 @@ import hero from '../assets/images/hero.png';
 import heroDesktop from '../assets/images/heroDesktop.png';
 import left from '../assets/images/left.svg';
 import right from '../assets/images/right.svg';
-import bottleHomePage from '../assets/images/bottleHomePage.png';
-import dogProblem from '../assets/images/dogProblem.png';
+import bottleHomePage from '../assets/images/bottleMobile.svg';
+import dogProblem2 from '../assets/images/dogProblem2.svg';
 import bell from '../assets/images/bell.svg';
 import bulb from '../assets/images/bulb.svg';
-import bottleDesktop from '../assets/images/bottleDesktop.png';
+import bottleDesktop from '../assets/images/bottleDesktop2.svg';
 import eye from '../assets/images/eye.svg';
 import effect from '../assets/images/effect.png';
 import effectImage from '../assets/images/effectImage2.png';
+import effectImagee from '../assets/images/effectImagee.svg';
 import effectItem3 from '../assets/images/EffectItem3.svg';
 import effectItem2 from '../assets/images/effectItem2.svg';
 import effectItem from '../assets/images/effectItem.svg';
@@ -112,9 +113,10 @@ import item10 from '../assets/images/item10.svg';
 import item11 from '../assets/images/item11.svg';
 import item14 from '../assets/images/item14.svg';
 import item15 from '../assets/images/iteem15.svg';
-import contactImage from '../assets/images/Contact.png';
+import contactImage from '../assets/images/contactImage.svg';
 import mail from '../assets/images/mail.svg';
-import solutionDesktop from '../assets/images/solutionImageDesktop.png';
+import solutionMobile from '../assets/images/solutionMobile.svg';
+import solutionn from '../assets/images/solutionn.svg';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Keyboard, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -297,7 +299,7 @@ const IndexPage = () => {
 							className='d-none d-md-flex align-items-center'
 							xs='12'
 							md='6'>
-							<ImageDogProblem src={dogProblem} alt='' />
+							<ImageDogProblem src={dogProblem2} alt='' />
 						</Col>
 						<Col xs='12' md='5'>
 							<h2>
@@ -305,7 +307,7 @@ const IndexPage = () => {
 							</h2>
 							<ImageDogProblem
 								className='d-md-none'
-								src={dogProblem}
+								src={dogProblem2}
 								alt=''
 							/>
 							<span className='text-end text-md-start'>
@@ -426,12 +428,12 @@ const IndexPage = () => {
 						<Col md='3'>
 							<EffectImage
 								className='d-none d-xl-block'
-								src={effectImage}
+								src={effectImagee}
 								alt=''
 							/>
 							<EffectImage
 								className='d-xl-none'
-								src={effect}
+								src={effectImagee}
 								alt=''
 							/>
 						</Col>
@@ -908,12 +910,12 @@ const IndexPage = () => {
 						<Col lg='5'>
 							<SolutionImage
 								className='d-lg-none'
-								src={solution}
+								src={solutionMobile}
 								alt=''
 							/>
 							<SolutionImage
 								className=' d-none d-lg-block'
-								src={solutionDesktop}
+								src={solutionn}
 								alt=''
 							/>
 						</Col>

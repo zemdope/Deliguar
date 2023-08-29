@@ -442,7 +442,10 @@ export const Subheader = styled.p`
 	}
 	@media (min-width: 768px) {
 		padding-left: 50px;
-		font-family: 'Open Sans';
+
+		font-size: 24px;
+
+		line-height: 34px;
 	}
 	@media (min-width: 1024px) {
 		padding-left: 90px;

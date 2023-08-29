@@ -263,6 +263,7 @@ export const ProblemWrapper = styled.div``;
 
 export const ImageDogProblem = styled.img`
 	width: 75%;
+	transform: translatex(-30px);
 	@media (min-width: 768px) {
 		margin-top: auto;
 		margin-bottom: auto;
@@ -270,6 +271,7 @@ export const ImageDogProblem = styled.img`
 		width: 100%;
 		max-width: 630px;
 		padding-top: 6rem;
+		transform: translatex(-50px);
 	}
 `;
 
@@ -1828,12 +1830,14 @@ export const SolutionImage = styled.img`
 	}
 	@media (min-width: 992px) {
 		transform: translateY(-120px);
+		width: 135%;
+		max-width: unset;
 
 		margin-inline: unset;
 	}
 	@media (min-width: 1280px) {
-		transform: translateY(-200px);
-
+		/* transform: translateY(-150px); */
+		transform: translate(-80px, -120px);
 		margin-inline: unset;
 	}
 `;
