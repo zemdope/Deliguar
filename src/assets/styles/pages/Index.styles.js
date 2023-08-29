@@ -1792,6 +1792,10 @@ export const FaqWrapper = styled.div`
 	}
 	.accordion-header:not(.collapsed) {
 		border-radius: 36px !important;
+		border: none !important;
+	}
+	.accordion-header:is(.collapsed) {
+		border: 1px solid #bfa7c7 !important;
 	}
 	.accordion-button:not(.collapsed) {
 		box-shadow: none;
