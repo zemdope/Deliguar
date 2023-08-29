@@ -1712,11 +1712,11 @@ export const FaqWrapper = styled.div`
 	} */
 
 	.accordion-item :is(.accordion-collapse, .accordion-button) {
-		border-radius: 0px;
+		border-radius: 0px !important;
 	}
 
 	.accordion-item {
-		border-radius: 36px;
+		border-radius: 36px !important;
 		background: #fffbf5 0% 0% no-repeat padding-box;
 		border: 1px solid #bfa7c7;
 		.accordion-header {
@@ -1748,7 +1748,7 @@ export const FaqWrapper = styled.div`
 	}
 
 	.accordion-item:last-of-type .accordion-button.collapsed {
-		border-radius: 36px;
+		border-radius: 36px !important;
 	}
 
 	.accordion-button:not(.inside) {
@@ -1781,7 +1781,7 @@ export const FaqWrapper = styled.div`
 
 	.accordion-button.collapsed {
 		position: relative;
-		border-radius: 36px;
+		border-radius: 36px !important;
 		will-change: color;
 		overflow: hidden;
 		background: #fffbf5 0% 0% no-repeat padding-box;
@@ -1791,11 +1791,11 @@ export const FaqWrapper = styled.div`
 		background: rgba(191, 167, 199, 0.4) 0% 0% no-repeat padding-box;
 	}
 	.accordion-header:not(.collapsed) {
-		border-radius: 36px;
+		border-radius: 36px !important;
 	}
 	.accordion-button:not(.collapsed) {
 		box-shadow: none;
-		border-radius: 36px;
+		border-radius: 36px !important;
 		background: transparent 0% 0% no-repeat padding-box;
 		font-weight: 700;
 	}
