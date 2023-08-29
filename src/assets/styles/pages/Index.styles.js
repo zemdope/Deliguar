@@ -1789,6 +1789,7 @@ export const FaqWrapper = styled.div`
 
 	.accordion-item:not(.collapsed) {
 		background: rgba(191, 167, 199, 0.4) 0% 0% no-repeat padding-box;
+		border: 1px solid rgb(191, 167, 199);
 	}
 	.accordion-header:not(.collapsed) {
 		border-radius: 36px !important;
