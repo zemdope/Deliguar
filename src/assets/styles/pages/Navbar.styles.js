@@ -54,6 +54,12 @@ export const List = styled.ul`
 				font-size: 2.4rem;
 			}
 		}
+		a.active {
+			font-weight: 700 !important;
+		}
+		a:hover {
+			font-weight: bold;
+		}
 	}
 
 	li:nth-child(2) {
@@ -151,6 +157,12 @@ export const Navigation = styled.nav`
 				font-size: 20px;
 				font-weight: normal;
 				color: ${({ theme }) => theme.color.white};
+			}
+			a.active {
+				font-weight: 700 !important;
+			}
+			a:hover {
+				font-weight: bold;
 			}
 		}
 	}

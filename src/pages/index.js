@@ -358,13 +358,13 @@ const IndexPage = () => {
 									alt=''
 								/>
 							</IdeaWrapperInner>
-							{/* <LearnMoreWrapper className='d-none d-lg-block'>
+							<LearnMoreWrapper className='d-none d-lg-block'>
 								<h3>
 									Dowiedz się więcej o DeliGuard i
 									postbiotykach
 								</h3>
 								<Link>Przeczytaj o produkcie</Link>
-								<p>
+								{/* <p>
 									DeliGuard to efekt badań naszych ekspertów i
 									tą wiedzą chcemy się z Tobą podzielić.
 								</p>
@@ -372,18 +372,18 @@ const IndexPage = () => {
 									Zamów teraz i otrzymaj darmowego e-book o
 									zdrowym żywieniu twojego pupila.
 								</h4>
-								<a href=''>Pobierz e-book</a>
-							</LearnMoreWrapper> */}
+								<a href=''>Pobierz e-book</a> */}
+							</LearnMoreWrapper>
 						</Col>
 						<Col className='d-none d-md-block' xs='12' md='6'>
 							<IdeaBottleImage src={bottleDesktop} alt='' />
 						</Col>
 					</Row>
 				</IdeaWrapper>
-				{/* <LearnMoreWrapper className='d-lg-none'>
+				<LearnMoreWrapper className='d-lg-none'>
 					<h3>Dowiedz się więcej o DeliGuard i postbiotykach</h3>
 					<Link>Przeczytaj o produkcie</Link>
-					<p>
+					{/* <p>
 						DeliGuard to efekt badań naszych ekspertów i tą wiedzą
 						chcemy się z Tobą podzielić.
 					</p>
@@ -391,8 +391,8 @@ const IndexPage = () => {
 						Zamów teraz i otrzymaj darmowego e-book o zdrowym
 						żywieniu twojego pupila.
 					</h4>
-					<a href=''>Pobierz e-book</a>
-				</LearnMoreWrapper> */}
+					<a href=''>Pobierz e-book</a> */}
+				</LearnMoreWrapper>
 			</IdeaSection>
 			<TestSection>
 				<TestWrapper>

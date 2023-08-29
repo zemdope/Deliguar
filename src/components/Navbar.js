@@ -40,7 +40,7 @@ const Navbar = () => {
 						<Link to='/o-produkcie'>O produkcie</Link>
 					</li>
 					<li>
-						<Link to='/'>Nasze Badania </Link>
+						<Link to='/nasze-badania'>Nasze Badania </Link>
 					</li>
 					<li>
 						<Link to='/business'>Rozwiązanie dla biznesu </Link>

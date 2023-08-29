@@ -48,4 +48,6 @@ export const FooterWrapper = styled.div`
 `;
 export const FooterContainer = styled.footer`
 	background-color: #5e286d;
+	position: relative;
+	z-index: 9;
 `;

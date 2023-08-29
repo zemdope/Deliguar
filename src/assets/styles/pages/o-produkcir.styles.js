@@ -183,7 +183,7 @@ export const ParagraphTop = styled.p`
 		transform: scaleX(0);
 		z-index: 3;
 		background-color: #5e286d;
-		animation: ${moveIn} 500ms 400ms 1 alternate forwards;
+		animation: ${moveIn} 500ms 700ms 1 alternate forwards;
 		@media (min-width: 376px) {
 			width: 85%;
 		}

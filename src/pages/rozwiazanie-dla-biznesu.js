@@ -9,21 +9,67 @@ import {
 	AboutUsSection,
 	HeaderAbout,
 	Paragraph,
-	CertificateWrapper
+	ImageLogo,
+	ImageCertificate,
+	PartnersSection,
+	PartnersWrapper,
+	Subheader,
+	ImagePartners,
+	ContactSection,
+	ContactWrapper,
+	TeamItemWrapper,
+	LeftItem,
+	RightItem,
+	RightItemAbout,
+	RightItemContact,
+	LeftItemContact,
+	LeftItemPartners
 } from '../assets/styles/pages/Business.styles';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 import item3 from '../assets/images/item3.svg';
+import item18 from '../assets/images/item18.svg';
+import item19 from '../assets/images/item19.svg';
+import item20 from '../assets/images/item20.svg';
+import item21 from '../assets/images/item21.svg';
+import item23 from '../assets/images/item23.svg';
+import item24 from '../assets/images/item24.svg';
+import item25 from '../assets/images/item25.svg';
+import item26 from '../assets/images/item26.svg';
+import item27 from '../assets/images/item27.svg';
 
 import business2 from '../assets/images/business2.png';
+import team from '../assets/images/team.png';
+import team2 from '../assets/images/team2.png';
+import team3 from '../assets/images/team3.png';
 import business3 from '../assets/images/business3.png';
+import logoBio from '../assets/images/logoBio.svg';
+import certificate from '../assets/images/certificate.svg';
+import partners from '../assets/images/partners.svg';
+import partners2 from '../assets/images/partners2.svg';
+import plus from '../assets/images/plus.svg';
 const Business = () => {
 	return (
 		<Layout>
 			<BusinessSection>
 				<Wrapper>
-					<div>
-						<ImageStain src={item3} alt='' />
-					</div>
+					<LeftItem>
+						<ImageStain className='d-lg-none' src={item3} alt='' />
+						<ImageStain
+							className='d-none d-lg-block'
+							src={item23}
+							alt=''
+						/>
+					</LeftItem>
+					<RightItem>
+						<ImageStain className='d-lg-none' src={item18} alt='' />
+						<ImageStain
+							className='d-none d-lg-block'
+							src={item24}
+							alt=''
+						/>
+					</RightItem>
 					<HeaderPage>Rozwiązania dla biznesu </HeaderPage>
 					<TargetList>
 						<li>
@@ -65,29 +111,138 @@ const Business = () => {
 			</BusinessSection>
 			<AboutUsSection>
 				<Wrapper>
+					<RightItemAbout>
+						<ImageStain className='d-lg-none' src={item19} alt='' />
+						<ImageStain
+							className='d-none d-lg-block'
+							src={item26}
+							alt=''
+						/>
+					</RightItemAbout>
 					<HeaderAbout>O nas</HeaderAbout>
 					<Paragraph>
 						Deliguard został opracowany przez BioDose - polską
 						firmę, której z pasją i pełnym zaangażowaniem tworzy
-						produkty dla zwierząt, dbając o ich dobrostan z
+						produkty dla zwierząt, dbając o ich dobrostanz
 						wykorzystaniem najnowszych osiągnięć biotechnologii i
 						trendów żywieniowych.
 					</Paragraph>
-					<CertificateWrapper>
-						<img src='' alt='' />
-
-						<HeaderAbout>Certyfikaty</HeaderAbout>
-						<p>
-							Mając na uwadze dobro zwierząt oraz najwyższą jakość
-							i bezpieczeństwo naszych produktów, współpracujemy z
-							certyfikowanymi producentami i akredytowanymi
-							laboratoriami. Nasze produkty są objęte
-							międzynarodowym systemem bezpieczeństwa pasz GMP+
-							FSA i GMP+FRA (GMO Controlled).
-						</p>
-					</CertificateWrapper>
+					<ImageLogo src={logoBio} alt='' />
+					<Row className='certificate-container'>
+						<Col xs='12' md='7'>
+							<ImageCertificate src={certificate} alt='' />
+						</Col>
+						<Col xs='12' md='5'>
+							<HeaderAbout className='bottom'>
+								Certyfikaty
+							</HeaderAbout>
+							<Paragraph className='paragraph-bottom'>
+								Mając na uwadze dobro zwierząt oraz najwyższą
+								jakość i bezpieczeństwo naszych produktów,
+								współpracujemy z certyfikowanymi producentami i
+								akredytowanymi laboratoriami. <br />
+								<br />
+								Nasze produkty są objęte międzynarodowym
+								systemem bezpieczeństwa pasz GMP+ FSA i GMP+FRA
+								(GMO Controlled).
+							</Paragraph>
+						</Col>
+					</Row>
 				</Wrapper>
 			</AboutUsSection>
+			<PartnersSection>
+				<PartnersWrapper>
+					<LeftItemPartners>
+						<ImageStain
+							className='d-none d-lg-block'
+							src={item27}
+							alt=''
+						/>
+					</LeftItemPartners>
+					<Row>
+						<Col xs='12' md='6'>
+							<h2>Partnerstwo z Nami</h2>
+							<Subheader>Naszym partnerom proponujemy:</Subheader>
+							<ul>
+								<li>
+									<img src={plus} alt='' />
+									<p>
+										<span>wsparcie techniczne </span> -
+										<span> konsultacje i szkolenia,</span>
+									</p>
+								</li>
+								<li>
+									<img src={plus} alt='' />
+									<p>
+										<span>wsparcie marketingowe </span>-
+										<span>
+											{' '}
+											materiały techniczne i działania
+											promocyjne,
+										</span>
+									</p>
+								</li>
+							</ul>
+							<h3>
+								Jeśli chcesz uzyskać więcej dodatkowych
+								informacji technicznych, prosimy o kontakt z
+								jednym z naszych ekspertów.
+							</h3>
+						</Col>
+						<Col xs='12' md='6'>
+							<ImagePartners
+								className='d-md-none'
+								src={partners}
+								alt=''
+							/>
+							<ImagePartners
+								className='d-none d-md-block'
+								src={partners2}
+								alt=''
+							/>
+						</Col>
+					</Row>
+				</PartnersWrapper>
+			</PartnersSection>
+			<ContactSection>
+				<ContactWrapper>
+					<RightItemContact>
+						<ImageStain src={item20} alt='' />
+					</RightItemContact>
+					<LeftItemContact>
+						<ImageStain src={item21} alt='' />
+					</LeftItemContact>
+					<Row>
+						<Col xs='12'>
+							<h2>Kontakt</h2>
+						</Col>
+						<Col xs='12' lg='4'>
+							<TeamItemWrapper>
+								<img src={team} alt='' />
+								<h3>PhD Martyna Wilk</h3>
+								<p>R&D MANAGER</p>
+								<a href=''>martyna.wilk@biodose.net</a>
+							</TeamItemWrapper>
+						</Col>
+						<Col xs='12' lg='4'>
+							<TeamItemWrapper>
+								<img src={team2} alt='' />
+								<h3>PhD Jerzy Pastuszak</h3>
+								<p>CEO, Co-founder BioDose</p>
+								<a href=''>jerzy.pastuszak@biodose.net</a>
+							</TeamItemWrapper>
+						</Col>
+						<Col xs='12' lg='4'>
+							<TeamItemWrapper className='last-team-item'>
+								<img src={team3} alt='' />
+								<h3>Yuliya Mirashnichenka</h3>
+								<p>Sales&Marketing Manager</p>
+								<a href=''>yuliya.mirashnichenka@biodose.net</a>
+							</TeamItemWrapper>
+						</Col>
+					</Row>
+				</ContactWrapper>
+			</ContactSection>
 		</Layout>
 	);
 };

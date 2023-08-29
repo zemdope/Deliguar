@@ -463,7 +463,7 @@ export const IdeaTitleSolution = styled.h2`
 `;
 export const TitleIcon = styled.img`
 	@media (min-width: 768px) {
-		width: 40px;
+		min-width: 40px;
 	}
 `;
 export const IdeaParagraph = styled.p`
@@ -764,7 +764,7 @@ export const EffectItemReverse = styled.div`
 		max-width: 170px;
 		text-align: center;
 		@media (min-width: 768px) {
-			max-width: 160px;
+			max-width: 174px;
 			font-size: 2rem;
 			line-height: 3rem;
 		}
@@ -1800,7 +1800,16 @@ export const FaqWrapper = styled.div`
 		font-weight: 700;
 	}
 `;
-export const SolutionsSection = styled.section``;
+export const SolutionsSection = styled.section`
+	.solutions-wrapper {
+		padding-top: 70px !important;
+		padding-bottom: 70px !important;
+		@media (min-width: 992px) {
+			padding-top: 150px !important;
+			padding-bottom: 0px !important;
+		}
+	}
+`;
 export const Icon = styled.img``;
 export const SolutionImage = styled.img`
 	width: 100%;
@@ -2115,9 +2124,8 @@ export const KnowledgeWrapper = styled.div`
 				aspect-ratio: 3/2;
 
 				border-radius: 36px;
-				border: 3px solid #5e286d;
+
 				background-color: #5e286d;
-				box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.25);
 
 				@media (min-width: 768px) {
 					aspect-ratio: 3/2;
@@ -2130,6 +2138,10 @@ export const KnowledgeWrapper = styled.div`
 
 			@media (min-width: 768px) {
 				transform: scale(1.2);
+			}
+			iframe {
+				border: 3px solid #5e286d;
+				box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.25);
 			}
 		}
 	}
