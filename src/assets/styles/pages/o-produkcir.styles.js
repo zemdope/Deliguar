@@ -163,10 +163,14 @@ export const ParagraphTop = styled.p`
 	}
 	img {
 		vertical-align: top;
+		margin-left: -2px;
+		margin-top: 3px;
 		@media (min-width: 768px) {
 			width: 14px;
 			height: 14px;
-			vertical-align: text-top;
+			vertical-align: top;
+			margin-left: -3px;
+			margin-top: 5px;
 		}
 	}
 

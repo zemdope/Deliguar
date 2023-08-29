@@ -1219,6 +1219,8 @@ export const SlideDescription = styled.p`
 	max-width: 500px;
 	padding-inline: 10px;
 	overflow-y: scroll;
+	scrollbar-color: #5e286d;
+	scrollbar-width: 16px;
 	@media (min-width: 580px) {
 		margin-left: auto;
 		margin-right: auto;
