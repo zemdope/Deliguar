@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Accordion from 'react-bootstrap/Accordion';
 import { gsap } from 'gsap';
+// import { ButtonSliderWrapper } from '../assets/styles/pages/Index.styles';
 
 // get other plugins:
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -128,7 +129,7 @@ import Modal from '../components/Modal';
 const IndexPage = () => {
 	const [currentStep, setCurrentStep] = useState(2);
 	const [currentStepDog, setCurrentStepDog] = useState(2);
-
+	const swiperKnowledgeRef = useRef();
 	const handleStepChange = (event) => {
 		setCurrentStep(Number(event.target.value));
 	};
@@ -155,49 +156,52 @@ const IndexPage = () => {
 	const closeModal = () => {
 		setModalIndex(null);
 	};
+
 	const slides = [
 		{
 			image: dog,
+			title: 'Apsel',
+			subtitle: 'Border collie | 7y.',
+			description:
+				'Apsel przyjmuje DeliGuard od czerwca 2023, zauważyłam pierwsze zmiany po 2 tygodniach. Dodanie DeliGuard do diety Apsel przyczyniło się do poprawy kondycji sierści. Stała się ona wyczuwalnie bardziej miękka. Wyniki krwi natomiast nigdy nie były tak dobre.',
+			name: 'Anna Budny'
+		},
+		{
+			image: dog,
+			title: 'Tosia',
+			subtitle: 'kot europejski | 10y.',
+			description:
+				'po jakim czasie zauważył poprawę: poprawa pobrania wody - już w drugim dniu podania!; poprawa zapachu z jamy ustnej - ok 5 dnia.poprawa sierści - po około 2 tygodniach. Nasza Tośka miała bardzo nieprzyjemny oddech spowodowany problemami dziąseł. Po włączeniu DeliGuard oddech się poprawił! Co więcej kotka zaczęła częściej pić, a jej sierść zrobiła się miękka i zdecydowanie mniej jej gubi w mieszkaniu.',
+			name: 'Denis Stolc'
+		},
+		{
+			image: dog,
+			title: 'Barsa',
+			subtitle: 'Beagle | 6y.',
+			description:
+				'Nasza Beaglelka ma skłonności do otyłości, co powoduje jej osłabienie oraz nadmierne wypadnie sierści. Pomimo zmiany karmy na pełnowartościową, problem nie ustawał. Zdecydowaliśmy się więc na dodatkową suplementację preparatem DeliGuard. Nasza Barsa podejmuje wysiłek, mniej się męczy podczas spacerów, a jej skóra i sierść są w lepszej kondycji - zmniejszyło się wypadanie sierści, stała się bardziej miękka i zyskała więcej blasku. Dziękujemy wraz z Naszą Barsą zwaną Baśką i polecamy produkt DeliGuard!',
+			name: 'Artur Akwarski '
+		},
+		{
+			image: dog,
+			title: 'Oreo',
+			subtitle: 'krótkowłosego Europejskiego | 8y.',
+			description:
+				'Oreo ma 8 lat, zaczął pobierać DG w lipcu 2023 Po 8-9 dniach stosowania  zauważyłem 2 rzeczy. Po-pierwsze, po pobraniu DG jego sierść stała się gładsza i bardziej błyszcząca (osoby które przez dłuższy czas nie widziały Oreo od razu zauważyły różnicę). Po-drugie, zaczął lepiej jeść. Po 2 tygodniach stosowania zauważyłem drobną zmianę w wadze. Było widać że Oreo więcej jadł. Jeśli chodzi o pobieranie samego DG nie było ono regularne. Ze względu na jego wybredny charakter Oreo miewał dni gdzie nie pił wody z miski. Bywały również momenty kiedy pił DG przez ponad minutę bez przerwy. Jeśli chodzi o dawkowanie to nie miałem najmniejszego problemu z podawaniem DG kotu.',
+			name: 'Mikołaj Pastuszak'
+		},
+		{
+			image: dog,
 			title: 'Daisy',
-			subtitle: 'Beagle | 11y.',
+			subtitle: 'Beagle | 13y.',
 			description:
-				'Description Lorem ipsum dolor sit amet consectetur adipisicing elit. Error ipsa earum eligendi tenetur rerum debitis, autem ullam omnis molestiae eveniet, sequi commodi, necessitatibus corrupti laudantium accusantium veritatis at architecto laboriosam! for Slide 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi ad provident sapiente facere similique natus asperiores ipsa accusantium unde nostrum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, quos?',
-			name: 'Agnieszka'
-		},
-		{
-			image: dog,
-			title: 'Alex',
-			subtitle: 'Beagle | 11y.',
-			description:
-				'Description Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni, fuga. Laborum at illum veritatis doloremque porro voluptatibus architecto, quos, voluptate exercitationem veniam, sapiente temporibus? Voluptates vitae ex tempora odio debitis. for Slide 2',
-			name: 'Agnieszka'
-		},
-		{
-			image: dog,
-			title: 'Daisy',
-			subtitle: 'Beagle | 11y.',
-			description:
-				'Description Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint omnis voluptate consequuntur ea qui sequi, exercitationem assumenda eaque doloremque quia incidunt sunt odit ullam repellat. Numquam, facilis saepe? Ipsum, molestiae. for Slide 3',
-			name: 'Agnieszka'
-		},
-		{
-			image: dog,
-			title: 'Alex',
-			subtitle: 'Beagle | 11y.',
-			description:
-				'Description Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint omnis voluptate consequuntur ea qui sequi, exercitationem assumenda eaque doloremque quia incidunt sunt odit ullam repellat. Numquam, facilis saepe? Ipsum, molestiae. for Slide 3'
-		},
-		{
-			image: dog,
-			title: 'Daisy',
-			subtitle: 'Beagle | 11y.',
-			description:
-				'Description Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint omnis voluptate consequuntur ea qui sequi, exercitationem assumenda eaque doloremque quia incidunt sunt odit ullam repellat. Numquam, facilis saepe? Ipsum, molestiae. for Slide 3',
-			name: 'Agnieszka'
+				'Daisy ma 11 lat, w czerwcu 2022 zaczęliśmy z żoną podawać jej DeliGuard do wody, pierwsze efekty w zmianie jej sierści zauważyliśmy po około 2 tygodniach. Po miesiącu stosowania jej apetyt wzrósł. Jest to pies rasy beagle i w jej przypadku nie było to pożądane. Po konsultacji z żywieniowcem zmniejszyliśmy dawkowanie DeliGuard, apetyt wrócił do stanu z przed podawania DeliGuardu a efekt lśniącej sierści się utrzymał',
+			name: 'Andrzej Matecki'
 		}
 	];
 	gsap.registerPlugin(ScrollTrigger);
 	const ref = useRef(null);
+	const ref2 = useRef(null);
 	useEffect(() => {
 		const element = ref.current;
 		const t2 = gsap.timeline({ paused: true });
@@ -255,6 +259,83 @@ const IndexPage = () => {
 				t2.reverse();
 			}
 		});
+		const element2 = ref2.current;
+		const t3 = gsap.timeline({ paused: true });
+		t3.from(element2.querySelector('.dog-image'), {
+			opacity: 0,
+			x: 30,
+			duration: 0.4,
+			delay: 0.5,
+			ease: 'power2.out'
+		});
+		t3.from(element2.querySelector('.idea-header'), {
+			opacity: 0,
+			x: 30,
+			duration: 0.3,
+			delay: 0.1,
+			ease: 'power2.out'
+		});
+		t3.from(element2.querySelector('.idea-subheader'), {
+			opacity: 0,
+			x: -30,
+			duration: 0.3,
+			delay: 0.1,
+			ease: 'power2.out'
+		});
+		t3.from(element2.querySelector('.idea-content'), {
+			opacity: 0,
+			x: 30,
+			duration: 0.3,
+			delay: 0.1,
+			ease: 'power2.out'
+		});
+		t3.from(element2.querySelector('.solution-image'), {
+			opacity: 0,
+			x: 30,
+			duration: 0.3,
+			delay: 0.1,
+			ease: 'power2.out'
+		});
+		t3.from(element2.querySelector('.solution-header'), {
+			opacity: 0,
+			x: 30,
+			duration: 0.3,
+			delay: 0.1,
+			ease: 'power2.out'
+		});
+		t3.from(element2.querySelector('.solution-subheader'), {
+			opacity: 0,
+			x: -30,
+			duration: 0.3,
+			delay: 0.1,
+			ease: 'power2.out'
+		});
+		t3.from(element2.querySelector('.solution-content'), {
+			opacity: 0,
+			x: 30,
+			duration: 0.3,
+			delay: 0.1,
+			ease: 'power2.out'
+		});
+		t3.from(element2.querySelector('.solution-button'), {
+			scale: 0,
+
+			duration: 0.35,
+			delay: 0.3,
+			ease: 'power2.out'
+		});
+
+		ScrollTrigger.create({
+			trigger: element2.querySelector('.idea'),
+			onEnter: () => {
+				// Play the timeline when the section is visible
+				t3.play();
+			},
+			onLeaveBack: () => {
+				// Reverse the timeline when the section is not visible anymore
+				t3.reverse();
+			}
+		});
 	}, []);
 
 	return (
@@ -277,7 +358,7 @@ const IndexPage = () => {
 							alt=''
 						/>
 					</RightItem>
-					<HeaderWrapper>
+					<HeaderWrapper ref={ref2} className='hero'>
 						<h1>Masz dość nieskutecznych suplementów?</h1>
 						<p>Kupujesz i nie widzisz że działają?</p>
 						<p>Zdrowie Twojego zwierzęcia ma być widoczne</p>
@@ -292,17 +373,17 @@ const IndexPage = () => {
 					</HeroImage>
 				</Wrapper>
 			</HeroSection>
-			<IdeaSection>
-				<IdeaWrapper>
+			<IdeaSection ref={ref2}>
+				<IdeaWrapper className='idea'>
 					<Row>
 						<Col
-							className='d-none d-md-flex align-items-center'
+							className='d-none dog-image d-md-flex align-items-center'
 							xs='12'
 							md='6'>
 							<ImageDogProblem src={dogProblem2} alt='' />
 						</Col>
 						<Col xs='12' md='5'>
-							<h2>
+							<h2 className='idea-header'>
 								Problem <TitleIcon src={bell} alt='' />
 							</h2>
 							<ImageDogProblem
@@ -313,11 +394,11 @@ const IndexPage = () => {
 							<span className='text-end text-md-start'>
 								Czy wiesz, że...
 							</span>
-							<h3>
+							<h3 className='idea-subheader'>
 								Zdrowe jelita są kluczem do ogólnego zdrowia
 								Twojego zwierzaka?
 							</h3>
-							<p>
+							<p className='idea-content'>
 								Nieodpowiednie odżywianie i brak wsparcia dla
 								zdrowia jelit mogą spowodować trudności w
 								trawieniu pokarmu, słaby apetyt i pobranie wody
@@ -336,16 +417,16 @@ const IndexPage = () => {
 				<IdeaWrapper>
 					<Row>
 						<Col xs='12' md='6'>
-							<IdeaTitleSolution>
+							<IdeaTitleSolution className='solution-header'>
 								Rozwiązanie <TitleIcon src={bulb} alt='' />
 							</IdeaTitleSolution>
 							<IdeaWrapperInner>
 								<div>
-									<IdeaHeaderSolution>
+									<IdeaHeaderSolution className='solution-subheader'>
 										DeliGuard to innowacyjne podejście do
 										żywienia Twojego pupila.
 									</IdeaHeaderSolution>
-									<IdeaParagraph>
+									<IdeaParagraph className='solution-content'>
 										Zawiera produkty wytwarzane przez
 										dobroczynne bakterie Bacillus subtilis,
 										które usprawniają pracę jelit,
@@ -365,7 +446,11 @@ const IndexPage = () => {
 									Dowiedz się więcej o DeliGuard i
 									postbiotykach
 								</h3>
-								<Link>Przeczytaj o produkcie</Link>
+								<Link
+									to='/o-produkcie'
+									className='solution-button'>
+									Przeczytaj o produkcie
+								</Link>
 								{/* <p>
 									DeliGuard to efekt badań naszych ekspertów i
 									tą wiedzą chcemy się z Tobą podzielić.
@@ -378,7 +463,11 @@ const IndexPage = () => {
 							</LearnMoreWrapper>
 						</Col>
 						<Col className='d-none d-md-block' xs='12' md='6'>
-							<IdeaBottleImage src={bottleDesktop} alt='' />
+							<IdeaBottleImage
+								className='solution-image'
+								src={bottleDesktop}
+								alt=''
+							/>
 						</Col>
 					</Row>
 				</IdeaWrapper>
@@ -406,7 +495,7 @@ const IndexPage = () => {
 							kondycję zwierząt, co jest szybko zauważalne.
 						</p>
 						<h3>Sprawdź rezultaty badań:</h3>
-						<Link>Nasze badania</Link>
+						<Link to='/nasze-badania'>Nasze badania</Link>
 					</TestContainer>
 				</TestWrapper>
 			</TestSection>
@@ -438,8 +527,8 @@ const IndexPage = () => {
 							/>
 						</Col>
 						<Col md='9'>
-							<EffectItemsWrapper ref={ref} className='first'>
-								<Row>
+							<EffectItemsWrapper ref={ref}>
+								<Row className='first'>
 									<Col>
 										<EffectItemReverse>
 											<p className='first-paragraph'>
@@ -763,25 +852,68 @@ const IndexPage = () => {
 							<Accordion defaultActiveKey='0'>
 								<Accordion.Item eventKey='0'>
 									<Accordion.Header>
+										Czym różnią się postbiotyki od pro- i
+										prebiotyków?
+									</Accordion.Header>
+									<Accordion.Body>
+										Prebiotyki to składniki odżywcze dla
+										bakterii jelitowych np. błonnik,
+										oligosacharydy, inulina, które działają
+										w jelitach i odżywiają gromadzące się
+										tam bakterie.Probiotyki to
+										wyselekcjonowane bakterie kwasu
+										mlekowego tj. Lactobacillus czy
+										Bifidobacterium, które mają pozytywny
+										wpływ na układ pokarmowy.Postbiotyki to
+										substancje wytwarzane przez bakterie
+										probiotyczne, które pozytywnie modulują
+										mikrobiom jelitowy.Probiotyki wymagają
+										odpowiednich warunków do namnażania i
+										wzrostu. Niestety, wiele czynników,
+										takich jak dieta, antybiotyki, choroby
+										czy pasożyty, może zmniejszać
+										skuteczność rozwoju probiotyków i
+										produkcji pozytywnych substancji. W
+										przypadku stosowania postbiotyków
+										dostarczane są gotowe substancje, które
+										bezpośrednio wspierają rozwój bakterii
+										probiotycznych lub naturalnego
+										mikrobiomu jelitowego (w profilaktyce).
+									</Accordion.Body>
+								</Accordion.Item>
+								<Accordion.Item eventKey='1'>
+									<Accordion.Header>
+										Czy DeliGuard można podawać zamiast
+										antybiotyków?
+									</Accordion.Header>
+									<Accordion.Body>
+										Postbiotyki pozytywnie wpływają na
+										poprawę odporności, funkcjonowanie
+										układu pokarmowego i zmniejszenie stanu
+										zapalnego. Jednak przy silnej infekcji
+										bakteryjnej postbiotyki nie są
+										wystarczające. Nie zalecamy podawania
+										postbiotyków zamiast antybiotyków, ale
+										jako dodatkową pomoc i wsparcie w
+										procesie leczenia.
+									</Accordion.Body>
+								</Accordion.Item>
+								<Accordion.Item eventKey='2'>
+									<Accordion.Header>
 										Jak DeliGuard wpływa na regulację pracy
 										przewodu pokarmowego?
 									</Accordion.Header>
 									<Accordion.Body>
-										Lorem ipsum dolor sit amet, consectetur
-										adipiscing elit, sed do eiusmod tempor
-										incididunt ut labore et dolore magna
-										aliqua. Ut enim ad minim veniam, quis
-										nostrud exercitation ullamco laboris
-										nisi ut aliquip ex ea commodo consequat.
-										Duis aute irure dolor in reprehenderit
-										in voluptate velit esse cillum dolore eu
-										fugiat nulla pariatur. Excepteur sint
-										occaecat cupidatat non proident, sunt in
-										culpa qui officia deserunt mollit anim
-										id est laborum.
+										Wspólnym działaniem wszystkich biotyków
+										jest przede wszystkim odbudowa
+										mikrobiomu jelitowego i regeneracja
+										bariery jelitowej, której zadaniem jest
+										kontrola dopływu składników odżywczych,
+										witamin, minerałów i innych substancji
+										niezbędnych do prawidłowego metabolizmu.
 									</Accordion.Body>
 								</Accordion.Item>
-								<Accordion.Item eventKey='1'>
+								<Accordion.Item eventKey='3'>
 									<Accordion.Header>
 										Czy znane są skutki uboczne?
 									</Accordion.Header>
@@ -792,54 +924,39 @@ const IndexPage = () => {
 										które mają tendencję do przejadania się.
 									</Accordion.Body>
 								</Accordion.Item>
-								<Accordion.Item eventKey='2'>
+								<Accordion.Item eventKey='4'>
 									<Accordion.Header>
-										Czy DeliGuard można podawać zamiast
-										antybiotyków?
+										Jak to smakuje?
 									</Accordion.Header>
 									<Accordion.Body>
-										DeliGuard może powodować wzrost apetytu
-										u pewnej grupy zwierząt, jest to
-										szczególnie ważne dla właścicieli psów,
-										które mają tendencję do przejadania się.
+										Czy zwierzę chętnie go zje?DeliGuard ma
+										lekko słony smak. Indywidualne
+										preferencje mogą uniemożliwić niektórym
+										zwierzętom picie wody z DeliGuard. W
+										takim przypadku można dodać DeliGuard do
+										suchej lub mokrej karmy.
 									</Accordion.Body>
 								</Accordion.Item>
-								<Accordion.Item eventKey='3'>
+								<Accordion.Item eventKey='5'>
 									<Accordion.Header>
 										Czy DeliGuard może być podawany podczas
 										choroby jako forma wzmocnienia
-										osłabionego zwierzęcia? Czy DeliGuard
-										może być podawany profilaktycznie?
+										osłabionego zwierzęcia?
 									</Accordion.Header>
 									<Accordion.Body>
-										Lorem ipsum dolor sit, amet consectetur
-										adipisicing elit. Sequi ipsam iusto
-										neque quis asperiores ut, perspiciatis
-										ullam, dolorem in cumque nam enim porro
-										quae, voluptate atque quo aliquam! Modi
-										quia cupiditate explicabo, vitae dolores
-										assumenda provident harum itaque!
-										Tempora ex reprehenderit architecto
-										iusto harum corporis excepturi molestias
-										doloribus, magni dolorem?
-									</Accordion.Body>
-								</Accordion.Item>
-								<Accordion.Item eventKey='4'>
-									<Accordion.Header>
-										Czym różnią się postbiotyki od pro- i
-										prebiotyków?
-									</Accordion.Header>
-									<Accordion.Body>
-										Lorem ipsum dolor sit, amet consectetur
-										adipisicing elit. Sequi ipsam iusto
-										neque quis asperiores ut, perspiciatis
-										ullam, dolorem in cumque nam enim porro
-										quae, voluptate atque quo aliquam! Modi
-										quia cupiditate explicabo, vitae dolores
-										assumenda provident harum itaque!
-										Tempora ex reprehenderit architecto
-										iusto harum corporis excepturi molestias
-										doloribus, magni dolorem?
+										Czy DeliGuard może być podawany
+										profilaktycznie?Zdecydowanie tak!
+										DeliGuard to postbiotyk - preparat
+										inaktywowanych mikroorganizmów i ich
+										składników (peptydów, witamin,
+										krótkołańcuchowych kwasów tłuszczowych,
+										enzymów, lipopolisacharydów,
+										egzopolisacharydów i nukleotydów), który
+										zapewnia korzyści zdrowotne dla
+										gospodarza. Poprawiając integralność
+										jelit, DeliGuard zmniejsza stan zapalny
+										i poprawia funkcjonowanie układu
+										odpornościowego.
 									</Accordion.Body>
 								</Accordion.Item>
 							</Accordion>
@@ -901,7 +1018,7 @@ const IndexPage = () => {
 									</p>
 								</li>
 							</ul>
-							<Link>
+							<Link to='/rozwiazanie-dla-biznesu'>
 								{' '}
 								<img src={buttonIcon} alt='' />{' '}
 								<span>Dowiedz się więcej</span>
@@ -972,13 +1089,21 @@ const IndexPage = () => {
 							enabled: true
 						}}
 						loop
+						navigation={{
+							prevEl: '.prevv',
+							nextEl: '.nextt'
+						}}
 						breakpoints={{
 							768: {
 								slidesPerView: 3
 							}
 						}}
+						onBeforeInit={(swiper) => {
+							swiperKnowledgeRef.current = swiper;
+						}}
 						centeredSlides={true}
-						modules={[Keyboard, Navigation]}
+						modules={[Navigation, Pagination, Keyboard]}
+						pagination={{ clickable: true }}
 						slidesPerView={2.2}>
 						<SwiperSlide>
 							<iframe src='https://www.youtube.com/embed/VAH-ixdFWFs?si=RuSf6gPUX7LgTVYV'></iframe>
@@ -995,6 +1120,22 @@ const IndexPage = () => {
 						<SwiperSlide>
 							<iframe src='https://www.youtube.com/embed/VAH-ixdFWFs?si=RuSf6gPUX7LgTVYV'></iframe>
 						</SwiperSlide>
+						<ButtonSliderWrapper>
+							<button
+								className='swiper-button-prev prevv'
+								onClick={() =>
+									swiperKnowledgeRef.current?.slidePrev()
+								}>
+								<img src={arrowPrev} alt='' />
+							</button>
+							<button
+								className='swiper-button-next nextt'
+								onClick={() =>
+									swiperKnowledgeRef.current?.slideNext()
+								}>
+								<img src={arrowNext} alt='' />
+							</button>
+						</ButtonSliderWrapper>
 					</Swiper>
 				</KnowledgeWrapper>
 			</KnowledgeSection>

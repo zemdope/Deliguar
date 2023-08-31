@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import actionImage from '../../images/actionImage.svg';
 
 const moveIn = keyframes`
 from {
@@ -416,17 +417,17 @@ export const ParagraphTop = styled.p`
 		@media (min-width: 992px) {
 			display: block;
 			margin-left: 180px;
-			width: 77%;
+			width: 75%;
 		}
 		@media (min-width: 1240px) {
 			width: 80%;
 		}
 		@media (min-width: 1280px) {
 			margin-left: 250px;
-			width: 73%;
+			width: 69%;
 		}
 		@media (min-width: 1400px) {
-			width: 77%;
+			width: 73%;
 		}
 	}
 `;
@@ -548,6 +549,13 @@ export const ActionWrapper = styled.div`
 		}
 		@media (min-width: 1280px) {
 			margin-top: 20px;
+		}
+		.action-image {
+			width: 100%;
+			height: 100%;
+			background-image: url(${actionImage});
+			background-repeat: no-repeat;
+			background-size: contain;
 		}
 		.first-action-content {
 			@media (min-width: 768px) {

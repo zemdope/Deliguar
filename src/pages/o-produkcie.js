@@ -42,6 +42,7 @@ import buttonIcon from '../assets/images/buttonIcon.png';
 import solutionDesktop from '../assets/images/solutionImageDesktop.png';
 import solutionMobile from '../assets/images/solutionMobile.svg';
 import solutionn from '../assets/images/solutionn.svg';
+import bottle3 from '../assets/images/bottle4.svg';
 
 import { Link } from 'gatsby';
 import {
@@ -122,12 +123,12 @@ const AboutProduct = () => {
 						<Col md='6' lg='7'>
 							<SerumImage
 								className='d-none d-lg-block'
-								src={serum2}
+								src={bottle3}
 								alt=''
 							/>
 							<SerumImage
 								className='d-lg-none'
-								src={serum}
+								src={bottle3}
 								alt=''
 							/>
 						</Col>
@@ -137,7 +138,7 @@ const AboutProduct = () => {
 									<Wrapper>
 										<img src={effectItem3} alt='' />
 
-										<p>Lepsze pobraniewody i karmy</p>
+										<p>Lepsze pobranie wody i karmy</p>
 									</Wrapper>
 								</Col>
 								<Col xs='12'>
@@ -161,7 +162,10 @@ const AboutProduct = () => {
 								<Col xs='12'>
 									<Wrapper>
 										<img src={zab} alt='' />
-										<p>Zmniejszenie kamienia nazębnego</p>
+										<p>
+											Mniejsze nagromadzanie kamienia
+											nazębnego
+										</p>
 									</Wrapper>
 								</Col>
 							</Row>
@@ -181,7 +185,7 @@ const AboutProduct = () => {
 								kondycję zwierząt, co jest szybko zauważalne
 							</Content>
 							<ButtonWrapper>
-								<Link>Sprawdź</Link>
+								<Link to='/nasze-badania'>Sprawdź</Link>
 								<p>Rezultaty Naszych badań</p>
 							</ButtonWrapper>
 							<ButtonWrapper className='d-md-none'>
@@ -241,7 +245,9 @@ const AboutProduct = () => {
 									</p>
 								</li>
 							</ul>
-							<Link className='btn-about'>
+							<Link
+								to='/rozwiazanie-dla-biznesu'
+								className='btn-about'>
 								{' '}
 								<img src={buttonIcon} alt='' />{' '}
 								<span>Dowiedz się więcej</span>

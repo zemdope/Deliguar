@@ -17,7 +17,10 @@ function ContactForm() {
 	}
 	return (
 		<Wrapper>
-			<form onSubmit={handleSubmit} encType='multipart/form-data'>
+			<form
+				onSubmit={handleSubmit}
+				method='POST'
+				encType='multipart/form-data'>
 				<h2>Napisz opinię</h2>
 
 				<Row>
@@ -27,6 +30,7 @@ function ContactForm() {
 							type='text'
 							placeholder='Imię i Nazwisko'
 							name='name'
+							required
 						/>
 						<ValidationError
 							prefix='Name'
@@ -40,6 +44,7 @@ function ContactForm() {
 							type='email'
 							placeholder='Adres e-mail'
 							name='email'
+							required
 						/>
 						<ValidationError
 							prefix='Email'
@@ -53,6 +58,7 @@ function ContactForm() {
 							type='text'
 							placeholder='Imię pupila'
 							name='dogName'
+							required
 						/>
 						<ValidationError
 							prefix='DogName'
@@ -66,6 +72,7 @@ function ContactForm() {
 							type='number'
 							placeholder='Wiek'
 							name='birthday'
+							required
 						/>
 						<ValidationError
 							prefix='Birthday'
@@ -79,6 +86,7 @@ function ContactForm() {
 							type='text'
 							placeholder='Rasa'
 							name='rasa'
+							required
 						/>
 						<ValidationError
 							prefix='Rasa'
@@ -93,7 +101,6 @@ function ContactForm() {
 								id='attachment'
 								type='file'
 								name='attachment'
-								accept='image/png, image/jpeg'
 							/>
 						</AttachmentDiv>
 						<label htmlFor='attachment'>
@@ -110,6 +117,7 @@ function ContactForm() {
 							id='message'
 							name='message'
 							placeholder='Napisz opinię (od kiedy Twój pupil stosuje DeliGuard i po jakim czasie zauwożono poprawę'
+							required
 						/>
 						<ValidationError
 							prefix='Message'
@@ -124,11 +132,74 @@ function ContactForm() {
 								type='checkbox'
 								name='urgent'
 								value='yes'
+								required
 							/>
 							<label htmlFor='checkbox'>
 								Zaakceptuj wszystkie wymagane oświadczenia i
-								zgody Czytaj dalej...
+								zgody
 							</label>
+							<ValidationError
+								prefix='Checkbox'
+								field='checkbox'
+								errors={state.errors}
+							/>
+						</div>
+					</Col>
+					<Col xs='12'>
+						<div className='checkbox-container'>
+							<input
+								id='rodo'
+								type='checkbox'
+								name='urgent'
+								value='yes'
+								required
+							/>
+							<label htmlFor='rodo'>
+								Zaakceptuj informacje RODO
+							</label>
+							<ValidationError
+								prefix='Rodo'
+								field='rodo'
+								errors={state.errors}
+							/>
+						</div>
+					</Col>
+					<Col xs='12'>
+						<div className='checkbox-container'>
+							<input
+								id='voluntary'
+								type='checkbox'
+								name='urgent'
+								value='yes'
+								required
+							/>
+							<label htmlFor='voluntary'>
+								Oświadczenie o dobrowolności
+							</label>
+							<ValidationError
+								prefix='Voluntary'
+								field='voluntary'
+								errors={state.errors}
+							/>
+						</div>
+					</Col>
+					<Col xs='12'>
+						<div className='checkbox-container'>
+							<input
+								id='copyright'
+								type='checkbox'
+								name='urgent'
+								value='yes'
+								required
+							/>
+							<label htmlFor='copyright'>
+								Oświadczenie praw autorskich
+							</label>
+							<ValidationError
+								prefix='Copyright'
+								field='copyright'
+								errors={state.errors}
+							/>
 						</div>
 					</Col>
 					<button type='submit' disabled={state.submitting}>

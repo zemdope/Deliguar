@@ -34,7 +34,7 @@ export const Wrapper = styled.div`
 		}
 		.checkbox-container {
 			display: flex;
-			margin-bottom: 24px;
+			margin-bottom: 5px;
 
 			label {
 				position: relative;
@@ -63,9 +63,10 @@ export const Wrapper = styled.div`
 			input {
 				cursor: pointer;
 				opacity: 0;
+				width: 20px;
 			}
 			input:checked + label::before {
-				background-color: #662472;
+				background-color: #bfa7c7;
 				display: flex;
 				align-items: center;
 				justify-content: center;
@@ -84,12 +85,22 @@ export const Wrapper = styled.div`
 			color: #fff8ee;
 			text-align: center;
 			border: none;
+			margin-top: 20px;
+			margin-left: auto;
 			/* H3 */
 			font-family: 'Open Sans';
 			font-size: 20px;
 			font-style: normal;
 			font-weight: 700;
 			line-height: 30px; /* 150% */
+		}
+		button:disabled {
+			color: #662472;
+			opacity: 0.7;
+		}
+		button.disabled {
+			color: #662472;
+			opacity: 0.7;
 		}
 		#birthday {
 			margin-bottom: 16px;
@@ -165,6 +176,7 @@ export const Wrapper = styled.div`
 			@media (min-width: 992px) {
 				margin-top: 32px;
 				margin-bottom: 24px;
+				overflow-y: clip;
 			}
 		}
 		h2 {

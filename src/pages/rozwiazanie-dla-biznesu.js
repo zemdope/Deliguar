@@ -43,12 +43,19 @@ import business2 from '../assets/images/business2.png';
 import team from '../assets/images/team.png';
 import team2 from '../assets/images/team2.png';
 import team3 from '../assets/images/team3.png';
+import team4 from '../assets/images/team4.svg';
+import team5 from '../assets/images/team5.svg';
+import team6 from '../assets/images/team6.svg';
 import business3 from '../assets/images/business3.png';
 import logoBio from '../assets/images/logoBio.svg';
 import certificate from '../assets/images/certificate.svg';
 import partners from '../assets/images/partners.svg';
 import partners2 from '../assets/images/partners2.svg';
+import partners5 from '../assets/images/partners5.svg';
 import plus from '../assets/images/plus.svg';
+import itemSol from '../assets/images/itemSolution.svg';
+import itemSol2 from '../assets/images/itemSolution2.svg';
+import itemSol3 from '../assets/images/itemSolution3.svg';
 const Business = () => {
 	return (
 		<Layout>
@@ -73,7 +80,7 @@ const Business = () => {
 					<HeaderPage>Rozwiązania dla biznesu </HeaderPage>
 					<TargetList>
 						<li>
-							<img src={business2} alt='' />
+							<img src={itemSol2} alt='' />
 							<h3>Dla producentów karmy</h3>
 							<p>
 								Deliguard jest cennym wsparciem skuteczności i
@@ -82,7 +89,7 @@ const Business = () => {
 							</p>
 						</li>
 						<li>
-							<img src={business2} alt='' />
+							<img src={itemSol} alt='' />
 							<h3>Dla weterynarzy</h3>
 							<p>
 								DeliGuard jest wsparciem w terapii biegunki o
@@ -95,7 +102,7 @@ const Business = () => {
 							</p>
 						</li>
 						<li>
-							<img src={business3} alt='' />
+							<img src={itemSol3} alt='' />
 							<h3>Dla handlu</h3>
 							<p>
 								DeliGuard to nowatorski produkt i odpowiedź na
@@ -192,12 +199,12 @@ const Business = () => {
 						<Col xs='12' md='6'>
 							<ImagePartners
 								className='d-md-none'
-								src={partners}
+								src={partners5}
 								alt=''
 							/>
 							<ImagePartners
 								className='d-none d-md-block'
-								src={partners2}
+								src={partners5}
 								alt=''
 							/>
 						</Col>
@@ -218,7 +225,7 @@ const Business = () => {
 						</Col>
 						<Col xs='12' lg='4'>
 							<TeamItemWrapper>
-								<img src={team} alt='' />
+								<img src={team6} alt='' />
 								<h3>PhD Martyna Wilk</h3>
 								<p>R&D MANAGER</p>
 								<a href=''>martyna.wilk@biodose.net</a>
@@ -226,7 +233,7 @@ const Business = () => {
 						</Col>
 						<Col xs='12' lg='4'>
 							<TeamItemWrapper>
-								<img src={team2} alt='' />
+								<img src={team5} alt='' />
 								<h3>PhD Jerzy Pastuszak</h3>
 								<p>CEO, Co-founder BioDose</p>
 								<a href=''>jerzy.pastuszak@biodose.net</a>
@@ -234,7 +241,7 @@ const Business = () => {
 						</Col>
 						<Col xs='12' lg='4'>
 							<TeamItemWrapper className='last-team-item'>
-								<img src={team3} alt='' />
+								<img src={team4} alt='' />
 								<h3>Yuliya Mirashnichenka</h3>
 								<p>Sales&Marketing Manager</p>
 								<a href=''>yuliya.mirashnichenka@biodose.net</a>

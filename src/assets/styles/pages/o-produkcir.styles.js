@@ -288,7 +288,8 @@ export const SerumImage = styled.img`
 		/* transform: translateY(-90px); */
 	}
 	@media (min-width: 1280px) {
-		transform: translateY(-60px);
+		transform: translateY(-120px);
+		max-width: 750px;
 	}
 `;
 export const EffectWrapper = styled.div`

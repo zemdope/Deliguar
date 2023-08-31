@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { StaticImage } from 'gatsby-plugin-image';
+// get other plugins:
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import Layout from '../components/Layout';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import circle from '../assets/images/circle.png';
 import circle2 from '../assets/images/circle2.png';
+import circle3 from '../assets/images/circle3.svg';
 import plus2 from '../assets/images/plus2.svg';
 import actionImage from '../assets/images/actionImage.svg';
 import actionImage2 from '../assets/images/actionImage2.svg';
@@ -37,6 +42,32 @@ import {
 } from '../assets/styles/pages/Index.styles';
 
 const OurTests = () => {
+	// gsap.registerPlugin(ScrollTrigger);
+	// const ref = useRef(null);
+	// console.log();
+	// useEffect(() => {
+	// 	const element = ref.current;
+	// 	const t2 = gsap.timeline({ paused: true });
+	// 	t2.from(element.querySelector('#first-action'), {
+	// 		opacity: 0,
+
+	// 		duration: 0.8,
+	// 		delay: 1,
+	// 		ease: 'power2.out'
+	// 	});
+
+	// 	ScrollTrigger.create({
+	// 		trigger: element.querySelector('.first-action'),
+	// 		onEnter: () => {
+	// 			// Play the timeline when the section is visible
+	// 			t2.play();
+	// 		},
+	// 		onLeaveBack: () => {
+	// 			// Reverse the timeline when the section is not visible anymore
+	// 			t2.reverse();
+	// 		}
+	// 	});
+	// }, []);
 	return (
 		<Layout>
 			<HeroSection>
@@ -48,7 +79,7 @@ const OurTests = () => {
 						</Col>
 						<Col
 							xs='12'
-							lg='7'
+							lg='6'
 							className='pe-0 d-lg-flex align-items-end percent desktop-content'>
 							<div>
 								<ImageCircle
@@ -86,8 +117,8 @@ const OurTests = () => {
 						</Col>
 						<Col
 							className='d-none d-lg-block desktop-content'
-							lg='5'>
-							<ImageCircle src={circle2} alt='' />
+							lg='6'>
+							<ImageCircle src={circle3} alt='' />
 						</Col>
 					</Row>
 					<Row>

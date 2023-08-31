@@ -5,7 +5,8 @@ import {
 	FormSection,
 	Wrapper,
 	ImageBottle,
-	ImageLogo
+	ImageLogo,
+	WrapperInner
 } from '../assets/styles/pages/Form.styles';
 import logo from '../assets/images/logoo.svg';
 import form from '../assets/images/form.svg';

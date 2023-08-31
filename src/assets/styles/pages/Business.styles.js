@@ -336,6 +336,13 @@ export const PartnersWrapper = styled.div`
 export const ImagePartners = styled.img`
 	display: block;
 	width: 100%;
+	@media (min-width: 992px) {
+		width: 120%;
+		transform: translateX(-30px);
+	}
+	@media (min-width: 1180px) {
+		transform: translate(-130px, 65px);
+	}
 `;
 
 export const ContactSection = styled.section``;
@@ -345,7 +352,8 @@ export const ContactWrapper = styled.div`
 	margin-inline: auto;
 	position: relative;
 	@media (min-width: 992px) {
-		transform: translateY(-75px);
+		transform: translateY(0px);
+		padding-bottom: 100px;
 	}
 	h2 {
 		color: #f28f1d;
@@ -467,7 +475,7 @@ export const LeftItemContact = styled.div`
 	bottom: -60px;
 	animation: ${move} 3s linear infinite alternate;
 	@media (min-width: 992px) {
-		bottom: -30px;
+		bottom: 15px;
 		left: -340px;
 	}
 `;

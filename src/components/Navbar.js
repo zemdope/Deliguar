@@ -43,7 +43,9 @@ const Navbar = () => {
 						<Link to='/nasze-badania'>Nasze Badania </Link>
 					</li>
 					<li>
-						<Link to='/business'>Rozwiązanie dla biznesu </Link>
+						<Link to='/rozwiazanie-dla-biznesu'>
+							Rozwiązanie dla biznesu{' '}
+						</Link>
 					</li>
 					<li>
 						<Button>Spróbuj</Button>

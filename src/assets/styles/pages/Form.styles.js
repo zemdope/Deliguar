@@ -2,6 +2,18 @@ import styled from 'styled-components';
 
 export const FormSection = styled.section`
 	background: #fffbf5;
+	position: relative;
+	z-index: 3;
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		background: rgba(250, 236, 216, 0.5);
+		height: 740px;
+		z-index: -1;
+	}
 `;
 export const ImageBottle = styled.img`
 	width: 100%;
@@ -20,10 +32,13 @@ export const ImageLogo = styled.img`
 		margin-top: 20px;
 	}
 `;
+
 export const Wrapper = styled.section`
 	max-width: 1440px;
 	margin-inline: auto;
 	padding-inline: 16px;
+	position: relatived;
+	z-index: 3;
 	@media (min-width: 768px) {
 		padding-inline: 50px;
 	}
@@ -31,7 +46,7 @@ export const Wrapper = styled.section`
 		padding-inline: 90px;
 	}
 	@media (min-width: 1280px) {
-		padding-inline: 165px;
+		padding-inline: 145px;
 	}
 	h1 {
 		color: #5e286d;

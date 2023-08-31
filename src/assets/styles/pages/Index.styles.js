@@ -1430,7 +1430,7 @@ export const ButtonSliderWrapper = styled.div`
 	bottom: 60px !important;
 	left: 50%;
 	width: 100%;
-	z-index: 11;
+	z-index: 1001;
 	transform: translateX(-50%);
 	max-width: 400px;
 `;
@@ -1502,6 +1502,7 @@ export const FaqWrapper = styled.div`
 		}
 		@media (min-width: 1024px) {
 			text-align: left;
+			margin-top: 150px;
 		}
 	}
 	a {
@@ -1987,6 +1988,7 @@ export const ContactWrapper = styled.div`
 	padding-inline: 16px;
 	@media (min-width: 768px) {
 		padding-inline: 50px;
+		padding-top: 30px;
 	}
 	h2 {
 		color: #f28f1d;
@@ -2118,6 +2120,7 @@ export const KnowledgeWrapper = styled.div`
 		padding-inline: 60px;
 	}
 	.swiper {
+		padding-bottom: 80px;
 		.swiper-wrapper {
 			padding-top: 50px;
 			padding-bottom: 50px;
@@ -2154,6 +2157,42 @@ export const KnowledgeWrapper = styled.div`
 				border: 3px solid #5e286d;
 				box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.25);
 			}
+		}
+		.swiper-button-next,
+		.swiper-button-prev {
+			border: none;
+			background-color: transparent;
+			bottom: 25px !important;
+			top: unset !important;
+		}
+		.swiper-button-next {
+			right: 22%;
+		}
+		.swiper-button-prev {
+			left: 22%;
+		}
+
+		.swiper-pagination-bullet {
+			background: #faecd8 !important;
+			border: 1px solid #5e286d !important;
+			width: 15px;
+			height: 15px;
+			opacity: 1;
+		}
+		.swiper-pagination-bullet-active {
+			background: #bfa7c7 !important;
+			border: 1px solid #5e286d !important;
+			width: 15px;
+			height: 15px;
+		}
+		.swiper-horizontal > .swiper-pagination-bullets,
+		.swiper-pagination-bullets.swiper-pagination-horizontal {
+			bottom: 95px !important;
+			z-index: 999;
+		}
+		.swiper-button-next::after,
+		.swiper-button-prev::after {
+			display: none;
 		}
 	}
 	h2 {
