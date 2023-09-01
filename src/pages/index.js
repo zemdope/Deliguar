@@ -1080,7 +1080,7 @@ const IndexPage = () => {
 					</Row>
 				</ContactWrapper>
 			</ContactSection>
-			<KnowledgeSection>
+			{/* <KnowledgeSection>
 				<KnowledgeWrapper>
 					<h2>Baza wiedzy</h2>
 					<Swiper
@@ -1138,7 +1138,7 @@ const IndexPage = () => {
 						</ButtonSliderWrapper>
 					</Swiper>
 				</KnowledgeWrapper>
-			</KnowledgeSection>
+			</KnowledgeSection> */}
 		</Layout>
 	);
 };
