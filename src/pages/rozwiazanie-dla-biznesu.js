@@ -234,10 +234,10 @@ const Business = () => {
 						<Col xs='12' lg='4'>
 							<TeamItemWrapper>
 								<img src={team5} alt='' />
-								<h3>PhD Jerzy Pastuszak</h3>
-								<p>CEO, Co-founder BioDose</p>
-								<a href=''>jerzy.pastuszak@biodose.net</a>
-							</TeamItemWrapper>
+								<h3>Kamil Matecki</h3>
+								<p>Product Manager</p>
+								<a href='mailto:Kamil.matecki@biodose.net'>Kamil.matecki@biodose.net</a>
+							</TeamItemWrapper> 
 						</Col>
 						<Col xs='12' lg='4'>
 							<TeamItemWrapper className='last-team-item'>
