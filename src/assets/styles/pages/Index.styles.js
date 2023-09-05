@@ -169,8 +169,9 @@ export const IdeaWrapper = styled.div`
 			font-size: 6.5rem;
 			line-height: 7.8rem;
 			justify-content: flex-start;
+			gap:12px;
 			padding-top: 7rem;
-			padding-bottom: 4.8rem;
+			padding-bottom: 4rem;
 			/* padding-inline: 90px; */
 		}
 		@media (min-width: 1024px) {
@@ -286,16 +287,43 @@ export const IdeaWrapperInner = styled.div`
 		max-width: unset;
 		margin-left: unset;
 	}
+	.text-container {
+		 width: 50%; /* Adjust the width as needed */
+@media (min-width: 768px) {
+	width:100%;
+}
+	} 
+
+	.image-container {
+		@media (max-width: 768px) {
+			width: 50%; /* Adjust the width as needed */
+  position: relative;
+  shape-outside: circle(50%); /* Create a circular shape */
+}
+
+ 
+
+	}
 `;
 
 export const IdeaBottleImage = styled.img`
-	/* float: right; */
-	shape-outside: circle(50%);
-	width: 100%;
-	display: block;
+	 
+	 shape-outside: circle(50%);
+    width: 130%;
+    display: block;
+    transform: translateX(-50px);
+
 	@media (min-width: 768px) {
-		width: 100%;
+		width: 120%;
 		display: block;
+		margin-left:-10%;
+		transform:translateY(50px);
+		
+		
+	}
+	@media (min-width: 1200px) {
+
+		transform:translate(-80px, 10px);
 	}
 `;
 
@@ -334,11 +362,13 @@ export const LearnMoreWrapper = styled.div`
 	}
 	h3 {
 		font-size: 1.6rem;
+		margin-bottom: 16px;
 		@media (min-width: 992px) {
 			font-size: 20px;
 			text-align: left;
 			line-height: 30px; /* 150% */
 			margin-top: 15px;
+			margin-bottom: 16px;
 		}
 	}
 	h4 {
@@ -429,7 +459,7 @@ export const LearnMoreWrapper = styled.div`
 	}
 
 	a:last-child {
-		background: ${({ theme }) => theme.color.purple};
+		/* background: ${({ theme }) => theme.color.orange}; */
 		margin-bottom: 0;
 	}
 `;
@@ -466,6 +496,7 @@ export const IdeaTitleSolution = styled.h2`
 export const TitleIcon = styled.img`
 	@media (min-width: 768px) {
 		min-width: 40px;
+		
 	}
 `;
 export const IdeaParagraph = styled.p`
@@ -545,7 +576,7 @@ export const TestWrapper = styled.div`
 		margin-bottom: 0;
 		@media (min-width: 768px) {
 			margin-left: auto;
-			max-width: 350px;
+			max-width: 360px;
 			text-align: left;
 			margin-left: 0;
 			font-size: 2rem;
@@ -784,8 +815,9 @@ export const EffectItemsWrapper = styled.div`
 		transform: translateY(0px);
 		transform: translateX(60px);
 	}
-	@media (min-width: 1024px) {
-		transform: translateX(60px);
+	
+	@media (min-width: 1360px) {
+		transform: translate(60px,-100px); 
 	}
 `;
 export const EffectItem = styled.div`
@@ -797,6 +829,8 @@ export const EffectItem = styled.div`
 		flex-direction: column;
 	}
 	img {
+		width: 70px;
+		height: 70px;
 		@media (min-width: 768px) {
 			width: 100px;
 			height: 100px;
@@ -938,6 +972,11 @@ export const DosageSection = styled.section`
 		@media (min-width: 1024px) {
 			min-height: 330px;
 		}
+		.image-wrapper {
+			min-height:180px;
+			display:flex;
+			align-items: flex-end;
+		}
 	}
 	.transition-container-dog {
 		display: flex;
@@ -955,6 +994,11 @@ export const DosageSection = styled.section`
 		img {
 			display: block;
 			margin-inline: auto;
+		}
+		.image-wrapper {
+			min-height:180px;
+			display:flex;
+			align-items: flex-end;
 		}
 		p {
 			display: flex;
@@ -982,6 +1026,10 @@ export const DosageSection = styled.section`
 	.step-content.active {
 		animation: ${fadeIn} 1s;
 		display: block;
+		display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height:340px;
 	}
 	input {
 		margin-bottom: 50px;
@@ -1944,7 +1992,8 @@ export const SolutionsWrapper = styled.div`
 		display: flex;
 		align-items: center;
 		justify-content: center;
-
+          position:relative;
+         z-index:3;
 		@media (min-width: 1024px) {
 			justify-content: flex-start;
 			margin-bottom: 160px;
@@ -1959,7 +2008,7 @@ export const SolutionsWrapper = styled.div`
 			text-decoration-line: underline;
 			@media (min-width: 768px) {
 				font-size: 2.4rem;
-				line-height: 3.4rem;
+				line-height: 3.4rem; 
 			}
 		}
 	}
@@ -2173,7 +2222,7 @@ export const KnowledgeWrapper = styled.div`
 		}
 
 		.swiper-pagination-bullet {
-			background: #faecd8 !important;
+			background: transparent !important;
 			border: 1px solid #5e286d !important;
 			width: 15px;
 			height: 15px;

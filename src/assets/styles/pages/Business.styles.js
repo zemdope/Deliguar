@@ -247,7 +247,7 @@ export const PartnersWrapper = styled.div`
 		font-style: normal;
 		font-weight: 700;
 		line-height: 36px; /* 112.5% */
-		margin-top: 25px;
+		margin-top: 50px;
 		margin-bottom: 20px;
 		@media (min-width: 768px) {
 			font-size: 45px;

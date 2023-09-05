@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { graphql } from 'gatsby';
 import { gsap } from 'gsap';
 import { StaticImage } from 'gatsby-plugin-image';
 // get other plugins:
@@ -13,7 +14,7 @@ import plus2 from '../assets/images/plus2.svg';
 import actionImage from '../assets/images/actionImage.svg';
 import actionImage2 from '../assets/images/actionImage2.svg';
 import actionImage3 from '../assets/images/actionImage3.svg';
-import buttonIcon from '../assets/images/buttonIcon.png';
+import buttonIcon from '../assets/images/buttonIcon.svg';
 import solutionDesktop from '../assets/images/solutionImageDesktop.png';
 import solution from '../assets/images/solutionImage.png';
 import solutionMobile from '../assets/images/solutionMobile.svg';
@@ -41,7 +42,7 @@ import {
 	SolutionsSection
 } from '../assets/styles/pages/Index.styles';
 
-const OurTests = () => {
+const OurTests = ({data}) => {
 	// gsap.registerPlugin(ScrollTrigger);
 	// const ref = useRef(null);
 	// console.log();
@@ -74,8 +75,8 @@ const OurTests = () => {
 				<HeroWrapper>
 					<Row className='mobile-hero'>
 						<Col xs='12' lg='7'>
-							<Subheader>Zobacz wyniki Naszych badań</Subheader>
-							<h1>Wpływ DeliGuard na ogólną poprawę zdrowia</h1>
+							<Subheader>{data.allContentfulNsHero.nodes[0].subtitle}</Subheader>
+							<h1>{data.allContentfulNsHero.nodes[0].title}</h1>
 						</Col>
 						<Col
 							xs='12'
@@ -88,29 +89,23 @@ const OurTests = () => {
 									alt=''
 								/>
 								<ParagraphTop>
-									<span>97%</span>
+									<span>{data.allContentfulNsHero.nodes[0].itemTopNumber}</span>
 									<span>
-										użytkowników zauważyło wyraźną poprawę
-										zdrowia zwierząt{' '}
+									{data.allContentfulNsHero.nodes[0].itemTop}
 										<img src={plus2} alt='' />
 									</span>
 								</ParagraphTop>
 								<ParagraphCenter>
-									<span>3%</span>
+									<span>{data.allContentfulNsHero.nodes[0].itemBottomNumber}</span>
 									<span>
-										{' '}
-										użytkowników nie zgłosiło żadnych
-										znaczących zmian w stanie zdrowia
-										zwierzęcia
+									{data.allContentfulNsHero.nodes[0].itemBottom}
 									</span>
 								</ParagraphCenter>
 								<ParagraphBottom>
 									<img src={plus2} alt='' />{' '}
 									<span>
-										poprawa kondycji zdrowotnej pupila, w
-										tym lepsze trawienie i wypróżnienia,
-										jakości sierści i redukcję kamienia
-										nazębnego.
+									
+									{data.allContentfulNsHero.nodes[0].content}
 									</span>
 								</ParagraphBottom>
 							</div>
@@ -134,119 +129,105 @@ const OurTests = () => {
 							md='7'
 							lg='8'
 							className='first-action-content'>
-							<h2>Działanie na układ immunologiczny</h2>
+							<h2>{data.allContentfulNsDzialanie.nodes[0].title}</h2>
 							<p>
-								DeliGuard wspomaga działanie wątroby, co w
-								efekcie powoduje spadek produkcji białka CRP -
-								wskaźnika stanu zapalnego organizmu, który
-								wzrasta np. na skutek choroby lub w wyniku
-								codziennych, drobnych urazów tkanek
+							{data.allContentfulNsDzialanie.nodes[0].subtitle}
 							</p>
 						</Col>
 						<Col xs='12' md='5' lg='4'>
-							<img src={actionImage} alt='' />
+							<img src={data.allContentfulNsDzialanie.nodes[0].image.url} alt='' />
 						</Col>
 					</Row>
 					<Row className='px-0 second-action-container'>
 						<Col xs='12' className='px-0'>
-							<h3>Poprawa aktywności enzymów wątrobowych</h3>
+							<h3>{data.allContentfulNsPoprawa.nodes[0].title}</h3>
 							<p>
-								DeliGuard wspiera działanie wątroby, obniżając
-								poziomy enzymów wątrobowych AST i ALT. Poprawa
-								tych parametrów korzystnie wpływa na odżywienie
-								całego organizmu, jak również kondycję
-								zwierzęcia i jakość sierści.
+							{data.allContentfulNsPoprawa.nodes[0].subtitle}
 							</p>
 						</Col>
 						<Col xs='12' md='6'>
 							<img
 								className='action-image-left'
-								src={actionImage2}
+								src={data.allContentfulNsPoprawa.nodes[0].image.url}
 								alt=''
 							/>
 						</Col>
 						<Col xs='12' md='6'>
 							<img
 								className='action-image-right bottom'
-								src={actionImage3}
+								src={data.allContentfulNsPoprawa.nodes[0].secondImage.url}
 								alt=''
 							/>
-						</Col>
+						</Col> 
 					</Row>
 				</ActionWrapper>
 			</ActionSection>
 			<ShoppingSection>
 				<ShoppingWrapper>
-					<a href=''>
+					<a href={data.allContentfulNsKup.nodes[0].link}>
 						<img src={bag} alt='' />
-						<span>Przekonaj się sam</span>
+						<span>{data.allContentfulNsKup.nodes[0].button}</span>
 					</a>
 
-					<p> i zobacz że DeliGuard działa</p>
+					<p>{data.allContentfulNsKup.nodes[0].text}</p>
 				</ShoppingWrapper>
 			</ShoppingSection>
 			<SolutionsSection>
 				<SolutionsWrapper className='solutions-wrapper'>
-					<h2>Rozwiązania dla biznesu</h2>
+					<h2>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].title}</h2>
 					<Row>
 						<Col lg='7'>
 							<h3>
-								Deliguard może działać jako cenne wsparcie dla:
+							{data.allContentfulRozwiazaniedlabiznesu.nodes[0].subtitle}
 							</h3>
 							<ul>
 								<li>
-									<h4>producentów karm</h4>
+									<h4>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].firstItemTitle}</h4>
 									<p>
 										<Icon src={plus} alt='' />{' '}
 										<span>
-											ponieważ może być dodawany do paszy
-											podczas jej produkcji.
+										{data.allContentfulRozwiazaniedlabiznesu.nodes[0].firstItemContent}
 										</span>
 									</p>
 								</li>
 								<li>
-									<h4>Lekarzy weterynarii</h4>
+									<h4>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].secondItemTitle}</h4>
 									<p>
 										<Icon src={plus} alt='' />{' '}
 										<span>
-											jako wsparcie w leczeniu biegunek o
-											nieznanej etiologii, a także
-											problemów trawiennych lub
-											dermatologicznych
+										{data.allContentfulRozwiazaniedlabiznesu.nodes[0].secondItemContent}
 										</span>
 									</p>
 								</li>
 								<li>
-									<h4>Handlu</h4>
+									<h4>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].thirdItemTitle}</h4>
 									<p>
 										<Icon src={plus} alt='' />{' '}
 										<span>
-											jako innowacyjny produkt i odpowiedź
-											na potrzeby właścicieli zwierząt
-											domowych
+										{data.allContentfulRozwiazaniedlabiznesu.nodes[0].thirdItemContent}
 										</span>
 									</p>
 								</li>
-							</ul>
+							</ul> 
 							<Link className='btn-about'>
 								{' '}
 								<img src={buttonIcon} alt='' />{' '}
-								<span>Dowiedz się więcej</span>
+								<span>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].button}</span>
 							</Link>
 						</Col>
 						<Col lg='5'>
 							<SolutionImage
 								className='d-lg-none'
-								src={solutionMobile}
+								src={data.allContentfulRozwiazaniedlabiznesu.nodes[0].imageMobile.url}
 								alt=''
 							/>
 							<SolutionImage
 								className=' d-none d-lg-block img-about'
-								src={solutionn}
+								src={data.allContentfulRozwiazaniedlabiznesu.nodes[0].image.url}
 								alt=''
 							/>
 						</Col>
-					</Row>
+					</Row> 
 				</SolutionsWrapper>
 			</SolutionsSection>
 		</Layout>
@@ -254,3 +235,68 @@ const OurTests = () => {
 };
 
 export default OurTests;
+
+
+
+
+export const query = graphql`
+query MyQuery {
+	allContentfulNsHero {
+	  nodes {
+	    content
+	    itemBottom
+	    itemBottomNumber
+	    itemTop
+	    itemTopNumber
+	    subtitle
+	    title
+	  }
+	}
+	allContentfulNsDzialanie {
+	  nodes {
+	    image {
+		 url
+	    }
+	    subtitle
+	    title
+	  }
+	}
+	allContentfulNsPoprawa {
+	  nodes {
+	    image {
+		 url
+	    }
+	    secondImage {
+		url
+	    }
+	    title
+	    subtitle
+	  }
+	}
+	allContentfulNsKup {
+    nodes {
+      button
+      link
+      text
+    }
+  }
+  allContentfulRozwiazaniedlabiznesu { 
+    nodes {
+      button
+      firstItemContent
+      firstItemTitle
+      image { 
+		url
+      }
+      imageMobile { 
+		url
+      }
+      secondItemContent
+      secondItemTitle
+      thirdItemContent
+      thirdItemTitle
+      subtitle
+      title
+    }
+  }
+   }`;

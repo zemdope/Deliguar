@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Layout from '../components/Layout';
+import { graphql } from 'gatsby';
 import {
 	Wrapper,
 	HeaderPage,
@@ -56,7 +57,7 @@ import plus from '../assets/images/plus.svg';
 import itemSol from '../assets/images/itemSolution.svg';
 import itemSol2 from '../assets/images/itemSolution2.svg';
 import itemSol3 from '../assets/images/itemSolution3.svg';
-const Business = () => {
+const Business = ({data}) => {
 	return (
 		<Layout>
 			<BusinessSection>
@@ -77,40 +78,27 @@ const Business = () => {
 							alt=''
 						/>
 					</RightItem>
-					<HeaderPage>Rozwiązania dla biznesu </HeaderPage>
+					<HeaderPage>{data.allContentfulRdbHero.nodes[0].title} </HeaderPage>
 					<TargetList>
 						<li>
-							<img src={itemSol2} alt='' />
-							<h3>Dla producentów karmy</h3>
+							<img src={data.allContentfulRdbHero.nodes[0].firstItemImage.url} alt='' />
+							<h3>{data.allContentfulRdbHero.nodes[0].firstItemTitle}</h3>
 							<p>
-								Deliguard jest cennym wsparciem skuteczności i
-								funkcjonalnosci karmy zwierzęciej. Może być
-								dodany do karmy w trakcie jej produkcji.
+							{data.allContentfulRdbHero.nodes[0].firstItemContent.firstItemContent}
 							</p>
 						</li>
 						<li>
-							<img src={itemSol} alt='' />
-							<h3>Dla weterynarzy</h3>
+							<img src={data.allContentfulRdbHero.nodes[0].secondItemImage.url} alt='' />
+							<h3>{data.allContentfulRdbHero.nodes[0].secondItemTitle}</h3>
 							<p>
-								DeliGuard jest wsparciem w terapii biegunki o
-								nieznanej etiologii, jak również problemów
-								trawiennych czy dermatologicznych. Poprzez
-								stymulację mikrobiomu jelitowego gospodarza
-								DeliGuard szybko i skutecznie przywraca
-								fizjologiczną mikroflorę przewodu pokarmowego
-								oraz pobudza wydalanie toksyn z organizmu.
+							{data.allContentfulRdbHero.nodes[0].secondItemContent.secondItemContent}
 							</p>
 						</li>
 						<li>
-							<img src={itemSol3} alt='' />
-							<h3>Dla handlu</h3>
+							<img src={data.allContentfulRdbHero.nodes[0].thirdItemImage.url} alt='' />
+							<h3>{data.allContentfulRdbHero.nodes[0].thirdItemTitle}</h3>
 							<p>
-								DeliGuard to nowatorski produkt i odpowiedź na
-								poszukiwania oraz potrzeby włascicieli zwierząt.
-								Jego jakość i skuteczność działania na organizm
-								zwierzęcia potwierdzają własciciele kotów i
-								psów, uczestniczących w badaniach
-								przeprowadzonych przez firmę BioDose.
+							{data.allContentfulRdbHero.nodes[0].thirdItemContent.thirdItemContent}
 							</p>
 						</li>
 					</TargetList>
@@ -126,33 +114,24 @@ const Business = () => {
 							alt=''
 						/>
 					</RightItemAbout>
-					<HeaderAbout>O nas</HeaderAbout>
+					<HeaderAbout>{data.allContentfulRdbONas.nodes[0].title}</HeaderAbout>
 					<Paragraph>
-						Deliguard został opracowany przez BioDose - polską
-						firmę, której z pasją i pełnym zaangażowaniem tworzy
-						produkty dla zwierząt, dbając o ich dobrostanz
-						wykorzystaniem najnowszych osiągnięć biotechnologii i
-						trendów żywieniowych.
+					{data.allContentfulRdbONas.nodes[0].subtitle}
 					</Paragraph>
 					<ImageLogo src={logoBio} alt='' />
 					<Row className='certificate-container'>
 						<Col xs='12' md='7'>
-							<ImageCertificate src={certificate} alt='' />
+							<ImageCertificate src={data.allContentfulRdbONas.nodes[0].image.url} alt='' />
 						</Col>
 						<Col xs='12' md='5'>
 							<HeaderAbout className='bottom'>
-								Certyfikaty
+							{data.allContentfulRdbONas.nodes[0].certificateTitle}
 							</HeaderAbout>
 							<Paragraph className='paragraph-bottom'>
-								Mając na uwadze dobro zwierząt oraz najwyższą
-								jakość i bezpieczeństwo naszych produktów,
-								współpracujemy z certyfikowanymi producentami i
-								akredytowanymi laboratoriami. <br />
+							{data.allContentfulRdbONas.nodes[0].certificateContent} <br />
 								<br />
-								Nasze produkty są objęte międzynarodowym
-								systemem bezpieczeństwa pasz GMP+ FSA i GMP+FRA
-								(GMO Controlled).
-							</Paragraph>
+								{data.allContentfulRdbONas.nodes[0].certificateContentSecond}
+							</Paragraph> 
 						</Col>
 					</Row>
 				</Wrapper>
@@ -168,43 +147,39 @@ const Business = () => {
 					</LeftItemPartners>
 					<Row>
 						<Col xs='12' md='6'>
-							<h2>Partnerstwo z Nami</h2>
+							<h2>{data.allContentfulRdbPartnerstwo.nodes[0].title}</h2>
 							<Subheader>Naszym partnerom proponujemy:</Subheader>
 							<ul>
 								<li>
 									<img src={plus} alt='' />
 									<p>
-										<span>wsparcie techniczne </span> -
-										<span> konsultacje i szkolenia,</span>
+										<span>{data.allContentfulRdbPartnerstwo.nodes[0].firstItemLeft} </span> -
+										<span> {data.allContentfulRdbPartnerstwo.nodes[0].firstItemRight}</span>
 									</p>
 								</li>
 								<li>
 									<img src={plus} alt='' />
 									<p>
-										<span>wsparcie marketingowe </span>-
+										<span>{data.allContentfulRdbPartnerstwo.nodes[0].secondItemLeft}  </span>-
 										<span>
-											{' '}
-											materiały techniczne i działania
-											promocyjne,
+										{data.allContentfulRdbPartnerstwo.nodes[0].secondItemRight}
 										</span>
 									</p>
 								</li>
 							</ul>
 							<h3>
-								Jeśli chcesz uzyskać więcej dodatkowych
-								informacji technicznych, prosimy o kontakt z
-								jednym z naszych ekspertów.
+							{data.allContentfulRdbPartnerstwo.nodes[0].subtitle.subtitle}
 							</h3>
 						</Col>
 						<Col xs='12' md='6'>
 							<ImagePartners
 								className='d-md-none'
-								src={partners5}
+								src={data.allContentfulRdbPartnerstwo.nodes[0].image.url}
 								alt=''
 							/>
 							<ImagePartners
 								className='d-none d-md-block'
-								src={partners5}
+								src={data.allContentfulRdbPartnerstwo.nodes[0].image.url}
 								alt=''
 							/>
 						</Col>
@@ -221,30 +196,30 @@ const Business = () => {
 					</LeftItemContact>
 					<Row>
 						<Col xs='12'>
-							<h2>Kontakt</h2>
+							<h2>{data.allContentfulRdbContact.nodes[0].title}</h2>
 						</Col>
 						<Col xs='12' lg='4'>
 							<TeamItemWrapper>
-								<img src={team6} alt='' />
-								<h3>PhD Martyna Wilk</h3>
-								<p>R&D MANAGER</p>
-								<a href=''>martyna.wilk@biodose.net</a>
+								<img src={data.allContentfulRdbContact.nodes[0].firstItemImage.url} alt='' />
+								<h3>{data.allContentfulRdbContact.nodes[0].firstItemName}</h3>
+								<p>{data.allContentfulRdbContact.nodes[0].firstItemPosition}</p>
+								<a href='mailto:martyna.wilk@biodose.net'>{data.allContentfulRdbContact.nodes[0].firstItemMail}</a>
 							</TeamItemWrapper>
 						</Col>
 						<Col xs='12' lg='4'>
 							<TeamItemWrapper>
-								<img src={team5} alt='' />
-								<h3>Kamil Matecki</h3>
-								<p>Product Manager</p>
-								<a href='mailto:Kamil.matecki@biodose.net'>Kamil.matecki@biodose.net</a>
+								<img src={data.allContentfulRdbContact.nodes[0].secondItemImage.url} alt='' />
+								<h3>{data.allContentfulRdbContact.nodes[0].secondItemName}</h3>
+								<p>{data.allContentfulRdbContact.nodes[0].secondItemPosition}</p>
+								<a href='mailto:Kamil.matecki@biodose.net'>{data.allContentfulRdbContact.nodes[0].secondItemMail}</a>
 							</TeamItemWrapper> 
 						</Col>
 						<Col xs='12' lg='4'>
 							<TeamItemWrapper className='last-team-item'>
-								<img src={team4} alt='' />
-								<h3>Yuliya Mirashnichenka</h3>
-								<p>Sales&Marketing Manager</p>
-								<a href=''>yuliya.mirashnichenka@biodose.net</a>
+								<img src={data.allContentfulRdbContact.nodes[0].thirdItemImage.url} alt='' />
+								<h3>{data.allContentfulRdbContact.nodes[0].thirdItemName}</h3>
+								<p>{data.allContentfulRdbContact.nodes[0].thirdItemPosition}</p>
+								<a href='mailto:yuliya.mirashnichenka@biodose.net'>{data.allContentfulRdbContact.nodes[0].thirdItemMail}</a>
 							</TeamItemWrapper>
 						</Col>
 					</Row>
@@ -257,3 +232,84 @@ const Business = () => {
 export default Business;
 
 export const Head = () => <title>Rozwiązanie dla biznesu</title>;
+
+
+export const query = graphql`
+query MyQuery {
+	allContentfulRdbHero {
+	  nodes {
+	    firstItemContent {
+		 firstItemContent
+	    }
+	    firstItemImage {
+		url
+	    }
+	    firstItemTitle
+	    secondItemContent {
+		 secondItemContent
+	    }
+	    secondItemImage {
+		url
+	    }
+	    secondItemTitle
+	    thirdItemContent {
+		 thirdItemContent
+	    }
+	    thirdItemImage {
+		url
+	    }
+	    thirdItemTitle
+	    title
+	  }
+	}
+	allContentfulRdbONas {
+	  nodes {
+	    image {
+		url
+	    }
+	    subtitle
+	    title
+	    certificateContent
+	    certificateContentSecond
+	    certificateTitle
+	  }
+	}
+	allContentfulRdbPartnerstwo {
+    nodes {
+      firstItemLeft
+      firstItemRight
+      image {
+        url
+      }
+      secondItemLeft
+      secondItemRight
+      subtitle {
+        subtitle
+      }
+      title
+    }
+  }
+  allContentfulRdbContact {
+    nodes {
+      firstItemImage {
+          url
+      }
+      firstItemMail
+      firstItemName
+      firstItemPosition
+      secondItemImage {
+          url
+      }
+      secondItemMail
+      secondItemName
+      secondItemPosition
+      thirdItemImage {
+          url
+      }
+      thirdItemMail
+      thirdItemName
+      thirdItemPosition
+      title
+    }
+  }
+   }`

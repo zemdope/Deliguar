@@ -20,27 +20,29 @@ from {
 `;
 export const ImageBottle = styled.img`
 	float: right;
-	shape-outside: circle(49%);
-	width: 40%;
+	shape-outside: circle(21%);
+	width: 80%;
 	min-width: 210px;
 	transform: translateY(50px);
-	@media (max-width: 361px) {
-		shape-outside: circle(45%);
-	}
+	
 	@media (max-width: 340px) {
 		shape-outside: circle(0%);
 		float: unset;
 	}
+	@media (min-width:400px) {
+		shape-outside: circle(30%);
+	}
 	@media (min-width: 768px) {
 		width: 100%;
-		max-width: 570px;
-
+	
+		aspect-ratio:1/1;
 		display: block;
 	}
 	@media (min-width: 992px) {
 	}
 	@media (min-width: 1200px) {
-		transform: translateY(87px);
+		transform: translate(-100px, 37px);
+		aspect-ratio:1/1;
 	}
 `;
 export const AboutProductHero = styled.section`
@@ -169,8 +171,8 @@ export const ParagraphTop = styled.p`
 			width: 14px;
 			height: 14px;
 			vertical-align: top;
-			margin-left: -3px;
-			margin-top: 5px;
+			margin-left: -4px;
+			margin-top: 7px;
 		}
 	}
 
@@ -281,11 +283,17 @@ export const WrapperReverse = styled.div`
 
 export const EffectSection = styled.section``;
 export const SerumImage = styled.img`
-	width: 100%;
+	width: 95%;
 	max-width: 600px;
+	margin-top:40px;
 	@media (min-width: 768px) {
 		max-width: unset;
+		width: 120%;
+		margin-top:unset;
 		/* transform: translateY(-90px); */
+	}
+	@media (min-width: 992px) {
+		width: 100%;
 	}
 	@media (min-width: 1280px) {
 		transform: translateY(-120px);
@@ -322,7 +330,7 @@ export const EffectWrapper = styled.div`
 
 			line-height: 60px; /* 120% */
 
-			max-width: 670px;
+			max-width: 765px;
 			margin-inline: auto;
 		}
 		@media (min-width: 768px) {

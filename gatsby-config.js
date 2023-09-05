@@ -17,7 +17,7 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-google-fonts`,
 			options: {
-				fonts: [`Open Sans`, `REM`],
+				fonts: [`Open sans\:300,400,400,700`, `REM`],
 				display: 'swap'
 			}
 		},

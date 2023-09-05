@@ -16,9 +16,9 @@ const Slider = ({ slides, onSlideClick }) => {
 				enabled: true
 			}}
 			initialSlide={1}
+			speed={1000}
 			autoplay={{
-				delay: 3500,
-
+				delay: 1500,
 				pauseOnMouseEnter: true
 			}}
 			loop

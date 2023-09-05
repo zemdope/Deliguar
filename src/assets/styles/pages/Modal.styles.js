@@ -79,6 +79,7 @@ export const ModalSliderDescription = styled.p`
 		line-height: 21px;
 		text-align: right;
 		margin-top: 30px;
+		padding-bottom:20px;
 	}
 	&::-webkit-scrollbar {
 		width: 16px;

@@ -10,7 +10,7 @@ import fb from '../assets/images/fb.svg';
 import yt from '../assets/images/yt.svg';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import logoText from '../assets/images/logoText.png';
+import logoText from '../assets/images/newLogoFooter.svg';
 const Footer = () => {
 	return (
 		<FooterContainer>

@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Accordion from 'react-bootstrap/Accordion';
 import { gsap } from 'gsap';
+import { graphql } from 'gatsby'; 
 // import { ButtonSliderWrapper } from '../assets/styles/pages/Index.styles';
 
 // get other plugins:
@@ -104,7 +105,7 @@ import solution from '../assets/images/solutionImage.png';
 import plus from '../assets/images/plus.svg';
 import ig from '../assets/images/insta.svg';
 import fb from '../assets/images/fb.svg';
-import buttonIcon from '../assets/images/buttonIcon.png';
+import buttonIcon from '../assets/images/buttonIcon.svg';
 import item5 from '../assets/images/item5.svg';
 import item6 from '../assets/images/item6.svg';
 import item7 from '../assets/images/item7.svg';
@@ -126,13 +127,14 @@ import 'swiper/css/pagination';
 import Slider from '../components/Slider';
 import Modal from '../components/Modal';
 
-const IndexPage = () => {
+const IndexPage = ({data}) => {
 	const [currentStep, setCurrentStep] = useState(2);
 	const [currentStepDog, setCurrentStepDog] = useState(2);
 	const swiperKnowledgeRef = useRef();
 	const handleStepChange = (event) => {
 		setCurrentStep(Number(event.target.value));
 	};
+	console.log(data)
 	const handleStepDogChange = (event) => {
 		setCurrentStepDog(Number(event.target.value));
 	};
@@ -156,49 +158,20 @@ const IndexPage = () => {
 	const closeModal = () => {
 		setModalIndex(null);
 	};
+	
 
-	const slides = [
-		{
-			image: dog,
-			title: 'Apsel',
-			subtitle: 'Border collie | 7y.',
-			description:
-				'Apsel przyjmuje DeliGuard od czerwca 2023, zauważyłam pierwsze zmiany po 2 tygodniach. Dodanie DeliGuard do diety Apsel przyczyniło się do poprawy kondycji sierści. Stała się ona wyczuwalnie bardziej miękka. Wyniki krwi natomiast nigdy nie były tak dobre.',
-			name: 'Anna Budny'
-		},
-		{
-			image: dog,
-			title: 'Tosia',
-			subtitle: 'kot europejski | 10y.',
-			description:
-				'po jakim czasie zauważył poprawę: poprawa pobrania wody - już w drugim dniu podania!; poprawa zapachu z jamy ustnej - ok 5 dnia.poprawa sierści - po około 2 tygodniach. Nasza Tośka miała bardzo nieprzyjemny oddech spowodowany problemami dziąseł. Po włączeniu DeliGuard oddech się poprawił! Co więcej kotka zaczęła częściej pić, a jej sierść zrobiła się miękka i zdecydowanie mniej jej gubi w mieszkaniu.',
-			name: 'Denis Stolc'
-		},
-		{
-			image: dog,
-			title: 'Barsa',
-			subtitle: 'Beagle | 6y.',
-			description:
-				'Nasza Beaglelka ma skłonności do otyłości, co powoduje jej osłabienie oraz nadmierne wypadnie sierści. Pomimo zmiany karmy na pełnowartościową, problem nie ustawał. Zdecydowaliśmy się więc na dodatkową suplementację preparatem DeliGuard. Nasza Barsa podejmuje wysiłek, mniej się męczy podczas spacerów, a jej skóra i sierść są w lepszej kondycji - zmniejszyło się wypadanie sierści, stała się bardziej miękka i zyskała więcej blasku. Dziękujemy wraz z Naszą Barsą zwaną Baśką i polecamy produkt DeliGuard!',
-			name: 'Artur Akwarski '
-		},
-		{
-			image: dog,
-			title: 'Oreo',
-			subtitle: 'krótkowłosego Europejskiego | 8y.',
-			description:
-				'Oreo ma 8 lat, zaczął pobierać DG w lipcu 2023 Po 8-9 dniach stosowania  zauważyłem 2 rzeczy. Po-pierwsze, po pobraniu DG jego sierść stała się gładsza i bardziej błyszcząca (osoby które przez dłuższy czas nie widziały Oreo od razu zauważyły różnicę). Po-drugie, zaczął lepiej jeść. Po 2 tygodniach stosowania zauważyłem drobną zmianę w wadze. Było widać że Oreo więcej jadł. Jeśli chodzi o pobieranie samego DG nie było ono regularne. Ze względu na jego wybredny charakter Oreo miewał dni gdzie nie pił wody z miski. Bywały również momenty kiedy pił DG przez ponad minutę bez przerwy. Jeśli chodzi o dawkowanie to nie miałem najmniejszego problemu z podawaniem DG kotu.',
-			name: 'Mikołaj Pastuszak'
-		},
-		{
-			image: dog,
-			title: 'Daisy',
-			subtitle: 'Beagle | 13y.',
-			description:
-				'Daisy ma 11 lat, w czerwcu 2022 zaczęliśmy z żoną podawać jej DeliGuard do wody, pierwsze efekty w zmianie jej sierści zauważyliśmy po około 2 tygodniach. Po miesiącu stosowania jej apetyt wzrósł. Jest to pies rasy beagle i w jej przypadku nie było to pożądane. Po konsultacji z żywieniowcem zmniejszyliśmy dawkowanie DeliGuard, apetyt wrócił do stanu z przed podawania DeliGuardu a efekt lśniącej sierści się utrzymał',
-			name: 'Andrzej Matecki'
-		}
-	];
+
+const slides = data.allContentfulOpinie.nodes.map(el => ({
+	image: el.image.url,
+	title: el.name,
+	subtitle: el.breed,
+	description: el.content.content,
+	name: el.owner,
+   }));
+   const accordionFaq = data.allContentfulFaq.nodes.map(el => ({
+	question: el.question,
+	answear: el.answear.answear,
+   }));
 	gsap.registerPlugin(ScrollTrigger);
 	const ref = useRef(null);
 	const ref2 = useRef(null);
@@ -289,13 +262,13 @@ const IndexPage = () => {
 			delay: 0.1,
 			ease: 'power2.out'
 		});
-		t3.from(element2.querySelector('.solution-image'), {
-			opacity: 0,
-			x: 30,
-			duration: 0.3,
-			delay: 0.1,
-			ease: 'power2.out'
-		});
+		// t3.from(element2.querySelector('.solution-image'), {
+		// 	opacity: 0,
+		// 	x: 30,
+		// 	duration: 0.3,
+		// 	delay: 0.1,
+		// 	ease: 'power2.out'
+		// });
 		t3.from(element2.querySelector('.solution-header'), {
 			opacity: 0,
 			x: 30,
@@ -359,15 +332,15 @@ const IndexPage = () => {
 						/>
 					</RightItem>
 					<HeaderWrapper ref={ref2} className='hero'>
-						<h1>Masz dość nieskutecznych suplementów?</h1>
-						<p>Kupujesz i nie widzisz że działają?</p>
-						<p>Zdrowie Twojego zwierzęcia ma być widoczne</p>
-					</HeaderWrapper>
+						<h1>{data.allContentfulHero.nodes[0].title}</h1>
+						<p>{data.allContentfulHero.nodes[0].subtitle}</p>
+						<p>{data.allContentfulHero.nodes[0].subtitlebottom}</p>
+					</HeaderWrapper> 
 					<HeroImage>
-						<img className='d-lg-none' src={hero} alt='' />
+						<img className='d-lg-none' src={data.allContentfulHero.nodes[0].heroImageMobile.url} alt='' />
 						<img
 							className='d-none d-lg-block'
-							src={heroDesktop}
+							src={data.allContentfulHero.nodes[0].image.url}
 							alt=''
 						/>
 					</HeroImage>
@@ -380,36 +353,27 @@ const IndexPage = () => {
 							className='d-none dog-image d-md-flex align-items-center'
 							xs='12'
 							md='6'>
-							<ImageDogProblem src={dogProblem2} alt='' />
+							<ImageDogProblem src={data.allContentfulProblem.nodes[0].image.url} alt='' />
 						</Col>
 						<Col xs='12' md='5'>
 							<h2 className='idea-header'>
-								Problem <TitleIcon src={bell} alt='' />
+							{data.allContentfulProblem.nodes[0].title} <TitleIcon src={bell} alt='' />
 							</h2>
 							<ImageDogProblem
 								className='d-md-none'
-								src={dogProblem2}
+								src={data.allContentfulProblem.nodes[0].image.url}
 								alt=''
 							/>
 							<span className='text-end text-md-start'>
-								Czy wiesz, że...
+							{data.allContentfulProblem.nodes[0].smallSubtitle}
 							</span>
 							<h3 className='idea-subheader'>
-								Zdrowe jelita są kluczem do ogólnego zdrowia
-								Twojego zwierzaka?
+							{data.allContentfulProblem.nodes[0].subtitle}
 							</h3>
 							<p className='idea-content'>
-								Nieodpowiednie odżywianie i brak wsparcia dla
-								zdrowia jelit mogą spowodować trudności w
-								trawieniu pokarmu, słaby apetyt i pobranie wody
-								lub problemy ze skórą i sierścią.
+							{data.allContentfulProblem.nodes[0].contentFirst} 
 								<br />
-								<br />W wielu przypadkach stosowanie suplementów
-								nie przynosi oczekiwanych rezultatów ponieważ
-								ich strawnoś jest ograniczona przez obniżoną
-								funkcjonalność jelit. W efekcie podajemy
-								suplementy, których organizm zwierzęcia nie może
-								wykorzystać.
+								<br />{data.allContentfulProblem.nodes[0].contentSecond} 
 							</p>
 						</Col>
 					</Row>
@@ -418,38 +382,34 @@ const IndexPage = () => {
 					<Row>
 						<Col xs='12' md='6'>
 							<IdeaTitleSolution className='solution-header'>
-								Rozwiązanie <TitleIcon src={bulb} alt='' />
+							{data.allContentfulRozwiazanie.nodes[0].title} <TitleIcon src={bulb} alt='' />
 							</IdeaTitleSolution>
 							<IdeaWrapperInner>
-								<div>
+								<div className="text-container">
 									<IdeaHeaderSolution className='solution-subheader'>
-										DeliGuard to innowacyjne podejście do
-										żywienia Twojego pupila.
+									{data.allContentfulRozwiazanie.nodes[0].subtitle}
 									</IdeaHeaderSolution>
 									<IdeaParagraph className='solution-content'>
-										Zawiera produkty wytwarzane przez
-										dobroczynne bakterie Bacillus subtilis,
-										które usprawniają pracę jelit,
-										wspomagają naturalne procesy obronne
-										organizmu oraz przyswajanie składników
-										odżywczych z pokarmu.
+									{data.allContentfulRozwiazanie.nodes[0].content}
 									</IdeaParagraph>
 								</div>
+								<div className="image-container">
 								<IdeaBottleImage
 									className='d-md-none'
-									src={bottleHomePage}
+									src={data.allContentfulRozwiazanie.nodes[0].imageMobile.url} 
 									alt=''
 								/>
+								</div>
+								
 							</IdeaWrapperInner>
 							<LearnMoreWrapper className='d-none d-lg-block'>
 								<h3>
-									Dowiedz się więcej o DeliGuard i
-									postbiotykach
+								{data.allContentfulRozwiazanie.nodes[0].buttonTitle}
 								</h3>
 								<Link
 									to='/o-produkcie'
 									className='solution-button'>
-									Przeczytaj o produkcie
+								{data.allContentfulRozwiazanie.nodes[0].button}
 								</Link>
 								{/* <p>
 									DeliGuard to efekt badań naszych ekspertów i
@@ -462,18 +422,19 @@ const IndexPage = () => {
 								<a href=''>Pobierz e-book</a> */}
 							</LearnMoreWrapper>
 						</Col>
-						<Col className='d-none d-md-block' xs='12' md='6'>
+						<Col className='d-none d-md-flex' xs='12' md='6'>
 							<IdeaBottleImage
 								className='solution-image'
-								src={bottleDesktop}
+								src={data.allContentfulRozwiazanie.nodes[0].image.url}
 								alt=''
 							/>
 						</Col>
 					</Row>
 				</IdeaWrapper>
 				<LearnMoreWrapper className='d-lg-none'>
-					<h3>Dowiedz się więcej o DeliGuard i postbiotykach</h3>
-					<Link>Przeczytaj o produkcie</Link>
+					<h3>{data.allContentfulRozwiazanie.nodes[0].buttonTitle}</h3>
+					<Link>{data.allContentfulRozwiazanie.nodes[0].button}</Link>
+				
 					{/* <p>
 						DeliGuard to efekt badań naszych ekspertów i tą wiedzą
 						chcemy się z Tobą podzielić.
@@ -488,14 +449,13 @@ const IndexPage = () => {
 			<TestSection>
 				<TestWrapper>
 					{/* <ImageTest src={pipeta} alt='' /> */}
-					<h2>Badania przeprowadzone przez ekspertów BioDose </h2>
+					<h2>{data.allContentfulBadania.nodes[0].title} </h2>
 					<TestContainer>
 						<p>
-							potwierdzają, że DeliGuard skutecznie poprawia
-							kondycję zwierząt, co jest szybko zauważalne.
+						{data.allContentfulBadania.nodes[0].subtitle}
 						</p>
 						<h3>Sprawdź rezultaty badań:</h3>
-						<Link to='/nasze-badania'>Nasze badania</Link>
+						<Link to='/nasze-badania'>{data.allContentfulBadania.nodes[0].button}</Link>
 					</TestContainer>
 				</TestWrapper>
 			</TestSection>
@@ -509,20 +469,21 @@ const IndexPage = () => {
 							<EffectHeader>
 								<img src={eye} alt='' />
 								<div>
-									<h2>Zastosuj DeliGuard</h2>
-									<p>u swojego zwierzaka</p>
+									<h2>{data.allContentfulZastosujDeliguard.nodes[0].title}</h2>
+								
+									<p>{data.allContentfulZastosujDeliguard.nodes[0].subtitle}</p>
 								</div>
 							</EffectHeader>
 						</Col>
 						<Col md='3'>
 							<EffectImage
 								className='d-none d-xl-block'
-								src={effectImagee}
+								src={data.allContentfulZastosujDeliguard.nodes[0].image.url}
 								alt=''
 							/>
 							<EffectImage
 								className='d-xl-none'
-								src={effectImagee}
+								src={data.allContentfulZastosujDeliguard.nodes[0].image.url}
 								alt=''
 							/>
 						</Col>
@@ -532,11 +493,11 @@ const IndexPage = () => {
 									<Col>
 										<EffectItemReverse>
 											<p className='first-paragraph'>
-												Lepsze pobranie wody i karmy
+											{data.allContentfulZastosujDeliguard.nodes[0].firstEffectItem}
 											</p>
 											<img
 												className='first-icon'
-												src={effectItem3}
+												src={data.allContentfulZastosujDeliguard.nodes[0].firstEffectItemImage.url}
 												alt=''
 											/>
 										</EffectItemReverse>
@@ -547,22 +508,22 @@ const IndexPage = () => {
 										<EffectItem>
 											<img
 												className='second-icon'
-												src={effectItem2}
+												src={data.allContentfulZastosujDeliguard.nodes[0].secondEffectItemImage.url}
 												alt=''
 											/>
 											<p className='second-paragraph'>
-												Zdrową i lśniącą sierść
+											{data.allContentfulZastosujDeliguard.nodes[0].secondEffectItem}
 											</p>
 										</EffectItem>
 									</Col>
 									<Col md='6'>
 										<EffectItemReverse>
 											<p className='third-paragraph'>
-												Poprawę trawienia
+											{data.allContentfulZastosujDeliguard.nodes[0].thirdEffectItem}
 											</p>
 											<img
 												className='third-icon'
-												src={effectItem}
+												src={data.allContentfulZastosujDeliguard.nodes[0].thirdEffectItemImage.url}
 												alt=''
 											/>
 										</EffectItemReverse>
@@ -581,194 +542,217 @@ const IndexPage = () => {
 					<DosageRightItem>
 						<img src={item7} alt='' />
 					</DosageRightItem>
-					<h2>Dawkowanie</h2>
+					<h2>{data.allContentfulDawkowanie.nodes[0].title}</h2>
 					<DosageSubheader>
-						Oceń wielkość swojego zwierzaka i dowiedz się ile kropli
-						mu podać
+					{data.allContentfulDawkowanie.nodes[0].subtitle}
 					</DosageSubheader>
 					<Row>
-						<Col lg='6'>
-							<h3>Koty</h3>
-							<div>
-								<div className='transition-container'>
-									<div
-										className={`step-content ${
-											currentStep === 1 ? 'active' : ''
-										}`}>
-										<img src={smallCat} alt='Step 1' />
-										<h4>{'Mały (< 5 kg)'}</h4>
-										<p>
-											<img src={drop} alt='' />
-											<span>
-												Dawkowanie: 2 kropli na dzień
-											</span>
-										</p>
-									</div>
-									<div
-										className={`step-content ${
-											currentStep === 2 ? 'active' : ''
-										}`}>
-										<img src={mediumCat} alt='Step 2' />
-										<h4>{'Średni (5 -10 kg)'}</h4>
-										<p>
-											<img src={drop} alt='' />
-											<span>
-												Dawkowanie: 5 kropli na dzień
-											</span>
-										</p>
-									</div>
-									<div
-										className={`step-content ${
-											currentStep === 3 ? 'active' : ''
-										}`}>
-										<img src={bigCat} alt='Step 3' />
-										<h4>{'Duży (>10 kg)'}</h4>
-										<p>
-											<img src={drop} alt='' />
-											<span>
-												Dawkowanie: 7 kropli na dzień
-											</span>
-										</p>
-									</div>
-								</div>
-								<RangeContainer>
-									<input
-										type='range'
-										min='1'
-										max='3'
-										step='1'
-										className='cat-input'
-										value={currentStep}
-										onChange={handleStepChange}
-										style={{
-											'--dark-color': darkColor,
-											'--light-color': lightColor,
-											'--bg-progress': bgProgress
-										}}
-									/>
-									<div className='dots-container'>
-										<div
-											className='dot'
-											style={{
-												'--dark-color': darkColor,
-												'--light-color': lightColor,
-												'--bg-progress': bgProgress
-											}}></div>
-										<div
-											className='dot'
-											style={{
-												'--dark-color': darkColor,
-												'--light-color': lightColor,
-												'--bg-progress': bgProgress
-											}}></div>
-										<div
-											className='dot'
-											style={{
-												'--dark-color': darkColor,
-												'--light-color': lightColor,
-												'--bg-progress': bgProgress
-											}}></div>
-									</div>
-								</RangeContainer>
-							</div>
-						</Col>
-						<Col lg='6'>
-							<h3>Psy</h3>
-							<div>
-								<div className='transition-container-dog'>
-									<div
-										className={`step-content ${
-											currentStepDog === 1 ? 'active' : ''
-										}`}>
-										<img src={smallDog} alt='Step 1' />
-										<h4>{'Mały (< 10 kg)'}</h4>
-										<p>
-											<img src={drop} alt='' />
-											<span>
-												Dawkowanie: 3 kropli na dzień
-											</span>
-										</p>
-									</div>
-									<div
-										className={`step-content ${
-											currentStepDog === 2 ? 'active' : ''
-										}`}>
-										<img src={mediumDog} alt='Step 2' />
-										<h4>{'Średni (10 -30 kg)'}</h4>
-										<p>
-											<img src={drop} alt='' />
-											<span>
-												Dawkowanie: 5 kropli na dzień
-											</span>
-										</p>
-									</div>
-									<div
-										className={`step-content ${
-											currentStepDog === 3 ? 'active' : ''
-										}`}>
-										<img src={bigDog} alt='Step 3' />
-										<h4>{'Duży (>30 kg)'}</h4>
-										<p>
-											<img src={drop} alt='' />
-											<span>
-												Dawkowanie: 7 kropli na dzień
-											</span>
-										</p>
-									</div>
-								</div>
-								<RangeContainer>
-									<input
-										type='range'
-										min='1'
-										max='3'
-										step='1'
-										className='dog-input'
-										value={currentStepDog}
-										onChange={handleStepDogChange}
-										style={{
-											'--dark-color': darkColor,
-											'--light-color': lightColor,
-											'--bg-progress-dog': bgProgressDog
-										}}
-									/>
-									<div className='dots-container'>
-										<div
-											className='dot-dog'
-											style={{
-												'--dark-color': darkColor,
-												'--light-color': lightColor,
-												'--bg-progress-dog':
-													bgProgressDog
-											}}></div>
-										<div
-											className='dot-dog'
-											style={{
-												'--dark-color': darkColor,
-												'--light-color': lightColor,
-												'--bg-progress-dog':
-													bgProgressDog
-											}}></div>
-										<div
-											className='dot-dog'
-											style={{
-												'--dark-color': darkColor,
-												'--light-color': lightColor,
-												'--bg-progress-dog':
-													bgProgressDog
-											}}></div>
-									</div>
-								</RangeContainer>
-							</div>
-						</Col>
-					</Row>
-					<InstructionButton>Instrukcja użycia</InstructionButton>
+  <Col lg='6'>
+    <div className='text-container'>
+      <h3>{data.allContentfulDawkowanie.nodes[0].catTitile}</h3>
+      <div className='transition-container'>
+        <div
+          className={`step-content ${
+            currentStep === 1 ? 'active' : ''
+          }`}>
+			<div className="image-wrapper">
+          <img src={data.allContentfulDawkowanie.nodes[0].smallCatImage.url} alt='Step 1' />
+          </div>
+		<div className='step-text'>
+            <h4>{data.allContentfulDawkowanie.nodes[0].smallCatWeight}</h4>
+            <p>
+              <img src={drop} alt='' />
+              <span>
+                {data.allContentfulDawkowanie.nodes[0].smallCatDosage}
+              </span>
+            </p>
+          </div>
+        </div>
+        <div
+          className={`step-content ${
+            currentStep === 2 ? 'active' : ''
+          }`}>
+			<div className="image-wrapper">
+          <img src={data.allContentfulDawkowanie.nodes[0].mediumCatImage.url} alt='Step 2' />
+          </div>
+		<div className='step-text'>
+            <h4>{data.allContentfulDawkowanie.nodes[0].mediumCatWeight}</h4>
+            <p>
+              <img src={drop} alt='' />
+              <span>
+                {data.allContentfulDawkowanie.nodes[0].mediumCatDosage}
+              </span>
+            </p>
+          </div>
+        </div>
+        <div
+          className={`step-content ${
+            currentStep === 3 ? 'active' : ''
+          }`}>
+			<div className="image-wrapper">
+          <img src={data.allContentfulDawkowanie.nodes[0].bigCatImage.url} alt='Step 3' />
+		</div>
+	     <div className='step-text'>
+            <h4>{data.allContentfulDawkowanie.nodes[0].bigCatWeight}</h4>
+            <p>
+              <img src={drop} alt='' />
+              <span>
+                {data.allContentfulDawkowanie.nodes[0].bigCatDosage}
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <RangeContainer>
+        <input
+          type='range'
+          min='1'
+          max='3'
+          step='1'
+          className='cat-input'
+          value={currentStep}
+          onChange={handleStepChange}
+          style={{
+            '--dark-color': darkColor,
+            '--light-color': lightColor,
+            '--bg-progress': bgProgress
+          }}
+        />
+        <div className='dots-container'>
+          <div
+            className='dot'
+            style={{
+              '--dark-color': darkColor,
+              '--light-color': lightColor,
+              '--bg-progress': bgProgress
+            }}></div>
+          <div
+            className='dot'
+            style={{
+              '--dark-color': darkColor,
+              '--light-color': lightColor,
+              '--bg-progress': bgProgress
+            }}></div>
+          <div
+            className='dot'
+            style={{
+              '--dark-color': darkColor,
+              '--light-color': lightColor,
+              '--bg-progress': bgProgress
+            }}></div>
+        </div>
+      </RangeContainer>
+    </div>
+  </Col>
+  <Col lg='6'>
+    <div className='text-container'>
+      <h3>{data.allContentfulDawkowanie.nodes[0].dogTitle}</h3>
+      <div className='transition-container-dog'>
+        <div
+          className={`step-content ${
+            currentStepDog === 1 ? 'active' : ''
+          }`}>
+			<div className="image-wrapper">
+          <img src={data.allContentfulDawkowanie.nodes[0].smallDogImage.url} alt='Step 1' />
+		</div>
+          <div className='step-text'>
+            <h4>{data.allContentfulDawkowanie.nodes[0].smallDogWeight}</h4>
+            <p>
+              <img src={drop} alt='' />
+              <span>
+                {data.allContentfulDawkowanie.nodes[0].smallDogDosage}
+              </span>
+            </p>
+          </div>
+        </div>
+        <div
+          className={`step-content ${
+            currentStepDog === 2 ? 'active' : ''
+          }`}>
+			<div className="image-wrapper">
+          <img src={data.allContentfulDawkowanie.nodes[0].mediumDogImage.url} alt='Step 2' />
+		</div>
+          <div className='step-text'>
+            <h4>{data.allContentfulDawkowanie.nodes[0].mediumDogWeight}</h4>
+            <p>
+              <img src={drop} alt='' />
+              <span>
+                {data.allContentfulDawkowanie.nodes[0].mediumDogDosage}
+              </span>
+            </p>
+          </div>
+        </div>
+        <div
+          className={`step-content ${
+            currentStepDog === 3 ? 'active' : ''
+          }`}>
+			<div className="image-wrapper">
+          <img src={data.allContentfulDawkowanie.nodes[0].bigDogImage.url} alt='Step 3' />
+		</div>
+          <div className='step-text'>
+            <h4>{data.allContentfulDawkowanie.nodes[0].bigDogWeight}</h4>
+            <p>
+              <img src={drop} alt='' />
+              <span>
+                {data.allContentfulDawkowanie.nodes[0].bigDogDosage}
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <RangeContainer>
+        <input
+          type='range'
+          min='1'
+          max='3'
+          step='1'
+          className='dog-input'
+          value={currentStepDog}
+          onChange={handleStepDogChange}
+          style={{
+            '--dark-color': darkColor,
+            '--light-color': lightColor,
+            '--bg-progress-dog': bgProgressDog
+          }}
+        />
+        <div className='dots-container'>
+          <div
+            className='dot-dog'
+            style={{
+              '--dark-color': darkColor,
+              '--light-color': lightColor,
+              '--bg-progress-dog':
+                bgProgressDog
+            }}></div>
+          <div
+            className='dot-dog'
+            style={{
+              '--dark-color': darkColor,
+              '--light-color': lightColor,
+              '--bg-progress-dog':
+                bgProgressDog
+            }}></div>
+          <div
+            className='dot-dog'
+            style={{
+              '--dark-color': darkColor,
+              '--light-color': lightColor,
+              '--bg-progress-dog':
+                bgProgressDog
+            }}></div>
+        </div>
+      </RangeContainer>
+    </div>
+  </Col>
+</Row>
+
+					<InstructionButton>{data.allContentfulDawkowanie.nodes[0].button}</InstructionButton>
 				</DosageWrapper>
 			</DosageSection>
 			<ReviewSection>
 				<ReviewWrapper>
 					<h2>
-						Nasi zadowoleni nabywcy potwierdzają skuteczność
-						DeliGuard:
+						{data.allContentfulReviewTitle.nodes[0].title}
 					</h2>
 					<div>
 						<Swiper
@@ -784,6 +768,7 @@ const IndexPage = () => {
 							}}
 							pagination={{ clickable: true }}
 							slidesPerView={1}>
+	
 							{slides.map((slide, index) => (
 								<SwiperSlide key={index}>
 									<SlideContainer>
@@ -846,129 +831,33 @@ const IndexPage = () => {
 					<FaqRightItem>
 						<img src={item9} alt='' />
 					</FaqRightItem>
-					<h2>FAQ</h2>
+					<h2>{data.allContentfulFaqTitle.nodes[0].title}</h2>
+				
 					<Row>
 						<Col>
 							<Accordion defaultActiveKey='0'>
-								<Accordion.Item eventKey='0'>
+								{accordionFaq.map((element, index)=> (
+									<Accordion.Item  key={index} eventKey={index}>
 									<Accordion.Header>
-										Czym różnią się postbiotyki od pro- i
-										prebiotyków?
+									{element.question}
 									</Accordion.Header>
 									<Accordion.Body>
-										Prebiotyki to składniki odżywcze dla
-										bakterii jelitowych np. błonnik,
-										oligosacharydy, inulina, które działają
-										w jelitach i odżywiają gromadzące się
-										tam bakterie.Probiotyki to
-										wyselekcjonowane bakterie kwasu
-										mlekowego tj. Lactobacillus czy
-										Bifidobacterium, które mają pozytywny
-										wpływ na układ pokarmowy.Postbiotyki to
-										substancje wytwarzane przez bakterie
-										probiotyczne, które pozytywnie modulują
-										mikrobiom jelitowy.Probiotyki wymagają
-										odpowiednich warunków do namnażania i
-										wzrostu. Niestety, wiele czynników,
-										takich jak dieta, antybiotyki, choroby
-										czy pasożyty, może zmniejszać
-										skuteczność rozwoju probiotyków i
-										produkcji pozytywnych substancji. W
-										przypadku stosowania postbiotyków
-										dostarczane są gotowe substancje, które
-										bezpośrednio wspierają rozwój bakterii
-										probiotycznych lub naturalnego
-										mikrobiomu jelitowego (w profilaktyce).
+									{element.answear}
 									</Accordion.Body>
 								</Accordion.Item>
-								<Accordion.Item eventKey='1'>
-									<Accordion.Header>
-										Czy DeliGuard można podawać zamiast
-										antybiotyków?
-									</Accordion.Header>
-									<Accordion.Body>
-										Postbiotyki pozytywnie wpływają na
-										poprawę odporności, funkcjonowanie
-										układu pokarmowego i zmniejszenie stanu
-										zapalnego. Jednak przy silnej infekcji
-										bakteryjnej postbiotyki nie są
-										wystarczające. Nie zalecamy podawania
-										postbiotyków zamiast antybiotyków, ale
-										jako dodatkową pomoc i wsparcie w
-										procesie leczenia.
-									</Accordion.Body>
-								</Accordion.Item>
-								<Accordion.Item eventKey='2'>
-									<Accordion.Header>
-										Jak DeliGuard wpływa na regulację pracy
-										przewodu pokarmowego?
-									</Accordion.Header>
-									<Accordion.Body>
-										Wspólnym działaniem wszystkich biotyków
-										jest przede wszystkim odbudowa
-										mikrobiomu jelitowego i regeneracja
-										bariery jelitowej, której zadaniem jest
-										kontrola dopływu składników odżywczych,
-										witamin, minerałów i innych substancji
-										niezbędnych do prawidłowego metabolizmu.
-									</Accordion.Body>
-								</Accordion.Item>
-								<Accordion.Item eventKey='3'>
-									<Accordion.Header>
-										Czy znane są skutki uboczne?
-									</Accordion.Header>
-									<Accordion.Body>
-										DeliGuard może powodować wzrost apetytu
-										u pewnej grupy zwierząt, jest to
-										szczególnie ważne dla właścicieli psów,
-										które mają tendencję do przejadania się.
-									</Accordion.Body>
-								</Accordion.Item>
-								<Accordion.Item eventKey='4'>
-									<Accordion.Header>
-										Jak to smakuje?
-									</Accordion.Header>
-									<Accordion.Body>
-										Czy zwierzę chętnie go zje?DeliGuard ma
-										lekko słony smak. Indywidualne
-										preferencje mogą uniemożliwić niektórym
-										zwierzętom picie wody z DeliGuard. W
-										takim przypadku można dodać DeliGuard do
-										suchej lub mokrej karmy.
-									</Accordion.Body>
-								</Accordion.Item>
-								<Accordion.Item eventKey='5'>
-									<Accordion.Header>
-										Czy DeliGuard może być podawany podczas
-										choroby jako forma wzmocnienia
-										osłabionego zwierzęcia?
-									</Accordion.Header>
-									<Accordion.Body>
-										Czy DeliGuard może być podawany
-										profilaktycznie?Zdecydowanie tak!
-										DeliGuard to postbiotyk - preparat
-										inaktywowanych mikroorganizmów i ich
-										składników (peptydów, witamin,
-										krótkołańcuchowych kwasów tłuszczowych,
-										enzymów, lipopolisacharydów,
-										egzopolisacharydów i nukleotydów), który
-										zapewnia korzyści zdrowotne dla
-										gospodarza. Poprawiając integralność
-										jelit, DeliGuard zmniejsza stan zapalny
-										i poprawia funkcjonowanie układu
-										odpornościowego.
-									</Accordion.Body>
-								</Accordion.Item>
+								))
+								}
+								
 							</Accordion>
 						</Col>
 						<Col xs='12'>
 							<div className='faq-button-container'>
 								<a href=''>
 									<img src={bag} alt='' />
-									<span>Przekonaj się sam</span>
+									<span>{data.allContentfulFaqTitle.nodes[0].button}</span>
 								</a>
 								<p className='paragraph-faq'>
-									i zobacz że DeliGuard działa
+								{data.allContentfulFaqTitle.nodes[0].textNearButton}
 								</p>
 							</div>
 						</Col>
@@ -977,43 +866,37 @@ const IndexPage = () => {
 			</FaqSection>
 			<SolutionsSection>
 				<SolutionsWrapper>
-					<h2>Rozwiązania dla biznesu</h2>
+					<h2>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].title}</h2>
 					<Row>
 						<Col lg='7'>
 							<h3>
-								Deliguard może działać jako cenne wsparcie dla:
+							{data.allContentfulRozwiazaniedlabiznesu.nodes[0].subtitle}
 							</h3>
 							<ul>
 								<li>
-									<h4>producentów karm</h4>
+									<h4>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].firstItemTitle}</h4>
 									<p>
 										<Icon src={plus} alt='' />{' '}
 										<span>
-											ponieważ może być dodawany do paszy
-											podczas jej produkcji.
+										{data.allContentfulRozwiazaniedlabiznesu.nodes[0].firstItemContent}
 										</span>
 									</p>
 								</li>
 								<li>
-									<h4>Lekarzy weterynarii</h4>
+									<h4>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].secondItemTitle}</h4>
 									<p>
 										<Icon src={plus} alt='' />{' '}
 										<span>
-											jako wsparcie w leczeniu biegunek o
-											nieznanej etiologii, a także
-											problemów trawiennych lub
-											dermatologicznych
+										{data.allContentfulRozwiazaniedlabiznesu.nodes[0].secondItemContent}
 										</span>
 									</p>
 								</li>
 								<li>
-									<h4>Handlu</h4>
+									<h4>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].thirdItemTitle}</h4>
 									<p>
 										<Icon src={plus} alt='' />{' '}
 										<span>
-											jako innowacyjny produkt i odpowiedź
-											na potrzeby właścicieli zwierząt
-											domowych
+										{data.allContentfulRozwiazaniedlabiznesu.nodes[0].thirdItemContent}
 										</span>
 									</p>
 								</li>
@@ -1021,18 +904,18 @@ const IndexPage = () => {
 							<Link to='/rozwiazanie-dla-biznesu'>
 								{' '}
 								<img src={buttonIcon} alt='' />{' '}
-								<span>Dowiedz się więcej</span>
+								<span>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].button}</span>
 							</Link>
 						</Col>
 						<Col lg='5'>
 							<SolutionImage
 								className='d-lg-none'
-								src={solutionMobile}
+								src={data.allContentfulRozwiazaniedlabiznesu.nodes[0].imageMobile.url}
 								alt=''
 							/>
 							<SolutionImage
 								className=' d-none d-lg-block'
-								src={solutionn}
+								src={data.allContentfulRozwiazaniedlabiznesu.nodes[0].image.url}
 								alt=''
 							/>
 						</Col>
@@ -1044,39 +927,37 @@ const IndexPage = () => {
 					<Row className='flex-lg-row-reverse'>
 						<Col xs='12' lg='6'>
 							<ContactInnerWrapper>
-								<h2>Kontakt</h2>
+								<h2>{data.allContentfulKontakt.nodes[0].title}</h2>
 								<h3>
 									W przypadku pytań prosimy o wiadomość na
 									adres
 								</h3>
-								<MailLink href=''>
+								<MailLink href='mailto:support@deliguard.net'>
 									<img src={mail} alt='' />
-									<span> support@deliguard.net</span>
+									<span>{data.allContentfulKontakt.nodes[0].mail}</span>
 								</MailLink>
 								<p>
-									Jeśli szukasz przydatnych wskazówek dla
-									właścicieli zwierząt domowych, będziemy
-									szczęśliwi, jeśli do nas dołączysz:{' '}
+								{data.allContentfulKontakt.nodes[0].content}
 								</p>
 								<Row>
 									<Col xs='12' lg='6'>
-										<SocialLink href=''>
-											<img src={ig} alt='' />{' '}
-											<span>deliguard.pets</span>
+										<SocialLink href={data.allContentfulKontakt.nodes[0].igButtonLink}>
+											<img src={ig} alt='' />
+											<span>{data.allContentfulKontakt.nodes[0].igButtonText}</span>
 										</SocialLink>
 									</Col>
 									<Col xs='12' lg='6'>
-										<SocialLink href=''>
+										<SocialLink href={data.allContentfulKontakt.nodes[0].fbButtonLink}>
 											<img src={fb} alt='' />{' '}
-											<span>deliguard.pets</span>
+											<span>{data.allContentfulKontakt.nodes[0].fbButtonText}</span>
 										</SocialLink>
 									</Col>
 								</Row>
 							</ContactInnerWrapper>
 						</Col>
 						<Col xs='12' lg='6'>
-							<ContactImg src={contactImage} alt='' />
-						</Col>
+							<ContactImg src={data.allContentfulKontakt.nodes[0].image.url} alt='' />
+						</Col>  
 					</Row>
 				</ContactWrapper>
 			</ContactSection>
@@ -1143,6 +1024,185 @@ const IndexPage = () => {
 	);
 };
 
-export const Head = () => <title>Home Page</title>;
 
+export const Head = () => <title>Strona Główna</title>;
+export const query = graphql`
+	
+		query MyQuery {
+  allContentfulHero {
+    nodes {
+      title
+      subtitle
+      subtitlebottom
+      image {
+		url
+      }
+      heroImageMobile {
+		url
+      }
+    }
+  }
+  allContentfulProblem {
+    nodes {
+      contentFirst
+      contentSecond
+      smallSubtitle
+      subtitle
+      title
+      image {
+		url
+      }
+    }
+  }
+  allContentfulRozwiazanie {
+    nodes {
+      button
+      buttonTitle
+      content
+      subtitle
+      title
+      image {
+		url
+      }
+      imageMobile {
+		url
+      }
+    }
+  }
+  allContentfulBadania {
+    nodes {
+      button
+      subtitle
+      title
+    }
+  }
+  allContentfulZastosujDeliguard {
+    nodes {
+      title
+      subtitle
+      image {
+		url
+      }
+      firstEffectItemImage {
+		url
+      }
+      firstEffectItem
+      secondEffectItem
+      secondEffectItemImage {
+		url
+      }
+      thirdEffectItem
+      thirdEffectItemImage {
+		url
+      }
+    }
+  }
+  allContentfulDawkowanie {
+    nodes {
+      title
+      subtitle
+      catTitile
+      smallCatImage {
+		url
+      }
+      smallCatWeight
+      smallCatDosage
+      mediumCatImage {
+		url
+      }
+      mediumCatWeight
+      mediumCatDosage
+      bigCatImage {
+		url
+      }
+      bigCatWeight
+      bigCatDosage
+      dogTitle
+      smallDogImage {
+		url
+      }
+      smallDogWeight
+      smallDogDosage
+      mediumDogImage {
+		url
+      }
+      mediumDogWeight
+      mediumDogDosage
+      bigDogImage {
+		url
+      }
+      bigDogWeight
+      bigDogDosage
+      button
+    }
+  }
+  allContentfulReviewTitle {
+    nodes {
+      title
+    }
+  }
+  allContentfulOpinie {
+    nodes {
+      image {
+		url
+      }
+      name
+      owner
+      content {
+        content
+      }
+      breed
+    }
+  }
+  allContentfulFaqTitle {
+    nodes {
+      title
+	 textNearButton
+      button
+    }
+  }
+  allContentfulFaq {
+    nodes {
+      question
+      answear {
+        answear
+      }
+    }
+  }
+  allContentfulRozwiazaniedlabiznesu {
+    nodes {
+      button
+      firstItemContent
+      firstItemTitle
+      image {
+		url
+      }
+      imageMobile {
+		url
+      }
+      secondItemContent
+      secondItemTitle
+      thirdItemContent
+      thirdItemTitle
+      subtitle
+      title
+    }
+  }
+  allContentfulKontakt {
+    nodes {
+      content
+      fbButtonLink
+      fbButtonText
+      igButtonLink
+      igButtonText
+      title
+      mail
+      image {
+		url
+      }
+    }
+  }
+}
+
+`;
 export default IndexPage;

@@ -11,16 +11,17 @@ import {
 } from '../assets/styles/pages/Navbar.styles';
 import menu from '../assets/images/menu.svg';
 import close from '../assets/images/close.svg';
-import logo from '../assets/images/logo.png';
+import logo from '../assets/images/newLogo.svg';
 import logoText from '../assets/images/logoText.png';
 import ig from '../assets/images/insta.svg';
 import fb from '../assets/images/fb.svg';
 import yt from '../assets/images/yt.svg';
 
+
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
 
-	const toggleNavigation = () => {
+	const toggleNavigation = () => { 
 		setIsOpen(!isOpen);
 	};
 
@@ -47,8 +48,8 @@ const Navbar = () => {
 							Rozwiązanie dla biznesu{' '}
 						</Link>
 					</li>
-					<li>
-						<Button>Spróbuj</Button>
+					<li> 
+						<Button href="https://allegro.pl/oferta/suplement-dla-psa-i-kota-na-trawienie-deliguard-14236919045">Spróbuj</Button>
 					</li>
 					<SocialWrapper isOpen={isOpen}>
 						<a href=''>
@@ -64,7 +65,8 @@ const Navbar = () => {
 				</List>
 			</Navigation>
 		</Header>
-	);
+	); 
 };
 
 export default Navbar;
+

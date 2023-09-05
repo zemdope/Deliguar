@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../components/Layout';
+import { graphql } from 'gatsby';
 import product from '../assets/images/product.png';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -38,7 +39,7 @@ import plus from '../assets/images/plus.svg';
 import plus2 from '../assets/images/plus2.svg';
 import item16 from '../assets/images/item16.svg';
 import item17 from '../assets/images/item17.svg';
-import buttonIcon from '../assets/images/buttonIcon.png';
+import buttonIcon from '../assets/images/buttonIcon.svg';
 import solutionDesktop from '../assets/images/solutionImageDesktop.png';
 import solutionMobile from '../assets/images/solutionMobile.svg';
 import solutionn from '../assets/images/solutionn.svg';
@@ -52,30 +53,23 @@ import {
 	SolutionsSection
 } from '../assets/styles/pages/Index.styles';
 
-const AboutProduct = () => {
+const AboutProduct = ({data}) => {
 	return (
 		<Layout>
 			<AboutProductHero>
 				<Row className='hero-wrapper d-md-none'>
-					<h1>O produkcie</h1>
+					<h1>{data.allContentfulOpHero.nodes[0].title}</h1>
 					<Col>
-						<ImageBottle src={newBottle} alt='' />
+						<ImageBottle src={data.allContentfulOpHero.nodes[0].image.file.url} alt='' />
 
 						<ParagraphTop>
-							DeliGuard to postbiotyk <img src={plus2} alt='' />
+						{data.allContentfulOpHero.nodes[0].subtitlebeforeplus}<img src={plus2} alt='' />
 							<br />
-							produkowany przez dobroczynne bakterie Bacillus
-							subtilis, który ułatwia neutralizację toksyn i
-							stymuluje naturalne procesy obronne organizmu.
+							{data.allContentfulOpHero.nodes[0].subtitleafterplus}
 						</ParagraphTop>
 						<Paragraph>
 							<img src={plus2} alt='' />
-							Postbiotyk - bioaktywnyprodukt
-							zawierającyinaktywowane szczepyprobiotyczne i ich
-							metabolity, które podawane w odpowiednich ilościach
-							stymulują mikrobiom jelitowy, mają działanie
-							immunomodulujące i promują zdrowie i dobre
-							samopoczucie organizmu.
+							{data.allContentfulOpHero.nodes[0].content}
 						</Paragraph>
 					</Col>
 				</Row>
@@ -84,28 +78,20 @@ const AboutProduct = () => {
 						<img src={item16} alt='' />
 					</LeftItem>
 					<Col md='6'>
-						<h1>O produkcie</h1>
+						<h1>{data.allContentfulOpHero.nodes[0].title}</h1>
 						<ParagraphTop>
-							DeliGuard to postbiotyk <img src={plus2} alt='' />{' '}
-							<br /> produkowany przez dobroczynne bakterie
-							Bacillus subtilis, który ułatwia neutralizację
-							toksyn i stymuluje naturalne procesy obronne
-							organizmu.
+						{data.allContentfulOpHero.nodes[0].subtitlebeforeplus} <img src={plus2} alt='' />{' '}
+							<br /> {data.allContentfulOpHero.nodes[0].subtitleafterplus}
 						</ParagraphTop>
 						<Paragraph>
 							<img src={plus2} alt='' />
-							Postbiotyk - bioaktywnyprodukt
-							zawierającyinaktywowane szczepyprobiotyczne i ich
-							metabolity, które podawane w odpowiednich ilościach
-							stymulują mikrobiom jelitowy, mają działanie
-							immunomodulujące i promują zdrowie i dobre
-							samopoczucie organizmu.
+							{data.allContentfulOpHero.nodes[0].content}
 						</Paragraph>
 					</Col>
 					<Col
 						md='6'
 						className='d-flex d-xl-block align-items-center'>
-						<ImageBottle src={newBottle} alt='' />
+						<ImageBottle src={data.allContentfulOpHero.nodes[0].image.file.url} alt='' />
 					</Col>
 				</Row>
 			</AboutProductHero>
@@ -116,55 +102,54 @@ const AboutProduct = () => {
 					</RightItem>
 					<Row>
 						<Col>
-							<h2>Zastosuj DeliGuard po 10 dniach</h2>
+							<h2>{data.allContentfulOpZastosuj.nodes[0].title}</h2>
 						</Col>
 					</Row>
 					<Row className='effect-content-wrapper'>
 						<Col md='6' lg='7'>
 							<SerumImage
 								className='d-none d-lg-block'
-								src={bottle3}
+								src={data.allContentfulOpZastosuj.nodes[0].image.url}
 								alt=''
 							/>
 							<SerumImage
 								className='d-lg-none'
-								src={bottle3}
+								src={data.allContentfulOpZastosuj.nodes[0].image.url}
 								alt=''
 							/>
-						</Col>
+						</Col> 
 						<Col xs='12' md='6' lg='5' className='effect-container'>
 							<Row>
 								<Col xs='12'>
 									<Wrapper>
-										<img src={effectItem3} alt='' />
+										<img src={data.allContentfulOpZastosuj.nodes[0].firstIcon.url} alt='' />
 
-										<p>Lepsze pobranie wody i karmy</p>
+										<p>{data.allContentfulOpZastosuj.nodes[0].firstIconText}</p>
 									</Wrapper>
 								</Col>
 								<Col xs='12'>
 									<WrapperReverse className='wrapper-effect-reverse'>
-										<img src={effectItem2} alt='' />
-										<p>Zdrową i lśniącą sierść</p>
+										<img src={data.allContentfulOpZastosuj.nodes[0].secondIcon.url} alt='' />
+										<p>{data.allContentfulOpZastosuj.nodes[0].secondIconText}</p>
 									</WrapperReverse>
 								</Col>
 								<Col xs='12'>
 									<Wrapper className='wrapper-effect'>
-										<img src={effectItem} alt='' />
-										<p>Poprawę trawienia</p>
+										<img src={data.allContentfulOpZastosuj.nodes[0].thidIcon.url} alt='' />
+										<p>{data.allContentfulOpZastosuj.nodes[0].thirdIconText}</p>
 									</Wrapper>
 								</Col>
 								<Col xs='12'>
 									<WrapperReverse className='wrapper-effect-reverse'>
-										<img src={plaster} alt='' />
-										<p>Szybsza odbudowa ran</p>
+										<img src={data.allContentfulOpZastosuj.nodes[0].fourthIcon.url} alt='' />
+										<p>{data.allContentfulOpZastosuj.nodes[0].fourthIcontext}</p>
 									</WrapperReverse>
 								</Col>
 								<Col xs='12'>
 									<Wrapper>
-										<img src={zab} alt='' />
+										<img src={data.allContentfulOpZastosuj.nodes[0].fifthIcon.url} alt='' />
 										<p>
-											Mniejsze nagromadzanie kamienia
-											nazębnego
+										{data.allContentfulOpZastosuj.nodes[0].fifthIconText}
 										</p>
 									</Wrapper>
 								</Col>
@@ -177,16 +162,14 @@ const AboutProduct = () => {
 				<TestsWrapper>
 					<Row>
 						<Col xs='12' md='6'>
-							<h2>Nasze badania</h2>
-							<Subheader>Zobacz nasze osiągnięcia</Subheader>
+							<h2>{data.allContentfulOpNaszeBadania.nodes[0].title}</h2>
+							<Subheader>{data.allContentfulOpNaszeBadania.nodes[0].subtitle}</Subheader>
 							<Content>
-								Badania przeprowadzone przez ekspertów BioDose
-								potwierdzają, że DeliGuard skutecznie poprawia
-								kondycję zwierząt, co jest szybko zauważalne
+							{data.allContentfulOpNaszeBadania.nodes[0].content}
 							</Content>
 							<ButtonWrapper>
-								<Link to='/nasze-badania'>Sprawdź</Link>
-								<p>Rezultaty Naszych badań</p>
+								<Link to='/nasze-badania'>{data.allContentfulOpNaszeBadania.nodes[0].button}</Link>
+								<p>{data.allContentfulOpNaszeBadania.nodes[0].nearButtonText}</p>
 							</ButtonWrapper>
 							<ButtonWrapper className='d-md-none'>
 								<Link>
@@ -197,50 +180,44 @@ const AboutProduct = () => {
 							</ButtonWrapper>
 						</Col>
 						<Col xs='12' md='6'>
-							<ImageSection src={testsImage} alt='' />
+							<ImageSection src={data.allContentfulOpNaszeBadania.nodes[0].image.url} alt='' />
 						</Col>
 					</Row>
 				</TestsWrapper>
 			</TestsSection>
 			<SolutionsSection>
 				<SolutionsWrapper>
-					<h2>Rozwiązania dla biznesu</h2>
+					<h2>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].title}</h2>
 					<Row>
 						<Col lg='7'>
 							<h3>
-								Deliguard może działać jako cenne wsparcie dla:
+							{data.allContentfulRozwiazaniedlabiznesu.nodes[0].subtitle}
 							</h3>
 							<ul>
 								<li>
-									<h4>producentów karm</h4>
+									<h4>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].firstItemTitle}</h4>
 									<p>
 										<Icon src={plus} alt='' />{' '}
 										<span>
-											ponieważ może być dodawany do paszy
-											podczas jej produkcji.
+										{data.allContentfulRozwiazaniedlabiznesu.nodes[0].firstItemContent}
 										</span>
 									</p>
 								</li>
 								<li>
-									<h4>Lekarzy weterynarii</h4>
+									<h4>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].secondItemTitle}</h4>
 									<p>
 										<Icon src={plus} alt='' />{' '}
 										<span>
-											jako wsparcie w leczeniu biegunek o
-											nieznanej etiologii, a także
-											problemów trawiennych lub
-											dermatologicznych
+										{data.allContentfulRozwiazaniedlabiznesu.nodes[0].secondItemContent}
 										</span>
 									</p>
 								</li>
 								<li>
-									<h4>Handlu</h4>
+									<h4>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].thirdItemTitle}</h4>
 									<p>
 										<Icon src={plus} alt='' />{' '}
 										<span>
-											jako innowacyjny produkt i odpowiedź
-											na potrzeby właścicieli zwierząt
-											domowych
+										{data.allContentfulRozwiazaniedlabiznesu.nodes[0].thirdItemContent}
 										</span>
 									</p>
 								</li>
@@ -250,18 +227,18 @@ const AboutProduct = () => {
 								className='btn-about'>
 								{' '}
 								<img src={buttonIcon} alt='' />{' '}
-								<span>Dowiedz się więcej</span>
+								<span>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].button}</span>
 							</Link>
 						</Col>
 						<Col lg='5'>
 							<SolutionImage
 								className='d-lg-none'
-								src={solutionMobile}
+								src={data.allContentfulRozwiazaniedlabiznesu.nodes[0].imageMobile.url}
 								alt=''
 							/>
 							<SolutionImage
 								className=' d-none d-lg-block img-about'
-								src={solutionn}
+								src={data.allContentfulRozwiazaniedlabiznesu.nodes[0].image.url}
 								alt=''
 							/>
 						</Col>
@@ -269,7 +246,84 @@ const AboutProduct = () => {
 				</SolutionsWrapper>
 			</SolutionsSection>
 		</Layout>
-	);
+	); 
 };
 
+
 export default AboutProduct;
+export const query = graphql`
+query MyQuery {
+  allContentfulOpHero {
+    nodes {
+      subtitleafterplus
+      subtitlebeforeplus
+      title
+      content
+      image {
+        file {
+          url
+        }
+      }
+    }
+  }
+  allContentfulRozwiazaniedlabiznesu {
+    nodes {
+      button
+      firstItemContent
+      firstItemTitle
+      image {
+       url
+      }
+      imageMobile {
+		url
+      }
+      secondItemContent
+      secondItemTitle
+      thirdItemContent
+      thirdItemTitle
+      subtitle
+      title
+    }
+  }
+  allContentfulOpZastosuj {
+    nodes {
+      title
+      image {
+		url
+      }
+      fifthIconText
+      fifthIcon {
+		url
+      }
+      firstIcon {
+		url
+      }
+      firstIconText
+      fourthIcontext 
+      fourthIcon {
+		url
+      }
+      secondIconText
+      secondIcon {
+		url
+      }
+      thidIcon {
+		url
+      }
+      thirdIconText
+    }
+  }
+  allContentfulOpNaszeBadania {
+    nodes {
+      button
+      content
+      image {
+		url
+      }
+      nearButtonText
+      subtitle
+      title
+    }
+  }
+}
+`;
