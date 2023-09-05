@@ -218,7 +218,7 @@ export const Wrapper = styled.div`
 	align-items: center;
 	justify-content: center;
 	gap: 15px;
-	max-width: 249px;
+	max-width: 255px;
 	margin-inline: auto;
 	margin-bottom: 20px;
 	@media (min-width: 768px) {

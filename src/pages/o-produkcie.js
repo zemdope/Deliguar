@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Layout from '../components/Layout';
 import { graphql } from 'gatsby';
 import product from '../assets/images/product.png';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { gsap } from 'gsap';
+// get other plugins:
+import ScrollTrigger from 'gsap/ScrollTrigger'; 
 import {
 	AboutProductHero,
 	ImageBottle,
@@ -54,6 +57,125 @@ import {
 } from '../assets/styles/pages/Index.styles';
 
 const AboutProduct = ({data}) => {
+	gsap.registerPlugin(ScrollTrigger);
+	const ref5 = useRef(null);
+	const ref6 = useRef(null);
+	const ref7 = useRef(null);
+	useEffect(() => {
+		
+		const element5 = ref5.current;
+		const t6 = gsap.timeline({ paused: true });
+		t6.from(element5.querySelector('.serum-image'), {
+			opacity: 0,
+                scale:0,
+			duration: 0.4,
+			delay:0.5,
+			ease: 'power2.out'
+		});
+		t6.from(element5.querySelector('.serum-image-mobile'), {
+			opacity: 0,
+                scale:0,
+			duration: 0.4,
+			ease: 'power2.out'
+		});
+		t6.from(element5.querySelector('.icon1'), {
+			opacity: 0,
+                scale:0,
+			duration: 0.2,
+			delay:.1,
+			ease: 'power2.out'
+		});
+		t6.from(element5.querySelector('.icon2'), {
+			opacity: 0,
+                scale:0,
+			duration: 0.2,
+			delay:.1,
+			ease: 'power2.out'
+		});
+		t6.from(element5.querySelector('.icon3'), {
+			opacity: 0,
+                scale:0,
+			duration: 0.2,
+			delay:.1,
+			ease: 'power2.out'
+		});
+		t6.from(element5.querySelector('.icon4'), {
+			opacity: 0,
+                scale:0,
+			duration: 0.2,
+			delay:.1,
+			ease: 'power2.out'
+		});
+		t6.from(element5.querySelector('.icon5'), {
+			opacity: 0,
+                scale:0,
+			duration: 0.2,
+			delay:.1,
+			ease: 'power2.out'
+		});
+		
+		
+
+		ScrollTrigger.create({
+			trigger: element5.querySelector('.serum-image'),
+			onEnter: () => {
+				// Play the timeline when the section is visible
+				t6.play();
+			},
+			onLeaveBack: () => {
+				// Reverse the timeline when the section is not visible anymore
+				t6.reverse();
+			}
+		});
+		const element6 = ref6.current;
+		const t7 = gsap.timeline({ paused: true });
+	
+		t7.from(element6.querySelector('.tests-image'), {
+			opacity: 0,
+                scale:0,
+			duration: 0.4,
+			delay:.5,
+			ease: 'power2.out'
+		});
+		
+		
+
+		ScrollTrigger.create({
+			trigger: element6.querySelector('.tests-image'),
+			onEnter: () => {
+				// Play the timeline when the section is visible
+				t7.play();
+			},
+			onLeaveBack: () => {
+				// Reverse the timeline when the section is not visible anymore
+				t7.reverse();
+			}
+		});
+		const element7 = ref7.current;
+		const t8 = gsap.timeline({ paused: true });
+	
+		t8.from(element7.querySelector('.solution-image'), {
+			opacity: 0,
+                scale:0,
+			duration: 0.4,
+			delay:.5,
+			ease: 'power2.out'
+		});
+		
+		
+
+		ScrollTrigger.create({
+			trigger: element7.querySelector('.solution-image'),
+			onEnter: () => {
+				// Play the timeline when the section is visible
+				t8.play();
+			},
+			onLeaveBack: () => {
+				// Reverse the timeline when the section is not visible anymore
+				t8.reverse();
+			}
+		});
+	}, []);
 	return (
 		<Layout>
 			<AboutProductHero>
@@ -105,15 +227,16 @@ const AboutProduct = ({data}) => {
 							<h2>{data.allContentfulOpZastosuj.nodes[0].title}</h2>
 						</Col>
 					</Row>
-					<Row className='effect-content-wrapper'>
-						<Col md='6' lg='7'>
+					<Row className='effect-content-wrapper' ref={ref5}>
+						<Col md='6' lg='7' >
 							<SerumImage
-								className='d-none d-lg-block'
+								className='d-none d-lg-block serum-image'
 								src={data.allContentfulOpZastosuj.nodes[0].image.url}
 								alt=''
 							/>
 							<SerumImage
-								className='d-lg-none'
+								className='d-lg-none serum-image-mobile'
+								
 								src={data.allContentfulOpZastosuj.nodes[0].image.url}
 								alt=''
 							/>
@@ -122,32 +245,32 @@ const AboutProduct = ({data}) => {
 							<Row>
 								<Col xs='12'>
 									<Wrapper>
-										<img src={data.allContentfulOpZastosuj.nodes[0].firstIcon.url} alt='' />
+										<img src={data.allContentfulOpZastosuj.nodes[0].firstIcon.url} className="icon1"  alt='' />
 
 										<p>{data.allContentfulOpZastosuj.nodes[0].firstIconText}</p>
 									</Wrapper>
 								</Col>
 								<Col xs='12'>
 									<WrapperReverse className='wrapper-effect-reverse'>
-										<img src={data.allContentfulOpZastosuj.nodes[0].secondIcon.url} alt='' />
+										<img src={data.allContentfulOpZastosuj.nodes[0].secondIcon.url} className="icon2" alt='' />
 										<p>{data.allContentfulOpZastosuj.nodes[0].secondIconText}</p>
 									</WrapperReverse>
 								</Col>
 								<Col xs='12'>
 									<Wrapper className='wrapper-effect'>
-										<img src={data.allContentfulOpZastosuj.nodes[0].thidIcon.url} alt='' />
+										<img src={data.allContentfulOpZastosuj.nodes[0].thidIcon.url} className="icon3" alt='' />
 										<p>{data.allContentfulOpZastosuj.nodes[0].thirdIconText}</p>
 									</Wrapper>
 								</Col>
 								<Col xs='12'>
 									<WrapperReverse className='wrapper-effect-reverse'>
-										<img src={data.allContentfulOpZastosuj.nodes[0].fourthIcon.url} alt='' />
+										<img src={data.allContentfulOpZastosuj.nodes[0].fourthIcon.url} className="icon4" alt='' />
 										<p>{data.allContentfulOpZastosuj.nodes[0].fourthIcontext}</p>
 									</WrapperReverse>
 								</Col>
 								<Col xs='12'>
 									<Wrapper>
-										<img src={data.allContentfulOpZastosuj.nodes[0].fifthIcon.url} alt='' />
+										<img src={data.allContentfulOpZastosuj.nodes[0].fifthIcon.url} className="icon5" alt='' />
 										<p>
 										{data.allContentfulOpZastosuj.nodes[0].fifthIconText}
 										</p>
@@ -179,8 +302,8 @@ const AboutProduct = ({data}) => {
 								<p>i zobacz że DeliGuard działa</p>
 							</ButtonWrapper>
 						</Col>
-						<Col xs='12' md='6'>
-							<ImageSection src={data.allContentfulOpNaszeBadania.nodes[0].image.url} alt='' />
+						<Col xs='12' md='6' ref={ref6}>
+							<ImageSection  className="tests-image" src={data.allContentfulOpNaszeBadania.nodes[0].image.url} alt='' />
 						</Col>
 					</Row>
 				</TestsWrapper>
@@ -230,14 +353,14 @@ const AboutProduct = ({data}) => {
 								<span>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].button}</span>
 							</Link>
 						</Col>
-						<Col lg='5'>
+						<Col lg='5' ref={ref7}>
 							<SolutionImage
 								className='d-lg-none'
 								src={data.allContentfulRozwiazaniedlabiznesu.nodes[0].imageMobile.url}
 								alt=''
 							/>
 							<SolutionImage
-								className=' d-none d-lg-block img-about'
+								className=' d-none d-lg-block img-about solution-image'
 								src={data.allContentfulRozwiazaniedlabiznesu.nodes[0].image.url}
 								alt=''
 							/>

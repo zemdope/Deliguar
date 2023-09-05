@@ -175,6 +175,9 @@ const slides = data.allContentfulOpinie.nodes.map(el => ({
 	gsap.registerPlugin(ScrollTrigger);
 	const ref = useRef(null);
 	const ref2 = useRef(null);
+	const ref3 = useRef(null);
+	const ref4 = useRef(null);
+	const ref5 = useRef(null);
 	useEffect(() => {
 		const element = ref.current;
 		const t2 = gsap.timeline({ paused: true });
@@ -307,6 +310,114 @@ const slides = data.allContentfulOpinie.nodes.map(el => ({
 			onLeaveBack: () => {
 				// Reverse the timeline when the section is not visible anymore
 				t3.reverse();
+			}
+		});
+		const element3 = ref3.current;
+		const t4 = gsap.timeline({ paused: true });
+		t4.from(element3.querySelector('.accordion0'), {
+			opacity: 0,
+
+			duration: 0.3,
+			delay: 1,
+			ease: 'power2.out'
+		});
+		t4.from(element3.querySelector('.accordion1'), {
+			opacity: 0,
+
+			duration: 0.3,
+			delay: 0.1,
+			ease: 'power2.out'
+		});
+		t4.from(element3.querySelector('.accordion2'), {
+			opacity: 0,
+			x: 30,
+			duration: 0.3,
+			delay: 0.1,
+			ease: 'power2.out'
+		});
+		t4.from(element3.querySelector('.accordion3'), {
+			opacity: 0,
+
+			duration: 0.3,
+			delay: 0.1,
+			ease: 'power2.out'
+		});
+		t4.from(element3.querySelector('.accordion4'), {
+			opacity: 0,
+			x: 30,
+			duration: 0.3,
+			delay: 0.1,
+			ease: 'power2.out'
+		});
+		t4.from(element3.querySelector('.accordion5'), {
+			opacity: 0,
+
+			duration: 0.3,
+			delay: 0.1,
+			ease: 'power2.out'
+		});
+		t4.from(element3.querySelector('.image-solution'), {
+			opacity: 0,
+scale:0,
+			duration: 0.4,
+			delay: 0.2,
+			ease: 'power2.out'
+		});
+
+		ScrollTrigger.create({
+			trigger: element3.querySelector('.accordion1'),
+			onEnter: () => {
+				// Play the timeline when the section is visible
+				t4.play();
+			},
+			onLeaveBack: () => {
+				// Reverse the timeline when the section is not visible anymore
+				t4.reverse();
+			}
+		});
+
+		const element4 = ref4.current;
+		const t5 = gsap.timeline({ paused: true });
+		t5.from(element4.querySelector('.image-solution'), {
+			opacity: 0,
+                scale:0,
+			duration: 0.3,
+			ease: 'power2.out'
+		});
+		
+		
+
+		ScrollTrigger.create({
+			trigger: element4.querySelector('.image-solution'),
+			onEnter: () => {
+				// Play the timeline when the section is visible
+				t5.play();
+			},
+			onLeaveBack: () => {
+				// Reverse the timeline when the section is not visible anymore
+				t5.reverse();
+			}
+		});
+		const element5 = ref5.current;
+		const t6 = gsap.timeline({ paused: true });
+		t6.from(element5.querySelector('.image-contact'), {
+			opacity: 0,
+                scale:0,
+			duration: 0.4,
+			ease: 'power2.out'
+		});
+		
+		
+
+		ScrollTrigger.create({
+			trigger: element5.querySelector('.image-contact'),
+			onEnter: () => {
+				// Play the timeline when the section is visible
+				t6.play();
+			},
+			onLeaveBack: () => {
+				// Reverse the timeline when the section is not visible anymore
+				t6.reverse();
 			}
 		});
 	}, []);
@@ -835,9 +946,9 @@ const slides = data.allContentfulOpinie.nodes.map(el => ({
 				
 					<Row>
 						<Col>
-							<Accordion defaultActiveKey='0'>
+							<Accordion ref={ref3} defaultActiveKey='0'>
 								{accordionFaq.map((element, index)=> (
-									<Accordion.Item  key={index} eventKey={index}>
+									<Accordion.Item  key={index} className={'accordion' + index } eventKey={index}>
 									<Accordion.Header>
 									{element.question}
 									</Accordion.Header>
@@ -907,14 +1018,14 @@ const slides = data.allContentfulOpinie.nodes.map(el => ({
 								<span>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].button}</span>
 							</Link>
 						</Col>
-						<Col lg='5'>
+						<Col lg='5' ref={ref4}>
 							<SolutionImage
 								className='d-lg-none'
 								src={data.allContentfulRozwiazaniedlabiznesu.nodes[0].imageMobile.url}
 								alt=''
 							/>
 							<SolutionImage
-								className=' d-none d-lg-block'
+								className=' d-none d-lg-block image-solution'
 								src={data.allContentfulRozwiazaniedlabiznesu.nodes[0].image.url}
 								alt=''
 							/>
@@ -955,8 +1066,8 @@ const slides = data.allContentfulOpinie.nodes.map(el => ({
 								</Row>
 							</ContactInnerWrapper>
 						</Col>
-						<Col xs='12' lg='6'>
-							<ContactImg src={data.allContentfulKontakt.nodes[0].image.url} alt='' />
+						<Col xs='12' lg='6' ref={ref5}>
+							<ContactImg src={data.allContentfulKontakt.nodes[0].image.url} className="image-contact" alt='' />
 						</Col>  
 					</Row>
 				</ContactWrapper>

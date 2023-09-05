@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useEffect, useRef} from 'react';
 import Layout from '../components/Layout';
 import { graphql } from 'gatsby';
 import {
@@ -39,7 +40,8 @@ import item24 from '../assets/images/item24.svg';
 import item25 from '../assets/images/item25.svg';
 import item26 from '../assets/images/item26.svg';
 import item27 from '../assets/images/item27.svg';
-
+import { gsap } from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger'; 
 import business2 from '../assets/images/business2.png';
 import team from '../assets/images/team.png';
 import team2 from '../assets/images/team2.png';
@@ -58,6 +60,116 @@ import itemSol from '../assets/images/itemSolution.svg';
 import itemSol2 from '../assets/images/itemSolution2.svg';
 import itemSol3 from '../assets/images/itemSolution3.svg';
 const Business = ({data}) => {
+	gsap.registerPlugin(ScrollTrigger);
+	const ref1 = useRef(null);
+	const ref2 = useRef(null);
+	const ref3 = useRef(null);
+	useEffect(() => {
+		const element6 = ref1.current;
+		const t7 = gsap.timeline({ paused: true });
+	
+		t7.from(element6.querySelector('.icon1'), {
+			opacity: 0,
+                scale:0,
+			duration: 0.4,
+			delay:.5,
+			ease: 'power2.out' 
+		});
+		
+		
+		t7.from(element6.querySelector('.icon2'), {
+			opacity: 0,
+                scale:0,
+			duration: 0.4,
+			delay:.1,
+			ease: 'power2.out'
+		});
+		
+		
+		t7.from(element6.querySelector('.icon3'), {
+			opacity: 0,
+                scale:0,
+			duration: 0.4,
+			delay:.1,
+			ease: 'power2.out'
+		});
+		
+		
+
+		ScrollTrigger.create({
+			trigger: element6.querySelector('.icon1'),
+			onEnter: () => {
+				// Play the timeline when the section is visible
+				t7.play();
+			},
+			onLeaveBack: () => {
+				// Reverse the timeline when the section is not visible anymore
+				t7.reverse();
+			}
+		});
+		const element7 = ref2.current;
+		const t8 = gsap.timeline({ paused: true });
+	
+		t8.from(element7.querySelector('.certificate'), {
+			opacity: 0,
+                scale:0,
+			duration: 0.4,
+			delay:.5,
+			ease: 'power2.out'
+		});
+		
+		
+		
+		
+		
+
+		ScrollTrigger.create({
+			trigger: element7.querySelector('.certificate'),
+			onEnter: () => {
+				// Play the timeline when the section is visible
+				t8.play();
+			},
+			onLeaveBack: () => {
+				// Reverse the timeline when the section is not visible anymore
+				t8.reverse();
+			}
+		});
+		const element8 = ref3.current;
+		const t9 = gsap.timeline({ paused: true });
+	
+		t9.from(element8.querySelector('.partners'), {
+			opacity: 0,
+                scale:0,
+			duration: 0.4,
+			delay:.5,
+			ease: 'power2.out'
+		});
+		
+		t9.from(element8.querySelector('.partners-mobile'), {
+			opacity: 0,
+                scale:0,
+			duration: 0.4,
+			delay:.1,
+			ease: 'power2.out'
+		});
+		
+		
+		
+		
+		
+
+		ScrollTrigger.create({
+			trigger: element7.querySelector('.certificate'),
+			onEnter: () => {
+				// Play the timeline when the section is visible
+				t9.play();
+			},
+			onLeaveBack: () => {
+				// Reverse the timeline when the section is not visible anymore
+				t9.reverse();
+			}
+		});
+	}, []);
 	return (
 		<Layout>
 			<BusinessSection>
@@ -79,23 +191,23 @@ const Business = ({data}) => {
 						/>
 					</RightItem>
 					<HeaderPage>{data.allContentfulRdbHero.nodes[0].title} </HeaderPage>
-					<TargetList>
+					<TargetList ref={ref1}>
 						<li>
-							<img src={data.allContentfulRdbHero.nodes[0].firstItemImage.url} alt='' />
+							<img className='icon1' src={data.allContentfulRdbHero.nodes[0].firstItemImage.url} alt='' />
 							<h3>{data.allContentfulRdbHero.nodes[0].firstItemTitle}</h3>
 							<p>
 							{data.allContentfulRdbHero.nodes[0].firstItemContent.firstItemContent}
 							</p>
 						</li>
 						<li>
-							<img src={data.allContentfulRdbHero.nodes[0].secondItemImage.url} alt='' />
+							<img className='icon2' src={data.allContentfulRdbHero.nodes[0].secondItemImage.url} alt='' />
 							<h3>{data.allContentfulRdbHero.nodes[0].secondItemTitle}</h3>
 							<p>
 							{data.allContentfulRdbHero.nodes[0].secondItemContent.secondItemContent}
 							</p>
 						</li>
 						<li>
-							<img src={data.allContentfulRdbHero.nodes[0].thirdItemImage.url} alt='' />
+							<img className='icon3' src={data.allContentfulRdbHero.nodes[0].thirdItemImage.url} alt='' />
 							<h3>{data.allContentfulRdbHero.nodes[0].thirdItemTitle}</h3>
 							<p>
 							{data.allContentfulRdbHero.nodes[0].thirdItemContent.thirdItemContent}
@@ -120,8 +232,8 @@ const Business = ({data}) => {
 					</Paragraph>
 					<ImageLogo src={logoBio} alt='' />
 					<Row className='certificate-container'>
-						<Col xs='12' md='7'>
-							<ImageCertificate src={data.allContentfulRdbONas.nodes[0].image.url} alt='' />
+						<Col xs='12' md='7' ref={ref2}>
+							<ImageCertificate className="certificate" src={data.allContentfulRdbONas.nodes[0].image.url} alt='' />
 						</Col>
 						<Col xs='12' md='5'>
 							<HeaderAbout className='bottom'>
@@ -171,14 +283,14 @@ const Business = ({data}) => {
 							{data.allContentfulRdbPartnerstwo.nodes[0].subtitle.subtitle}
 							</h3>
 						</Col>
-						<Col xs='12' md='6'>
+						<Col xs='12' md='6' ref={ref3}>
 							<ImagePartners
-								className='d-md-none'
+								className='d-md-none partners'
 								src={data.allContentfulRdbPartnerstwo.nodes[0].image.url}
 								alt=''
 							/>
 							<ImagePartners
-								className='d-none d-md-block'
+								className='d-none d-md-block partners-mobile'
 								src={data.allContentfulRdbPartnerstwo.nodes[0].image.url}
 								alt=''
 							/>

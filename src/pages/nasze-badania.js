@@ -43,32 +43,99 @@ import {
 } from '../assets/styles/pages/Index.styles';
 
 const OurTests = ({data}) => {
-	// gsap.registerPlugin(ScrollTrigger);
-	// const ref = useRef(null);
-	// console.log();
-	// useEffect(() => {
-	// 	const element = ref.current;
-	// 	const t2 = gsap.timeline({ paused: true });
-	// 	t2.from(element.querySelector('#first-action'), {
-	// 		opacity: 0,
+	gsap.registerPlugin(ScrollTrigger);
+	const ref6 = useRef(null);
+	const ref7 = useRef(null);
+	const ref8 = useRef(null);
+	useEffect(() => {
+		const element6 = ref6.current;
+		const t7 = gsap.timeline({ paused: true });
+	
+		t7.from(element6.querySelector('.tests-image'), {
+			opacity: 0,
+                scale:0,
+			duration: 0.4,
+			delay:.5,
+			ease: 'power2.out'
+		});
+		
+		
 
-	// 		duration: 0.8,
-	// 		delay: 1,
-	// 		ease: 'power2.out'
-	// 	});
+		ScrollTrigger.create({
+			trigger: element6.querySelector('.tests-image'),
+			onEnter: () => {
+				// Play the timeline when the section is visible
+				t7.play();
+			},
+			onLeaveBack: () => {
+				// Reverse the timeline when the section is not visible anymore
+				t7.reverse();
+			}
+		});
+		const element7 = ref7.current;
+		const t8 = gsap.timeline({ paused: true });
+	
+		t8.from(element7.querySelector('.solution-image'), {
+			opacity: 0,
+                scale:0,
+			duration: 0.4,
+			delay:.5,
+			ease: 'power2.out'
+		});
+		t8.from(element7.querySelector('.solution-image-2'), {
+			opacity: 0,
+                scale:0,
+			duration: 0.4,
+			delay:.2,
+			ease: 'power2.out'
+		});
+		
+		t8.from(element7.querySelector('.solution-image-3'), {
+			opacity: 0,
+                scale:0,
+			duration: 0.4,
+			delay:.5,
+			ease: 'power2.out'
+		});
+		
+		
 
-	// 	ScrollTrigger.create({
-	// 		trigger: element.querySelector('.first-action'),
-	// 		onEnter: () => {
-	// 			// Play the timeline when the section is visible
-	// 			t2.play();
-	// 		},
-	// 		onLeaveBack: () => {
-	// 			// Reverse the timeline when the section is not visible anymore
-	// 			t2.reverse();
-	// 		}
-	// 	});
-	// }, []);
+		ScrollTrigger.create({
+			trigger: element7.querySelector('.solution-image'),
+			onEnter: () => {
+				// Play the timeline when the section is visible
+				t8.play();
+			},
+			onLeaveBack: () => {
+				// Reverse the timeline when the section is not visible anymore
+				t8.reverse();
+			}
+		});
+		const element8 = ref8.current;
+		const t9 = gsap.timeline({ paused: true });
+	
+		t9.from(element8.querySelector('.solution-image-3'), {
+			opacity: 0,
+                scale:0,
+			duration: 0.4,
+			delay:.5,
+			ease: 'power2.out'
+		});
+		 
+		
+
+		ScrollTrigger.create({
+			trigger: element8.querySelector('.solution-image-3'),
+			onEnter: () => {
+				// Play the timeline when the section is visible
+				t9.play();
+			},
+			onLeaveBack: () => {
+				// Reverse the timeline when the section is not visible anymore
+				t9.reverse();
+			}
+		});
+	}, []);
 	return (
 		<Layout>
 			<HeroSection>
@@ -134,11 +201,11 @@ const OurTests = ({data}) => {
 							{data.allContentfulNsDzialanie.nodes[0].subtitle}
 							</p>
 						</Col>
-						<Col xs='12' md='5' lg='4'>
-							<img src={data.allContentfulNsDzialanie.nodes[0].image.url} alt='' />
+						<Col xs='12' md='5' lg='4' ref={ref6}>
+							<img className="tests-image" src={data.allContentfulNsDzialanie.nodes[0].image.url} alt='' />
 						</Col>
 					</Row>
-					<Row className='px-0 second-action-container'>
+					<Row className='px-0 second-action-container' ref={ref7}>
 						<Col xs='12' className='px-0'>
 							<h3>{data.allContentfulNsPoprawa.nodes[0].title}</h3>
 							<p>
@@ -147,14 +214,14 @@ const OurTests = ({data}) => {
 						</Col>
 						<Col xs='12' md='6'>
 							<img
-								className='action-image-left'
+								className='action-image-left solution-image'
 								src={data.allContentfulNsPoprawa.nodes[0].image.url}
 								alt=''
 							/>
 						</Col>
 						<Col xs='12' md='6'>
 							<img
-								className='action-image-right bottom'
+								className='action-image-right solution-image-2 bottom'
 								src={data.allContentfulNsPoprawa.nodes[0].secondImage.url}
 								alt=''
 							/>
@@ -209,20 +276,20 @@ const OurTests = ({data}) => {
 									</p>
 								</li>
 							</ul> 
-							<Link className='btn-about'>
+							<Link to="/rozwiazanie-dla-biznesu" className='btn-about'>
 								{' '}
 								<img src={buttonIcon} alt='' />{' '}
 								<span>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].button}</span>
 							</Link>
 						</Col>
-						<Col lg='5'>
+						<Col lg='5' ref={ref8}>
 							<SolutionImage
 								className='d-lg-none'
 								src={data.allContentfulRozwiazaniedlabiznesu.nodes[0].imageMobile.url}
 								alt=''
 							/>
 							<SolutionImage
-								className=' d-none d-lg-block img-about'
+								className=' d-none d-lg-block img-about solution-image-3'
 								src={data.allContentfulRozwiazaniedlabiznesu.nodes[0].image.url}
 								alt=''
 							/>
