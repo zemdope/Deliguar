@@ -71,15 +71,11 @@ import {
 	SocialLink,
 	ContactImg,
 	ContactInnerWrapper,
-	KnowledgeSection,
-	KnowledgeWrapper
 } from '../assets/styles/pages/Index.styles';
-import hero from '../assets/images/hero.png';
-import heroDesktop from '../assets/images/heroDesktop.png';
+
 import left from '../assets/images/left.svg';
 import right from '../assets/images/right.svg';
-import bottleHomePage from '../assets/images/bottleMobile.svg';
-import dogProblem2 from '../assets/images/dogProblem2.svg';
+
 import bell from '../assets/images/bell.svg';
 import bulb from '../assets/images/bulb.svg';
 import bottleDesktop from '../assets/images/bottleDesktop2.svg';

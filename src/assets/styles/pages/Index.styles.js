@@ -817,7 +817,7 @@ export const EffectItemsWrapper = styled.div`
 	}
 	
 	@media (min-width: 1360px) {
-		transform: translate(60px,-100px); 
+		transform: translate(160px,-100px); 
 	}
 `;
 export const EffectItem = styled.div`

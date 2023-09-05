@@ -116,7 +116,7 @@ export const LogoLink = styled(Link)`
 	width: ${({ isOpen }) => (isOpen ? '145px' : '58px')};
 
 	img {
-		max-height: 46px;
+		max-height: 63px;
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);

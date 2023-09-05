@@ -5,7 +5,6 @@ import product from '../assets/images/product.png';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { gsap } from 'gsap';
-// get other plugins:
 import ScrollTrigger from 'gsap/ScrollTrigger'; 
 import {
 	AboutProductHero,

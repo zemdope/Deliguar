@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import { gsap } from 'gsap';
 import { StaticImage } from 'gatsby-plugin-image';
-// get other plugins:
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Layout from '../components/Layout';
 import Row from 'react-bootstrap/Row';
