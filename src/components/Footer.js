@@ -23,13 +23,13 @@ const Footer = () => {
 							</Col>
 							<Col xs='12' lg='6'>
 								<SocialContainer>
-									<a href=''>
+									<a href='https://www.instagram.com/deliguard.pets/'>
 										<img src={ig} alt='' />
 									</a>
 									<a href=''>
-										<img src={fb} alt='' />
+										<img src={fb} alt='https://www.facebook.com/deliguard' />
 									</a>
-									<a href=''>
+									<a href='https://www.youtube.com/@DeliGuard/'>
 										<img src={yt} alt='' />
 									</a>
 								</SocialContainer>

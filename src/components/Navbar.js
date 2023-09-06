@@ -18,12 +18,13 @@ import fb from '../assets/images/fb.svg';
 import yt from '../assets/images/yt.svg';
 
 
-const Navbar = () => {
+const Navbar = ({data}) => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const toggleNavigation = () => { 
 		setIsOpen(!isOpen);
 	};
+	console.log(data)
 
 	return (
 		<Header>
@@ -52,13 +53,13 @@ const Navbar = () => {
 						<Button href="https://allegro.pl/oferta/suplement-dla-psa-i-kota-na-trawienie-deliguard-14236919045">Spróbuj</Button>
 					</li>
 					<SocialWrapper isOpen={isOpen}>
-						<a href=''>
+						<a href='https://www.instagram.com/deliguard.pets/'>
 							<img src={ig} alt='' />
 						</a>
-						<a href=''>
+						<a href='https://www.facebook.com/deliguard'>
 							<img src={fb} alt='' />
 						</a>
-						<a href=''>
+						<a href='https://www.youtube.com/@DeliGuard/'>
 							<img src={yt} alt='' />
 						</a>
 					</SocialWrapper>
