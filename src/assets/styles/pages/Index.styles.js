@@ -1361,6 +1361,10 @@ export const ReviewWrapper = styled.div`
 		.swiper-slide {
 			cursor: pointer;
 			filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.23));
+			img {
+				width:250px;
+				height:250px;
+			}
 		}
 		.swiper-button-next,
 		.swiper-button-prev {
@@ -1372,7 +1376,7 @@ export const ReviewWrapper = styled.div`
 		.swiper-button-next {
 			right: 22%;
 		}
-		.swiper-button-prev {
+		.swiper-button-prev { 
 			left: 22%;
 		}
 
@@ -1402,6 +1406,12 @@ export const ReviewWrapper = styled.div`
 		display: none;
 		@media (min-width: 1024px) {
 			display: block;
+		}
+		img {
+		
+				width:173px;
+				height:173px;
+			
 		}
 	}
 `;
