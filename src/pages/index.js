@@ -351,6 +351,14 @@ const slides = data.allContentfulOpinie.nodes.map(el => ({
 			delay: 0.1,
 			ease: 'power2.out'
 		});
+		t4.from(element3.querySelector('.accordion6'), {
+			opacity: 0,
+
+			duration: 0.3,
+			delay: 0.1,
+			ease: 'power2.out'
+		});
+		
 		t4.from(element3.querySelector('.image-solution'), {
 			opacity: 0,
 scale:0,

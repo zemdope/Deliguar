@@ -660,6 +660,7 @@ export const TestContainer = styled.div`
 	}
 	a {
 		color: #fff8ee !important;
+		text-decoration:none !important;
 	}
 `;
 export const ImageTest = styled.img`
@@ -2010,6 +2011,7 @@ export const SolutionsWrapper = styled.div`
 		@media (min-width: 1024px) {
 			justify-content: flex-start;
 			margin-bottom: 160px;
+			margin-left:-15px;
 		}
 		span {
 			color: #5e286d;
