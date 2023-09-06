@@ -1155,7 +1155,7 @@ export const query = graphql`
     nodes {
       contentFirst
       contentSecond
-      smallSubtitle
+     #  smallSubtitle
       subtitle
       title
       image {
