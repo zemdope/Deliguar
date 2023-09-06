@@ -15,11 +15,12 @@ const Slider = ({ slides, onSlideClick }) => {
 			keyboard={{
 				enabled: true
 			}}
+			loop={true}
 			initialSlide={1}
 			speed={1000}
 			autoplay={{
 				delay: 1500,
-				pauseOnMouseEnter: true
+				pauseOnMouseEnter: true 
 			}}
 			
 			navigation={{
