@@ -1225,6 +1225,7 @@ export const ImageDog = styled.img`
 	border-radius: 50%;
 	margin-inline: auto;
 	max-width: 250px;
+	aspect-ratio:1/1;
 	width: 100%;
 	display: block;
 	position: relative;
@@ -1434,6 +1435,8 @@ export const DesktopSliderWrapper = styled.div`
 
 					.slider-desktop-image {
 						border-radius: 50%;
+						width:173px;
+						height:173px;
 					}
 					.slider-desktop-title {
 						color: #5e286d;
