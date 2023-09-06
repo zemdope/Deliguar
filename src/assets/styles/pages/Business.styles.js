@@ -341,7 +341,7 @@ export const ImagePartners = styled.img`
 		transform: translateX(-30px);
 	}
 	@media (min-width: 1180px) {
-		transform: translate(-130px, 65px);
+		transform: translate(-130px, -10px) !important;
 	}
 `;
 

@@ -21,7 +21,7 @@ const Slider = ({ slides, onSlideClick }) => {
 				delay: 1500,
 				pauseOnMouseEnter: true
 			}}
-			loop
+			
 			navigation={{
 				prevEl: '.swiper-button-prev',
 				nextEl: '.swiper-button-next'

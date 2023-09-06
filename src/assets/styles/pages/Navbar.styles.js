@@ -116,16 +116,19 @@ export const LogoLink = styled(Link)`
 	width: ${({ isOpen }) => (isOpen ? '145px' : '58px')};
 
 	img {
+		max-width:58px;
 		max-height: 63px;
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
 		left: 16px;
-		z-index: 999;
+		z-index: 999; 
+		
 	}
 	${({ theme }) => theme.mq.desktop} {
 		img {
 			left: 40px;
+			max-width:77px;
 		}
 	}
 	@media (min-width: 1610px) {
