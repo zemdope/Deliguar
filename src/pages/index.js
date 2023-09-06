@@ -130,7 +130,6 @@ const IndexPage = ({data}) => {
 	const handleStepChange = (event) => {
 		setCurrentStep(Number(event.target.value));
 	};
-	console.log(data)
 	const handleStepDogChange = (event) => {
 		setCurrentStepDog(Number(event.target.value));
 	};
@@ -294,7 +293,7 @@ const slides = data.allContentfulOpinie.nodes.map(el => ({
 
 			duration: 0.35,
 			delay: 0.3,
-			ease: 'power2.out'
+			ease: 'power2.out' 
 		});
 
 		ScrollTrigger.create({
@@ -419,7 +418,9 @@ scale:0,
 	}, []);
 
 	return (
+	
 		<Layout>
+
 			<HeroSection>
 				<Wrapper>
 					<LeftItem>
@@ -453,6 +454,7 @@ scale:0,
 					</HeroImage>
 				</Wrapper>
 			</HeroSection>
+		
 			<IdeaSection ref={ref2}>
 				<IdeaWrapper className='idea'>
 					<Row>
