@@ -863,7 +863,7 @@ scale:0,
   </Col>
 </Row>
 
-					<InstructionButton href={data.allContentfulDawkowanie.nodes[0].buttonFile.fields.file.en_US.url}>{data.allContentfulDawkowanie.nodes[0].button}</InstructionButton>
+					<InstructionButton href={data.allContentfulDawkowanie.nodes[0].buttonFile.url}>{data.allContentfulDawkowanie.nodes[0].button}</InstructionButton>
 				</DosageWrapper>
 			</DosageSection>
 			<ReviewSection>
@@ -1252,13 +1252,9 @@ export const query = graphql`
       bigDogDosage
       button
 	 buttonFile {
-        fields {
-          file {
-            en_US {
+       
               url
-            }
-          }
-        }
+         
       }
     }
   }
