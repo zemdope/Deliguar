@@ -60,7 +60,7 @@ const Navbar = ({data}) => {
 							<img src={fb} alt='' />
 						</a>
 						<a href='https://www.youtube.com/@DeliGuard/'>
-							<img src={yt} alt='' />
+							<img src={yt} alt='' /> 
 						</a>
 					</SocialWrapper>
 				</List>

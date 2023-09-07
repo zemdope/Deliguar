@@ -26,8 +26,8 @@ const Footer = () => {
 									<a href='https://www.instagram.com/deliguard.pets/'>
 										<img src={ig} alt='' />
 									</a>
-									<a href=''>
-										<img src={fb} alt='https://www.facebook.com/deliguard' />
+									<a href='https://www.facebook.com/deliguard'>
+										<img src={fb} alt='' />
 									</a>
 									<a href='https://www.youtube.com/@DeliGuard/'>
 										<img src={yt} alt='' />
