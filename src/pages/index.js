@@ -891,20 +891,20 @@ scale:0,
 									<SlideContainer>
 										<ImageItemRight src={item10} alt='' />
 										<ImageItemLeft src={item11} alt='' />
-										<ImageDog
+										<ImageDog className="image" 
 											src={slide.image}
 											alt={`Slide ${index + 1}`}
 										/>
 										<SlideHeader>
-											{slides[currentSlide].title}
+											{slide.title}
 										</SlideHeader>
 										<SlideSubheader>
-											{slides[currentSlide].subtitle}
+											{slide.subtitle}
 										</SlideSubheader>
 										<SlideDescription>
-											{slides[currentSlide].description}
+											{slide.description}
 											<span>
-												{slides[currentSlide].name}
+												{slide.name}
 											</span>
 										</SlideDescription>
 									</SlideContainer>

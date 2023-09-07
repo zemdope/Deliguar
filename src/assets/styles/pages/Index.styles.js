@@ -1363,9 +1363,9 @@ export const ReviewWrapper = styled.div`
 		.swiper-slide {
 			cursor: pointer;
 			filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.23));
-			img {
+			.image {
 				width:250px;
-				height:250px;
+				height:250px; 
 			}
 		}
 		.swiper-button-next,
