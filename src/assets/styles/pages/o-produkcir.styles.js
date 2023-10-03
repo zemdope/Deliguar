@@ -280,7 +280,50 @@ export const WrapperReverse = styled.div`
 		}
 	}
 `;
+export const EffectParagraph = styled.p`
+color: #5E286D;
 
+/* H9 */
+font-family: "Open Sans";
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 22px; /* 157.143% */
+padding-inline: 18px;
+max-width:765px;
+margin-bottom:30px;
+
+		@media (min-width: 480px) {
+			padding-inline: 32px;
+		}
+
+		@media (min-width: 768px) {
+			padding-inline: 50px;
+			margin-inline:auto;
+
+			
+		}
+		@media (min-width: 1024px) { 
+			margin-bottom:10px;
+			font-size: 20px; 
+			line-height: 28px; 
+		}
+		
+img {
+		vertical-align: top;
+		margin-left: 2px;
+		margin-right: 1px;
+		margin-top: 3px;
+		@media (min-width: 768px) {
+			width: 14px;
+			height: 14px;
+			vertical-align: top;
+			margin-left: 2px;
+			margin-top:3px;
+		}
+	}
+	
+`
 export const EffectSection = styled.section``;
 export const SerumImage = styled.img`
 	width: 95%;
@@ -295,9 +338,17 @@ export const SerumImage = styled.img`
 	@media (min-width: 992px) {
 		width: 100%;
 	}
-	@media (min-width: 1280px) {
-		transform: translateY(-120px);
+	@media (min-width:1100px) {
+		transform: translateY(-100px) !important;
 		max-width: 750px;
+	}
+	@media (min-width: 1280px) {
+		transform: translateY(-120px) !important;
+		max-width: 800px;
+	}
+	@media (min-width: 1440px) {
+		transform: translate(-60px,-170px ) !important;
+		max-width: 850px;
 	}
 `;
 export const EffectWrapper = styled.div`
@@ -318,6 +369,7 @@ export const EffectWrapper = styled.div`
 		font-weight: 700;
 		line-height: 36px;
 		padding-inline: 18px;
+		margin-bottom:36px;
 
 		@media (min-width: 480px) {
 			padding-inline: 32px;
@@ -341,6 +393,15 @@ export const EffectWrapper = styled.div`
 
 			line-height: 78px; /* 120% */
 		}
+		img {
+			vertical-align:top;
+			width: 20px;
+			margin-left:3px;
+			@media (min-width:1024px) {
+				width: initial;
+				margin-left:1px;
+			}
+		}
 	}
 	.effect-content-wrapper {
 		transform: translateY(-80px);
@@ -362,6 +423,7 @@ export const EffectWrapper = styled.div`
 		}
 	}
 	@media (min-width: 1200px) {
+		margin-bottom: -20px;
 		.effect-container {
 			margin-top: 90px;
 		}
@@ -559,6 +621,7 @@ export const RightItem = styled.div`
 		display: block;
 	}
 `;
+
 export const LeftItem = styled.div`
 	position: absolute;
 	left: -170px;
@@ -573,3 +636,151 @@ export const LeftItem = styled.div`
 		left: -150px;
 	}
 `;
+export const PostbioticsSection = styled.section`
+max-width:1440px;
+margin-inline:auto;
+padding-inline: 16px;
+	@media (min-width: 480px) {
+		padding-inline: 32px;
+	}
+	@media (min-width: 768px) {
+		padding-inline: 50px;
+	}
+	@media (min-width: 1024px) {
+		padding-inline: 90px;
+	}
+	@media (min-width: 1280px) {
+		padding-inline: 165px;
+	}
+h2 {
+	color: #F28F1D;
+max-width:750px;
+/* H6 */
+font-family: "Americane";
+font-size: 32px;
+font-style: normal;
+font-weight: 700;
+line-height: 36px; /* 112.5% */
+margin-bottom:30px;
+margin-top:34px;
+@media (min-width: 992px) {
+	margin-bottom:65px;
+	margin-top: 0;
+font-size: 65px;
+
+line-height: 78px; /* 120% */
+}
+}
+a {
+		display: flex;
+		width: 232px;
+		height: 44px;
+		padding: 8px 32px;
+		justify-content: center;
+		margin-inline:auto;
+		align-items: center;
+		position: relative;
+		z-index: 0;
+		font-weight: 700;
+		font-size: 1.6rem;
+		line-height: 2rem;
+		flex-shrink: 0;
+		color: #fff;
+		border-radius: 32px;
+background: #5E286D;
+box-shadow: 5px 5px 10px 0px rgba(22, 27, 29, 0.23), -5px -5px 10px 0px rgba(250, 251, 255, 0.10);
+margin-top:16px;
+		@media (min-width: 768px) {
+			color: white;
+			font-size: 2rem;
+			line-height: 3rem;
+			width: 100%;
+			max-width: 280px;
+		}
+		@media (min-width:992px) {
+			margin-inline:unset;
+			margin-left: auto;
+			margin-top:24px;
+			margin-right:40px;
+
+		}
+	}
+	a::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+
+		border-radius: 32px;
+
+		box-shadow: 10px 10px 20px 0px rgba(22, 27, 29, 0.23),
+			-10px -10px 20px 0px rgba(250, 251, 255, 0.1);
+		transition: opacity 0.3s ease-in-out;
+	}
+
+	a:hover::after {
+		opacity: 1;
+	}
+
+`
+export const PostbioticsItem = styled.div`
+display:flex;
+gap:11px;
+h3 {
+	color: #5E286D;
+
+/* H6 */
+font-family: "Americane";
+font-size: 32px;
+font-style: normal;
+font-weight: 700;
+line-height: 36px; /* 112.5% */
+margin-bottom:0;
+@media (min-width: 992px) {
+margin-top:8px;
+font-size: 40px;
+
+line-height: 36px; /* 90% */
+margin-bottom:6.5px;
+}
+}
+span {
+	color: #5E286D;
+display:block;
+/* H3 */
+font-family: "Open Sans";
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: 30px; /* 150% */
+margin-bottom: 9px;
+@media (min-width:992px) {
+	font-family: "Americane";
+margin-bottom: 14px;
+font-size: 32px;
+line-height: 36px; /* 112.5% */
+}
+}
+p {
+	color: #5E286D;
+
+/* H9 */
+font-family: "Open Sans";
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 22px; /* 157.143% */
+margin-bottom: 16px;
+@media (min-width:992px) {
+
+font-size: 18px;
+line-height: 28px; /* 155.556% */
+max-width:265px;
+margin-bottom: 0;
+}
+}
+
+`

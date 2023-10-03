@@ -2,10 +2,13 @@ import styled from 'styled-components';
 
 export const SocialContainer = styled.div`
 	display: flex;
+	justify-content:flex-end;
+	margin-top:17px;
 	gap: 16px;
+	
 	@media (min-width: 992px) {
 		gap: 24px;
-		justify-content: center;
+		justify-content: flex-end;
 	}
 `;
 export const FooterWrapper = styled.div`
@@ -32,7 +35,7 @@ export const FooterWrapper = styled.div`
 	}
 	h5 {
 		color: #fef8ed;
-		margin-bottom: 25px;
+		margin-bottom: 8px;
 		font-family: 'Open Sans';
 		font-size: 14px;
 		font-style: normal;
@@ -44,6 +47,16 @@ export const FooterWrapper = styled.div`
 			font-weight: 700;
 			line-height: 20px; /* 125% */
 		}
+	}
+	a {
+		color: #FEF8ED;
+
+/* H9 */
+font-family: "Open Sans";
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 22px; /* 157.143% */
 	}
 `;
 export const FooterContainer = styled.footer`

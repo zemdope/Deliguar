@@ -11,15 +11,15 @@ const Slider = ({ slides, onSlideClick }) => {
 			className='desktop-slider'
 			modules={[Navigation, Keyboard, Autoplay]}
 			slidesPerView={2.5}
-			centeredSlides={true}
+			// centeredSlides={true}
 			keyboard={{
 				enabled: true
 			}}
 			loop={true}
 			initialSlide={1}
-			speed={1000}
+			speed={4000}
 			autoplay={{
-				delay: 1500,
+				delay:0,
 				pauseOnMouseEnter: true 
 			}}
 			

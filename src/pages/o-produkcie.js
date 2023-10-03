@@ -23,7 +23,8 @@ import {
 	ButtonWrapper,
 	ImageSection,
 	RightItem,
-	LeftItem
+	LeftItem,
+	EffectParagraph,PostbioticsSection,PostbioticsItem
 } from '../assets/styles/pages/o-produkcir.styles';
 import bottle from '../assets/images/bottole.png';
 import newBottle from '../assets/images/newBottle.svg';
@@ -39,9 +40,13 @@ import testsImage from '../assets/images/testsImage.png';
 import solution from '../assets/images/solutionImage.png';
 import plus from '../assets/images/plus.svg';
 import plus2 from '../assets/images/plus2.svg';
+import plus5 from '../assets/images/plus5.svg';
 import item16 from '../assets/images/item16.svg';
 import item17 from '../assets/images/item17.svg';
 import buttonIcon from '../assets/images/buttonIcon.svg';
+import pb1 from '../assets/images/pb1.svg';
+import pb2 from '../assets/images/pb2.svg';
+import pb3 from '../assets/images/pb3.svg';
 import solutionDesktop from '../assets/images/solutionImageDesktop.png';
 import solutionMobile from '../assets/images/solutionMobile.svg';
 import solutionn from '../assets/images/solutionn.svg';
@@ -216,6 +221,56 @@ const AboutProduct = ({data}) => {
 					</Col>
 				</Row>
 			</AboutProductHero>
+			<PostbioticsSection>
+				<h2>
+				Nie wiesz jak rozróżnić pre-, pro- postbiotyki
+				</h2>
+				<Row>
+					<Col lg="4">
+					<PostbioticsItem>
+						<div>
+						<img src={pb1} alt="" />
+						</div>
+						<div>
+							<h3>Probiotyki</h3>
+							<span>Fabryki</span>
+							<p>Żywe korzystne bakterie kwasu mlekowego lub drożdże,które wykorzystują prebiotyki do produkcji pożytecznych produktów metabolity.</p>
+						</div>
+					
+					</PostbioticsItem>
+					</Col>
+					<Col lg="4">
+					<PostbioticsItem>
+				
+					<div>
+						<img src={pb2} alt="" />
+						</div>
+						<div>
+							<h3>Prebiotyki</h3>
+							<span>Paliwo</span>
+							<p>Składniki odżywcze dla pożytecznych mikroorganizmów często spotykane w jelitach w ścianach komórkowych roślin, m.in. błonnik, oligosacharydy, fruktooligosacharydy, inulina.</p>
+						</div>
+					</PostbioticsItem>
+					</Col>
+					<Col lg="4">
+					<PostbioticsItem>
+					<div>
+						<img src={pb3} alt="" />
+						</div>
+						<div>
+							<h3>Postbiotyki</h3>
+							<span>Produkt końcowy</span>
+							<p>Produkowany w procesie precyzyjnego, nowoczesnego modelu fermentacji w celu wytworzenia korzystnych metabolitów..</p>
+						</div>
+					
+					
+					</PostbioticsItem>
+					</Col>
+				</Row>
+				<Col xs='12'>
+					<a href="">Dowiedź się więcej</a>
+				</Col>
+			</PostbioticsSection>
 			<EffectSection>
 				<EffectWrapper>
 					<RightItem>
@@ -223,7 +278,13 @@ const AboutProduct = ({data}) => {
 					</RightItem>
 					<Row>
 						<Col>
-							<h2>{data.allContentfulOpZastosuj.nodes[0].title}</h2>
+							<h2>{data.allContentfulOpZastosuj.nodes[0].title}<img src={plus5} alt='' /></h2>
+						</Col>
+						<Col xs='12'>
+						<EffectParagraph>
+						<img src={plus2} alt='' />
+						10 dni to średni czas wystąpienia widocznych zmian w kondycji zwierzęcia, określony na podstawie wyników badań z udziałem 100 domowych psów i kotów. Organizm każdego zwierzęcia ma swoje cechy osobnicze, zatem efekt działania produktu może pojawić się później niż w terminie 10 dni, przy zastosowaniu DeliGuard według instrukcji.
+						</EffectParagraph>
 						</Col>
 					</Row>
 					<Row className='effect-content-wrapper' ref={ref5}>
@@ -294,10 +355,10 @@ const AboutProduct = ({data}) => {
 								<p>{data.allContentfulOpNaszeBadania.nodes[0].nearButtonText}</p>
 							</ButtonWrapper>
 							<ButtonWrapper className='d-md-none'>
-								<Link>
+								<a href="https://allegro.pl/oferta/suplement-dla-psa-i-kota-na-trawienie-deliguard-14236919045">
 									<img src={bag} alt='' />{' '}
 									<span>Przekonaj się sam</span>
-								</Link>
+								</a>
 								<p>i zobacz że DeliGuard działa</p>
 							</ButtonWrapper>
 						</Col>

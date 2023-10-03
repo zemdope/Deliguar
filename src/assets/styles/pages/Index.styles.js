@@ -1,7 +1,8 @@
 import { Link } from 'gatsby';
 import styled, { keyframes } from 'styled-components';
 
-import pipeta from '../../images/pipeta.png';
+import serum6 from '../../images/serum6.png';
+import serum7 from '../../images/serum7.png';
 import range from '../../images/range.svg';
 const move = keyframes`
 from {
@@ -463,6 +464,7 @@ export const LearnMoreWrapper = styled.div`
 		margin-bottom: 0;
 	}
 `;
+
 export const IdeaHeaderSolution = styled.h3`
 	padding-inline: 18px !important;
 	@media (min-width: 480px) {
@@ -519,26 +521,27 @@ export const TestSection = styled.section`
 	background-color: ${({ theme }) => theme.color.orange};
 `;
 export const TestWrapper = styled.div`
-	background-image: url(${pipeta});
+	background-image: url(${serum7});
 	background-repeat: no-repeat;
-	background-size: 75%;
+	background-size:contain;
 	background-position: left 60%;
 	position: relative;
 	max-width: 1440px;
 	margin-inline: auto;
 	padding-inline: 18px;
-	padding-bottom: 2rem;
+	padding-bottom: 40px;
 	@media (min-width: 480px) {
 		padding-inline: 32px;
 	}
 	@media (min-width: 768px) {
 		padding-inline: 90px;
-		background-size: 50%;
-		background-position: left 55%;
+		background-size: contain;
+		background-position: 5% 55%;
 		padding-bottom: 4.5rem;
 	}
 	@media (min-width: 1024px) {
 		padding-inline: 80px;
+		background-image: url(${serum6});
 	}
 	@media (min-width: 1280px) {
 		padding-inline: 165px;
@@ -546,11 +549,13 @@ export const TestWrapper = styled.div`
 	h2 {
 		font-size: 3.2rem;
 		line-height: 3.6rem;
-		color: ${({ theme }) => theme.color.purple};
+		color: #4C2058;
 		font-weight: 700;
 		padding-top: 2rem;
 		padding-bottom: 1.6rem;
+		width:75%;
 		margin: 0;
+		margin-left:auto;
 		@media (min-width: 768px) {
 			margin-left: auto;
 			width: 65%;
@@ -570,8 +575,8 @@ export const TestWrapper = styled.div`
 		margin-left: auto;
 		font-size: 1.4rem;
 		line-height: 2.2rem;
-		font-weight: 300;
-		color: ${({ theme }) => theme.color.purple};
+		font-weight: 400;
+		color:#5E286D;
 		margin-top: 0;
 		margin-bottom: 0;
 		@media (min-width: 768px) {
@@ -589,7 +594,7 @@ export const TestWrapper = styled.div`
 		font-size: 1.6rem;
 		line-height: 2rem;
 		font-weight: 700;
-		color: ${({ theme }) => theme.color.purple};
+		color: #662472;
 		text-align: right;
 	}
 	a {
@@ -607,7 +612,7 @@ export const TestWrapper = styled.div`
 		line-height: 2rem;
 		flex-shrink: 0;
 		border-radius: 32px;
-		color: ${({ theme }) => theme.color.purple};
+		color: #5E286D;
 		background: #f2851d;
 		box-shadow: 5px 5px 10px 0px rgba(22, 27, 29, 0.23),
 			-5px -5px 10px 0px rgba(250, 251, 255, 0.1);
@@ -1425,7 +1430,11 @@ export const DesktopSliderWrapper = styled.div`
 		margin-inline: auto;
 		padding-top: 35px;
 		padding-bottom: 45px;
+
 		.swiper {
+.swiper-wrapper{
+  transition-timing-function : linear;
+}
 			.swiper-slide {
 				.slider-container {
 					display: flex;

@@ -229,6 +229,7 @@ const Business = ({data}) => {
 								<br />
 								{data.allContentfulRdbONas.nodes[0].certificateContentSecond}
 							</Paragraph> 
+							<a href="">Certyfikaty</a>
 						</Col>
 					</Row>
 				</Wrapper>

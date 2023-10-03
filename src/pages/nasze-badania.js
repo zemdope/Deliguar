@@ -31,7 +31,8 @@ import {
 	ActionSection,
 	ActionWrapper,
 	ShoppingSection,
-	ShoppingWrapper
+	ShoppingWrapper,
+	DescriptionSection
 } from '../assets/styles/pages/Nasze-badania.styles';
 import { Link } from 'gatsby';
 import {
@@ -187,6 +188,18 @@ const OurTests = ({data}) => {
 					</Row>
 				</HeroWrapper>
 			</HeroSection>
+			<DescriptionSection>
+				<div className="container">
+				<Row>
+					<Col className='d-lg-flex gap-5 justify-content-center'>
+						
+				<h2>Opis badań</h2>
+				<p>Badanie satysfakcji konsumentów przeprowadzono na 102 zwierzętach towarzyszących (28 kotów i 74 psach), które zostały uzupełnione z DeliGuard na okres 2 tygodni. Celem pracy była ocena wpływu codziennej suplementacji postbiotykiem DeliGuard na stan zdrowia, dobrostan i kondycję zwierząt.</p>
+				
+				</Col>
+				</Row>
+				</div>
+			</DescriptionSection>
 			<ActionSection>
 				<ActionWrapper>
 					<Row className='d-md-flex flex-row-reverse first-action-container'>

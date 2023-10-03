@@ -11,6 +11,7 @@ import yt from '../assets/images/yt.svg';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import logoText from '../assets/images/newLogoFooter.svg';
+import Pprivacy from '../assets/images/pp-deliguard.pdf';
 const Footer = () => {
 	return (
 		<FooterContainer>
@@ -18,10 +19,19 @@ const Footer = () => {
 				<Row>
 					<Col xs='6' lg='8'>
 						<Row>
-							<Col xs='12' lg='6'>
+							<Col xs='12'>
 								<h5>Wszystkie prawa zastrzeżone 2023</h5>
+								<a href={Pprivacy} target='blank'>Polityka Prywatności</a>
 							</Col>
-							<Col xs='12' lg='6'>
+							
+						</Row>
+					</Col>
+					<Col xs='6' lg='4' className='text-end'>
+						<Link>
+							{' '}
+							<img src={logoText} alt='' />
+						</Link>
+						<Col xs='12' lg='12'>
 								<SocialContainer>
 									<a href='https://www.instagram.com/deliguard.pets/'>
 										<img src={ig} alt='' />
@@ -34,14 +44,8 @@ const Footer = () => {
 									</a>
 								</SocialContainer>
 							</Col>
-						</Row>
 					</Col>
-					<Col xs='6' lg='4' className='text-end'>
-						<Link>
-							{' '}
-							<img src={logoText} alt='' />
-						</Link>
-					</Col>
+					
 				</Row>
 			</FooterWrapper>
 		</FooterContainer>

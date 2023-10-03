@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import CookieBanner from './CookieBanner';
 import { graphql } from 'gatsby';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from '../assets/styles/GlobalStyles';
@@ -14,6 +15,7 @@ const Layout = ({  children }) => {
 			<GlobalStyle />
 			<ThemeProvider theme={theme}> 
 				<Navbar  />
+				<CookieBanner />
 				<main>{children}</main>
 				<Footer />
 			</ThemeProvider>

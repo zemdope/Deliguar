@@ -33,6 +33,7 @@ const Modal = ({ slides, initialSlide, onClose }) => {
 					autoHeight={true}
 					initialSlide={initialSlide}
 					modules={[Navigation, Pagination, Keyboard]}
+					loop={true}
 					navigation
 					keyboard={{
 						enabled: true

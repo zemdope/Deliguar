@@ -465,6 +465,7 @@ export const ActionWrapper = styled.div`
 	}
 	@media (min-width: 768px) {
 		padding-inline: 50px;
+		margin-top: 90px;
 	}
 	@media (min-width: 1024px) {
 		padding-inline: 150px;
@@ -482,12 +483,12 @@ export const ActionWrapper = styled.div`
 		font-style: normal;
 		font-weight: 700;
 		line-height: 36px; /* 112.5% */
-		margin-top: 92px;
+		margin-top: 55px;
 		margin-bottom: 0;
 		@media (min-width: 768px) {
 			font-size: 45px;
 			line-height: 60px;
-			margin-top: 0;
+		margin-top:0;
 		}
 		@media (min-width: 1280px) {
 			font-size: 65px;
@@ -644,3 +645,68 @@ export const ShoppingWrapper = styled.section`
 		margin: 0;
 	}
 `;
+export const DescriptionSection = styled.section`
+max-width: 100%;
+	margin-inline: auto;
+	padding-inline: 16px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: #F28F1D;
+	margin-top:42px;
+
+	@media (min-width: 580px) {
+		padding-inline: 32px;
+	}
+	@media (min-width: 768px) {
+		padding-inline: 50px;
+		margin-top:90px;
+	}
+	@media (min-width: 1024px) {
+		padding-inline: 150px;
+		margin-top:120px;
+		
+
+	}
+	@media (min-width: 1280px) {
+		padding-inline: 165px;
+	}
+	.container {
+		max-width:1440px;
+		margin-inline:auto;
+	
+	h2 {
+		color: #662472;
+
+/* H6 */
+font-family: "Americane";
+font-size: 32px;
+font-style: normal;
+font-weight: 700;
+line-height: 36px; /* 112.5% */
+margin-bottom: 25px;
+@media (min-width: 1024px) {
+
+font-size: 65px;
+min-width:350px;
+line-height: 78px; /* 120% */
+}
+	}
+	p {
+		color: #662472;
+
+/* H9 */
+font-family: "Open Sans";
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 22px; /* 157.143% */
+max-width:726px;
+@media (min-width:1024px) {
+
+font-size: 18px;
+
+line-height: 28px; /* 155.556% */
+}
+	}
+}
+`

@@ -8,6 +8,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import { gsap } from 'gsap';
 import { graphql } from 'gatsby'; 
 // import { ButtonSliderWrapper } from '../assets/styles/pages/Index.styles';
+import Banner from '../components/Banner';
 
 // get other plugins:
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -120,7 +121,7 @@ import { Navigation, Pagination, Keyboard, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import Slider from '../components/Slider';
+import Slider from '../components/Slider'; 
 import Modal from '../components/Modal';
 
 const IndexPage = ({data}) => {
@@ -424,11 +425,15 @@ scale:0,
 			}
 		});
 	}, []);
+	const advertisingBanner = data.allContentfulTest.nodes[0]?.advertisingBanner;
 
+	// Check if advertisingBanner exists before rendering the banner
+	const shouldDisplayBanner = !!advertisingBanner;
+	const imageUrl = shouldDisplayBanner ? advertisingBanner.file.url : null;
 	return (
 	
 		<Layout>
-
+ {shouldDisplayBanner && <Banner imageUrl={imageUrl} />}
 			<HeroSection>
 				<Wrapper>
 					<LeftItem>
@@ -862,8 +867,8 @@ scale:0,
     </div>
   </Col>
 </Row>
-
-					<InstructionButton href={data.allContentfulDawkowanie.nodes[0].buttonFile.url}>{data.allContentfulDawkowanie.nodes[0].button}</InstructionButton>
+{/* href={data.allContentfulDawkowanie.nodes[0].buttonFile.url} */}
+					<InstructionButton >{data.allContentfulDawkowanie.nodes[0].button}</InstructionButton>
 				</DosageWrapper>
 			</DosageSection>
 			<ReviewSection>
@@ -879,7 +884,7 @@ scale:0,
 							keyboard={{
 								enabled: true
 							}}
-							modules={[Navigation, Pagination, Keyboard]}
+							modules={[Navigation, Pagination, Keyboard, Autoplay]}
 							onBeforeInit={(swiper) => {
 								swiperMobileRef.current = swiper;
 							}}
@@ -969,7 +974,7 @@ scale:0,
 						</Col>
 						<Col xs='12'>
 							<div className='faq-button-container'>
-								<a href=''>
+								<a href='https://allegro.pl/oferta/suplement-dla-psa-i-kota-na-trawienie-deliguard-14236919045'>
 									<img src={bag} alt='' />
 									<span>{data.allContentfulFaqTitle.nodes[0].button}</span>
 								</a>
@@ -1321,6 +1326,15 @@ export const query = graphql`
       mail
       image {
 		url
+      }
+    }
+  }
+  allContentfulTest {
+    nodes {
+      advertisingBanner {
+        file {
+          url
+        }
       }
     }
   }

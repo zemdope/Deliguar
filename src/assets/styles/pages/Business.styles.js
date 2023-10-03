@@ -67,6 +67,55 @@ export const Wrapper = styled.div`
 			padding-top: 60px;
 			padding-bottom: 53px;
 		}
+		a {
+		display: flex;
+		width: 232px;
+		height: 44px;
+		padding: 8px 32px;
+		justify-content: center;
+	margin-inline:auto;
+		align-items: center;
+		position: relative;
+		z-index: 0;
+		font-weight: 700;
+		font-size: 1.6rem;
+		line-height: 2rem;
+		flex-shrink: 0;
+		border-radius: 32px;
+		color: #fff;
+		background: #f2851d;
+		box-shadow: 5px 5px 10px 0px rgba(22, 27, 29, 0.23),
+			-5px -5px 10px 0px rgba(250, 251, 255, 0.1);
+			margin-bottom: 2.2rem;
+		@media (min-width: 768px) {
+			margin-inline:unset;
+			margin-right:auto;
+			margin-left:25px;
+			font-size: 2rem;
+			line-height: 3rem;
+			width: 100%;
+			max-width: 280px;
+		}
+	}
+	a::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+
+		border-radius: 32px;
+
+		box-shadow: 10px 10px 20px 0px rgba(22, 27, 29, 0.23),
+			-10px -10px 20px 0px rgba(250, 251, 255, 0.1);
+		transition: opacity 0.3s ease-in-out;
+	}
+
+	a:hover::after {
+		opacity: 1;
+	}
 	}
 `;
 
@@ -151,7 +200,7 @@ export const TargetList = styled.ul`
 			font-weight: 300;
 			text-align: center;
 			margin-top: 0;
-			margin-bottom: 2.2rem;
+margin-bottom: 16px;
 			${({ theme }) => theme.mq.desktop} {
 				text-align: left;
 				font-size: ${({ theme }) => theme.font.size.paragraph};
