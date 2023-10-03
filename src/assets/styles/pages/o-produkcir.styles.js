@@ -690,6 +690,7 @@ a {
 background: #5E286D;
 box-shadow: 5px 5px 10px 0px rgba(22, 27, 29, 0.23), -5px -5px 10px 0px rgba(250, 251, 255, 0.10);
 margin-top:16px;
+text-decoration:none !important;
 		@media (min-width: 768px) {
 			color: white;
 			font-size: 2rem;
