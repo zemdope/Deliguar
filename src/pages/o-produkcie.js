@@ -223,7 +223,7 @@ const AboutProduct = ({data}) => {
 			</AboutProductHero>
 			<PostbioticsSection>
 				<h2>
-				Nie wiesz jak rozróżnić pre-, pro- postbiotyki
+				{data.allContentfulOpHero.nodes[0].postbioticsTitle}
 				</h2>
 				<Row>
 					<Col lg="4">
@@ -232,9 +232,9 @@ const AboutProduct = ({data}) => {
 						<img src={pb1} alt="" />
 						</div>
 						<div>
-							<h3>Probiotyki</h3>
-							<span>Fabryki</span>
-							<p>Żywe korzystne bakterie kwasu mlekowego lub drożdże,które wykorzystują prebiotyki do produkcji pożytecznych produktów metabolity.</p>
+							<h3>{data.allContentfulOpHero.nodes[0].postbioticsItemTitle}</h3>
+							<span>{data.allContentfulOpHero.nodes[0].postbioticsItemSubitle}</span>
+							<p>{data.allContentfulOpHero.nodes[0].postbioticsItemDescription}</p>
 						</div>
 					
 					</PostbioticsItem>
@@ -246,9 +246,9 @@ const AboutProduct = ({data}) => {
 						<img src={pb2} alt="" />
 						</div>
 						<div>
-							<h3>Prebiotyki</h3>
-							<span>Paliwo</span>
-							<p>Składniki odżywcze dla pożytecznych mikroorganizmów często spotykane w jelitach w ścianach komórkowych roślin, m.in. błonnik, oligosacharydy, fruktooligosacharydy, inulina.</p>
+							<h3>{data.allContentfulOpHero.nodes[0].postbioticsItemTitle2}</h3>
+							<span>{data.allContentfulOpHero.nodes[0].postbioticsItemSubitle2}</span>
+							<p>{data.allContentfulOpHero.nodes[0].postbioticsItemDescription2}</p>
 						</div>
 					</PostbioticsItem>
 					</Col>
@@ -258,9 +258,9 @@ const AboutProduct = ({data}) => {
 						<img src={pb3} alt="" />
 						</div>
 						<div>
-							<h3>Postbiotyki</h3>
-							<span>Produkt końcowy</span>
-							<p>Produkowany w procesie precyzyjnego, nowoczesnego modelu fermentacji w celu wytworzenia korzystnych metabolitów..</p>
+							<h3>{data.allContentfulOpHero.nodes[0].postbioticsItemTitle3}</h3>
+							<span>{data.allContentfulOpHero.nodes[0].postbioticsItemSubitle3}</span>
+							<p>{data.allContentfulOpHero.nodes[0].postbioticsItemDescription3}</p>
 						</div>
 					
 					
@@ -268,7 +268,7 @@ const AboutProduct = ({data}) => {
 					</Col>
 				</Row>
 				<Col xs='12'>
-					<a href="">Dowiedź się więcej</a>
+					<a  href={data.allContentfulOpHero.nodes[0].readMore.publicUrl} target='blank'>Dowiedz się więcej</a>
 				</Col>
 			</PostbioticsSection>
 			<EffectSection>
@@ -442,12 +442,26 @@ query MyQuery {
       subtitlebeforeplus
       title
       content
+	 postbioticsItemDescription
+      postbioticsItemDescription2
+      postbioticsItemDescription3
+      postbioticsItemSubtitle
+      postbioticsItemSubtitle2
+      postbioticsItemSubtitle3
+      postbioticsItemTitle
+      postbioticsItemTitle2
+      postbioticsItemTitle3
+      postbioticsTitle
+	 readMore {
+		publicUrl
+      }
       image {
         file {
           url
         }
       }
-    }
+	 
+  }
   }
   allContentfulRozwiazaniedlabiznesu {
     nodes {

@@ -57,5 +57,12 @@ background-color: #ffffff;
     cursor: pointer;
     white-space:nowrap;
     text-decoration:none;
+    height:44px !important;
+    font-size:16px !important;
+
+    @media (min-width:1024px) {
+      height:46px !important;
+      font-size:20px !important;
+    }
   }
 `;

@@ -193,8 +193,8 @@ const OurTests = ({data}) => {
 				<Row>
 					<Col className='d-lg-flex gap-5 justify-content-center'>
 						
-				<h2>Opis badań</h2>
-				<p>Badanie satysfakcji konsumentów przeprowadzono na 102 zwierzętach towarzyszących (28 kotów i 74 psach), które zostały uzupełnione z DeliGuard na okres 2 tygodni. Celem pracy była ocena wpływu codziennej suplementacji postbiotykiem DeliGuard na stan zdrowia, dobrostan i kondycję zwierząt.</p>
+				<h2>{data.allContentfulNsHero.nodes[0].researchDescription}</h2>
+				<p>{data.allContentfulNsHero.nodes[0].researchParagraph.researchParagraph}</p> 
 				
 				</Col>
 				</Row>
@@ -329,6 +329,10 @@ query MyQuery {
 	    itemTopNumber
 	    subtitle
 	    title
+	    researchDescription
+      researchParagraph {
+        researchParagraph
+      }
 	  }
 	}
 	allContentfulNsDzialanie {

@@ -868,7 +868,7 @@ scale:0,
   </Col>
 </Row>
 {/* href={data.allContentfulDawkowanie.nodes[0].buttonFile.url} */}
-					<InstructionButton >{data.allContentfulDawkowanie.nodes[0].button}</InstructionButton>
+					<InstructionButton href={data.allContentfulOpHero.nodes[0].readMore.publicUrl} target="blank">{data.allContentfulDawkowanie.nodes[0].button}</InstructionButton>
 				</DosageWrapper>
 			</DosageSection>
 			<ReviewSection>
@@ -1191,6 +1191,12 @@ export const query = graphql`
       }
     }
   }
+  allContentfulOpHero {
+    nodes {
+	 readMore {
+		publicUrl
+       
+  }}}
   allContentfulBadania {
     nodes {
       button

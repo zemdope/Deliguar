@@ -229,7 +229,7 @@ const Business = ({data}) => {
 								<br />
 								{data.allContentfulRdbONas.nodes[0].certificateContentSecond}
 							</Paragraph> 
-							<a href="">Certyfikaty</a>
+							<a href={data.allContentfulRdbONas.nodes[0].certificate.publicUrl} target='blank'>Certyfikaty</a>
 						</Col>
 					</Row>
 				</Wrapper>
@@ -364,6 +364,9 @@ query MyQuery {
 	  nodes {
 	    image {
 		url
+	    }
+	    certificate {
+		publicUrl
 	    }
 	    subtitle
 	    title
