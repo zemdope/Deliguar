@@ -96,6 +96,7 @@ import bigDog from '../assets/images/bigDog.png';
 import drop from '../assets/images/drop.svg';
 import dog from '../assets/images/dog.svg';
 import arrowPrev from '../assets/images/arrowPrev.svg';
+import inst from '../assets/images/inst.pdf';
 import arrowNext from '../assets/images/arrowNext.svg';
 import bag from '../assets/images/bag.svg';
 import solution from '../assets/images/solutionImage.png';
@@ -868,7 +869,7 @@ scale:0,
   </Col>
 </Row>
 {/* href={data.allContentfulDawkowanie.nodes[0].buttonFile.url} */}
-					<InstructionButton href={data.allContentfulOpHero.nodes[0].readMore.publicUrl} target="blank">{data.allContentfulDawkowanie.nodes[0].button}</InstructionButton>
+					<InstructionButton href={inst} target="blank">{data.allContentfulDawkowanie.nodes[0].button}</InstructionButton>
 				</DosageWrapper>
 			</DosageSection>
 			<ReviewSection>
@@ -1191,12 +1192,7 @@ export const query = graphql`
       }
     }
   }
-  allContentfulOpHero {
-    nodes {
-	 readMore {
-		publicUrl
-       
-  }}}
+  
   allContentfulBadania {
     nodes {
       button

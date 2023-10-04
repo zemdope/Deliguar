@@ -36,6 +36,7 @@ import effectItem from '../assets/images/effectItem.svg';
 import zab from '../assets/images/zab.svg';
 import plaster from '../assets/images/plaster.svg';
 import bag from '../assets/images/bag.svg';
+import inst from '../assets/images/inst.pdf';
 import testsImage from '../assets/images/testsImage.png';
 import solution from '../assets/images/solutionImage.png';
 import plus from '../assets/images/plus.svg';
@@ -268,7 +269,7 @@ const AboutProduct = ({data}) => {
 					</Col>
 				</Row>
 				<Col xs='12'>
-					<a  href={data.allContentfulOpHero.nodes[0].readMore.publicUrl} target='blank'>Dowiedz się więcej</a>
+					<a  href={inst} target='blank'>Dowiedz się więcej</a>
 				</Col>
 			</PostbioticsSection>
 			<EffectSection>
@@ -452,9 +453,6 @@ query MyQuery {
       postbioticsItemTitle2
       postbioticsItemTitle3
       postbioticsTitle
-	 readMore {
-		publicUrl
-      }
       image {
         file {
           url
