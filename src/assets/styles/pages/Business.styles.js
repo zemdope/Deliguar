@@ -87,6 +87,7 @@ export const Wrapper = styled.div`
 		box-shadow: 5px 5px 10px 0px rgba(22, 27, 29, 0.23),
 			-5px -5px 10px 0px rgba(250, 251, 255, 0.1);
 			margin-bottom: 2.2rem;
+			text-decoration:none !important;
 		@media (min-width: 768px) {
 			margin-inline:unset;
 			margin-right:auto;
