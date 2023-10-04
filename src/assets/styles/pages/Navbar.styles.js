@@ -112,6 +112,18 @@ export const Header = styled.header`
 	}
 `;
 
+export const ShopLink = styled.a`
+border: none;
+	cursor: pointer;
+	padding: 0;
+	z-index: 3;
+	position: absolute;
+	right: 68px;
+	top: 16px;
+@media (min-width:1024px) {
+	display:none;
+}
+`
 export const LogoLink = styled(Link)`
 	width: ${({ isOpen }) => (isOpen ? '145px' : '58px')};
 

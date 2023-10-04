@@ -7,7 +7,8 @@ import {
 	Header,
 	LogoLink,
 	Button,
-	SocialWrapper
+	SocialWrapper,
+	ShopLink
 } from '../assets/styles/pages/Navbar.styles';
 import menu from '../assets/images/menu.svg';
 import close from '../assets/images/close.svg';
@@ -16,6 +17,7 @@ import logoText from '../assets/images/logoText.png';
 import ig from '../assets/images/insta.svg';
 import fb from '../assets/images/fb.svg';
 import yt from '../assets/images/yt.svg';
+import card from '../assets/images/card.svg';
 
 
 const Navbar = ({data}) => {
@@ -37,6 +39,7 @@ const Navbar = ({data}) => {
 					<img src={menu} alt='' />
 					<img src={close} alt='' />
 				</StyledBurger>
+				<ShopLink href="https://allegro.pl/oferta/suplement-dla-psa-i-kota-na-trawienie-deliguard-14236919045"><img src={card} alt="" /></ShopLink>
 				<List isOpen={isOpen}>
 					<li>
 						<Link to='/o-produkcie'>O produkcie</Link>
@@ -50,7 +53,7 @@ const Navbar = ({data}) => {
 						</Link>
 					</li>
 					<li> 
-						<Button href="https://allegro.pl/oferta/suplement-dla-psa-i-kota-na-trawienie-deliguard-14236919045">Spróbuj</Button>
+						<Button href="https://allegro.pl/oferta/suplement-dla-psa-i-kota-na-trawienie-deliguard-14236919045">Kup teraz</Button>
 					</li>
 					<SocialWrapper isOpen={isOpen}>
 						<a href='https://www.instagram.com/deliguard.pets/'>
