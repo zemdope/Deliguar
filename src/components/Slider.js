@@ -7,20 +7,31 @@ import 'swiper/css/navigation';
 const Slider = ({ slides, onSlideClick }) => {
 	return (
 		<Swiper
-			spaceBetween={10}
+			spaceBetween={30}
 			className='desktop-slider'
 			modules={[Navigation, Keyboard, Autoplay]}
 			slidesPerView={2.5}
+			
+			breakpoints={{
+				
+				1440: {
+			
+					slidesPerView: 2,
+				},
+			   }}
 			// centeredSlides={true}
 			keyboard={{
 				enabled: true
 			}}
 			loop={true}
-			initialSlide={1}
+			// initialSlide={1}
 			speed={4000}
 			autoplay={{
 				delay:0,
-				pauseOnMouseEnter: true 
+				// pauseOnMouseEnter: true 
+				pauseOnMouseEnter: true,        // added
+        disableOnInteraction: false, 
+	//    reverseDirection: true, 
 			}}
 			
 			navigation={{
@@ -49,6 +60,7 @@ const Slider = ({ slides, onSlideClick }) => {
 						</div>
 					</div>
 				</SwiperSlide>
+				
 			))}
 		</Swiper>
 	);

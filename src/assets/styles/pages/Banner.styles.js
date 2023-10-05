@@ -16,6 +16,11 @@ place-items: center;
 	img {
 	max-width: 100%;
   height: auto;
+  @media (min-width:1024px) {
+    max-width:70%;
+    display:block;
+    margin-inline:auto;
+  }
 }
   .close-button {
   background-color: transparent;
@@ -26,7 +31,10 @@ place-items: center;
   margin: 0;
   position:absolute;
   top: -50px;
-  right:0px;
+  right:0;
+  @media (min-width:1024px) {
+    right:15%;
+  }
   svg {
 	width:30px;
 	height: 30px;

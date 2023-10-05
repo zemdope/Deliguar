@@ -20,7 +20,7 @@ const Footer = () => {
 					<Col xs='6' lg='8'>
 						<Row>
 							<Col xs='12'>
-								<h5>Wszystkie prawa zastrzeżone 2023</h5>
+								<h5>Copyright by BioDose 2023 ®</h5>
 								<a href={Pprivacy} target='blank'>Polityka Prywatności</a>
 							</Col>
 							

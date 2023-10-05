@@ -48,6 +48,7 @@ export const List = styled.ul`
 			text-decoration: none;
 			font-weight: 400;
 			line-height: 2.8rem;
+		
 			font-size: ${({ theme }) => theme.font.size.parapgraph};
 			@media (min-width: 768px) {
 				line-height: 3.4rem;
@@ -55,10 +56,10 @@ export const List = styled.ul`
 			}
 		}
 		a.active {
-			font-weight: 700 !important;
+			/* font-weight: 700 !important; */
 		}
 		a:hover {
-			font-weight: bold;
+			/* font-weight: bold; */
 		}
 	}
 
@@ -170,15 +171,24 @@ export const Navigation = styled.nav`
 			a {
 				padding: 0;
 				font-size: 20px;
-				font-weight: normal;
+				
+			transition: all 200ms ease-out;
 				color: ${({ theme }) => theme.color.white};
+			
+			
+			
 			}
 			a.active {
-				font-weight: 700 !important;
+			
 			}
 			a:hover {
-				font-weight: bold;
+				text-shadow: 0 0 1px white, 0 0 1px white, 0 0 1px white;
+			
+				scale:1.1; 
+	
 			}
+					
+			
 		}
 	}
 

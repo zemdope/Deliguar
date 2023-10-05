@@ -88,6 +88,21 @@ export const Wrapper = styled.div`
 		justify-content: space-between;
 		margin-top: 102px;
 	}
+	.container-re {
+		padding-inline: 30px;
+		font-family: 'Open Sans';
+		font-size: 16px;
+		line-height: 20px;
+		font-style: normal;
+		color:#5e286d;
+		padding-top: 100px;
+		padding-bottom:50px;
+		@media (min-width: 1024px) {
+			padding-inline:100px;
+			font-size: 20px;
+			line-height: 28px;
+		}
+	}
 `;
 export const HeroSection = styled.section`
 	margin-inline: auto;
@@ -411,7 +426,7 @@ export const LearnMoreWrapper = styled.div`
 		max-width: 280px;
 		color: white;
 		font-size: 1.6rem;
-		line-height: 2rem;
+		line-height: 2.6rem;
 		font-family: 'Open sans';
 		font-weight: 700;
 		color: white;
@@ -435,7 +450,7 @@ export const LearnMoreWrapper = styled.div`
 			margin-inline: unset;
 			margin-right: auto;
 			font-size: 1.9rem;
-
+			max-width: 295px;
 			line-height: 30px; /* 150% */
 		}
 	}
@@ -589,7 +604,7 @@ export const TestWrapper = styled.div`
 		}
 	}
 	h3 {
-		margin-top: 7.4rem;
+		margin-top: 5.4rem;
 		margin-bottom: 1.5rem;
 		font-size: 1.6rem;
 		line-height: 2rem;
@@ -612,6 +627,7 @@ export const TestWrapper = styled.div`
 		line-height: 2rem;
 		flex-shrink: 0;
 		border-radius: 32px;
+		margin-bottom:1.9rem;
 		color: #5E286D;
 		background: #f2851d;
 		box-shadow: 5px 5px 10px 0px rgba(22, 27, 29, 0.23),
@@ -622,6 +638,7 @@ export const TestWrapper = styled.div`
 			line-height: 3rem;
 			width: 100%;
 			max-width: 280px;
+			margin-bottom:unset;
 		}
 	}
 	a::after {
@@ -1243,7 +1260,7 @@ export const ReviewSection = styled.section`
 export const SlideHeader = styled.h3`
 	color: #5e286d;
 	text-align: center;
-
+margin-top:-25px;
 	font-family: 'Americane';
 	font-size: 32px;
 	font-style: normal;
@@ -1357,7 +1374,7 @@ export const ReviewWrapper = styled.div`
 		}
 	}
 	.mobile-slider {
-		padding-top: 70px;
+		padding-top: 90px;
 		position: relative;
 		@media (min-width: 1024px) {
 			display: none;
