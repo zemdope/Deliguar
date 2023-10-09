@@ -426,15 +426,15 @@ scale:0,
 			}
 		});
 	}, []);
-	const advertisingBanner = data.allContentfulTest.nodes[0]?.advertisingBanner;
+	// const advertisingBanner = data.allContentfulTest.nodes[0]?.advertisingBanner;
 
-	// Check if advertisingBanner exists before rendering the banner
-	const shouldDisplayBanner = !!advertisingBanner;
-	const imageUrl = shouldDisplayBanner ? advertisingBanner.file.url : null;
+	// // Check if advertisingBanner exists before rendering the banner
+	// const shouldDisplayBanner = !!advertisingBanner;
+	// const imageUrl = shouldDisplayBanner ? advertisingBanner.file.url : null;
 	return (
 	
 		<Layout>
- {shouldDisplayBanner && <Banner imageUrl={imageUrl} />}
+ {/* {shouldDisplayBanner && <Banner imageUrl={imageUrl} />} */}
 			<HeroSection>
 				<Wrapper>
 					<LeftItem>
