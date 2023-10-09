@@ -15,7 +15,6 @@ const Slider = ({ slides, onSlideClick }) => {
 			breakpoints={{
 				
 				1440: {
-			
 					slidesPerView: 2,
 				},
 			   }}
