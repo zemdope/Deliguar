@@ -1331,15 +1331,15 @@ export const query = graphql`
       }
     }
   }
-  allContentfulTest {
-    nodes {
-      advertisingBanner {
-        file {
-          url
-        }
-      }
-    }
-  }
+#   allContentfulTest {
+#     nodes {
+#       advertisingBanner {
+#         file {
+#           url
+#         }
+#       }
+#     }
+#   }
 }
 
 `;
