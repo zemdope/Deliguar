@@ -209,17 +209,27 @@ export const AttachmentDiv = styled.div`
 	position: relative;
 	cursor: pointer;
 	text-align: center;
-	/* margin-top: 16px;
-	@media (min-width: 992px) {
-		margin-top: 24px;
-	} */
+
 	img {
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		z-index: 0;
+		z-index: 99999; /* Change z-index to 2 to make the image appear above the file input */
 	}
+	.selected-image {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		min-width: 60px;
+	min-height: 60px;
+	max-width: 60px;
+	max-height: 60px;
+		display:block;
+		border-radius:50%;
+		z-index:3;
+	}
+
 	#attachment,
 	#file-upload-button {
 		width: 60px !important;
@@ -228,9 +238,10 @@ export const AttachmentDiv = styled.div`
 		opacity: 0;
 		position: relative;
 		inset: 0;
-		z-index: 1;
+		z-index: 110;
 		cursor: pointer;
 	}
+
 	#file-upload-button {
 		z-index: -1;
 	}

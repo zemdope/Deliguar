@@ -9,6 +9,7 @@ import { gsap } from 'gsap';
 import { graphql } from 'gatsby'; 
 // import { ButtonSliderWrapper } from '../assets/styles/pages/Index.styles';
 import Banner from '../components/Banner';
+import { Helmet } from "react-helmet";
 
 // get other plugins:
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -434,6 +435,15 @@ scale:0,
 	return (
 	
 		<Layout>
+		
+      <Helmet>
+        <title>{data.allContentfulHero.nodes[0].seoTitle}</title>
+        <meta
+          name="description"
+          content={data.allContentfulHero.nodes[0].seoMetaDescription.seoMetaDescription}
+        />
+      </Helmet>
+  
  {/* {shouldDisplayBanner && <Banner imageUrl={imageUrl} />} */}
 			<HeroSection>
 				<Wrapper>
@@ -1148,7 +1158,7 @@ scale:0,
 };
 
 
-export const Head = () => <title>Strona Główna</title>;
+// export const Head = () => <title>Strona Główna</title>;
 export const query = graphql`
 	
 		query MyQuery {
@@ -1157,6 +1167,10 @@ export const query = graphql`
       title
       subtitle
       subtitlebottom
+	 seoTitle
+      seoMetaDescription {
+        seoMetaDescription
+      }
       image {
 		url
       }
@@ -1331,6 +1345,8 @@ export const query = graphql`
       }
     }
   }
+
+
 #   allContentfulTest {
 #     nodes {
 #       advertisingBanner {

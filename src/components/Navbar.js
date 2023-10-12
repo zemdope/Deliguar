@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'gatsby';
+import { Link} from 'gatsby';
+import Menu from './getMenuItems';
+
 import {
 	List,
 	StyledBurger,
@@ -21,6 +23,7 @@ import card from '../assets/images/card.svg';
 
 
 const Navbar = ({data}) => {
+	// const menuItems = getMenuItems();
 	const [isOpen, setIsOpen] = useState(false);
 
 	const toggleNavigation = () => { 
@@ -41,20 +44,7 @@ const Navbar = ({data}) => {
 				</StyledBurger>
 				<ShopLink href="https://allegro.pl/oferta/suplement-dla-psa-i-kota-na-trawienie-deliguard-14236919045"><img src={card} alt="" /></ShopLink>
 				<List isOpen={isOpen}>
-					<li>
-						<Link to='/o-produkcie' title="O produkcie">O produkcie</Link>
-					</li>
-					<li>
-						<Link to='/nasze-badania' title="Nasze Badania">Nasze Badania </Link>
-					</li>
-					<li>
-						<Link to='/rozwiazanie-dla-biznesu' title="Rozwiązanie dla biznesu">
-							Rozwiązanie dla biznesu{' '}
-						</Link>
-					</li>
-					<li> 
-						<Button href="https://allegro.pl/oferta/suplement-dla-psa-i-kota-na-trawienie-deliguard-14236919045">Kup teraz</Button>
-					</li>
+				<Menu/>
 					<SocialWrapper isOpen={isOpen}>
 						<a href='https://www.instagram.com/deliguard.pets/'>
 							<img src={ig} alt='' />

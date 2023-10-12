@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {useEffect, useRef} from 'react';
 import Layout from '../components/Layout';
+import { Helmet } from "react-helmet";
 import { graphql } from 'gatsby';
 import {
 	Wrapper,
@@ -157,6 +158,13 @@ const Business = ({data}) => {
 	}, []);
 	return (
 		<Layout>
+			<Helmet>
+        <title>{data.allContentfulRdbHero.nodes[0].seoTitle}</title>
+        <meta
+          name="description"
+          content={data.allContentfulRdbHero.nodes[0].seoMetaDescription.seoMetaDescription}
+        />
+      </Helmet>
 			<BusinessSection>
 				<Wrapper>
 					<LeftItem>
@@ -336,6 +344,10 @@ export const query = graphql`
 query MyQuery {
 	allContentfulRdbHero {
 	  nodes {
+		seoTitle
+      seoMetaDescription {
+        seoMetaDescription
+      }
 	    firstItemContent {
 		 firstItemContent
 	    }

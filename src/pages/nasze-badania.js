@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import { gsap } from 'gsap';
+import { Helmet } from "react-helmet";
 import { StaticImage } from 'gatsby-plugin-image';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Layout from '../components/Layout';
@@ -138,6 +139,13 @@ const OurTests = ({data}) => {
 	}, []);
 	return (
 		<Layout>
+			  <Helmet>
+        <title>{data.allContentfulNsHero.nodes[0].seoTitle}</title>
+        <meta
+          name="description"
+          content={data.allContentfulNsHero.nodes[0].seoMetaDescription.seoMetaDescription}
+        />
+      </Helmet>
 			<HeroSection>
 				<HeroWrapper>
 					<Row className='mobile-hero'>
@@ -329,6 +337,10 @@ query MyQuery {
 	    itemTopNumber
 	    subtitle
 	    title
+	    seoMetaDescription {
+        seoMetaDescription
+      }
+      seoTitle
 	    researchDescription
       researchParagraph {
         researchParagraph

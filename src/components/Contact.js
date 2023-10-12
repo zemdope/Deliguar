@@ -1,7 +1,5 @@
-// Make sure to run npm install @formspree/react
-// For more help visit https://formspr.ee/react-help
-import React from 'react';
-import { useForm, ValidationError } from '@formspree/react';
+
+import React, {useState} from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import {
@@ -11,19 +9,48 @@ import {
 } from '../assets/styles/pages/Contact.styles';
 import plus from '../assets/images/plusForm.svg';
 function ContactForm() {
-	const [state, handleSubmit] = useForm('moqodglq');
-	if (state.succeeded) {
-		return <p>Dziękujemy za opinię!</p>;
+
+	const [selectedImage, setSelectedImage] = useState(null);
+
+	const handleImageChange = (event) => {
+	  const file = event.target.files[0];
+	  const imageUrl = URL.createObjectURL(file);
+	  setSelectedImage(imageUrl);
 	}
+	
+	const [allChecked, setAllChecked] = useState(false);
+	const [checkboxesChecked, setCheckboxesChecked] = useState({
+	  rodo: false,
+	  voluntary: false,
+	  copyright: false,
+	});
+   
+	const handleAllCheckboxChange = (event) => {
+	  const isChecked = event.target.checked;
+	  setAllChecked(isChecked);
+	  setCheckboxesChecked({
+	    rodo: isChecked,
+	    voluntary: isChecked,
+	    copyright: isChecked,
+	  });
+	};
+   
+	const handleIndividualCheckboxChange = (name, isChecked) => {
+	  setCheckboxesChecked({
+	    ...checkboxesChecked,
+	    [name]: isChecked,
+	  });
+	};
+   
+
 	return (
 		<Wrapper>
 			<form
-				onSubmit={handleSubmit}
-				method='POST'
-				encType='multipart/form-data'>
-				<h2>Napisz opinię</h2>
-
-				<Row>
+  method='POST'
+  action="https://formsubmit.co/a234b6f9d7f37b6faa95665577ea142c"
+  encType='multipart/form-data' 
+>
+ <Row>
 					<Col xs='12'>
 						<input
 							id='name'
@@ -32,11 +59,7 @@ function ContactForm() {
 							name='name'
 							required
 						/>
-						<ValidationError
-							prefix='Name'
-							field='name'
-							errors={state.errors}
-						/>
+						
 					</Col>
 					<Col xs='12'>
 						<input
@@ -46,11 +69,7 @@ function ContactForm() {
 							name='email'
 							required
 						/>
-						<ValidationError
-							prefix='Email'
-							field='email'
-							errors={state.errors}
-						/>
+						
 					</Col>
 					<Col xs='12'>
 						<input
@@ -60,11 +79,7 @@ function ContactForm() {
 							name='dogName'
 							required
 						/>
-						<ValidationError
-							prefix='DogName'
-							field='dogName'
-							errors={state.errors}
-						/>
+						
 					</Col>
 					<Col xs='6'>
 						<input
@@ -74,11 +89,7 @@ function ContactForm() {
 							name='birthday'
 							required
 						/>
-						<ValidationError
-							prefix='Birthday'
-							field='birthday'
-							errors={state.errors}
-						/>
+						
 					</Col>
 					<Col xs='6'>
 						<input
@@ -88,29 +99,31 @@ function ContactForm() {
 							name='rasa'
 							required
 						/>
-						<ValidationError
-							prefix='Rasa'
-							field='rasa'
-							errors={state.errors}
-						/>
+						
 					</Col>
 					<Col xs='12' className='d-flex gap-5  align-items-center'>
 						<AttachmentDiv>
-							<img src={plus} alt='' />
+						{selectedImage ? (
+                <img src={selectedImage} className='selected-image' alt='Selected' />
+              ) : (
+                <img src={plus} alt='' />
+              )}
 							<input
 								id='attachment'
 								type='file'
-								name='attachment'
+								name='attachment' 
+								accept="image/png, image/jpeg"
+								onChange={handleImageChange}
 							/>
 						</AttachmentDiv>
-						<label htmlFor='attachment'>
+						{selectedImage ?(<label htmlFor='attachment'>
+						Super, że masz takiego pupila
+						</label>) : (<label htmlFor='attachment'>
 							Pochwal się zdjęciem Swojego pupila
-						</label>
-						<ValidationError
-							prefix='Attachment'
-							field='attachment'
-							errors={state.errors}
-						/>
+						</label>) }
+						
+						
+						
 					</Col>
 					<Col xs='12'>
 						<textarea
@@ -119,30 +132,25 @@ function ContactForm() {
 							placeholder='Napisz opinię (od kiedy Twój pupil stosuje DeliGuard i po jakim czasie zauwożono poprawę'
 							required
 						/>
-						<ValidationError
-							prefix='Message'
-							field='message'
-							errors={state.errors}
-						/>
+					
 					</Col>
 					<Col xs='12'>
 						<div className='checkbox-container'>
 							<input
 								id='checkbox'
 								type='checkbox'
-								name='urgent'
+								name='all'
 								value='yes'
+								checked={allChecked}
+								onChange={handleAllCheckboxChange}
 								required
+
 							/>
 							<label htmlFor='checkbox'>
 								Zaakceptuj wszystkie wymagane oświadczenia i
 								zgody
 							</label>
-							<ValidationError
-								prefix='Checkbox'
-								field='checkbox'
-								errors={state.errors}
-							/>
+							
 						</div>
 					</Col>
 					<Col xs='12'>
@@ -150,18 +158,16 @@ function ContactForm() {
 							<input
 								id='rodo'
 								type='checkbox'
-								name='urgent'
+								name='Zgoda RODO'
 								value='yes'
+								checked={checkboxesChecked.rodo}
+								onChange={(e) => handleIndividualCheckboxChange('rodo', e.target.checked)}
 								required
 							/>
 							<label htmlFor='rodo'>
 								Zaakceptuj informacje RODO
-							</label>
-							<ValidationError
-								prefix='Rodo'
-								field='rodo'
-								errors={state.errors}
-							/>
+							</label> 
+						
 						</div>
 					</Col>
 					<Col xs='12'>
@@ -169,18 +175,16 @@ function ContactForm() {
 							<input
 								id='voluntary'
 								type='checkbox'
-								name='urgent'
+								name='Oświadczenie o dobrowolności'
 								value='yes'
+								checked={checkboxesChecked.voluntary}
+								onChange={(e) => handleIndividualCheckboxChange('voluntary', e.target.checked)}
 								required
 							/>
 							<label htmlFor='voluntary'>
 								Oświadczenie o dobrowolności
 							</label>
-							<ValidationError
-								prefix='Voluntary'
-								field='voluntary'
-								errors={state.errors}
-							/>
+						
 						</div>
 					</Col>
 					<Col xs='12'>
@@ -188,25 +192,26 @@ function ContactForm() {
 							<input
 								id='copyright'
 								type='checkbox'
-								name='urgent'
+								name='Oświadczenie praw autorskich'
 								value='yes'
+								checked={checkboxesChecked.copyright}
+								onChange={(e) => handleIndividualCheckboxChange('copyright', e.target.checked)}
 								required
 							/>
 							<label htmlFor='copyright'>
 								Oświadczenie praw autorskich
 							</label>
-							<ValidationError
-								prefix='Copyright'
-								field='copyright'
-								errors={state.errors}
-							/>
+						
 						</div>
+						<input type="hidden" name='_next' value="http://localhost:8000/" />
+						<input type="hidden" name='_captcha' value="false" />
 					</Col>
-					<button type='submit' disabled={state.submitting}>
+					<button type='submit' >
+					{/* disabled={state.submitting} */}
 						Wyślij
 					</button>
 				</Row>
-			</form>
+</form>
 		</Wrapper>
 	);
 }

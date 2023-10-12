@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Layout from '../components/Layout';
 import { graphql } from 'gatsby';
+import { Helmet } from "react-helmet";
 import product from '../assets/images/product.png';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -183,6 +184,13 @@ const AboutProduct = ({data}) => {
 	}, []);
 	return (
 		<Layout>
+			<Helmet>
+        <title>{data.allContentfulOpHero.nodes[0].seoTitle}</title>
+        <meta
+          name="description"
+          content={data.allContentfulOpHero.nodes[0].seoMetaDescription.seoMetaDescription}
+        />
+      </Helmet>
 			<AboutProductHero>
 				<Row className='hero-wrapper d-md-none'>
 					<h1>{data.allContentfulOpHero.nodes[0].title}</h1>
@@ -453,6 +461,10 @@ query MyQuery {
       postbioticsItemTitle2
       postbioticsItemTitle3
       postbioticsTitle
+	 seoTitle
+      seoMetaDescription {
+        seoMetaDescription
+      }
       image {
         file {
           url
