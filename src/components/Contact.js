@@ -203,7 +203,7 @@ function ContactForm() {
 							</label>
 						
 						</div>
-						<input type="hidden" name='_next' value="http://localhost:8000/" />
+						<input type="hidden" name='_next' value="http://localhost:8000/thanksPage" />
 						<input type="hidden" name='_captcha' value="false" />
 					</Col>
 					<button type='submit' >
