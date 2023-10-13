@@ -21,9 +21,8 @@ exports.createPages = async ({ graphql, actions }) => {
 	    fromPath: sourceUrl,
 	    toPath: targetUrl,
 	    isPermanent: true,
+redirectInBrowser: true,
 	  });
 	});
 
    };  
-
- 
