@@ -11,7 +11,6 @@ import { graphql } from 'gatsby';
 import Banner from '../components/Banner';
 import { Helmet } from "react-helmet";
 
-// get other plugins:
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import {
 	Wrapper,
@@ -80,27 +79,12 @@ import right from '../assets/images/right.svg';
 
 import bell from '../assets/images/bell.svg';
 import bulb from '../assets/images/bulb.svg';
-import bottleDesktop from '../assets/images/bottleDesktop2.svg';
 import eye from '../assets/images/eye.svg';
-import effect from '../assets/images/effect.png';
-import effectImage from '../assets/images/effectImage2.png';
-import effectImagee from '../assets/images/effectImagee.svg';
-import effectItem3 from '../assets/images/EffectItem3.svg';
-import effectItem2 from '../assets/images/effectItem2.svg';
-import effectItem from '../assets/images/effectItem.svg';
-import smallCat from '../assets/images/smallCat.svg';
-import mediumCat from '../assets/images/mediumCat.svg';
-import bigCat from '../assets/images/bigCat.png';
-import smallDog from '../assets/images/smallDog.svg';
-import mediumDog from '../assets/images/mediumDog.svg';
-import bigDog from '../assets/images/bigDog.png';
 import drop from '../assets/images/drop.svg';
-import dog from '../assets/images/dog.svg';
 import arrowPrev from '../assets/images/arrowPrev.svg';
 import inst from '../assets/images/inst.pdf';
 import arrowNext from '../assets/images/arrowNext.svg';
 import bag from '../assets/images/bag.svg';
-import solution from '../assets/images/solutionImage.png';
 import plus from '../assets/images/plus.svg';
 import ig from '../assets/images/insta.svg';
 import fb from '../assets/images/fb.svg';
@@ -114,10 +98,8 @@ import item10 from '../assets/images/item10.svg';
 import item11 from '../assets/images/item11.svg';
 import item14 from '../assets/images/item14.svg';
 import item15 from '../assets/images/iteem15.svg';
-import contactImage from '../assets/images/contactImage.svg';
+
 import mail from '../assets/images/mail.svg';
-import solutionMobile from '../assets/images/solutionMobile.svg';
-import solutionn from '../assets/images/solutionn.svg';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Keyboard, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -129,7 +111,6 @@ import Modal from '../components/Modal';
 const IndexPage = ({data}) => {
 	const [currentStep, setCurrentStep] = useState(2);
 	const [currentStepDog, setCurrentStepDog] = useState(2);
-	const swiperKnowledgeRef = useRef();
 	const handleStepChange = (event) => {
 		setCurrentStep(Number(event.target.value));
 	};
@@ -225,11 +206,11 @@ const slides = data.allContentfulOpinie.nodes.map(el => ({
 		ScrollTrigger.create({
 			trigger: element.querySelector('.first'),
 			onEnter: () => {
-				// Play the timeline when the section is visible
+			
 				t2.play();
 			},
 			onLeaveBack: () => {
-				// Reverse the timeline when the section is not visible anymore
+				
 				t2.reverse();
 			}
 		});
@@ -263,13 +244,7 @@ const slides = data.allContentfulOpinie.nodes.map(el => ({
 			delay: 0.1,
 			ease: 'power2.out'
 		});
-		// t3.from(element2.querySelector('.solution-image'), {
-		// 	opacity: 0,
-		// 	x: 30,
-		// 	duration: 0.3,
-		// 	delay: 0.1,
-		// 	ease: 'power2.out'
-		// });
+	
 		t3.from(element2.querySelector('.solution-header'), {
 			opacity: 0,
 			x: 30,
@@ -302,11 +277,11 @@ const slides = data.allContentfulOpinie.nodes.map(el => ({
 		ScrollTrigger.create({
 			trigger: element2.querySelector('.idea'),
 			onEnter: () => {
-				// Play the timeline when the section is visible
+			
 				t3.play();
 			},
 			onLeaveBack: () => {
-				// Reverse the timeline when the section is not visible anymore
+				
 				t3.reverse();
 			}
 		});
@@ -373,11 +348,11 @@ scale:0,
 		ScrollTrigger.create({
 			trigger: element3.querySelector('.accordion1'),
 			onEnter: () => {
-				// Play the timeline when the section is visible
+				
 				t4.play();
 			},
 			onLeaveBack: () => {
-				// Reverse the timeline when the section is not visible anymore
+			
 				t4.reverse();
 			}
 		});
@@ -396,11 +371,11 @@ scale:0,
 		ScrollTrigger.create({
 			trigger: element4.querySelector('.image-solution'),
 			onEnter: () => {
-				// Play the timeline when the section is visible
+				
 				t5.play();
 			},
 			onLeaveBack: () => {
-				// Reverse the timeline when the section is not visible anymore
+				
 				t5.reverse();
 			}
 		});
@@ -418,7 +393,7 @@ scale:0,
 		ScrollTrigger.create({
 			trigger: element5.querySelector('.image-contact'),
 			onEnter: () => {
-				// Play the timeline when the section is visible
+				
 				t6.play();
 			},
 			onLeaveBack: () => {
@@ -552,7 +527,7 @@ scale:0,
 									Zamów teraz i otrzymaj darmowego e-book o
 									zdrowym żywieniu twojego pupila.
 								</h4>
-								<a href=''>Pobierz e-book</a> */}
+								<a href={data.allContentfulRozwiazanie.nodes[0].ebook.url}>Pobierz e-book</a> */}
 							</LearnMoreWrapper>
 						</Col>
 						<Col className='d-none d-md-flex' xs='12' md='6'>
@@ -576,7 +551,7 @@ scale:0,
 						Zamów teraz i otrzymaj darmowego e-book o zdrowym
 						żywieniu twojego pupila.
 					</h4>
-					<a href=''>Pobierz e-book</a> */}
+					<a href={data.allContentfulRozwiazanie.nodes[0].ebook.url}>Pobierz e-book</a> */}
 				</LearnMoreWrapper>
 			</IdeaSection>
 			<TestSection>
@@ -1060,36 +1035,36 @@ scale:0,
 					<Row className='flex-lg-row-reverse'>
 						<Col xs='12' lg='6'>
 							<ContactInnerWrapper>
-								<h2>{data.allContentfulKontakt.nodes[0].title}</h2>
+								<h2>{data.allContentfulKontaktIStopka.nodes[0].title}</h2>
 								<h3>
 									W przypadku pytań prosimy o wiadomość na
 									adres
 								</h3>
 								<MailLink href='mailto:support@deliguard.net'>
 									<img src={mail} alt='' />
-									<span>{data.allContentfulKontakt.nodes[0].mail}</span>
+									<span>{data.allContentfulKontaktIStopka.nodes[0].mail}</span>
 								</MailLink>
 								<p>
-								{data.allContentfulKontakt.nodes[0].content}
+								{data.allContentfulKontaktIStopka.nodes[0].content}
 								</p>
 								<Row>
 									<Col xs='12' lg='6'>
-										<SocialLink href={data.allContentfulKontakt.nodes[0].igButtonLink}>
+										<SocialLink href={data.allContentfulKontaktIStopka.nodes[0].igButtonLink}>
 											<img src={ig} alt='' />
-											<span>{data.allContentfulKontakt.nodes[0].igButtonText}</span>
+											<span>{data.allContentfulKontaktIStopka.nodes[0].igButtonText}</span>
 										</SocialLink>
 									</Col>
 									<Col xs='12' lg='6'>
-										<SocialLink href={data.allContentfulKontakt.nodes[0].fbButtonLink}>
+										<SocialLink href={data.allContentfulKontaktIStopka.nodes[0].fbButtonLink}>
 											<img src={fb} alt='' />{' '}
-											<span>{data.allContentfulKontakt.nodes[0].fbButtonText}</span>
+											<span>{data.allContentfulKontaktIStopka.nodes[0].fbButtonText}</span>
 										</SocialLink>
 									</Col>
 								</Row>
 							</ContactInnerWrapper>
 						</Col>
 						<Col xs='12' lg='6' ref={ref5}>
-							<ContactImg src={data.allContentfulKontakt.nodes[0].image.url} className="image-contact" alt='' />
+							<ContactImg src={data.allContentfulKontaktIStopka.nodes[0].image.url} className="image-contact" alt='' />
 						</Col>  
 					</Row>
 				</ContactWrapper>
@@ -1198,6 +1173,9 @@ export const query = graphql`
       content
       subtitle
       title
+	  ebook { 
+		url
+	  }
       image {
 		url
       }
@@ -1331,7 +1309,7 @@ export const query = graphql`
       title
     }
   }
-  allContentfulKontakt {
+  allContentfulKontaktIStopka { 
     nodes {
       content
       fbButtonLink

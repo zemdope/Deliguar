@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { useStaticQuery, graphql, Link} from "gatsby";
 import {
 	FooterContainer,
 	FooterWrapper,
@@ -13,6 +13,28 @@ import Col from 'react-bootstrap/Col';
 import logoText from '../assets/images/newLogoFooter.svg';
 import Pprivacy from '../assets/images/pp-deliguard.pdf';
 const Footer = () => {
+	const data = useStaticQuery(graphql`
+    query {
+      allContentfulKontaktIStopka {
+        nodes {
+          linkFb
+          linkIg
+          linkYt
+          stopkaTekst
+          politykaPrywatnoci {
+            url
+          }
+          deliguardIcon {
+            url
+          }
+        }
+      }
+    }
+  `);
+
+  // Access the data
+  const contentfulData = data.allContentfulKontaktIStopka.nodes[0];
+
 	return (
 		<FooterContainer>
 			<FooterWrapper>
@@ -20,8 +42,8 @@ const Footer = () => {
 					<Col xs='6' lg='8'>
 						<Row>
 							<Col xs='12'>
-								<h5>Copyright by BioDose 2023 ®</h5>
-								<a href={Pprivacy} target='blank'>Polityka Prywatności</a>
+								<h5>{contentfulData.stopkaTekst}</h5>
+								<a href={contentfulData.politykaPrywatnoci.url} target='blank'>Polityka Prywatności</a>
 							</Col>
 							
 						</Row>
@@ -29,17 +51,17 @@ const Footer = () => {
 					<Col xs='6' lg='4' className='text-end'>
 						<Link>
 							{' '}
-							<img src={logoText} alt='' />
+							<img src={contentfulData.deliguardIcon.url} alt='' />
 						</Link>
 						<Col xs='12' lg='12'>
 								<SocialContainer>
-									<a href='https://www.instagram.com/deliguard.pets/'>
+									<a href={contentfulData.linkIg}>
 										<img src={ig} alt='' />
 									</a>
-									<a href='https://www.facebook.com/deliguard'>
+									<a href={contentfulData.linkFb}>
 										<img src={fb} alt='' />
 									</a>
-									<a href='https://www.youtube.com/@DeliGuard/'>
+									<a href={contentfulData.linkYt}>
 										<img src={yt} alt='' />
 									</a>
 								</SocialContainer>
