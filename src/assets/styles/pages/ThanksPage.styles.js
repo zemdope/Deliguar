@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 	max-width: 1440px;
 	margin-inline: auto;
 	position: relative;
-	margin-top:30%;
+	padding-top:30%;
 	height:100vh;
 	
 		h1 {
