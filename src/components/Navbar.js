@@ -44,6 +44,7 @@ const Navbar = ({data}) => {
 				</StyledBurger>
 				<ShopLink href="https://allegro.pl/oferta/suplement-dla-psa-i-kota-na-trawienie-deliguard-14236919045"><img src={card} alt="" /></ShopLink>
 				<List isOpen={isOpen}>
+				{/* <Button>Kup teraz</Button> */}
 				<Menu/>
 					<SocialWrapper isOpen={isOpen}>
 						<a href='https://www.instagram.com/deliguard.pets/'>

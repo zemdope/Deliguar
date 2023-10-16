@@ -94,6 +94,51 @@ export const List = styled.ul`
 			/* margin: 0; */
 		}
 	}
+
+
+		li:nth-child(4){
+			a {
+
+			
+			display: none !important;
+			width: 160px;
+			padding: 8px 32px !important;
+			margin-top: -8px;
+			position: relative;
+			z-index: 0;
+			justify-content: center;
+			align-items: center;
+			flex-shrink: 0;
+			font-weight: 700 !important;
+			border-radius: 32px;
+			background: #f2851d;
+			box-shadow: 5px 5px 10px 0px rgba(22, 27, 29, 0.23),
+				-5px -5px 10px 0px rgba(250, 251, 255, 0.1);
+		
+			${({ theme }) => theme.mq.desktop} {
+				display: flex !important;
+			}
+			&::after {
+				content: '';
+				position: absolute;
+				inset: 0;
+				z-index: -1;
+				width: 100%;
+				height: 100%;
+				opacity: 0;
+		
+				border-radius: 32px;
+		
+				box-shadow: 10px 10px 20px 0px rgba(22, 27, 29, 0.23),
+					-10px -10px 20px 0px rgba(250, 251, 255, 0.1);
+				transition: opacity 0.3s ease-in-out;
+			}
+		
+			&:hover::after {
+				opacity: 1;
+			}
+		}
+	
 `;
 export const Header = styled.header`
 	margin-inline: auto;
@@ -167,7 +212,7 @@ export const Navigation = styled.nav`
 		ul {
 			height: auto;
 		}
-		li {
+		li:not(:nth-child(4)) {
 			a {
 				padding: 0;
 				font-size: 20px;
@@ -178,9 +223,7 @@ export const Navigation = styled.nav`
 			
 			
 			}
-			a.active {
 			
-			}
 			a:hover {
 				text-shadow: 0 0 1px white, 0 0 1px white, 0 0 1px white;
 			
@@ -205,6 +248,7 @@ export const Navigation = styled.nav`
 				margin: 0 53px 0 0px;
 			}
 		}
+	}
 	}
 `;
 
