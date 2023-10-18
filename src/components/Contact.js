@@ -8,6 +8,9 @@ import {
 	CheckboxContainer
 } from '../assets/styles/pages/Contact.styles';
 import plus from '../assets/images/plusForm.svg';
+import rodo from '../assets/images/rodo.pdf';
+import prawa from '../assets/images/prawa.pdf';
+import dobro from '../assets/images/dobro.pdf';
 function ContactForm() {
 
 	const [selectedImage, setSelectedImage] = useState(null);
@@ -165,7 +168,7 @@ function ContactForm() {
 								required
 							/>
 							<label htmlFor='rodo'>
-								Zaakceptuj informacje RODO
+								Zaakceptuj informacje <a href={rodo}>Rodo</a>
 							</label> 
 						
 						</div>
@@ -182,7 +185,7 @@ function ContactForm() {
 								required
 							/>
 							<label htmlFor='voluntary'>
-								Oświadczenie o dobrowolności
+							Oświadczenie o <a href={dobro}>dobrowolności</a>
 							</label>
 						
 						</div>
@@ -192,14 +195,14 @@ function ContactForm() {
 							<input
 								id='copyright'
 								type='checkbox'
-								name='Oświadczenie praw autorskich'
+								name='Oświadczenie dotyczące praw autorskich'
 								value='yes'
 								checked={checkboxesChecked.copyright}
 								onChange={(e) => handleIndividualCheckboxChange('copyright', e.target.checked)}
 								required
 							/>
 							<label htmlFor='copyright'>
-								Oświadczenie praw autorskich
+								Oświadczenie dotyczące 	<a href={prawa}>praw autorskich</a>
 							</label>
 						
 						</div>

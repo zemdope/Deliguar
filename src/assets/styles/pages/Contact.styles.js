@@ -60,6 +60,18 @@ export const Wrapper = styled.div`
 				border: 1px solid #662472;
 				border-radius: 3px;
 			}
+			a {
+				/* H9 */
+				font-family: 'Open Sans';
+				font-size: 14px !important;
+				font-style: normal;
+				font-weight: 500;
+				line-height: 22px; /* 157.143% */
+				color: #5e286d;
+				text-decoration:underline !important;
+				position:relative;
+				z-index:99;
+			}
 			input {
 				cursor: pointer;
 				opacity: 0;
