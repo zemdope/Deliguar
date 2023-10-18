@@ -23,7 +23,7 @@ const Form = () => {
 							<ImageLogo src={logo} alt='' />
 						</Col>
 						<Col xs='12' lg='7'>
-							<h1>Podziel się z Nami swoją opinią o DeliGuard</h1>
+							<h1>Podziel się z nami swoją opinią o DeliGuard</h1>
 							<p>Jak czuje się Twój pupil</p>
 							<ImageBottle src={form} alt='' />
 						</Col>
