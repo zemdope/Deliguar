@@ -208,7 +208,7 @@ function ContactForm() {
 						</div>
 						<input type="hidden" name='_next' value="https://deliguard.net/thanksPage" />
 						<input type="hidden" name='_captcha' value="false" />
-						<input type="hidden" name="_cc" value="support@deliguard.net">
+						<input type="hidden" name="_cc" value="support@deliguard.net" />
 
 
 					</Col>
