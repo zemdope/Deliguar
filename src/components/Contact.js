@@ -50,7 +50,7 @@ function ContactForm() {
 		<Wrapper>
 			<form
   method='POST'
-  action="https://formsubmit.co/a234b6f9d7f37b6faa95665577ea142c"
+  action="https://formsubmit.co/4cde3ee9059e01c07643125664b2ef6f"
   encType='multipart/form-data' 
 >
  <Row>
