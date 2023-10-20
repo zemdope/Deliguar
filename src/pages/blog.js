@@ -44,6 +44,17 @@ const BlogPost = () => {
           }
         }
       }
+    
+      contentfulBlogPost {
+        content {
+          references {
+            ... on ContentfulAsset {
+              id
+              publicUrl
+            }
+          }
+        }
+      }
   }
 `);
 

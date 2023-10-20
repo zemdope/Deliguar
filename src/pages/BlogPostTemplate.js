@@ -17,6 +17,7 @@ const BlogPostTemplate = ({ pageContext }) => {
 
     // Initialize an array to store the rendered content
     const renderedContent = [];
+    let imageIndex = 0;
 
     content.content.forEach((item, index) => {
       switch (item.nodeType) {
@@ -81,24 +82,26 @@ const BlogPostTemplate = ({ pageContext }) => {
           );
           break;
 
-        case 'embedded-asset-block':
-          // Handle embedded asset (image)
-          references.forEach((reference, imgIndex) => {
-            if (reference && reference.publicUrl) {
+          case 'embedded-asset-block':
+            // Handle embedded asset (image)
+            if (references[imageIndex] && references[imageIndex].publicUrl) {
+              const reference = references[imageIndex];
               const width = reference.title || '100';
               const imageClass = width === '50' ? 'image-half-width' : 'image-full-width';
-
+    
               renderedContent.push(
                 <img
-                  key={imgIndex}
+                  key={imageIndex}
                   src={reference.publicUrl}
-                  alt={`Image ${imgIndex}`}
-                  className={imageClass}
-                />
-              );
+                  alt={`Image ${imageIndex}`}
+                  className={imageClass}/>
+                );
+           
+    
+              imageIndex++; // Move to the next embedded asset
             }
-          });
-          break;
+            break;
+    
 
         default:
           break;
