@@ -15,6 +15,13 @@ module.exports = {
 		},
 	  },
 	  {
+		resolve: 'gatsby-source-contentful',
+		options: {
+		  accessToken: 'ieo9sLmaW04vKRo9OMI16X6JvwSCcC4lfhM3cdKfq3A',
+		  spaceId: '9q9vhc9ls96k',
+		},
+	  },
+	  {
 		resolve: `gatsby-plugin-google-fonts`,
 		options: {
 		  fonts: [`Open sans\:300,400,400,700`, `REM`],
