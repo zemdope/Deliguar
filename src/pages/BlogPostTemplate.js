@@ -4,6 +4,7 @@ import Layout from '../components/Layout';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { options } from './blog.js';
 import {Link} from 'gatsby';
+import { ProgressBar } from '@nadfri/react-scroll-progress-bar';
 
 const BlogPostTemplate = ({ pageContext }) => {
   const { title, content, references, image } = pageContext;
@@ -121,6 +122,13 @@ const BlogPostTemplate = ({ pageContext }) => {
 
   return (
     <Layout>
+             <ProgressBar 
+        color1="#FAECD8" 
+        color2="#5E286D" 
+        height="4px"
+        position= "fixed" 
+        />
+
       <Wrapper>
       <Link to="/blog">
   <span className="back-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
