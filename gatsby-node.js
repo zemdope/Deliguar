@@ -41,6 +41,9 @@ redirectInBrowser: true,
 			node {
 			  id
 			  title
+			  image {
+				publicUrl
+			  }
 			  content {
 				raw
 				references {
@@ -72,6 +75,7 @@ redirectInBrowser: true,
 		context: {
 		  id: node.id,
 		  title: node.title,
+		  image: node.image.publicUrl,
 		  content: node.content,
 		  references: node.content.references,
 		},

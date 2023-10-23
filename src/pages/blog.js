@@ -9,6 +9,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Keyboard, Autoplay } from 'swiper/modules';
 import arrowPrev from '../assets/images/arrowPrev.svg';
 import arrowNext from '../assets/images/arrowNext.svg';
+import profile from '../assets/images/profile.png';
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -37,6 +39,13 @@ const BlogPost = () => {
         edges {
           node {
             id
+            name
+            image {
+              publicUrl
+              }
+              listImage {
+                publicUrl
+                }
             title
             content {
               raw
@@ -74,11 +83,14 @@ const blogData = data.allContentfulBlogPost.edges.map((edge) => edge.node);
   <BlogItem key={index}>
     <Row>
       <Col xs='6' lg='4'>
-        <img src={BlogImage} alt="" />
+        <img className="blog-list-image" src={blog.listImage.publicUrl} alt="" />
       </Col>
-      <Col xs='6' lg='8' className='text-container'>
+      <Col  lg='8' xs='6' className='text-container'>
         <h2>{blog.title}</h2>
-        <Link to={`/blog/${blog.id}`}>Czytaj dalej</Link>
+        <div className="info-container"> 
+          <div><img claaName="profile-image" src={profile} alt="" /> <span>{blog.name}</span></div>
+           <Link to={`/blog/${blog.id}`}>Czytaj dalej</Link>
+        </div>
       </Col>
     </Row>
   </BlogItem>

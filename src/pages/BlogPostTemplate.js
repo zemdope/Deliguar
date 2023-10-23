@@ -1,11 +1,12 @@
 import React from 'react';
-import { Wrapper, BlogItem } from '../assets/styles/pages/Blog.styles.js';
+import { Wrapper } from '../assets/styles/pages/BlogItem.styles.js';
 import Layout from '../components/Layout';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { options } from './blog.js';
+import {Link} from 'gatsby';
 
 const BlogPostTemplate = ({ pageContext }) => {
-  const { title, content, references } = pageContext;
+  const { title, content, references, image } = pageContext;
 
   // Check if content exists before accessing content.raw
   const rawContent = content ? JSON.parse(content.raw) : '';
@@ -59,6 +60,13 @@ const BlogPostTemplate = ({ pageContext }) => {
         case 'heading-2':
           renderedContent.push(<h2 key={index}>{item.content[0].value}</h2>);
           break;
+          case 'heading-3':
+          renderedContent.push(<p className="half-width" key={index}>{item.content[0].value}</p>);
+          break;
+
+          case 'hr':
+            renderedContent.push(<hr key={index} />);
+            break;
 
         case 'table':
           renderedContent.push(
@@ -114,7 +122,13 @@ const BlogPostTemplate = ({ pageContext }) => {
   return (
     <Layout>
       <Wrapper>
+      <Link to="/blog">
+  <span className="back-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+</svg></span> Wróć
+</Link>
         <h1>{title ? title : ''}</h1>
+        <img className='hero-image' src={image} alt="" />
         <div>{renderRichText(rawContent, references)}</div>
       </Wrapper>
     </Layout>

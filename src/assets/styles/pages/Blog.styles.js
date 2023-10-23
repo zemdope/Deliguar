@@ -1,13 +1,6 @@
 import styled from 'styled-components';
 export const Wrapper = styled.div`
-.image-half-width {
-    width: 50%;
 
-}
-.image-full-width {
-    width: 100%;
-    display:block;
-}
 padding-inline: 18px;
 margin-top: 70px;
 max-width: 1440px;
@@ -25,7 +18,7 @@ margin-inline: auto;
         margin-top: 102px;
     }
     @media (min-width: 1280px) {
-        padding-left: 165px;
+        padding-left: 200px;
     }
     h1 {
         font-size: ${({ theme }) => theme.font.size.headingMobile};
@@ -150,13 +143,33 @@ padding-right: 20px;
 .text-container {
     max-width:640px;
 }
-img {
+.blog-list-image {
     border-radius: 20px 0px 0px 20px;
     width: 100%;
     display:block; 
     height: 100%;
     object-fit:cover;
 }
+.info-container {
+    display:flex;
+    justify-content: space-between;
+    align-items:flex-end;
+    padding-left: 20px;
+    margin-top: 43px;
+   
+    padding-bottom: 15px;
+    @media (max-width: 1280px) {
+        padding-right:30px;
+    }
+    @media (max-width: 768px) {
+        flex-direction:column;
+        padding-left: 0px;
+        gap:10px;
+        justify-content: center;
+        align-items:center;
+        margin-top: 13px;
+    }
+
 a {
     color: #fff8ee;
 	text-align: center;
@@ -180,16 +193,10 @@ a {
 	font-style: normal;
 	font-weight: 700;
 	line-height: 20px; /* 125% */
-	margin-bottom: 11px;
-	margin-top: 0px;
-    margin-left:5%;
+	
     @media (min-width:768px) {
-        margin-bottom: 24px;
-        margin-top: 20px;
         padding: 8px 32px;
         max-width:160px;
-        margin-left:auto;
-        margin-right:30px;
         
     }
 
@@ -213,4 +220,32 @@ a {
 		opacity: 1;
     }
 }
+div {
+    display: flex;
+    gap:5px;
+    align-items:center;
+    span {
+        color: #5E286D;
+
+font-family: "Open Sans";
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 22px; /* 157.143% */
+@media (min-width: 768px) {
+    font-size: 18px;
+    line-height: 28px;
+}
+    }
+    img {
+        width: 15px;
+        height:15px;
+        @media (min-width: 768px) {
+            width: 20px;
+            height:20px;
+        }
+    }
+}
+}
+
 `
