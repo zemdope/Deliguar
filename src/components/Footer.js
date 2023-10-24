@@ -11,7 +11,7 @@ import yt from '../assets/images/yt.svg';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import logoText from '../assets/images/newLogoFooter.svg';
-import Pprivacy from '../assets/images/pp-deliguard.pdf';
+import Pprivacy from '../assets/images/polityka.pdf';
 const Footer = () => {
 	const data = useStaticQuery(graphql`
     query {
@@ -43,7 +43,7 @@ const Footer = () => {
 						<Row>
 							<Col xs='12'>
 								<h5>{contentfulData.stopkaTekst}</h5>
-								<a href={contentfulData.politykaPrywatnoci.url} target='blank'>Polityka Prywatności</a>
+								<a href={Pprivacy} target='blank'>Polityka Prywatności</a>
 							</Col>
 							
 						</Row>

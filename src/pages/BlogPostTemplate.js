@@ -5,9 +5,12 @@ import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { options } from './blog.js';
 import {Link} from 'gatsby';
 import { ProgressBar } from '@nadfri/react-scroll-progress-bar';
+import profile from '../assets/images/profile.svg';
+import dateImage from '../assets/images/date.svg';
+
 
 const BlogPostTemplate = ({ pageContext }) => {
-  const { title, content, references, image } = pageContext;
+  const { title, content, references, image, name, date} = pageContext;
 
   // Check if content exists before accessing content.raw
   const rawContent = content ? JSON.parse(content.raw) : '';
@@ -96,18 +99,22 @@ const BlogPostTemplate = ({ pageContext }) => {
             if (references[imageIndex] && references[imageIndex].publicUrl) {
               const reference = references[imageIndex];
               const width = reference.title || '100';
-              const imageClass = width === '50' ? 'image-half-width' : 'image-full-width';
-    
+const imageClass = width === '50' ? 'image-half-width' : 'image-full-width';
+
+const mobileClass = width === '100-mobile' ? 'image-mobile' : '';
+const desktopClass = width === '100-desktop' ? 'image-desktop' : '';
+
+const finalImageClass = `${imageClass} ${mobileClass} ${desktopClass}`;
               renderedContent.push(
                 <img
                   key={imageIndex}
                   src={reference.publicUrl}
                   alt={`Image ${imageIndex}`}
-                  className={imageClass}/>
+                  className={finalImageClass}/> 
                 );
            
     
-              imageIndex++; // Move to the next embedded asset
+              imageIndex++;
             }
             break;
     
@@ -136,6 +143,10 @@ const BlogPostTemplate = ({ pageContext }) => {
 </svg></span> Wróć
 </Link>
         <h1>{title ? title : ''}</h1>
+        <div className="details">
+        <div className='profile'><img claaName="profile-image" src={profile} alt="" /> <span>{name}</span></div> 
+        <div className='date'><img claaName="profile-image" src={dateImage} alt="" /> <span>{date}</span></div> 
+        </div>
         <img className='hero-image' src={image} alt="" />
         <div>{renderRichText(rawContent, references)}</div>
       </Wrapper>

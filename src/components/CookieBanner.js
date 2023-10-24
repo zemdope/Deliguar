@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {Wrapper,InnerWrapper} from '../assets/styles/pages/Cookie-banner.styles';
-import Pprivacy from '../assets/images/pp-deliguard.pdf';
+import Pprivacy from '../assets/images/polityka.pdf';
 function CookieBanner() {
   const [showBanner, setShowBanner] = useState(true);
 

@@ -10,13 +10,51 @@ padding-top: 45px;
 @media (min-width: 1280px) {
     padding-top: 10rem;
 }
+.details {
+    display:flex;
+    gap:20px;
+}
+.date {
+    span {
+        color: #5E286D;
+        vertical-align:bottom;
+    }
+}
+.profile {
+    position: relative;
+    display: inline-block;
+    span {
+        color: #5E286D;
+        vertical-align:bottom;
+    }
+}
+.profile::after {
+    position: absolute;
+    right: -10px;
+    top: 20%;
+    display:block;
+    content: '';
+    height: 60%;
+    width: 1px;
+    background-color: #5E286D;
+}
 .half-width {
     @media (min-width: 1024px) {
         display:inline-block;
         width: 50%;
-        padding-left: 40px;
+        padding-inline: 20px;
     }
   
+}
+.image-mobile {
+    @media (min-width: 1024px) {
+       display:none !important;
+    }
+}
+.image-desktop {
+    @media (max-width: 1024px) {
+       display:none !important;
+    }
 }
 a {
     color: #5E286D;

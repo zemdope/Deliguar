@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Keyboard, Autoplay } from 'swiper/modules';
 import arrowPrev from '../assets/images/arrowPrev.svg';
 import arrowNext from '../assets/images/arrowNext.svg';
-import profile from '../assets/images/profile.png';
+import profile from '../assets/images/profile.svg';
 
 import 'swiper/css';
 import 'swiper/css/navigation';

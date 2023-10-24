@@ -41,6 +41,8 @@ redirectInBrowser: true,
 			node {
 			  id
 			  title
+			  name
+			  publishedDate(formatString: "DD-MM-YYYY")
 			  image {
 				publicUrl
 			  }
@@ -51,6 +53,7 @@ redirectInBrowser: true,
 					id
 					publicUrl
 					title
+					description
 				  }
 				}
 			  }
@@ -77,6 +80,8 @@ redirectInBrowser: true,
 		  title: node.title,
 		  image: node.image.publicUrl,
 		  content: node.content,
+		  name: node.name,
+		  date: node.publishedDate,
 		  references: node.content.references,
 		},
 	  });
