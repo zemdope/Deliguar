@@ -53,7 +53,6 @@ redirectInBrowser: true,
 					id
 					publicUrl
 					title
-					description
 				  }
 				}
 			  }
