@@ -15,6 +15,8 @@ const Layout = ({  children }) => {
 			<GlobalStyle />
 			<ThemeProvider theme={theme}> 
 				<Navbar  />
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5B442CLK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<CookieBanner />
 				<main>{children}</main>
 				<Footer />
