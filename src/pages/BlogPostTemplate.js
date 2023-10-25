@@ -167,11 +167,11 @@ const BlogPostTemplate = ({ pageContext }) => {
         <div className='details'>
           <div className='profile'>
             <img claaName='profile-image' src={profile} alt='' />{' '}
-            <span>{name}</span>
+            <span className='profile-name'>{name}</span>
           </div>
           <div className='date'>
-            <img claaName='profile-image' src={dateImage} alt='' />{' '}
-            <span>{date}</span>
+            <img className='profile-image' src={dateImage} alt='' />{' '}
+            <span className='profile-name'>{date}</span>
           </div>
         </div>
         <img className='hero-image' src={image} alt='' />
