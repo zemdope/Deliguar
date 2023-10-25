@@ -86,6 +86,7 @@ export const Wrapper = styled.div`
     font-weight: 600;
     display: flex;
     align-items: center;
+    text-decoration: none !important;
 
     gap: 5px;
     svg {
