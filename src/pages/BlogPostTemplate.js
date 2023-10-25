@@ -3,14 +3,13 @@ import { Wrapper } from '../assets/styles/pages/BlogItem.styles.js';
 import Layout from '../components/Layout';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { options } from './blog.js';
-import {Link} from 'gatsby';
+import { Link } from 'gatsby';
 import { ProgressBar } from '@nadfri/react-scroll-progress-bar';
 import profile from '../assets/images/profile.svg';
 import dateImage from '../assets/images/date.svg';
 
-
 const BlogPostTemplate = ({ pageContext }) => {
-  const { title, content, references, image, name, date} = pageContext;
+  const { title, content, references, image, name, date } = pageContext;
 
   // Check if content exists before accessing content.raw
   const rawContent = content ? JSON.parse(content.raw) : '';
@@ -64,13 +63,17 @@ const BlogPostTemplate = ({ pageContext }) => {
         case 'heading-2':
           renderedContent.push(<h2 key={index}>{item.content[0].value}</h2>);
           break;
-          case 'heading-3':
-          renderedContent.push(<p className="half-width" key={index}>{item.content[0].value}</p>);
+        case 'heading-3':
+          renderedContent.push(
+            <p className='half-width' key={index}>
+              {item.content[0].value}
+            </p>
+          );
           break;
 
-          case 'hr':
-            renderedContent.push(<hr key={index} />);
-            break;
+        case 'hr':
+          renderedContent.push(<hr key={index} />);
+          break;
 
         case 'table':
           renderedContent.push(
@@ -80,44 +83,50 @@ const BlogPostTemplate = ({ pageContext }) => {
                   {row.content.map((cell, cellIndex) => {
                     if (cell.nodeType === 'table-header-cell') {
                       renderedContent.push(
-                        <th key={cellIndex}>{cell.content[0].content[0].value}</th>
+                        <th key={cellIndex}>
+                          {cell.content[0].content[0].value}
+                        </th>
                       );
                     } else {
                       renderedContent.push(
-                        <td key={cellIndex}>{cell.content[0].content[0].value}</td>
+                        <td key={cellIndex}>
+                          {cell.content[0].content[0].value}
+                        </td>
                       );
                     }
-                  })};
+                  })}
+                  ;
                 </tr>
-              ))};
+              ))}
+              ;
             </table>
           );
           break;
 
-          case 'embedded-asset-block':
-            // Handle embedded asset (image)
-            if (references[imageIndex] && references[imageIndex].publicUrl) {
-              const reference = references[imageIndex];
-              const width = reference.title || '100';
-const imageClass = width === '50' ? 'image-half-width' : 'image-full-width';
+        case 'embedded-asset-block':
+          // Handle embedded asset (image)
+          if (references[imageIndex] && references[imageIndex].publicUrl) {
+            const reference = references[imageIndex];
+            const width = reference.title || '100';
+            const imageClass =
+              width === '50' ? 'image-half-width' : 'image-full-width';
 
-const mobileClass = width === '100-mobile' ? 'image-mobile' : '';
-const desktopClass = width === '100-desktop' ? 'image-desktop' : '';
+            const mobileClass = width === '100-mobile' ? 'image-mobile' : '';
+            const desktopClass = width === '100-desktop' ? 'image-desktop' : '';
 
-const finalImageClass = `${imageClass} ${mobileClass} ${desktopClass}`;
-              renderedContent.push(
-                <img
-                  key={imageIndex}
-                  src={reference.publicUrl}
-                  alt={`Image ${imageIndex}`}
-                  className={finalImageClass}/> 
-                );
-           
-    
-              imageIndex++;
-            }
-            break;
-    
+            const finalImageClass = `${imageClass} ${mobileClass} ${desktopClass}`;
+            renderedContent.push(
+              <img
+                key={imageIndex}
+                src={reference.publicUrl}
+                alt={`Image ${imageIndex}`}
+                className={finalImageClass}
+              />
+            );
+
+            imageIndex++;
+          }
+          break;
 
         default:
           break;
@@ -129,25 +138,44 @@ const finalImageClass = `${imageClass} ${mobileClass} ${desktopClass}`;
 
   return (
     <Layout>
-             <ProgressBar 
-        color1="#FAECD8" 
-        color2="#5E286D" 
-        height="4px"
-        position= "fixed" 
-        />
+      <ProgressBar
+        color1='#FAECD8'
+        color2='#5E286D'
+        height='3px'
+        position='fixed'
+      />
 
       <Wrapper>
-      <Link to="/blog">
-  <span className="back-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
-</svg></span> Wróć
-</Link>
+        <Link to='/blog'>
+          <span className='back-arrow'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='16'
+              height='16'
+              fill='currentColor'
+              class='bi bi-arrow-left'
+              viewBox='0 0 16 16'
+            >
+              <path
+                fill-rule='evenodd'
+                d='M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z'
+              />
+            </svg>
+          </span>{' '}
+          Wróć
+        </Link>
         <h1>{title ? title : ''}</h1>
-        <div className="details">
-        <div className='profile'><img claaName="profile-image" src={profile} alt="" /> <span>{name}</span></div> 
-        <div className='date'><img claaName="profile-image" src={dateImage} alt="" /> <span>{date}</span></div> 
+        <div className='details'>
+          <div className='profile'>
+            <img claaName='profile-image' src={profile} alt='' />{' '}
+            <span>{name}</span>
+          </div>
+          <div className='date'>
+            <img claaName='profile-image' src={dateImage} alt='' />{' '}
+            <span>{date}</span>
+          </div>
         </div>
-        <img className='hero-image' src={image} alt="" />
+        <img className='hero-image' src={image} alt='' />
         <div>{renderRichText(rawContent, references)}</div>
       </Wrapper>
     </Layout>
