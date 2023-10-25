@@ -12,32 +12,38 @@ export const Wrapper = styled.div`
   .details {
     display: flex;
     gap: 20px;
+  }
+  .date {
     img {
       @media (max-width: 768px) {
         width: 15px;
         height: 15px;
       }
     }
-  }
-  .date {
     span {
       color: #5e286d;
       vertical-align: bottom;
-      font-size: 16px;
+      font-size: 16px !important;
       @media (max-width: 768px) {
-        font-size: 14px;
+        font-size: 14px !important;
       }
     }
   }
   .profile {
     position: relative;
     display: inline-block;
+    img {
+      @media (max-width: 768px) {
+        width: 15px;
+        height: 15px;
+      }
+    }
     span {
       color: #5e286d;
       vertical-align: bottom;
-      font-size: 16px;
+      font-size: 16px !important;
       @media (max-width: 768px) {
-        font-size: 14px;
+        font-size: 14px !important;
       }
     }
   }
