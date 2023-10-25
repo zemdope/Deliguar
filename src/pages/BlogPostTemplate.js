@@ -104,7 +104,6 @@ const BlogPostTemplate = ({ pageContext }) => {
           break;
 
         case 'embedded-asset-block':
-          // Handle embedded asset (image)
           if (references[imageIndex] && references[imageIndex].publicUrl) {
             const reference = references[imageIndex];
             const width = reference.title || '100';
