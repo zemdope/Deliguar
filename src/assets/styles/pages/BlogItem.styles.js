@@ -23,6 +23,7 @@ export const Wrapper = styled.div`
     span {
       color: #5e286d;
       vertical-align: bottom;
+      font-size: 16px;
       @media (max-width: 768px) {
         font-size: 14px;
       }
@@ -34,6 +35,7 @@ export const Wrapper = styled.div`
     span {
       color: #5e286d;
       vertical-align: bottom;
+      font-size: 16px;
       @media (max-width: 768px) {
         font-size: 14px;
       }
