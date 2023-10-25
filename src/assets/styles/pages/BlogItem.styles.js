@@ -20,6 +20,7 @@ export const Wrapper = styled.div`
         height: 15px;
       }
     }
+
     .profile-name {
       color: #5e286d;
       vertical-align: bottom;
