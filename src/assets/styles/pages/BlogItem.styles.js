@@ -14,13 +14,13 @@ export const Wrapper = styled.div`
     gap: 20px;
   }
   .date {
-    img {
+    .profile-image {
       @media (max-width: 768px) {
         width: 15px;
         height: 15px;
       }
     }
-    span {
+    .profile-name {
       color: #5e286d;
       vertical-align: bottom;
       font-size: 16px !important;
@@ -32,13 +32,13 @@ export const Wrapper = styled.div`
   .profile {
     position: relative;
     display: inline-block;
-    img {
+    .profile-image {
       @media (max-width: 768px) {
         width: 15px;
         height: 15px;
       }
     }
-    span {
+    .profile-name {
       color: #5e286d;
       vertical-align: bottom;
       font-size: 16px !important;
