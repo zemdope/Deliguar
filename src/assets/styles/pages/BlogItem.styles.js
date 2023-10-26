@@ -24,6 +24,8 @@ export const Wrapper = styled.div`
   }
   .date {
     .profile-image {
+      width:20px;
+      height:20px; 
       @media (max-width: 768px) {
         width: 18px;
         height: 18px;
@@ -34,6 +36,7 @@ export const Wrapper = styled.div`
       color: #5e286d;
       vertical-align: bottom;
       font-size: 16px !important;
+      margin-left:5px;
       @media (max-width: 768px) {
         font-size: 14px !important;
         vertical-align: middle;
@@ -44,6 +47,8 @@ export const Wrapper = styled.div`
     position: relative;
     display: inline-block;
     .profile-image {
+      width:20px;
+      height:20px;
       @media (max-width: 768px) {
         width: 18px;
         height: 18px;
@@ -53,6 +58,7 @@ export const Wrapper = styled.div`
       color: #5e286d;
       vertical-align: bottom;
       font-size: 16px !important;
+      margin-left:5px;
       @media (max-width: 768px) {
         font-size: 14px !important;
         vertical-align: middle;
@@ -149,9 +155,10 @@ export const Wrapper = styled.div`
     padding-left: 165px;
   }
   h1 {
-    font-size: ${({ theme }) => theme.font.size.headingMobile};
+    font-size: 2.8rem;
     color: ${({ theme }) => theme.color.orange};
     font-weight: 700;
+
     line-height: 3.6rem;
     margin-bottom: 0;
     // padding-top: 45px;
@@ -161,16 +168,15 @@ export const Wrapper = styled.div`
       line-height: 5.6rem;
     }
     @media (min-width: 1024px) {
-      font-size: 5.2rem;
-      line-height: 5.6rem;
+      font-size: 7.2rem;
+      line-height: 7.6rem;
       // padding-top: 5rem;
       margin-bottom: 60px;
     }
     // @media (min-width: 1280px) {
     //     padding-top: 10rem;
-    font-size: 7.2rem;
-    line-height: 7.6rem;
-    // }
+
+    }
   }
   p {
     font-size: 1.4rem;
