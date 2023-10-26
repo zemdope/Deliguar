@@ -157,8 +157,8 @@ export const Wrapper = styled.div`
     // padding-top: 45px;
     margin-bottom: 40px;
     ${({ theme }) => theme.mq.tablet} {
-      font-size: 7.2rem;
-      line-height: 7.6rem;
+      font-size: 5.2rem;
+      line-height: 5.6rem;
     }
     @media (min-width: 1024px) {
       font-size: 5.2rem;
