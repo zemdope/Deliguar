@@ -185,7 +185,7 @@ export const Wrapper = styled.div`
   }
   ul {
     list-style: none;
-    margin-top: 16px;
+    margin-top: 20px;
     @media (min-width: 1024px) {
       padding-left: 50px;
       margin-top: 25px;
@@ -227,7 +227,7 @@ export const Wrapper = styled.div`
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
-    line-height: 20px; /* 125% */
+    line-height: 22px;
     margin-top: 40px;
     margin-bottom: 20px;
     @media (min-width: 768px) {
@@ -237,7 +237,7 @@ export const Wrapper = styled.div`
       font-size: 40px;
       font-style: normal;
       font-weight: 700;
-      line-height: 28px; /* 70% */
+      line-height: 42px; /* 70% */
       margin-bottom: 30px;
     }
   }
