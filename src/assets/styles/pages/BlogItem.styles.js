@@ -161,13 +161,15 @@ export const Wrapper = styled.div`
       line-height: 7.6rem;
     }
     @media (min-width: 1024px) {
-      font-size: 7.2rem;
-      line-height: 7.6rem;
+      font-size: 5.2rem;
+      line-height: 5.6rem;
       // padding-top: 5rem;
       margin-bottom: 60px;
     }
     // @media (min-width: 1280px) {
     //     padding-top: 10rem;
+    font-size: 7.2rem;
+    line-height: 7.6rem;
     // }
   }
   p {
