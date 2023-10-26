@@ -2,9 +2,11 @@ import styled from 'styled-components';
 import plus from '../../images/plus5.svg';
 export const Wrapper = styled.div`
   padding-top: 45px;
+  padding-bottom: 40px;
 
   @media (min-width: 1024px) {
     padding-top: 5rem;
+    padding-bottom: 70px;
   }
   @media (min-width: 1280px) {
     padding-top: 10rem;
@@ -16,8 +18,8 @@ export const Wrapper = styled.div`
   .date {
     .profile-image {
       @media (max-width: 768px) {
-        width: 15px;
-        height: 15px;
+        width: 18px;
+        height: 18px;
       }
     }
 
@@ -27,6 +29,7 @@ export const Wrapper = styled.div`
       font-size: 16px !important;
       @media (max-width: 768px) {
         font-size: 14px !important;
+        vertical-align: middle;
       }
     }
   }
@@ -35,8 +38,8 @@ export const Wrapper = styled.div`
     display: inline-block;
     .profile-image {
       @media (max-width: 768px) {
-        width: 15px;
-        height: 15px;
+        width: 18px;
+        height: 18px;
       }
     }
     .profile-name {
@@ -45,6 +48,7 @@ export const Wrapper = styled.div`
       font-size: 16px !important;
       @media (max-width: 768px) {
         font-size: 14px !important;
+        vertical-align: middle;
       }
     }
   }
@@ -66,9 +70,11 @@ export const Wrapper = styled.div`
       display: inline-block;
       width: 50%;
       padding-inline: 20px;
+      margin-top: 50px;
     }
   }
   .image-mobile {
+    display: block;
     @media (min-width: 1024px) {
       display: none !important;
     }
@@ -101,6 +107,7 @@ export const Wrapper = styled.div`
     margin-bottom: 10px;
     @media (min-width: 1024px) {
       width: 50%;
+      vertical-align: top;
       margin-top: 50px;
       margin-bottom: 20px;
     }

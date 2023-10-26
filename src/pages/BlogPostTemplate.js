@@ -166,7 +166,7 @@ const BlogPostTemplate = ({ pageContext }) => {
         <h1>{title ? title : ''}</h1>
         <div className='details'>
           <div className='profile'>
-            <img claaName='profile-image' src={profile} alt='' />{' '}
+            <img className='profile-image' src={profile} alt='' />{' '}
             <span className='profile-name'>{name}</span>
           </div>
           <div className='date'>
