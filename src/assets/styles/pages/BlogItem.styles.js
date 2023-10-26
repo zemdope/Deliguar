@@ -14,6 +14,9 @@ export const Wrapper = styled.div`
   .back-arrow {
     width: 20px;
     height: 20px;
+    svg {
+      position: absolute;
+    }
   }
   .details {
     display: flex;
