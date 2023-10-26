@@ -11,6 +11,10 @@ export const Wrapper = styled.div`
   @media (min-width: 1280px) {
     padding-top: 10rem;
   }
+  .back-arrow {
+    width: 20px;
+    height: 20px;
+  }
   .details {
     display: flex;
     gap: 20px;
