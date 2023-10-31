@@ -402,12 +402,10 @@ scale:0,
 			}
 		});
 	}, []);
-	const advertisingBanner = data.allContentfulHero.nodes[0].advertisingBanner.file.url;
-console.log(advertisingBanner)
+	const advertisingBanner = data.allContentfulHero.nodes[0].advertisingBanner.publicUrl;
 	// // Check if advertisingBanner exists before rendering the banner
 	const shouldDisplayBanner = !!advertisingBanner;
 	const imageUrl = shouldDisplayBanner ? advertisingBanner : null;
-	console.log(imageUrl)
 	return (
 	
 		<Layout>
@@ -1142,9 +1140,7 @@ export const query = graphql`
     nodes {
       title
 			advertisingBanner {
-        file {
-          url
-        }
+        publicUrl
       }
       subtitle
       subtitlebottom
