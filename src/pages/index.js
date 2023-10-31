@@ -402,11 +402,12 @@ scale:0,
 			}
 		});
 	}, []);
-	// const advertisingBanner = data.allContentfulTest.nodes[0]?.advertisingBanner;
-
+	const advertisingBanner = data.allContentfulHero.nodes[0].advertisingBanner.file.url;
+console.log(advertisingBanner)
 	// // Check if advertisingBanner exists before rendering the banner
-	// const shouldDisplayBanner = !!advertisingBanner;
-	// const imageUrl = shouldDisplayBanner ? advertisingBanner.file.url : null;
+	const shouldDisplayBanner = !!advertisingBanner;
+	const imageUrl = shouldDisplayBanner ? advertisingBanner : null;
+	console.log(imageUrl)
 	return (
 	
 		<Layout>
@@ -419,7 +420,7 @@ scale:0,
         />
       </Helmet>
   
- {/* {shouldDisplayBanner && <Banner imageUrl={imageUrl} />} */}
+ {shouldDisplayBanner && <Banner imageUrl={imageUrl} />}
 			<HeroSection>
 				<Wrapper>
 					<LeftItem>
@@ -1140,6 +1141,11 @@ export const query = graphql`
   allContentfulHero {
     nodes {
       title
+			advertisingBanner {
+        file {
+          url
+        }
+      }
       subtitle
       subtitlebottom
 	 seoTitle
