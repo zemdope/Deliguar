@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkdeliguar=self.webpackChunkdeliguar||[]).push([[883],{30429:function(e,t,n){n.r(t),n.d(t,{Head:function(){return s}});var a=n(67294);n(11883);const l={color:"#232129",padding:"96px",fontFamily:"-apple-system, Roboto, sans-serif, serif"};t.default=()=>a.createElement("main",{style:l});const s=()=>a.createElement("title",null,"Not found")}}]);
+//# sourceMappingURL=component---src-pages-404-js-0cb3218dd13a4bf14d02.js.map
