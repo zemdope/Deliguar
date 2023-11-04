@@ -4,14 +4,15 @@ import Layout from '../components/Layout';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { options } from './blog.js';
 import { Link } from 'gatsby';
+import { useIntl } from "gatsby-plugin-intl";
 import { ProgressBar } from '@nadfri/react-scroll-progress-bar';
 import profile from '../assets/images/profile.svg';
 import dateImage from '../assets/images/date.svg';
 
 const BlogPostTemplate = ({ pageContext }) => {
-  const { title, content, references, image, name, date } = pageContext;
-
-  // Check if content exists before accessing content.raw
+  const { title, content, references, image, name, date, locale } = pageContext;
+  const intl = useIntl();
+  console.log(pageContext)
   const rawContent = content ? JSON.parse(content.raw) : '';
 
   const renderRichText = (content, references) => {

@@ -21,296 +21,308 @@ import solutionMobile from '../assets/images/solutionMobile.svg';
 import solutionn from '../assets/images/solutionn.svg';
 import plus from '../assets/images/plus.svg';
 import bag from '../assets/images/bag.svg';
+import { useIntl } from "gatsby-plugin-intl";
 import {
-	ImageCircle,
-	HeroSection,
-	HeroWrapper,
-	Subheader,
-	ParagraphBottom,
-	ParagraphCenter,
-	ParagraphTop,
-	ActionSection,
-	ActionWrapper,
-	ShoppingSection,
-	ShoppingWrapper,
-	DescriptionSection
+  ImageCircle,
+  HeroSection,
+  HeroWrapper,
+  Subheader,
+  ParagraphBottom,
+  ParagraphCenter,
+  ParagraphTop,
+  ActionSection,
+  ActionWrapper,
+  ShoppingSection,
+  ShoppingWrapper,
+  DescriptionSection
 } from '../assets/styles/pages/Nasze-badania.styles';
 import { Link } from 'gatsby';
 import {
-	Icon,
-	SolutionImage,
-	SolutionsWrapper,
-	SolutionsSection
+  Icon,
+  SolutionImage,
+  SolutionsWrapper,
+  SolutionsSection
 } from '../assets/styles/pages/Index.styles';
 
-const OurTests = ({data}) => {
-	gsap.registerPlugin(ScrollTrigger);
-	const ref6 = useRef(null);
-	const ref7 = useRef(null);
-	const ref8 = useRef(null);
-	useEffect(() => {
-		const element6 = ref6.current;
-		const t7 = gsap.timeline({ paused: true });
-	
-		t7.from(element6.querySelector('.tests-image'), {
-			opacity: 0,
-                scale:0,
-			duration: 0.4,
-			delay:.5,
-			ease: 'power2.out'
-		});
-		
-		
+const OurTests = ({ data }) => {
+  gsap.registerPlugin(ScrollTrigger);
+  const ref6 = useRef(null);
+  const ref7 = useRef(null);
+  const ref8 = useRef(null);
+  useEffect(() => {
+    const element6 = ref6.current;
+    const t7 = gsap.timeline({ paused: true });
 
-		ScrollTrigger.create({
-			trigger: element6.querySelector('.tests-image'),
-			onEnter: () => {
-				// Play the timeline when the section is visible
-				t7.play();
-			},
-			onLeaveBack: () => {
-				// Reverse the timeline when the section is not visible anymore
-				t7.reverse();
-			}
-		});
-		const element7 = ref7.current;
-		const t8 = gsap.timeline({ paused: true });
-	
-		t8.from(element7.querySelector('.solution-image'), {
-			opacity: 0,
-                scale:0,
-			duration: 0.4,
-			delay:.5,
-			ease: 'power2.out'
-		});
-		t8.from(element7.querySelector('.solution-image-2'), {
-			opacity: 0,
-                scale:0,
-			duration: 0.4,
-			delay:.2,
-			ease: 'power2.out'
-		});
-		
-		t8.from(element7.querySelector('.solution-image-3'), {
-			opacity: 0,
-                scale:0,
-			duration: 0.4,
-			delay:.5,
-			ease: 'power2.out'
-		});
-		
-		
+    t7.from(element6.querySelector('.tests-image'), {
+      opacity: 0,
+      scale: 0,
+      duration: 0.4,
+      delay: 0.5,
+      ease: 'power2.out'
+    });
 
-		ScrollTrigger.create({
-			trigger: element7.querySelector('.solution-image'),
-			onEnter: () => {
-				// Play the timeline when the section is visible
-				t8.play();
-			},
-			onLeaveBack: () => {
-				// Reverse the timeline when the section is not visible anymore
-				t8.reverse();
-			}
-		});
-		const element8 = ref8.current;
-		const t9 = gsap.timeline({ paused: true });
-	
-		t9.from(element8.querySelector('.solution-image-3'), {
-			opacity: 0,
-                scale:0,
-			duration: 0.4,
-			delay:.5,
-			ease: 'power2.out'
-		});
-		 
-		
+    ScrollTrigger.create({
+      trigger: element6.querySelector('.tests-image'),
+      onEnter: () => {
+        // Play the timeline when the section is visible
+        t7.play();
+      },
+      onLeaveBack: () => {
+        // Reverse the timeline when the section is not visible anymore
+        t7.reverse();
+      }
+    });
+    const element7 = ref7.current;
+    const t8 = gsap.timeline({ paused: true });
 
-		ScrollTrigger.create({
-			trigger: element8.querySelector('.solution-image-3'),
-			onEnter: () => {
-				// Play the timeline when the section is visible
-				t9.play();
-			},
-			onLeaveBack: () => {
-				// Reverse the timeline when the section is not visible anymore
-				t9.reverse();
-			}
-		});
-	}, []);
-	return (
-		<Layout>
-			  <Helmet>
-        <title>{data.allContentfulNsHero.nodes[0].seoTitle}</title>
-        <meta
-          name="description"
-          content={data.allContentfulNsHero.nodes[0].seoMetaDescription.seoMetaDescription}
-        />
+    t8.from(element7.querySelector('.solution-image'), {
+      opacity: 0,
+      scale: 0,
+      duration: 0.4,
+      delay: 0.5,
+      ease: 'power2.out'
+    });
+    t8.from(element7.querySelector('.solution-image-2'), {
+      opacity: 0,
+      scale: 0,
+      duration: 0.4,
+      delay: 0.2,
+      ease: 'power2.out'
+    });
+
+    t8.from(element7.querySelector('.solution-image-3'), {
+      opacity: 0,
+      scale: 0,
+      duration: 0.4,
+      delay: 0.5,
+      ease: 'power2.out'
+    });
+
+    ScrollTrigger.create({
+      trigger: element7.querySelector('.solution-image'),
+      onEnter: () => {
+        // Play the timeline when the section is visible
+        t8.play();
+      },
+      onLeaveBack: () => {
+        // Reverse the timeline when the section is not visible anymore
+        t8.reverse();
+      }
+    });
+    const element8 = ref8.current;
+    const t9 = gsap.timeline({ paused: true });
+
+    t9.from(element8.querySelector('.solution-image-3'), {
+      opacity: 0,
+      scale: 0,
+      duration: 0.4,
+      delay: 0.5,
+      ease: 'power2.out'
+    });
+
+    ScrollTrigger.create({
+      trigger: element8.querySelector('.solution-image-3'),
+      onEnter: () => {
+        // Play the timeline when the section is visible
+        t9.play();
+      },
+      onLeaveBack: () => {
+        // Reverse the timeline when the section is not visible anymore
+        t9.reverse();
+      }
+    });
+  }, []);
+
+  // Set the language state
+	const intl = useIntl();
+	console.log(intl)
+  const userLanguage = intl.locale === 'pl' ? 'pl' : 'en' ;
+  const [language, setLanguage] = useState(userLanguage); 
+
+  // Define the contentful data for different queries based on user's language
+  const contentfulData =
+    userLanguage === 'pl'
+      ? data.allContentfulNsHero.nodes.find((node) => node.node_locale === 'en-US')
+      : data.allContentfulNsHero.nodes.find((node) => node.node_locale === 'pl');
+
+  // Define the contentful data for other queries
+  const contentfulNsDzialanieData =
+    userLanguage === 'pl'
+      ? data.allContentfulNsDzialanie.nodes.find((node) => node.node_locale === 'en-US')
+      : data.allContentfulNsDzialanie.nodes.find((node) => node.node_locale === 'pl');
+
+  const contentfulNsPoprawaData =
+    userLanguage === 'pl'
+      ? data.allContentfulNsPoprawa.nodes.find((node) => node.node_locale === 'en-US')
+      : data.allContentfulNsPoprawa.nodes.find((node) => node.node_locale === 'pl');
+
+  const contentfulNsKupData =
+    userLanguage === 'pl'
+      ? data.allContentfulNsKup.nodes.find((node) => node.node_locale === 'en-US')
+      : data.allContentfulNsKup.nodes.find((node) => node.node_locale === 'pl');
+
+  const contentfulRozwiazaniedlabiznesuData =
+    userLanguage === 'pl'
+      ? data.allContentfulRozwiazaniedlabiznesu.nodes.find((node) => node.node_locale === 'en-US')
+      : data.allContentfulRozwiazaniedlabiznesu.nodes.find((node) => node.node_locale === 'pl');
+
+  return (
+    <Layout>
+      <Helmet>
+        <title>{contentfulData.seoTitle}</title>
+        <meta name="description" content={contentfulData.seoMetaDescription.seoMetaDescription} />
       </Helmet>
-			<HeroSection>
-				<HeroWrapper>
-					<Row className='mobile-hero'>
-						<Col xs='12' lg='7'>
-							<Subheader>{data.allContentfulNsHero.nodes[0].subtitle}</Subheader>
-							<h1>{data.allContentfulNsHero.nodes[0].title}</h1>
-						</Col>
-						<Col
-							xs='12'
-							lg='6'
-							className='pe-0 d-lg-flex align-items-end percent desktop-content'>
-							<div>
-								<ImageCircle
-									className='d-lg-none'
-									src={circle}
-									alt=''
-								/>
-								<ParagraphTop>
-									<span>{data.allContentfulNsHero.nodes[0].itemTopNumber}</span>
-									<span>
-									{data.allContentfulNsHero.nodes[0].itemTop}
-										<img src={plus2} alt='' />
-									</span>
-								</ParagraphTop>
-								<ParagraphCenter>
-									<span>{data.allContentfulNsHero.nodes[0].itemBottomNumber}</span>
-									<span>
-									{data.allContentfulNsHero.nodes[0].itemBottom}
-									</span>
-								</ParagraphCenter>
-								<ParagraphBottom>
-									<img src={plus2} alt='' />{' '}
-									<span>
-									
-									{data.allContentfulNsHero.nodes[0].content}
-									</span>
-								</ParagraphBottom>
-							</div>
-						</Col>
-						<Col
-							className='d-none d-lg-block desktop-content'
-							lg='6'>
-							<ImageCircle src={circle3} alt='' />
-						</Col>
-					</Row>
-					<Row>
-						<Col></Col>
-					</Row>
-				</HeroWrapper>
-			</HeroSection>
-			<DescriptionSection>
-				<div className="container">
-				<Row>
-					<Col className='d-lg-flex gap-5 justify-content-center'>
-						
-				<h2>{data.allContentfulNsHero.nodes[0].researchDescription}</h2>
-				<p>{data.allContentfulNsHero.nodes[0].researchParagraph.researchParagraph}</p> 
-				
-				</Col>
-				</Row>
-				</div>
-			</DescriptionSection>
-			<ActionSection>
-				<ActionWrapper>
-					<Row className='d-md-flex flex-row-reverse first-action-container'>
-						<Col
-							xs='12'
-							md='7'
-							lg='8'
-							className='first-action-content'>
-							<h2>{data.allContentfulNsDzialanie.nodes[0].title}</h2>
-							<p>
-							{data.allContentfulNsDzialanie.nodes[0].subtitle}
-							</p>
-						</Col>
-						<Col xs='12' md='5' lg='4' ref={ref6}>
-							<img className="tests-image" src={data.allContentfulNsDzialanie.nodes[0].image.url} alt='' />
-						</Col>
-					</Row>
-					<Row className='px-0 second-action-container' ref={ref7}>
-						<Col xs='12' className='px-0'>
-							<h3>{data.allContentfulNsPoprawa.nodes[0].title}</h3>
-							<p>
-							{data.allContentfulNsPoprawa.nodes[0].subtitle}
-							</p>
-						</Col>
-						<Col xs='12' md='6'>
-							<img
-								className='action-image-left solution-image'
-								src={data.allContentfulNsPoprawa.nodes[0].image.url}
-								alt=''
-							/>
-						</Col>
-						<Col xs='12' md='6'>
-							<img
-								className='action-image-right solution-image-2 bottom'
-								src={data.allContentfulNsPoprawa.nodes[0].secondImage.url}
-								alt=''
-							/>
-						</Col> 
-					</Row>
-				</ActionWrapper>
-			</ActionSection>
-			<ShoppingSection>
-				<ShoppingWrapper>
-					<a href={data.allContentfulNsKup.nodes[0].link}>
-						<img src={bag} alt='' />
-						<span>{data.allContentfulNsKup.nodes[0].button}</span>
-					</a>
-
-					<p>{data.allContentfulNsKup.nodes[0].text}</p>
-				</ShoppingWrapper>
-			</ShoppingSection>
-			<SolutionsSection>
-				<SolutionsWrapper className='solutions-wrapper'>
-					<h2>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].title}</h2>
-					<Row>
-						<Col lg='7'>
-							<h3>
-							{data.allContentfulRozwiazaniedlabiznesu.nodes[0].subtitle}
-							</h3>
-							<ul>
-								<li>
-									<h4>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].firstItemTitle}</h4>
-									<p>
-										<Icon src={plus} alt='' />{' '}
-										<span>
-										{data.allContentfulRozwiazaniedlabiznesu.nodes[0].firstItemContent}
-										</span>
-									</p>
-								</li>
-								<li>
-									<h4>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].secondItemTitle}</h4>
-									<p>
-										<Icon src={plus} alt='' />{' '}
-										<span>
-										{data.allContentfulRozwiazaniedlabiznesu.nodes[0].secondItemContent}
-										</span>
-									</p>
-								</li>
-								<li>
-									<h4>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].thirdItemTitle}</h4>
-									<p>
-										<Icon src={plus} alt='' />{' '}
-										<span>
-										{data.allContentfulRozwiazaniedlabiznesu.nodes[0].thirdItemContent}
-										</span>
-									</p>
-								</li>
-							</ul> 
-							<Link to="/rozwiazanie-dla-biznesu" className='btn-about'>
-								{' '}
-								<img src={buttonIcon} alt='' />{' '}
-								<span>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].button}</span>
-							</Link>
-						</Col>
+      <HeroSection>
+        <HeroWrapper>
+          <Row className="mobile-hero">
+            <Col xs="12" lg="7">
+              <Subheader>{contentfulData.subtitle}</Subheader>
+              <h1>{contentfulData.title}</h1>
+            </Col>
+            <Col
+              xs="12"
+              lg="6"
+              className="pe-0 d-lg-flex align-items-end percent desktop-content"
+            >
+              <div>
+                <ImageCircle className="d-lg-none" src={circle} alt="" />
+                <ParagraphTop>
+                  <span>{contentfulData.itemTopNumber}</span>
+                  <span>
+                    {contentfulData.itemTop}
+                    <img src={plus2} alt="" />
+                  </span>
+                </ParagraphTop>
+                <ParagraphCenter>
+                  <span>{contentfulData.itemBottomNumber}</span>
+                  <span>{contentfulData.itemBottom}</span>
+                </ParagraphCenter>
+                <ParagraphBottom>
+                  <img src={plus2} alt="" /> <span>{contentfulData.content}</span>
+                </ParagraphBottom>
+              </div>
+            </Col>
+            <Col className="d-none d-lg-block desktop-content" lg="6">
+              <ImageCircle src={circle3} alt="" />
+            </Col>
+          </Row>
+          <Row>
+            <Col></Col>
+          </Row>
+        </HeroWrapper>
+      </HeroSection>
+      <DescriptionSection>
+        <div className="container">
+          <Row>
+            <Col className='d-lg-flex gap-5 justify-content-center'>
+              <h2>{contentfulData.researchDescription}</h2>
+              <p>{contentfulData.researchParagraph.researchParagraph}</p>
+            </Col>
+          </Row>
+        </div>
+      </DescriptionSection>
+      <ActionSection>
+        <ActionWrapper>
+          <Row className='d-md-flex flex-row-reverse first-action-container'>
+            <Col
+              xs='12'
+              md='7'
+              lg='8'
+              className='first-action-content'>
+              <h2>{contentfulNsDzialanieData.title}</h2>
+              <p>
+                {contentfulNsDzialanieData.subtitle}
+              </p>
+            </Col>
+            <Col xs='12' md='5' lg='4' ref={ref6}>
+              <img className="tests-image" src={contentfulNsDzialanieData.image.url} alt='' />
+            </Col>
+          </Row>
+          <Row className='px-0 second-action-container' ref={ref7}>
+            <Col xs='12' className='px-0'>
+              <h3>{contentfulNsPoprawaData.title}</h3>
+              <p>
+                {contentfulNsPoprawaData.subtitle}
+              </p>
+            </Col>
+            <Col xs='12' md='6'>
+              <img
+                className='action-image-left solution-image'
+                src={contentfulNsPoprawaData.image.url}
+                alt=''
+              />
+            </Col>
+            <Col xs='12' md='6'>
+              <img
+                className='action-image-right solution-image-2 bottom'
+                src={contentfulNsPoprawaData.secondImage.url}
+                alt=''
+              />
+            </Col>
+          </Row>
+        </ActionWrapper>
+      </ActionSection>
+      {/* <ShoppingSection>
+        <ShoppingWrapper>
+          <a href={contentfulNsKupData.link}>
+            <img src={bag} alt='' />
+            <span>{contentfulNsKupData.button}</span>
+          </a>
+          <p>{contentfulNsKupData.text}</p>
+        </ShoppingWrapper>
+      </ShoppingSection> */}
+      <SolutionsSection>
+        <SolutionsWrapper className='solutions-wrapper'>
+          <h2>{contentfulRozwiazaniedlabiznesuData.title}</h2>
+          <Row>
+            <Col lg='7'>
+              <h3>
+                {contentfulRozwiazaniedlabiznesuData.subtitle}
+              </h3>
+              <ul>
+                <li>
+                  <h4>{contentfulRozwiazaniedlabiznesuData.firstItemTitle}</h4>
+                  <p>
+                    <Icon src={plus} alt='' />{' '}
+                    <span>
+                      {contentfulRozwiazaniedlabiznesuData.firstItemContent}
+                    </span>
+                  </p>
+                </li>
+                <li>
+                  <h4>{contentfulRozwiazaniedlabiznesuData.secondItemTitle}</h4>
+                  <p>
+                    <Icon src={plus} alt='' />{' '}
+                    <span>
+                      {contentfulRozwiazaniedlabiznesuData.secondItemContent}
+                    </span>
+                  </p>
+                </li>
+                <li>
+                  <h4>{contentfulRozwiazaniedlabiznesuData.thirdItemTitle}</h4>
+                  <p>
+                    <Icon src={plus} alt='' />{' '}
+                    <span>
+                      {contentfulRozwiazaniedlabiznesuData.thirdItemContent}
+                    </span>
+                  </p>
+                </li>
+              </ul>
+              <Link to="/rozwiazanie-dla-biznesu" className='btn-about'>
+                {' '}
+                <img src={buttonIcon} alt='' />{' '}
+                <span>{contentfulRozwiazaniedlabiznesuData.button}</span>
+              </Link>
+            </Col>
 						<Col lg='5' ref={ref8}>
 							<SolutionImage
 								className='d-lg-none'
-								src={data.allContentfulRozwiazaniedlabiznesu.nodes[0].imageMobile.url}
+								src={contentfulRozwiazaniedlabiznesuData.imageMobile.url}
 								alt=''
 							/>
 							<SolutionImage
 								className=' d-none d-lg-block img-about solution-image-3'
-								src={data.allContentfulRozwiazaniedlabiznesu.nodes[0].image.url}
+								src={contentfulRozwiazaniedlabiznesuData.image.url}
 								alt=''
 							/>
 						</Col>
@@ -334,6 +346,7 @@ query MyQuery {
 	    itemBottom
 	    itemBottomNumber
 	    itemTop
+			node_locale
 	    itemTopNumber
 	    subtitle
 	    title
@@ -349,6 +362,7 @@ query MyQuery {
 	}
 	allContentfulNsDzialanie {
 	  nodes {
+			node_locale
 	    image {
 		 url
 	    }
@@ -358,6 +372,7 @@ query MyQuery {
 	}
 	allContentfulNsPoprawa {
 	  nodes {
+			node_locale
 	    image {
 		 url
 	    }
@@ -377,6 +392,7 @@ query MyQuery {
   }
   allContentfulRozwiazaniedlabiznesu { 
     nodes {
+			node_locale
       button
       firstItemContent
       firstItemTitle

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useEffect, useRef} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import Layout from '../components/Layout';
 import { Helmet } from "react-helmet";
 import { graphql } from 'gatsby';
@@ -30,7 +30,7 @@ import {
 } from '../assets/styles/pages/Business.styles';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
+import { useIntl } from "gatsby-plugin-intl";
 import item3 from '../assets/images/item3.svg';
 import item18 from '../assets/images/item18.svg';
 import item19 from '../assets/images/item19.svg';
@@ -156,13 +156,40 @@ const Business = ({data}) => {
 			}
 		});
 	}, []);
+
+	const intl = useIntl();
+  const userLanguage = intl.locale === 'pl' ? 'pl' : 'en' ;
+		const [language, setLanguage] = useState(userLanguage);
+	
+		// Define the contentful data for different queries based on user's language
+		const contentfulData =
+			userLanguage === 'pl'
+				? data.allContentfulRdbHero.nodes.find((node) => node.node_locale === 'en-US')
+				: data.allContentfulRdbHero.nodes.find((node) => node.node_locale === 'pl');
+	
+		// Define the contentful data for other queries
+		const contentfulRdbONasData =
+			userLanguage === 'pl'
+				? data.allContentfulRdbONas.nodes.find((node) => node.node_locale === 'en-US')
+				: data.allContentfulRdbONas.nodes.find((node) => node.node_locale === 'pl');
+	
+		const contentfulRdbPartnerstwoData =
+			userLanguage === 'pl'
+				? data.allContentfulRdbPartnerstwo.nodes.find((node) => node.node_locale === 'en-US')
+				: data.allContentfulRdbPartnerstwo.nodes.find((node) => node.node_locale === 'pl');
+	
+		const contentfulRdbContactData =
+			userLanguage === 'pl'
+				? data.allContentfulRdbContact.nodes.find((node) => node.node_locale === 'en-US')
+				: data.allContentfulRdbContact.nodes.find((node) => node.node_locale === 'pl');
+	
 	return (
 		<Layout>
 			<Helmet>
-        <title>{data.allContentfulRdbHero.nodes[0].seoTitle}</title>
+        <title>{contentfulData.seoTitle}</title>
         <meta
           name="description"
-          content={data.allContentfulRdbHero.nodes[0].seoMetaDescription.seoMetaDescription}
+          content={contentfulData.seoMetaDescription.seoMetaDescription}
         />
       </Helmet>
 			<BusinessSection>
@@ -183,27 +210,27 @@ const Business = ({data}) => {
 							alt=''
 						/>
 					</RightItem>
-					<HeaderPage>{data.allContentfulRdbHero.nodes[0].title} </HeaderPage>
+					<HeaderPage>{contentfulData.title} </HeaderPage>
 					<TargetList ref={ref1}>
 						<li>
-							<img className='icon1' src={data.allContentfulRdbHero.nodes[0].firstItemImage.url} alt='' />
-							<h3>{data.allContentfulRdbHero.nodes[0].firstItemTitle}</h3>
+							<img className='icon1' src={contentfulData.firstItemImage.url} alt='' />
+							<h3>{contentfulData.firstItemTitle}</h3>
 							<p>
-							{data.allContentfulRdbHero.nodes[0].firstItemContent.firstItemContent}
+							{contentfulData.firstItemContent.firstItemContent}
 							</p>
 						</li>
 						<li>
-							<img className='icon2' src={data.allContentfulRdbHero.nodes[0].secondItemImage.url} alt='' />
-							<h3>{data.allContentfulRdbHero.nodes[0].secondItemTitle}</h3>
+							<img className='icon2' src={contentfulData.secondItemImage.url} alt='' />
+							<h3>{contentfulData.secondItemTitle}</h3>
 							<p>
-							{data.allContentfulRdbHero.nodes[0].secondItemContent.secondItemContent}
+							{contentfulData.secondItemContent.secondItemContent}
 							</p>
 						</li>
 						<li>
-							<img className='icon3' src={data.allContentfulRdbHero.nodes[0].thirdItemImage.url} alt='' />
-							<h3>{data.allContentfulRdbHero.nodes[0].thirdItemTitle}</h3>
+							<img className='icon3' src={contentfulData.thirdItemImage.url} alt='' />
+							<h3>{contentfulData.thirdItemTitle}</h3>
 							<p>
-							{data.allContentfulRdbHero.nodes[0].thirdItemContent.thirdItemContent}
+							{contentfulData.thirdItemContent.thirdItemContent}
 							</p>
 						</li>
 					</TargetList>
@@ -219,25 +246,25 @@ const Business = ({data}) => {
 							alt=''
 						/>
 					</RightItemAbout>
-					<HeaderAbout>{data.allContentfulRdbONas.nodes[0].title}</HeaderAbout>
+					<HeaderAbout>{contentfulRdbONasData.title}</HeaderAbout>
 					<Paragraph>
-					{data.allContentfulRdbONas.nodes[0].subtitle}
+					{contentfulRdbONasData.subtitle}
 					</Paragraph>
 					<ImageLogo src={logoBio} alt='' />
 					<Row className='certificate-container'>
 						<Col xs='12' md='7' ref={ref2}>
-							<ImageCertificate className="certificate" src={data.allContentfulRdbONas.nodes[0].image.url} alt='' />
+							<ImageCertificate className="certificate" src={contentfulRdbONasData.image.url} alt='' />
 						</Col>
 						<Col xs='12' md='5'>
 							<HeaderAbout className='bottom'>
-							{data.allContentfulRdbONas.nodes[0].certificateTitle}
+							{contentfulRdbONasData.certificateTitle}
 							</HeaderAbout>
 							<Paragraph className='paragraph-bottom'>
-							{data.allContentfulRdbONas.nodes[0].certificateContent} <br />
+							{contentfulRdbONasData.certificateContent} <br />
 								<br />
-								{data.allContentfulRdbONas.nodes[0].certificateContentSecond}
+								{contentfulRdbONasData.certificateContentSecond}
 							</Paragraph> 
-							<a href={data.allContentfulRdbONas.nodes[0].certificate.publicUrl} target='blank'>Certyfikaty</a>
+							<a href={contentfulRdbONasData.certificate.publicUrl} target='blank'>{intl.locale === 'pl' ? 'Certyfikaty': 'Certificates' }</a>
 						</Col>
 					</Row>
 				</Wrapper>
@@ -253,39 +280,39 @@ const Business = ({data}) => {
 					</LeftItemPartners>
 					<Row>
 						<Col xs='12' md='6'>
-							<h2>{data.allContentfulRdbPartnerstwo.nodes[0].title}</h2>
-							<Subheader>Naszym partnerom proponujemy:</Subheader>
+							<h2>{contentfulRdbPartnerstwoData.title}</h2>
+							<Subheader>{intl.locale === 'pl' ? 'Naszym partnerom proponujemy:': 'We offer our partners:' }</Subheader>
 							<ul>
 								<li>
 									<img src={plus} alt='' />
 									<p>
-										<span>{data.allContentfulRdbPartnerstwo.nodes[0].firstItemLeft} </span> -
-										<span> {data.allContentfulRdbPartnerstwo.nodes[0].firstItemRight}</span>
+										<span>{contentfulRdbPartnerstwoData.firstItemLeft} </span> -
+										<span> {contentfulRdbPartnerstwoData.firstItemRight}</span>
 									</p>
 								</li>
 								<li>
 									<img src={plus} alt='' />
 									<p>
-										<span>{data.allContentfulRdbPartnerstwo.nodes[0].secondItemLeft}  </span>-
+										<span>{contentfulRdbPartnerstwoData.secondItemLeft}  </span>-
 										<span>
-										{data.allContentfulRdbPartnerstwo.nodes[0].secondItemRight}
+										{contentfulRdbPartnerstwoData.secondItemRight}
 										</span>
 									</p>
 								</li>
 							</ul>
 							<h3>
-							{data.allContentfulRdbPartnerstwo.nodes[0].subtitle.subtitle}
+							{contentfulRdbPartnerstwoData.subtitle.subtitle}
 							</h3>
 						</Col>
 						<Col xs='12' md='6' ref={ref3}>
 							<ImagePartners
 								className='d-md-none partners'
-								src={data.allContentfulRdbPartnerstwo.nodes[0].image.url}
+								src={contentfulRdbPartnerstwoData.image.url}
 								alt=''
 							/>
 							<ImagePartners
 								className='d-none d-md-block partners-mobile'
-								src={data.allContentfulRdbPartnerstwo.nodes[0].image.url}
+								src={contentfulRdbPartnerstwoData.image.url}
 								alt=''
 							/>
 						</Col>
@@ -302,30 +329,30 @@ const Business = ({data}) => {
 					</LeftItemContact>
 					<Row>
 						<Col xs='12'>
-							<h2>{data.allContentfulRdbContact.nodes[0].title}</h2>
+							<h2>{contentfulRdbContactData.title}</h2>
 						</Col>
 						<Col xs='12' lg='4'>
 							<TeamItemWrapper>
-								<img src={data.allContentfulRdbContact.nodes[0].firstItemImage.url} alt='' />
-								<h3>{data.allContentfulRdbContact.nodes[0].firstItemName}</h3>
-								<p>{data.allContentfulRdbContact.nodes[0].firstItemPosition}</p>
-								<a href='mailto:martyna.wilk@biodose.net'>{data.allContentfulRdbContact.nodes[0].firstItemMail}</a>
+								<img src={contentfulRdbContactData.firstItemImage.url} alt='' />
+								<h3>{contentfulRdbContactData.firstItemName}</h3>
+								<p>{contentfulRdbContactData.firstItemPosition}</p>
+								<a href='mailto:martyna.wilk@biodose.net'>{contentfulRdbContactData.firstItemMail}</a>
 							</TeamItemWrapper>
 						</Col>
 						<Col xs='12' lg='4'>
 							<TeamItemWrapper>
-								<img src={data.allContentfulRdbContact.nodes[0].secondItemImage.url} alt='' />
-								<h3>{data.allContentfulRdbContact.nodes[0].secondItemName}</h3>
-								<p>{data.allContentfulRdbContact.nodes[0].secondItemPosition}</p>
-								<a href='mailto:Kamil.matecki@biodose.net'>{data.allContentfulRdbContact.nodes[0].secondItemMail}</a>
+								<img src={contentfulRdbContactData.secondItemImage.url} alt='' />
+								<h3>{contentfulRdbContactData.secondItemName}</h3>
+								<p>{contentfulRdbContactData.secondItemPosition}</p>
+								<a href='mailto:Kamil.matecki@biodose.net'>{contentfulRdbContactData.secondItemMail}</a>
 							</TeamItemWrapper> 
 						</Col>
 						<Col xs='12' lg='4'>
 							<TeamItemWrapper className='last-team-item'>
-								<img src={data.allContentfulRdbContact.nodes[0].thirdItemImage.url} alt='' />
-								<h3>{data.allContentfulRdbContact.nodes[0].thirdItemName}</h3>
-								<p>{data.allContentfulRdbContact.nodes[0].thirdItemPosition}</p>
-								<a href='mailto:yuliya.mirashnichenka@biodose.net'>{data.allContentfulRdbContact.nodes[0].thirdItemMail}</a>
+								<img src={contentfulRdbContactData.thirdItemImage.url} alt='' />
+								<h3>{contentfulRdbContactData.thirdItemName}</h3>
+								<p>{contentfulRdbContactData.thirdItemPosition}</p>
+								<a href='mailto:yuliya.mirashnichenka@biodose.net'>{contentfulRdbContactData.thirdItemMail}</a>
 							</TeamItemWrapper>
 						</Col>
 					</Row>
@@ -344,6 +371,7 @@ export const query = graphql`
 query MyQuery {
 	allContentfulRdbHero {
 	  nodes {
+			node_locale
 		seoTitle
       seoMetaDescription {
         seoMetaDescription
@@ -374,6 +402,7 @@ query MyQuery {
 	}
 	allContentfulRdbONas {
 	  nodes {
+			node_locale
 	    image {
 		url
 	    }
@@ -389,6 +418,7 @@ query MyQuery {
 	}
 	allContentfulRdbPartnerstwo {
     nodes {
+			node_locale
       firstItemLeft
       firstItemRight
       image {
@@ -404,6 +434,7 @@ query MyQuery {
   }
   allContentfulRdbContact {
     nodes {
+			node_locale
       firstItemImage {
           url
       }

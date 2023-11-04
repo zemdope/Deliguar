@@ -76,7 +76,7 @@ import {
 
 import left from '../assets/images/left.svg';
 import right from '../assets/images/right.svg';
-
+import { useIntl } from "gatsby-plugin-intl";
 import bell from '../assets/images/bell.svg';
 import bulb from '../assets/images/bulb.svg';
 import eye from '../assets/images/eye.svg';
@@ -140,17 +140,7 @@ const IndexPage = ({data}) => {
 	
 
 
-const slides = data.allContentfulOpinie.nodes.map(el => ({
-	image: el.image.url,
-	title: el.name,
-	subtitle: el.breed,
-	description: el.content.content,
-	name: el.owner,
-   }));
-   const accordionFaq = data.allContentfulFaq.nodes.map(el => ({
-	question: el.question,
-	answear: el.answear.answear,
-   }));
+
 	gsap.registerPlugin(ScrollTrigger);
 	const ref = useRef(null);
 	const ref2 = useRef(null);
@@ -402,19 +392,96 @@ scale:0,
 			}
 		});
 	}, []);
-	const advertisingBanner = data.allContentfulHero.nodes[0].advertisingBanner.publicUrl;
+	const advertisingBanner = data.allContentfulHero.nodes[0].advertisingBanner.url;
 	// // Check if advertisingBanner exists before rendering the banner
 	const shouldDisplayBanner = !!advertisingBanner;
 	const imageUrl = shouldDisplayBanner ? advertisingBanner : null;
+
+
+	const intl = useIntl();
+  const userLanguage = intl.locale === 'pl' ? 'pl' : 'en' ;
+	
+const [language, setLanguage] = useState(userLanguage);
+
+// Define the contentful data for different queries based on user's language
+const contentfulData =
+	userLanguage === 'pl'
+		? data.allContentfulHero.nodes.find((node) => node.node_locale === 'en-US')
+		: data.allContentfulHero.nodes.find((node) => node.node_locale === 'pl');
+
+// Define the contentful data for other queries
+const contentfulProblemData =
+	userLanguage === 'pl'
+		? data.allContentfulProblem.nodes.find((node) => node.node_locale === 'en-US')
+		: data.allContentfulProblem.nodes.find((node) => node.node_locale === 'pl');
+
+const contentfulRozwiazanieData =
+	userLanguage === 'pl'
+		? data.allContentfulRozwiazanie.nodes.find((node) => node.node_locale === 'en-US')
+		: data.allContentfulRozwiazanie.nodes.find((node) => node.node_locale === 'pl');
+
+const contentfulBadaniaData =
+	userLanguage === 'pl'
+		? data.allContentfulBadania.nodes.find((node) => node.node_locale === 'en-US')
+		: data.allContentfulBadania.nodes.find((node) => node.node_locale === 'pl');
+
+		const contentfulZastosujDeliguardData =
+	userLanguage === 'pl'
+		? data.allContentfulZastosujDeliguard.nodes.find((node) => node.node_locale === 'en-US')
+		: data.allContentfulZastosujDeliguard.nodes.find((node) => node.node_locale === 'pl');
+
+		const contentfulDawkowanieData =
+		userLanguage === 'pl'
+			? data.allContentfulDawkowanie.nodes.find((node) => node.node_locale === 'en-US')
+			: data.allContentfulDawkowanie.nodes.find((node) => node.node_locale === 'pl');
+
+			const contentfulReviewTitleData =
+		userLanguage === 'pl'
+			? data.allContentfulReviewTitle.nodes.find((node) => node.node_locale === 'en-US')
+			: data.allContentfulReviewTitle.nodes.find((node) => node.node_locale === 'pl');
+
+			const contentfulFaqTitleData =
+			userLanguage === 'pl'
+				? data.allContentfulFaqTitle.nodes.find((node) => node.node_locale === 'en-US')
+				: data.allContentfulFaqTitle.nodes.find((node) => node.node_locale === 'pl');
+
+				const contentfulRozwiazaniedlabiznesuData =
+				userLanguage === 'pl'
+					? data.allContentfulRozwiazaniedlabiznesu.nodes.find((node) => node.node_locale === 'en-US')
+					: data.allContentfulRozwiazaniedlabiznesu.nodes.find((node) => node.node_locale === 'pl');
+
+					const contentfulKontaktIStopkaData =
+					userLanguage === 'pl'
+						? data.allContentfulKontaktIStopka.nodes.find((node) => node.node_locale === 'en-US')
+						: data.allContentfulKontaktIStopka.nodes.find((node) => node.node_locale === 'pl');
+	
+					
+						const slides = data.allContentfulOpinie.nodes.filter(el => el.node_locale === (userLanguage === 'pl' ? 'en-US' : 'pl')).map(el => ({
+							image: el.image.url,
+							title: el.name,
+							subtitle: el.breed,
+							description: el.content.content,
+							name: el.owner,
+							 }));
+							 const accordionFaq = data.allContentfulFaq.nodes
+							 .filter(el => el.node_locale === (userLanguage === 'pl' ? 'en-US' : 'pl'))
+							 .map(el => ({
+								 question: el.question,
+								 answear: el.answear.answear,
+								
+							 }
+							 
+							 ));
+
 	return (
 	
 		<Layout>
 		
       <Helmet>
-        <title>{data.allContentfulHero.nodes[0].seoTitle}</title>
+        <title>{contentfulData.seoTitle}</title>
         <meta
           name="description"
-          content={data.allContentfulHero.nodes[0].seoMetaDescription.seoMetaDescription}
+          content={contentfulData.seoMetaDescription.seoMetaDescription}
         />
       </Helmet>
   
@@ -438,15 +505,15 @@ scale:0,
 						/>
 					</RightItem>
 					<HeaderWrapper ref={ref2} className='hero'>
-						<h1>{data.allContentfulHero.nodes[0].title}</h1>
-						<p>{data.allContentfulHero.nodes[0].subtitle}</p>
-						<p>{data.allContentfulHero.nodes[0].subtitlebottom}</p>
+						<h1>{contentfulData.title}</h1>
+						<p>{contentfulData.subtitle}</p>
+						<p>{contentfulData.subtitlebottom}</p>
 					</HeaderWrapper> 
 					<HeroImage>
-						<img className='d-lg-none' src={data.allContentfulHero.nodes[0].heroImageMobile.url} alt='' />
+						<img className='d-lg-none' src={contentfulData.heroImageMobile.url} alt='' />
 						<img
 							className='d-none d-lg-block'
-							src={data.allContentfulHero.nodes[0].image.url}
+							src={contentfulData.image.url}
 							alt=''
 						/>
 					</HeroImage>
@@ -460,27 +527,27 @@ scale:0,
 							className='d-none dog-image d-md-flex align-items-center'
 							xs='12'
 							md='6'>
-							<ImageDogProblem src={data.allContentfulProblem.nodes[0].image.url} alt='' />
+							<ImageDogProblem src={contentfulProblemData.image.url} alt='' />
 						</Col>
 						<Col xs='12' md='5'>
 							<h2 className='idea-header'>
-							{data.allContentfulProblem.nodes[0].title} <TitleIcon src={bell} alt='' />
+							{contentfulProblemData.title} <TitleIcon src={bell} alt='' />
 							</h2>
 							<ImageDogProblem
 								className='d-md-none'
-								src={data.allContentfulProblem.nodes[0].image.url}
+								src={contentfulProblemData.image.url}
 								alt=''
 							/>
 							<span className='text-end text-md-start'>
-							{data.allContentfulProblem.nodes[0].smallSubtitle}
+							{contentfulProblemData.smallSubtitle}
 							</span>
 							<h3 className='idea-subheader'>
-							{data.allContentfulProblem.nodes[0].subtitle}
+							{contentfulProblemData.subtitle}
 							</h3>
 							<p className='idea-content'>
-							{data.allContentfulProblem.nodes[0].contentFirst} 
+							{contentfulProblemData.contentFirst} 
 								<br />
-								<br />{data.allContentfulProblem.nodes[0].contentSecond} 
+								<br />{contentfulProblemData.contentSecond} 
 							</p>
 						</Col>
 					</Row>
@@ -489,21 +556,21 @@ scale:0,
 					<Row>
 						<Col xs='12' md='6'>
 							<IdeaTitleSolution className='solution-header'>
-							{data.allContentfulRozwiazanie.nodes[0].title} <TitleIcon src={bulb} alt='' />
+							{contentfulRozwiazanieData.title} <TitleIcon src={bulb} alt='' />
 							</IdeaTitleSolution>
 							<IdeaWrapperInner>
 								<div className="text-container">
 									<IdeaHeaderSolution className='solution-subheader'>
-									{data.allContentfulRozwiazanie.nodes[0].subtitle}
+									{contentfulRozwiazanieData.subtitle}
 									</IdeaHeaderSolution>
 									<IdeaParagraph className='solution-content'>
-									{data.allContentfulRozwiazanie.nodes[0].content}
+									{contentfulRozwiazanieData.content}
 									</IdeaParagraph>
 								</div>
 								<div className="image-container">
 								<IdeaBottleImage
 									className='d-md-none'
-									src={data.allContentfulRozwiazanie.nodes[0].imageMobile.url} 
+									src={contentfulRozwiazanieData.imageMobile.url} 
 									alt=''
 								/>
 								</div>
@@ -511,12 +578,12 @@ scale:0,
 							</IdeaWrapperInner>
 							<LearnMoreWrapper className='d-none d-lg-block'>
 								<h3>
-								{data.allContentfulRozwiazanie.nodes[0].buttonTitle}
+								{contentfulRozwiazanieData.buttonTitle}
 								</h3>
 								<Link
 									to='/o-produkcie'
 									className='solution-button'>
-								{data.allContentfulRozwiazanie.nodes[0].button}
+								{contentfulRozwiazanieData.button}
 								</Link>
 								{/* <p>
 									DeliGuard to efekt badań naszych ekspertów i
@@ -532,15 +599,15 @@ scale:0,
 						<Col className='d-none d-md-flex' xs='12' md='6'>
 							<IdeaBottleImage
 								className='solution-image'
-								src={data.allContentfulRozwiazanie.nodes[0].image.url}
+								src={contentfulRozwiazanieData.image.url}
 								alt=''
 							/>
 						</Col>
 					</Row>
 				</IdeaWrapper>
 				<LearnMoreWrapper className='d-lg-none'>
-					<h3>{data.allContentfulRozwiazanie.nodes[0].buttonTitle}</h3>
-					<Link>{data.allContentfulRozwiazanie.nodes[0].button}</Link>
+					<h3>{contentfulRozwiazanieData.buttonTitle}</h3>
+					<Link>{contentfulRozwiazanieData.button}</Link>
 				
 					{/* <p>
 						DeliGuard to efekt badań naszych ekspertów i tą wiedzą
@@ -556,13 +623,13 @@ scale:0,
 			<TestSection>
 				<TestWrapper>
 					{/* <ImageTest src={pipeta} alt='' /> */}
-					<h2>{data.allContentfulBadania.nodes[0].title} </h2>
+					<h2>{contentfulBadaniaData.title} </h2>
 					<TestContainer>
 						<p>
-						{data.allContentfulBadania.nodes[0].subtitle}
+						{contentfulBadaniaData.subtitle}
 						</p>
 						<h3>Sprawdź rezultaty badań:</h3>
-						<Link to='/nasze-badania'>{data.allContentfulBadania.nodes[0].button}</Link>
+						<Link to='/nasze-badania'>{contentfulBadaniaData.button}</Link>
 					</TestContainer>
 				</TestWrapper>
 			</TestSection>
@@ -576,21 +643,21 @@ scale:0,
 							<EffectHeader>
 								<img src={eye} alt='' />
 								<div>
-									<h2>{data.allContentfulZastosujDeliguard.nodes[0].title}</h2>
+									<h2>{contentfulZastosujDeliguardData.title}</h2>
 								
-									<p>{data.allContentfulZastosujDeliguard.nodes[0].subtitle}</p>
+									<p>{contentfulZastosujDeliguardData.subtitle}</p>
 								</div>
 							</EffectHeader>
 						</Col>
 						<Col md='3'>
 							<EffectImage
 								className='d-none d-xl-block'
-								src={data.allContentfulZastosujDeliguard.nodes[0].image.url}
+								src={contentfulZastosujDeliguardData.image.url}
 								alt=''
 							/>
 							<EffectImage
 								className='d-xl-none'
-								src={data.allContentfulZastosujDeliguard.nodes[0].image.url}
+								src={contentfulZastosujDeliguardData.image.url}
 								alt=''
 							/>
 						</Col>
@@ -600,11 +667,11 @@ scale:0,
 									<Col>
 										<EffectItemReverse>
 											<p className='first-paragraph'>
-											{data.allContentfulZastosujDeliguard.nodes[0].firstEffectItem}
+											{contentfulZastosujDeliguardData.firstEffectItem}
 											</p>
 											<img
 												className='first-icon'
-												src={data.allContentfulZastosujDeliguard.nodes[0].firstEffectItemImage.url}
+												src={contentfulZastosujDeliguardData.firstEffectItemImage.url}
 												alt=''
 											/>
 										</EffectItemReverse>
@@ -615,22 +682,22 @@ scale:0,
 										<EffectItem>
 											<img
 												className='second-icon'
-												src={data.allContentfulZastosujDeliguard.nodes[0].secondEffectItemImage.url}
+												src={contentfulZastosujDeliguardData.secondEffectItemImage.url}
 												alt=''
 											/>
 											<p className='second-paragraph'>
-											{data.allContentfulZastosujDeliguard.nodes[0].secondEffectItem}
+											{contentfulZastosujDeliguardData.secondEffectItem}
 											</p>
 										</EffectItem>
 									</Col>
 									<Col md='6'>
 										<EffectItemReverse>
 											<p className='third-paragraph'>
-											{data.allContentfulZastosujDeliguard.nodes[0].thirdEffectItem}
+											{contentfulZastosujDeliguardData.thirdEffectItem}
 											</p>
 											<img
 												className='third-icon'
-												src={data.allContentfulZastosujDeliguard.nodes[0].thirdEffectItemImage.url}
+												src={contentfulZastosujDeliguardData.thirdEffectItemImage.url}
 												alt=''
 											/>
 										</EffectItemReverse>
@@ -649,28 +716,28 @@ scale:0,
 					<DosageRightItem>
 						<img src={item7} alt='' />
 					</DosageRightItem>
-					<h2>{data.allContentfulDawkowanie.nodes[0].title}</h2>
+					<h2>{contentfulDawkowanieData.title}</h2>
 					<DosageSubheader>
-					{data.allContentfulDawkowanie.nodes[0].subtitle}
+					{contentfulDawkowanieData.subtitle}
 					</DosageSubheader>
 					<Row>
   <Col lg='6'>
     <div className='text-container'>
-      <h3>{data.allContentfulDawkowanie.nodes[0].catTitile}</h3>
+      <h3>{contentfulDawkowanieData.catTitile}</h3>
       <div className='transition-container'>
         <div
           className={`step-content ${
             currentStep === 1 ? 'active' : ''
           }`}>
 			<div className="image-wrapper">
-          <img src={data.allContentfulDawkowanie.nodes[0].smallCatImage.url} alt='Step 1' />
+          <img src={contentfulDawkowanieData.smallCatImage.url} alt='Step 1' />
           </div>
 		<div className='step-text'>
-            <h4>{data.allContentfulDawkowanie.nodes[0].smallCatWeight}</h4>
+            <h4>{contentfulDawkowanieData.smallCatWeight}</h4>
             <p>
               <img src={drop} alt='' />
               <span>
-                {data.allContentfulDawkowanie.nodes[0].smallCatDosage}
+                {contentfulDawkowanieData.smallCatDosage}
               </span>
             </p>
           </div>
@@ -680,14 +747,14 @@ scale:0,
             currentStep === 2 ? 'active' : ''
           }`}>
 			<div className="image-wrapper">
-          <img src={data.allContentfulDawkowanie.nodes[0].mediumCatImage.url} alt='Step 2' />
+          <img src={contentfulDawkowanieData.mediumCatImage.url} alt='Step 2' />
           </div>
 		<div className='step-text'>
-            <h4>{data.allContentfulDawkowanie.nodes[0].mediumCatWeight}</h4>
+            <h4>{contentfulDawkowanieData.mediumCatWeight}</h4>
             <p>
               <img src={drop} alt='' />
               <span>
-                {data.allContentfulDawkowanie.nodes[0].mediumCatDosage}
+                {contentfulDawkowanieData.mediumCatDosage}
               </span>
             </p>
           </div>
@@ -697,14 +764,14 @@ scale:0,
             currentStep === 3 ? 'active' : ''
           }`}>
 			<div className="image-wrapper">
-          <img src={data.allContentfulDawkowanie.nodes[0].bigCatImage.url} alt='Step 3' />
+          <img src={contentfulDawkowanieData.bigCatImage.url} alt='Step 3' />
 		</div>
 	     <div className='step-text'>
-            <h4>{data.allContentfulDawkowanie.nodes[0].bigCatWeight}</h4>
+            <h4>{contentfulDawkowanieData.bigCatWeight}</h4>
             <p>
               <img src={drop} alt='' />
               <span>
-                {data.allContentfulDawkowanie.nodes[0].bigCatDosage}
+                {contentfulDawkowanieData.bigCatDosage}
               </span>
             </p>
           </div>
@@ -753,21 +820,21 @@ scale:0,
   </Col>
   <Col lg='6'>
     <div className='text-container'>
-      <h3>{data.allContentfulDawkowanie.nodes[0].dogTitle}</h3>
+      <h3>{contentfulDawkowanieData.dogTitle}</h3>
       <div className='transition-container-dog'>
         <div
           className={`step-content ${
             currentStepDog === 1 ? 'active' : ''
           }`}>
 			<div className="image-wrapper">
-          <img src={data.allContentfulDawkowanie.nodes[0].smallDogImage.url} alt='Step 1' />
+          <img src={contentfulDawkowanieData.smallDogImage.url} alt='Step 1' />
 		</div>
           <div className='step-text'>
-            <h4>{data.allContentfulDawkowanie.nodes[0].smallDogWeight}</h4>
+            <h4>{contentfulDawkowanieData.smallDogWeight}</h4>
             <p>
               <img src={drop} alt='' />
               <span>
-                {data.allContentfulDawkowanie.nodes[0].smallDogDosage}
+                {contentfulDawkowanieData.smallDogDosage}
               </span>
             </p>
           </div>
@@ -777,14 +844,14 @@ scale:0,
             currentStepDog === 2 ? 'active' : ''
           }`}>
 			<div className="image-wrapper">
-          <img src={data.allContentfulDawkowanie.nodes[0].mediumDogImage.url} alt='Step 2' />
+          <img src={contentfulDawkowanieData.mediumDogImage.url} alt='Step 2' />
 		</div>
           <div className='step-text'>
-            <h4>{data.allContentfulDawkowanie.nodes[0].mediumDogWeight}</h4>
+            <h4>{contentfulDawkowanieData.mediumDogWeight}</h4>
             <p>
               <img src={drop} alt='' />
               <span>
-                {data.allContentfulDawkowanie.nodes[0].mediumDogDosage}
+                {contentfulDawkowanieData.mediumDogDosage}
               </span>
             </p>
           </div>
@@ -794,14 +861,14 @@ scale:0,
             currentStepDog === 3 ? 'active' : ''
           }`}>
 			<div className="image-wrapper">
-          <img src={data.allContentfulDawkowanie.nodes[0].bigDogImage.url} alt='Step 3' />
+          <img src={contentfulDawkowanieData.bigDogImage.url} alt='Step 3' />
 		</div>
           <div className='step-text'>
-            <h4>{data.allContentfulDawkowanie.nodes[0].bigDogWeight}</h4>
+            <h4>{contentfulDawkowanieData.bigDogWeight}</h4>
             <p>
               <img src={drop} alt='' />
               <span>
-                {data.allContentfulDawkowanie.nodes[0].bigDogDosage}
+                {contentfulDawkowanieData.bigDogDosage}
               </span>
             </p>
           </div>
@@ -853,13 +920,13 @@ scale:0,
   </Col>
 </Row>
 {/* href={data.allContentfulDawkowanie.nodes[0].buttonFile.url} */}
-					<InstructionButton href={inst} target="blank">{data.allContentfulDawkowanie.nodes[0].button}</InstructionButton>
+					<InstructionButton href={inst} target="blank">{contentfulDawkowanieData.button}</InstructionButton>
 				</DosageWrapper>
 			</DosageSection>
 			<ReviewSection>
 				<ReviewWrapper>
 					<h2>
-						{data.allContentfulReviewTitle.nodes[0].title}
+						{contentfulReviewTitleData.title}
 					</h2>
 					<div>
 						<Swiper
@@ -938,7 +1005,7 @@ scale:0,
 					<FaqRightItem>
 						<img src={item9} alt='' />
 					</FaqRightItem>
-					<h2>{data.allContentfulFaqTitle.nodes[0].title}</h2>
+					<h2>{contentfulFaqTitleData.title}</h2>
 				
 					<Row>
 						<Col>
@@ -961,10 +1028,10 @@ scale:0,
 							<div className='faq-button-container'>
 								<a href='https://allegro.pl/oferta/suplement-dla-psa-i-kota-na-trawienie-deliguard-14236919045'>
 									<img src={bag} alt='' />
-									<span>{data.allContentfulFaqTitle.nodes[0].button}</span>
+									<span>{contentfulFaqTitleData.button}</span>
 								</a>
 								<p className='paragraph-faq'>
-								{data.allContentfulFaqTitle.nodes[0].textNearButton}
+								{contentfulFaqTitleData.textNearButton}
 								</p>
 							</div>
 						</Col>
@@ -973,37 +1040,37 @@ scale:0,
 			</FaqSection>
 			<SolutionsSection>
 				<SolutionsWrapper>
-					<h2>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].title}</h2>
+					<h2>{contentfulRozwiazaniedlabiznesuData.title}</h2>
 					<Row>
 						<Col lg='7'>
 							<h3>
-							{data.allContentfulRozwiazaniedlabiznesu.nodes[0].subtitle}
+							{contentfulRozwiazaniedlabiznesuData.subtitle}
 							</h3>
 							<ul>
 								<li>
-									<h4>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].firstItemTitle}</h4>
+									<h4>{contentfulRozwiazaniedlabiznesuData.firstItemTitle}</h4>
 									<p>
 										<Icon src={plus} alt='' />{' '}
 										<span>
-										{data.allContentfulRozwiazaniedlabiznesu.nodes[0].firstItemContent}
+										{contentfulRozwiazaniedlabiznesuData.firstItemContent}
 										</span>
 									</p>
 								</li>
 								<li>
-									<h4>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].secondItemTitle}</h4>
+									<h4>{contentfulRozwiazaniedlabiznesuData.secondItemTitle}</h4>
 									<p>
 										<Icon src={plus} alt='' />{' '}
 										<span>
-										{data.allContentfulRozwiazaniedlabiznesu.nodes[0].secondItemContent}
+										{contentfulRozwiazaniedlabiznesuData.secondItemContent}
 										</span>
 									</p>
 								</li>
 								<li>
-									<h4>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].thirdItemTitle}</h4>
+									<h4>{contentfulRozwiazaniedlabiznesuData.thirdItemTitle}</h4>
 									<p>
 										<Icon src={plus} alt='' />{' '}
 										<span>
-										{data.allContentfulRozwiazaniedlabiznesu.nodes[0].thirdItemContent}
+										{contentfulRozwiazaniedlabiznesuData.thirdItemContent}
 										</span>
 									</p>
 								</li>
@@ -1011,18 +1078,18 @@ scale:0,
 							<Link to='/rozwiazanie-dla-biznesu'>
 								{' '}
 								<img src={buttonIcon} alt='' />{' '}
-								<span>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].button}</span>
+								<span>{contentfulRozwiazaniedlabiznesuData.button}</span>
 							</Link>
 						</Col>
 						<Col lg='5' ref={ref4}>
 							<SolutionImage
 								className='d-lg-none'
-								src={data.allContentfulRozwiazaniedlabiznesu.nodes[0].imageMobile.url}
+								src={contentfulRozwiazaniedlabiznesuData.imageMobile.url}
 								alt=''
 							/>
 							<SolutionImage
 								className=' d-none d-lg-block image-solution'
-								src={data.allContentfulRozwiazaniedlabiznesu.nodes[0].image.url}
+								src={contentfulRozwiazaniedlabiznesuData.image.url}
 								alt=''
 							/>
 						</Col>
@@ -1034,36 +1101,36 @@ scale:0,
 					<Row className='flex-lg-row-reverse'>
 						<Col xs='12' lg='6'>
 							<ContactInnerWrapper>
-								<h2>{data.allContentfulKontaktIStopka.nodes[0].title}</h2>
+								<h2>{contentfulKontaktIStopkaData.title}</h2>
 								<h3>
 									W przypadku pytań prosimy o wiadomość na
 									adres
 								</h3>
 								<MailLink href='mailto:support@deliguard.net'>
 									<img src={mail} alt='' />
-									<span>{data.allContentfulKontaktIStopka.nodes[0].mail}</span>
+									<span>{contentfulKontaktIStopkaData.mail}</span>
 								</MailLink>
 								<p>
-								{data.allContentfulKontaktIStopka.nodes[0].content}
+								{contentfulKontaktIStopkaData.content}
 								</p>
 								<Row>
 									<Col xs='12' lg='6'>
-										<SocialLink href={data.allContentfulKontaktIStopka.nodes[0].igButtonLink}>
+										<SocialLink href={contentfulKontaktIStopkaData.igButtonLink}>
 											<img src={ig} alt='' />
-											<span>{data.allContentfulKontaktIStopka.nodes[0].igButtonText}</span>
+											<span>{contentfulKontaktIStopkaData.igButtonText}</span>
 										</SocialLink>
 									</Col>
 									<Col xs='12' lg='6'>
-										<SocialLink href={data.allContentfulKontaktIStopka.nodes[0].fbButtonLink}>
+										<SocialLink href={contentfulKontaktIStopkaData.fbButtonLink}>
 											<img src={fb} alt='' />{' '}
-											<span>{data.allContentfulKontaktIStopka.nodes[0].fbButtonText}</span>
+											<span>{contentfulKontaktIStopkaData.fbButtonText}</span>
 										</SocialLink>
 									</Col>
 								</Row>
 							</ContactInnerWrapper>
 						</Col>
 						<Col xs='12' lg='6' ref={ref5}>
-							<ContactImg src={data.allContentfulKontaktIStopka.nodes[0].image.url} className="image-contact" alt='' />
+							<ContactImg src={contentfulKontaktIStopkaData.image.url} className="image-contact" alt='' />
 						</Col>  
 					</Row>
 				</ContactWrapper>
@@ -1138,6 +1205,7 @@ export const query = graphql`
 		query MyQuery {
   allContentfulHero {
     nodes {
+			node_locale
       title
 			advertisingBanner {
         publicUrl
@@ -1158,6 +1226,7 @@ export const query = graphql`
   }
   allContentfulProblem {
     nodes {
+			node_locale
       contentFirst
       contentSecond
      #  smallSubtitle
@@ -1170,6 +1239,7 @@ export const query = graphql`
   }
   allContentfulRozwiazanie {
     nodes {
+			node_locale
       button
       buttonTitle
       content
@@ -1189,6 +1259,7 @@ export const query = graphql`
   
   allContentfulBadania {
     nodes {
+			node_locale
       button
       subtitle
       title
@@ -1196,6 +1267,7 @@ export const query = graphql`
   }
   allContentfulZastosujDeliguard {
     nodes {
+			node_locale
       title
       subtitle
       image {
@@ -1217,6 +1289,7 @@ export const query = graphql`
   }
   allContentfulDawkowanie {
     nodes {
+			node_locale
       title
       subtitle
       catTitile
@@ -1261,11 +1334,13 @@ export const query = graphql`
   }
   allContentfulReviewTitle {
     nodes {
+			node_locale
       title
     }
   }
   allContentfulOpinie {
     nodes {
+			node_locale
       image {
 		url
       }
@@ -1279,6 +1354,7 @@ export const query = graphql`
   }
   allContentfulFaqTitle {
     nodes {
+			node_locale
       title
 	 textNearButton
       button
@@ -1286,6 +1362,7 @@ export const query = graphql`
   }
   allContentfulFaq {
     nodes {
+			node_locale
       question
       answear {
         answear
@@ -1294,6 +1371,7 @@ export const query = graphql`
   }
   allContentfulRozwiazaniedlabiznesu {
     nodes {
+			node_locale
       button
       firstItemContent
       firstItemTitle
@@ -1313,6 +1391,7 @@ export const query = graphql`
   }
   allContentfulKontaktIStopka { 
     nodes {
+			node_locale
       content
       fbButtonLink
       fbButtonText
@@ -1339,4 +1418,4 @@ export const query = graphql`
 }
 
 `;
-export default IndexPage;
+export default IndexPage; 

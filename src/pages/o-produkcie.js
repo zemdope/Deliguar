@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger'; 
+import { useIntl } from "gatsby-plugin-intl";
 import {
 	AboutProductHero,
 	ImageBottle,
@@ -182,29 +183,56 @@ const AboutProduct = ({data}) => {
 			}
 		});
 	}, []);
+
+	const intl = useIntl();
+  const userLanguage = intl.locale === 'pl' ? 'pl' : 'en';
+  const [language, setLanguage] = useState(userLanguage);
+
+  // Define the contentful data for different queries based on user's language
+  const contentfulData =
+    userLanguage === 'pl'
+      ? data.allContentfulOpHero.nodes.find((node) => node.node_locale === 'en-US')
+      : data.allContentfulOpHero.nodes.find((node) => node.node_locale === 'pl');
+
+  // Define the contentful data for other queries
+  const contentfulOpZastosujData =
+    userLanguage === 'pl'
+      ? data.allContentfulOpZastosuj.nodes.find((node) => node.node_locale === 'en-US')
+      : data.allContentfulOpZastosuj.nodes.find((node) => node.node_locale === 'pl');
+
+  const contentfulOpNaszeBadaniaData =
+    userLanguage === 'pl'
+      ? data.allContentfulOpNaszeBadania.nodes.find((node) => node.node_locale === 'en-US')
+      : data.allContentfulOpNaszeBadania.nodes.find((node) => node.node_locale === 'pl');
+
+  const contentfulRozwiazaniedlabiznesuData =
+    userLanguage === 'pl'
+      ? data.allContentfulRozwiazaniedlabiznesu.nodes.find((node) => node.node_locale === 'en-US')
+      : data.allContentfulRozwiazaniedlabiznesu.nodes.find((node) => node.node_locale === 'pl');
+
 	return (
 		<Layout>
 			<Helmet>
-        <title>{data.allContentfulOpHero.nodes[0].seoTitle}</title>
+        <title>{contentfulData.seoTitle}</title>
         <meta
           name="description"
-          content={data.allContentfulOpHero.nodes[0].seoMetaDescription.seoMetaDescription}
+          content={contentfulData.seoMetaDescription.seoMetaDescription}
         />
       </Helmet>
 			<AboutProductHero>
 				<Row className='hero-wrapper d-md-none'>
-					<h1>{data.allContentfulOpHero.nodes[0].title}</h1>
+					<h1>{contentfulData.title}</h1>
 					<Col>
-						<ImageBottle src={data.allContentfulOpHero.nodes[0].image.file.url} alt='' />
+						<ImageBottle src={contentfulData.image.file.url} alt='' />
 
 						<ParagraphTop>
-						{data.allContentfulOpHero.nodes[0].subtitlebeforeplus}<img src={plus2} alt='' />
+						{contentfulData.subtitlebeforeplus}<img src={plus2} alt='' />
 							<br />
-							{data.allContentfulOpHero.nodes[0].subtitleafterplus}
+							{contentfulData.subtitleafterplus}
 						</ParagraphTop>
 						<Paragraph>
 							<img src={plus2} alt='' />
-							{data.allContentfulOpHero.nodes[0].content}
+							{contentfulData.content}
 						</Paragraph>
 					</Col>
 				</Row>
@@ -213,26 +241,26 @@ const AboutProduct = ({data}) => {
 						<img src={item16} alt='' />
 					</LeftItem>
 					<Col md='6'>
-						<h1>{data.allContentfulOpHero.nodes[0].title}</h1>
+						<h1>{contentfulData.title}</h1>
 						<ParagraphTop>
-						{data.allContentfulOpHero.nodes[0].subtitlebeforeplus} <img src={plus2} alt='' />{' '}
-							<br /> {data.allContentfulOpHero.nodes[0].subtitleafterplus}
+						{contentfulData.subtitlebeforeplus} <img src={plus2} alt='' />{' '}
+							<br /> {contentfulData.subtitleafterplus}
 						</ParagraphTop>
 						<Paragraph>
 							<img src={plus2} alt='' />
-							{data.allContentfulOpHero.nodes[0].content}
+							{contentfulData.content}
 						</Paragraph>
 					</Col>
 					<Col
 						md='6'
 						className='d-flex d-xl-block align-items-center'>
-						<ImageBottle src={data.allContentfulOpHero.nodes[0].image.file.url} alt='' />
+						<ImageBottle src={contentfulData.image.file.url} alt='' />
 					</Col>
 				</Row>
 			</AboutProductHero>
 			<PostbioticsSection>
 				<h2>
-				{data.allContentfulOpHero.nodes[0].postbioticsTitle}
+				{contentfulData.postbioticsTitle}
 				</h2>
 				<Row>
 					<Col lg="4">
@@ -241,9 +269,9 @@ const AboutProduct = ({data}) => {
 						<img src={pb1} alt="" />
 						</div>
 						<div>
-							<h3>{data.allContentfulOpHero.nodes[0].postbioticsItemTitle}</h3>
-							<span>{data.allContentfulOpHero.nodes[0].postbioticsItemSubitle}</span>
-							<p>{data.allContentfulOpHero.nodes[0].postbioticsItemDescription}</p>
+							<h3>{contentfulData.postbioticsItemTitle}</h3>
+							<span>{contentfulData.postbioticsItemSubitle}</span>
+							<p>{contentfulData.postbioticsItemDescription}</p>
 						</div>
 					
 					</PostbioticsItem>
@@ -255,9 +283,9 @@ const AboutProduct = ({data}) => {
 						<img src={pb2} alt="" />
 						</div>
 						<div>
-							<h3>{data.allContentfulOpHero.nodes[0].postbioticsItemTitle2}</h3>
-							<span>{data.allContentfulOpHero.nodes[0].postbioticsItemSubitle2}</span>
-							<p>{data.allContentfulOpHero.nodes[0].postbioticsItemDescription2}</p>
+							<h3>{contentfulData.postbioticsItemTitle2}</h3>
+							<span>{contentfulData.postbioticsItemSubitle2}</span>
+							<p>{contentfulData.postbioticsItemDescription2}</p>
 						</div>
 					</PostbioticsItem>
 					</Col>
@@ -267,9 +295,9 @@ const AboutProduct = ({data}) => {
 						<img src={pb3} alt="" />
 						</div>
 						<div>
-							<h3>{data.allContentfulOpHero.nodes[0].postbioticsItemTitle3}</h3>
-							<span>{data.allContentfulOpHero.nodes[0].postbioticsItemSubitle3}</span>
-							<p>{data.allContentfulOpHero.nodes[0].postbioticsItemDescription3}</p>
+							<h3>{contentfulData.postbioticsItemTitle3}</h3>
+							<span>{contentfulData.postbioticsItemSubitle3}</span>
+							<p>{contentfulData.postbioticsItemDescription3}</p>
 						</div>
 					
 					
@@ -277,7 +305,7 @@ const AboutProduct = ({data}) => {
 					</Col>
 				</Row>
 				<Col xs='12'>
-					<a  href={inst} target='blank'>Dowiedz się więcej</a>
+					<a  href={inst} target='blank'>{intl.locale === 'pl' ? 'Dowiedz się więcej': 'Find out more' }</a>
 				</Col>
 			</PostbioticsSection>
 			<EffectSection>
@@ -287,12 +315,14 @@ const AboutProduct = ({data}) => {
 					</RightItem>
 					<Row>
 						<Col>
-							<h2>{data.allContentfulOpZastosuj.nodes[0].title}<img src={plus5} alt='' /></h2>
+							<h2>{contentfulOpZastosujData.title}<img src={plus5} alt='' /></h2>
 						</Col>
 						<Col xs='12'>
 						<EffectParagraph>
 						<img src={plus2} alt='' />
-						10 dni to średni czas wystąpienia widocznych zmian w kondycji zwierzęcia, określony na podstawie wyników badań z udziałem 100 domowych psów i kotów. Organizm każdego zwierzęcia ma swoje cechy osobnicze, zatem efekt działania produktu może pojawić się później niż w terminie 10 dni, przy zastosowaniu DeliGuard według instrukcji.
+						{intl.locale === 'pl' ? '10 dni to średni czas wystąpienia widocznych zmian w kondycji zwierzęcia, określony na podstawie wyników badań z udziałem 100 domowych psów i kotów. Organizm każdego zwierzęcia ma swoje cechy osobnicze, zatem efekt działania produktu może pojawić się później niż w terminie 10 dni, przy zastosowaniu DeliGuard według instrukcji.': '10 days is the average time for visible changes in the animals condition to occur, as determined by the results of trials involving 100 domestic dogs and cats.' }
+						
+				
 						</EffectParagraph>
 						</Col>
 					</Row>
@@ -300,13 +330,13 @@ const AboutProduct = ({data}) => {
 						<Col md='6' lg='7' >
 							<SerumImage
 								className='d-none d-lg-block serum-image'
-								src={data.allContentfulOpZastosuj.nodes[0].image.url}
+								src={contentfulOpZastosujData.image.url}
 								alt=''
 							/>
 							<SerumImage
 								className='d-lg-none serum-image-mobile'
 								
-								src={data.allContentfulOpZastosuj.nodes[0].image.url}
+								src={contentfulOpZastosujData.image.url}
 								alt=''
 							/>
 						</Col> 
@@ -314,34 +344,34 @@ const AboutProduct = ({data}) => {
 							<Row>
 								<Col xs='12'>
 									<Wrapper>
-										<img src={data.allContentfulOpZastosuj.nodes[0].firstIcon.url} className="icon1"  alt='' />
+										<img src={contentfulOpZastosujData.firstIcon.url} className="icon1"  alt='' />
 
-										<p>{data.allContentfulOpZastosuj.nodes[0].firstIconText}</p>
+										<p>{contentfulOpZastosujData.firstIconText}</p>
 									</Wrapper>
 								</Col>
 								<Col xs='12'>
 									<WrapperReverse className='wrapper-effect-reverse'>
-										<img src={data.allContentfulOpZastosuj.nodes[0].secondIcon.url} className="icon2" alt='' />
-										<p>{data.allContentfulOpZastosuj.nodes[0].secondIconText}</p>
+										<img src={contentfulOpZastosujData.secondIcon.url} className="icon2" alt='' />
+										<p>{contentfulOpZastosujData.secondIconText}</p>
 									</WrapperReverse>
 								</Col>
 								<Col xs='12'>
 									<Wrapper className='wrapper-effect'>
-										<img src={data.allContentfulOpZastosuj.nodes[0].thidIcon.url} className="icon3" alt='' />
-										<p>{data.allContentfulOpZastosuj.nodes[0].thirdIconText}</p>
+										<img src={contentfulOpZastosujData.thidIcon.url} className="icon3" alt='' />
+										<p>{contentfulOpZastosujData.thirdIconText}</p>
 									</Wrapper>
 								</Col>
 								<Col xs='12'>
 									<WrapperReverse className='wrapper-effect-reverse'>
-										<img src={data.allContentfulOpZastosuj.nodes[0].fourthIcon.url} className="icon4" alt='' />
-										<p>{data.allContentfulOpZastosuj.nodes[0].fourthIcontext}</p>
+										<img src={contentfulOpZastosujData.fourthIcon.url} className="icon4" alt='' />
+										<p>{contentfulOpZastosujData.fourthIcontext}</p>
 									</WrapperReverse>
 								</Col>
 								<Col xs='12'>
 									<Wrapper>
-										<img src={data.allContentfulOpZastosuj.nodes[0].fifthIcon.url} className="icon5" alt='' />
+										<img src={contentfulOpZastosujData.fifthIcon.url} className="icon5" alt='' />
 										<p>
-										{data.allContentfulOpZastosuj.nodes[0].fifthIconText}
+										{contentfulOpZastosujData.fifthIconText}
 										</p>
 									</Wrapper>
 								</Col>
@@ -354,14 +384,14 @@ const AboutProduct = ({data}) => {
 				<TestsWrapper>
 					<Row>
 						<Col xs='12' md='6'>
-							<h2>{data.allContentfulOpNaszeBadania.nodes[0].title}</h2>
-							<Subheader>{data.allContentfulOpNaszeBadania.nodes[0].subtitle}</Subheader>
+							<h2>{contentfulOpNaszeBadaniaData.title}</h2>
+							<Subheader>{contentfulOpNaszeBadaniaData.subtitle}</Subheader>
 							<Content>
-							{data.allContentfulOpNaszeBadania.nodes[0].content}
+							{contentfulOpNaszeBadaniaData.content}
 							</Content>
 							<ButtonWrapper>
-								<Link to='/nasze-badania'>{data.allContentfulOpNaszeBadania.nodes[0].button}</Link>
-								<p>{data.allContentfulOpNaszeBadania.nodes[0].nearButtonText}</p>
+								<Link to='/nasze-badania'>{contentfulOpNaszeBadaniaData.button}</Link>
+								<p>{contentfulOpNaszeBadaniaData.nearButtonText}</p>
 							</ButtonWrapper>
 							<ButtonWrapper className='d-md-none'>
 								<a href="https://allegro.pl/oferta/suplement-dla-psa-i-kota-na-trawienie-deliguard-14236919045">
@@ -372,44 +402,44 @@ const AboutProduct = ({data}) => {
 							</ButtonWrapper>
 						</Col>
 						<Col xs='12' md='6' ref={ref6}>
-							<ImageSection  className="tests-image" src={data.allContentfulOpNaszeBadania.nodes[0].image.url} alt='' />
+							<ImageSection  className="tests-image" src={contentfulOpNaszeBadaniaData.image.url} alt='' />
 						</Col>
 					</Row>
 				</TestsWrapper>
 			</TestsSection>
 			<SolutionsSection>
 				<SolutionsWrapper>
-					<h2>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].title}</h2>
+					<h2>{contentfulRozwiazaniedlabiznesuData.title}</h2>
 					<Row>
 						<Col lg='7'>
 							<h3>
-							{data.allContentfulRozwiazaniedlabiznesu.nodes[0].subtitle}
+							{contentfulRozwiazaniedlabiznesuData.subtitle}
 							</h3>
 							<ul>
 								<li>
-									<h4>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].firstItemTitle}</h4>
+									<h4>{contentfulRozwiazaniedlabiznesuData.firstItemTitle}</h4>
 									<p>
 										<Icon src={plus} alt='' />{' '}
 										<span>
-										{data.allContentfulRozwiazaniedlabiznesu.nodes[0].firstItemContent}
+										{contentfulRozwiazaniedlabiznesuData.firstItemContent}
 										</span>
 									</p>
 								</li>
 								<li>
-									<h4>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].secondItemTitle}</h4>
+									<h4>{contentfulRozwiazaniedlabiznesuData.secondItemTitle}</h4>
 									<p>
 										<Icon src={plus} alt='' />{' '}
 										<span>
-										{data.allContentfulRozwiazaniedlabiznesu.nodes[0].secondItemContent}
+										{contentfulRozwiazaniedlabiznesuData.secondItemContent}
 										</span>
 									</p>
 								</li>
 								<li>
-									<h4>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].thirdItemTitle}</h4>
+									<h4>{contentfulRozwiazaniedlabiznesuData.thirdItemTitle}</h4>
 									<p>
 										<Icon src={plus} alt='' />{' '}
 										<span>
-										{data.allContentfulRozwiazaniedlabiznesu.nodes[0].thirdItemContent}
+										{contentfulRozwiazaniedlabiznesuData.thirdItemContent}
 										</span>
 									</p>
 								</li>
@@ -419,18 +449,18 @@ const AboutProduct = ({data}) => {
 								className='btn-about'>
 								{' '}
 								<img src={buttonIcon} alt='' />{' '}
-								<span>{data.allContentfulRozwiazaniedlabiznesu.nodes[0].button}</span>
+								<span>{contentfulRozwiazaniedlabiznesuData.button}</span>
 							</Link>
 						</Col>
 						<Col lg='5' ref={ref7}>
 							<SolutionImage
 								className='d-lg-none'
-								src={data.allContentfulRozwiazaniedlabiznesu.nodes[0].imageMobile.url}
+								src={contentfulRozwiazaniedlabiznesuData.imageMobile.url}
 								alt=''
 							/>
 							<SolutionImage
 								className=' d-none d-lg-block img-about solution-image'
-								src={data.allContentfulRozwiazaniedlabiznesu.nodes[0].image.url}
+								src={contentfulRozwiazaniedlabiznesuData.image.url}
 								alt=''
 							/>
 						</Col>
@@ -447,6 +477,7 @@ export const query = graphql`
 query MyQuery {
   allContentfulOpHero {
     nodes {
+			node_locale
       subtitleafterplus
       subtitlebeforeplus
       title
@@ -475,6 +506,7 @@ query MyQuery {
   }
   allContentfulRozwiazaniedlabiznesu {
     nodes {
+			node_locale
       button
       firstItemContent
       firstItemTitle
@@ -494,6 +526,7 @@ query MyQuery {
   }
   allContentfulOpZastosuj {
     nodes {
+			node_locale
       title
       image {
 		url
@@ -522,6 +555,7 @@ query MyQuery {
   }
   allContentfulOpNaszeBadania {
     nodes {
+			node_locale
       button
       content
       image {

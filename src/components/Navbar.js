@@ -20,16 +20,16 @@ import ig from '../assets/images/insta.svg';
 import fb from '../assets/images/fb.svg';
 import yt from '../assets/images/yt.svg';
 import card from '../assets/images/card.svg';
+import { useIntl } from "gatsby-plugin-intl";
 
 
 const Navbar = ({data}) => {
-	// const menuItems = getMenuItems();
 	const [isOpen, setIsOpen] = useState(false);
 
 	const toggleNavigation = () => { 
 		setIsOpen(!isOpen);
 	};
-	console.log(data)
+  const intl = useIntl();
 
 	return (
 		<Header>

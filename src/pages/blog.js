@@ -17,6 +17,7 @@ import 'swiper/css/pagination';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import { ButtonSliderWrapper } from '../assets/styles/pages/Index.styles.js';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
+import { useIntl } from "gatsby-plugin-intl";
 
 export const options = {
   renderNode: {
@@ -31,13 +32,14 @@ export const options = {
 
 const BlogPost = () => {
   const swiperMobileRef = useRef();
-
+  const intl = useIntl();
   // Fetch blog post data from Contentful
   const data = useStaticQuery(graphql`
     query {
       allContentfulBlogPost {
         edges {
           node {
+            node_locale
             id
             name
             image {
@@ -56,7 +58,11 @@ const BlogPost = () => {
     }
   `);
 
-  const blogData = data.allContentfulBlogPost.edges.map((edge) => edge.node);
+  const userLanguage = intl.locale === 'pl' ? 'en-US' : 'pl';
+
+  const blogData = data.allContentfulBlogPost.edges
+    .filter(edge => edge.node.node_locale === userLanguage)
+    .map(edge => edge.node);
   // Number of blog items to display on each slide
   const itemsPerSlide = 5;
 
@@ -84,7 +90,7 @@ const BlogPost = () => {
                       <img claaName='profile-image' src={profile} alt='' />{' '}
                       <span>{blog.name}</span>
                     </div>
-                    <Link to={`/blog/${blog.title}`}>Czytaj dalej</Link>
+                    <Link to={`/blog/${blog.title}`}>{intl.locale === 'pl' ? 'Czytaj dalej' : 'Read more'}</Link>
                   </div>
                 </Col>
               </Row>
@@ -98,15 +104,10 @@ const BlogPost = () => {
   return (
     <Layout>
       <Wrapper>
-        <h1>Wykorzystaj w pełni każdą chwilę ze swoim zwierzakiem</h1>
-        <p>
-          Postbiotyki to nowa generacja suplementów diety dla zwierząt
-          towarzyszących. DeliGuard jest jedynym w Polsce postbiotykiem dla psów
-          i kotów, którego działanie zostało udowodnione w badaniach z udziałem
-          100 przedstawicieli różnych ras psów i kotów. Działając holistycznie i
-          wspomagając zdrowie jelit naszych pupili, DeliGuard pozwala
-          zaobserwować m.in. wyraźną poprawę trawienia, redukcję kamienia
-          nazębnego oraz uzyskanie zdrowszej i lśniącej sierści.
+        <h1>{intl.locale === 'pl' ? 'Wykorzystaj w pełni każdą chwilę ze swoim zwierzakiem' : 'Make the most of every moment with your pet'}</h1>
+        <p>{intl.locale === 'pl' ? 'Postbiotyki to nowa generacja suplementów diety dla zwierząt towarzyszących. DeliGuard jest jedynym w Polsce postbiotykiem dla psów i kotów, którego działanie zostało udowodnione w badaniach z udziałem 100 przedstawicieli różnych ras psów i kotów. Działając holistycznie i wspomagając zdrowie jelit naszych pupili, DeliGuard pozwala zaobserwować m.in. wyraźną poprawę trawienia, redukcję kamienia nazębnego oraz uzyskanie zdrowszej i lśniącej sierści.' : 'Postbiotics are a new generation of dietary supplements for animals accompanying. DeliGuard is the only postbiotic for dogs in Poland and cats, whose effects have been proven in studies involving 100 representatives of various breeds of dogs and cats. Acting holistically and supporting the intestinal health of our pets, DeliGuard allows observe, among others, significant improvement in digestion, reduction of stone formation plaque and obtaining healthier and shiny fur.'}
+
+          
         </p>
 
         <Swiper

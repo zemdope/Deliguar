@@ -37,6 +37,7 @@ exports.createPages = async ({ graphql, actions }) => {
       allContentfulBlogPost {
         edges {
           node {
+            node_locale
             title
             name
             publishedDate(formatString: "DD-MM-YYYY")
@@ -79,6 +80,7 @@ exports.createPages = async ({ graphql, actions }) => {
         name: node.name,
         date: node.publishedDate,
         references: node.content.references,
+        locale: node.node_locale,
       },
     });
   });

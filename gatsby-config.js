@@ -6,7 +6,15 @@ module.exports = {
 	plugins: [
 	  'gatsby-plugin-meta-redirect',
 	  'gatsby-plugin-redirects', // Make sure 'gatsby-plugin-redirects' is at the top-level
-	  // ...other plugins
+	{
+      resolve: `gatsby-plugin-intl`,
+      options: {
+        path: `${__dirname}/src/intl`,
+        languages: ['en', 'pl'], // Add your desired languages here
+        defaultLanguage: 'pl', // Set your default language
+        redirect: true,
+      },
+    },
 	  {
 		resolve: 'gatsby-source-contentful',
 		options: {

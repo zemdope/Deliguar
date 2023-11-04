@@ -6,8 +6,8 @@ import { graphql } from 'gatsby';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from '../assets/styles/GlobalStyles';
 import { theme } from '../assets/styles/theme';
-
 const Layout = ({  children }) => {
+
 
 	
 	return (
