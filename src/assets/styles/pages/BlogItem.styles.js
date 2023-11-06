@@ -43,6 +43,7 @@ export const Wrapper = styled.div`
       }
     }
   }
+
   .profile {
     position: relative;
     display: inline-block;
@@ -106,7 +107,6 @@ export const Wrapper = styled.div`
     display: flex;
     align-items: center;
     text-decoration: none !important;
-
     gap: 5px;
     svg {
       width: 20px;
@@ -136,6 +136,7 @@ export const Wrapper = styled.div`
       margin-bottom: 20px;
     }
   }
+
   padding-inline: 18px;
   margin-top: 70px;
   max-width: 1440px;
@@ -158,10 +159,8 @@ export const Wrapper = styled.div`
     font-size: 2.8rem;
     color: ${({ theme }) => theme.color.orange};
     font-weight: 700;
-
     line-height: 3.6rem;
     margin-bottom: 0;
-    // padding-top: 45px;
     margin-bottom: 40px;
     ${({ theme }) => theme.mq.tablet} {
       font-size: 5.2rem;
@@ -170,12 +169,7 @@ export const Wrapper = styled.div`
     @media (min-width: 1024px) {
       font-size: 7.2rem;
       line-height: 7.6rem;
-      // padding-top: 5rem;
       margin-bottom: 60px;
-    }
-    // @media (min-width: 1280px) {
-    //     padding-top: 10rem;
-
     }
   }
   p {

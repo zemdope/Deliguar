@@ -162,7 +162,8 @@ const BlogPostTemplate = ({ pageContext }) => {
               />
             </svg>
           </span>{' '}
-          Wróć
+          { intl === 'pl' ? 'Wróć' : 'Back'}
+
         </Link>
         <h1>{title ? title : ''}</h1>
         <div className='details'>
