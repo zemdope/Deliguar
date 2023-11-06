@@ -168,7 +168,7 @@ function ContactForm() {
 								required
 							/>
 							<label htmlFor='rodo'>
-								Zaakceptuj informacje <a href={rodo}>Rodo</a>
+								Zaakceptuj informacje <a href={rodo}>Rodo</a> DeliGuard oraz Meta(Facebook, Instagram)
 							</label> 
 						
 						</div>
