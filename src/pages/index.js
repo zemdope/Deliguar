@@ -392,7 +392,8 @@ scale:0,
 			}
 		});
 	}, []);
-	const advertisingBanner = data.allContentfulHero.nodes[0].advertisingBanner.url;
+	const advertisingBanner = data.allContentfulHero.nodes[0].advertisingBanner.publicUrl;
+	console.log(advertisingBanner);
 	// // Check if advertisingBanner exists before rendering the banner
 	const shouldDisplayBanner = !!advertisingBanner;
 	const imageUrl = shouldDisplayBanner ? advertisingBanner : null;
