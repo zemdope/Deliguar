@@ -6,26 +6,28 @@ import Col from 'react-bootstrap/Col';
 import plus from '../assets/images/plus5.svg';
 import minus from '../assets/images/minus.svg';
 
-const Try = ({locale}) => {
-	
-  const initialAccordionStates = Array(2).fill({ open: false });
-  const [accordionStates, setAccordionStates] = useState(initialAccordionStates);
+const Try = ({ locale }) => {
+  const initialAccordionStatesEurope = [
+    { open: false }, // Poland
+    { open: false }, // Hungary
+  ];
+
+  const [accordionStatesEurope, setAccordionStatesEurope] = useState(initialAccordionStatesEurope);
 
   const initialAccordionStatesAsia = Array(1).fill({ open: false });
   const [accordionStatesAsia, setAccordionStatesAsia] = useState(initialAccordionStatesAsia);
+
+  const toggleAccordionEurope = (index) => {
+    const newAccordionStates = [...accordionStatesEurope];
+    newAccordionStates[index].open = !newAccordionStates[index].open;
+    setAccordionStatesEurope(newAccordionStates);
+  };
 
   const toggleAccordionAsia = (index) => {
     const newAccordionStates = [...accordionStatesAsia];
     newAccordionStates[index].open = !newAccordionStates[index].open;
     setAccordionStatesAsia(newAccordionStates);
   };
-
-  const toggleAccordion = (index) => {
-    const newAccordionStates = [...accordionStates];
-    newAccordionStates[index].open = !newAccordionStates[index].open;
-    setAccordionStates(newAccordionStates);
-  };
-
 
   return (
     <Layout>
@@ -39,11 +41,11 @@ const Try = ({locale}) => {
           <Col sm="12" md="6">
             <h3>Europe</h3>
             <ul>
-              {accordionStates.map((state, index) => (
+              {accordionStatesEurope.map((state, index) => (
                 <li key={index}>
                   <button
                     className={`accordion-header ${state.open ? 'open' : ''}`}
-                    onClick={() => toggleAccordion(index)}
+                    onClick={() => toggleAccordionEurope(index)}
                   >
                     <img src={state.open ? minus : plus} alt="" />
                     <span className={state.open ? 'open' : ''}>{index === 0 ? 'Poland' : 'Hungary'}</span>
