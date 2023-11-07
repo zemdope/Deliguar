@@ -111,7 +111,7 @@ export const List = styled.ul`
 			flex-shrink: 0;
 			font-weight: 700 !important;
 			border-radius: 32px;
-			background: #f2851d;
+			background: #5E286D;
 			box-shadow: 5px 5px 10px 0px rgba(22, 27, 29, 0.23),
 				-5px -5px 10px 0px rgba(250, 251, 255, 0.1);
 		
