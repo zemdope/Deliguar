@@ -61,6 +61,7 @@ function ContactForm() {
 						<button type="submit">Send</button>
 					</form>
 				</Wrapper>
+				
 				);
 }
 
