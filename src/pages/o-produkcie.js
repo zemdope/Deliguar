@@ -396,9 +396,11 @@ const AboutProduct = ({data}) => {
 							<ButtonWrapper className='d-md-none'>
 								<a href="https://allegro.pl/oferta/suplement-dla-psa-i-kota-na-trawienie-deliguard-14236919045">
 									<img src={bag} alt='' />{' '}
-									<span>Przekonaj się sam</span>
+									<span>	{intl.locale === 'pl' ? 'Przekonaj się sam': 'Try it' }
+						</span>
 								</a>
-								<p>i zobacz że DeliGuard działa</p>
+								<p>{intl.locale === 'pl' ? 'i zobacz że DeliGuard działa': 'and see that DeliGuard works' }
+</p>
 							</ButtonWrapper>
 						</Col>
 						<Col xs='12' md='6' ref={ref6}>

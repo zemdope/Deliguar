@@ -1163,6 +1163,17 @@ export const RangeContainer = styled.div`
 
 		border-radius: 50%;
 	}
+	.dot::before {
+		content: '';
+		position: absolute;
+		width: 50px; /* Set the desired clickable area width */
+		height: 50px; /* Set the desired clickable area height */
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background: transparent;
+		cursor: pointer;
+	}
 	.dot-dog {
 		width: 8px;
 		height: 8px;
@@ -1443,7 +1454,7 @@ export const DesktopSliderWrapper = styled.div`
 	display: none;
 	@media (min-width: 1024px) {
 		display: block;
-		max-width: 1680px;
+		max-width: 1920px;
 		margin-inline: auto;
 		padding-top: 35px;
 		padding-bottom: 45px;
@@ -1452,6 +1463,7 @@ export const DesktopSliderWrapper = styled.div`
 .swiper-wrapper{
   transition-timing-function : linear;
 }
+
 			.swiper-slide {
 				.slider-container {
 					display: flex;
@@ -1459,6 +1471,7 @@ export const DesktopSliderWrapper = styled.div`
 					background: #faecd8;
 					gap: 15px;
 					cursor: pointer;
+					border: 1.5px solid transparent;
 
 					.slider-desktop-image {
 						border-radius: 50%;
@@ -1508,7 +1521,13 @@ export const DesktopSliderWrapper = styled.div`
 						margin-top: 15px;
 					}
 				}
+				.slider-container:hover {
+					border: 1.5px solid #5e286d !important;
+					overflow: hidden;
+				}
+
 			}
+		
 		}
 	}
 `;

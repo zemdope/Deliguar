@@ -41,6 +41,7 @@ export const FooterWrapper = styled.div`
 		font-style: normal;
 		font-weight: 400;
 		line-height: 22px; /* 157.143% */
+		white-space: nowrap;
 		@media (min-width: 992px) {
 			font-size: 16px;
 

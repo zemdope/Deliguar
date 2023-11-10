@@ -48,6 +48,9 @@ export const List = styled.ul`
 			text-decoration: none;
 			font-weight: 400;
 			line-height: 2.8rem;
+			height: auto !important;
+			padding-top: 10px;
+			padding-bottom: 10px;
 		
 			font-size: ${({ theme }) => theme.font.size.parapgraph};
 			@media (min-width: 768px) {

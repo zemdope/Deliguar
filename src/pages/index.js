@@ -1104,8 +1104,9 @@ const contentfulBadaniaData =
 							<ContactInnerWrapper>
 								<h2>{contentfulKontaktIStopkaData.title}</h2>
 								<h3>
-									W przypadku pytań prosimy o wiadomość na
-									adres
+								{ intl === 'pl' ? 'W przypadku pytań prosimy o wiadomość na adres' : "If you have any questions, please send us a message at:"}
+         
+									
 								</h3>
 								<MailLink href='mailto:support@deliguard.net'>
 									<img src={mail} alt='' />
