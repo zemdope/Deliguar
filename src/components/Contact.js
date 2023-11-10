@@ -57,7 +57,7 @@ function ContactForm() {
 
 <form
   method='POST'
-  action="https://formsubmit.co/rodo@deliguard.net"
+  action="https://formsubmit.co/4cde3ee9059e01c07643125664b2ef6f"
   encType='multipart/form-data' 
 >
  <Row>
@@ -213,7 +213,7 @@ function ContactForm() {
               </label>
             
             </div>
-            <input type="hidden" name='_next' value="https://deliguard.net/thanksPage" />
+            <input type="hidden" name='_next' value="https://deliguard.net/pl/thanksPage" />
             <input type="hidden" name='_captcha' value="false" />
             <input type="hidden" name="_cc" value="support@deliguard.net" />
 
