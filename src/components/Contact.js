@@ -124,6 +124,7 @@ function ContactForm() {
                 name='attachment' 
                 accept="image/png, image/jpeg"
                 onChange={handleImageChange}
+                required
               />
             </AttachmentDiv>
             {selectedImage ?(<label htmlFor='attachment'>
