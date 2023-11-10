@@ -80,6 +80,7 @@ import { useIntl } from "gatsby-plugin-intl";
 import bell from '../assets/images/bell.svg';
 import bulb from '../assets/images/bulb.svg';
 import eye from '../assets/images/eye.svg';
+import eyeen from '../assets/images/eyeen.svg';
 import drop from '../assets/images/drop.svg';
 import arrowPrev from '../assets/images/arrowPrev.svg';
 import inst from '../assets/images/inst.pdf';
@@ -642,7 +643,7 @@ const contentfulBadaniaData =
 					<Row>
 						<Col md='12'>
 							<EffectHeader>
-								<img src={eye} alt='' />
+								<img src={ intl === 'pl' ? eye : eyeen} alt='' />
 								<div>
 									<h2>{contentfulZastosujDeliguardData.title}</h2>
 								

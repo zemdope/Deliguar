@@ -12,6 +12,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import logoText from '../assets/images/newLogoFooter.svg';
 import Pprivacy from '../assets/images/polityka.pdf';
+import rodoen from '../assets/images/politykaen.pdf';
 import { useIntl } from "gatsby-plugin-intl";
 const Footer = () => {
 	const intl = useIntl();
@@ -45,7 +46,8 @@ const Footer = () => {
 						<Row>
 							<Col xs='12'>
 								<h5>{contentfulData.stopkaTekst}</h5>
-								<a href={Pprivacy} target='blank'>{intl.locale === 'pl' ? 'Polityka Prywatności': 'Privacy policy' }</a>
+								{/*  */}
+								<a href={intl.locale === 'pl' ? Pprivacy : rodoen} target='blank'>{intl.locale === 'pl' ? 'Polityka Prywatności': 'Privacy policy' }</a>
 							</Col>
 							
 						</Row>
