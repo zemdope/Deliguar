@@ -53,6 +53,24 @@ export const AboutProductHero = styled.section`
 	@media (min-width: 1024px) {
 		margin-top: 102px;
 	}
+	.image-bottole-about {
+
+		width: 80%;
+		shape-outside: circle(33%);
+	
+	@media (max-width: 340px) {
+		shape-outside: circle(10%);
+		float: unset;
+	}
+	@media (min-width:400px) {
+		shape-outside: circle(33%);
+	}	@media (min-width:1024px) {
+		width: 91%;
+		margin-bottom:50px;
+	}
+	
+	
+	}
 	h1 {
 		padding-inline: 18px;
 		color: #f28f1d;

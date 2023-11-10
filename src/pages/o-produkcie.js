@@ -223,7 +223,7 @@ const AboutProduct = ({data}) => {
 				<Row className='hero-wrapper d-md-none'>
 					<h1>{contentfulData.title}</h1>
 					<Col>
-						<ImageBottle src={contentfulData.image.file.url} alt='' />
+						<ImageBottle className={intl.locale === 'pl' ? '': 'image-bottole-about' }  src={contentfulData.image.file.url} alt='' />
 
 						<ParagraphTop>
 						{contentfulData.subtitlebeforeplus}<img src={plus2} alt='' />
@@ -254,7 +254,7 @@ const AboutProduct = ({data}) => {
 					<Col
 						md='6'
 						className='d-flex d-xl-block align-items-center'>
-						<ImageBottle src={contentfulData.image.file.url} alt='' />
+						<ImageBottle 	className={intl.locale === 'pl' ? '': 'image-bottole-about' } src={contentfulData.image.file.url} alt='' />
 					</Col>
 				</Row>
 			</AboutProductHero>
