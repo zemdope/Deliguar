@@ -393,11 +393,6 @@ scale:0,
 			}
 		});
 	}, []);
-	const advertisingBanner = data.allContentfulHero.nodes[0].advertisingBanner.publicUrl;
-	console.log(advertisingBanner);
-	// // Check if advertisingBanner exists before rendering the banner
-	const shouldDisplayBanner = !!advertisingBanner;
-	const imageUrl = shouldDisplayBanner ? advertisingBanner : null;
 
 
 	const intl = useIntl();
@@ -411,6 +406,11 @@ const contentfulData =
 		? data.allContentfulHero.nodes.find((node) => node.node_locale === 'en-US')
 		: data.allContentfulHero.nodes.find((node) => node.node_locale === 'pl');
 
+		const advertisingBanner = contentfulData.advertisingBanner.publicUrl;
+		// // Check if advertisingBanner exists before rendering the banner
+		const shouldDisplayBanner = !!advertisingBanner;
+		const imageUrl = shouldDisplayBanner ? advertisingBanner : null;
+	
 // Define the contentful data for other queries
 const contentfulProblemData =
 	userLanguage === 'pl'
