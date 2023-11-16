@@ -407,7 +407,6 @@ const contentfulData =
 		: data.allContentfulHero.nodes.find((node) => node.node_locale === 'pl');
 
 		const advertisingBanner = contentfulData.advertisingBanner.publicUrl;
-		// // Check if advertisingBanner exists before rendering the banner
 		const shouldDisplayBanner = !!advertisingBanner;
 		const imageUrl = shouldDisplayBanner ? advertisingBanner : null;
 	
