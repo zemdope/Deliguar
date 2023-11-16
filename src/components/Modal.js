@@ -42,7 +42,8 @@ const Modal = ({ slides, initialSlide, onClose }) => {
 					onBeforeInit={(swiper) => {
 						swiperModalRef.current = swiper;
 					}}
-					pagination={{ clickable: true }}>
+					// pagination={{ clickable: true }}
+					>
 					{slides.map((slide, index) => (
 						<SwiperSlide key={index}>
 							<ModalSliderContent>

@@ -941,7 +941,7 @@ const contentfulBadaniaData =
 							onBeforeInit={(swiper) => {
 								swiperMobileRef.current = swiper;
 							}}
-							pagination={{ clickable: true }}
+							// pagination={{ clickable: true }}
 							slidesPerView={1}>
 	
 							{slides.map((slide, index) => (
