@@ -406,9 +406,9 @@ const contentfulData =
 		? data.allContentfulHero.nodes.find((node) => node.node_locale === 'en-US')
 		: data.allContentfulHero.nodes.find((node) => node.node_locale === 'pl');
 
-		const advertisingBanner = contentfulData.advertisingBanner.publicUrl;
-		const shouldDisplayBanner = !!advertisingBanner;
-		const imageUrl = shouldDisplayBanner ? advertisingBanner : null;
+		// const advertisingBanner = contentfulData.advertisingBanner.publicUrl;
+		// const shouldDisplayBanner = !!advertisingBanner;
+		// const imageUrl = shouldDisplayBanner ? advertisingBanner : null;
 	
 // Define the contentful data for other queries
 const contentfulProblemData =
@@ -486,7 +486,7 @@ const contentfulBadaniaData =
         />
       </Helmet>
   
- {shouldDisplayBanner && <Banner imageUrl={imageUrl} />}
+ {/* {shouldDisplayBanner && <Banner imageUrl={imageUrl} />} */}
 			<HeroSection>
 				<Wrapper>
 					<LeftItem>
@@ -1209,9 +1209,6 @@ export const query = graphql`
     nodes {
 			node_locale
       title
-			advertisingBanner {
-        publicUrl
-      }
       subtitle
       subtitlebottom
 	 seoTitle
