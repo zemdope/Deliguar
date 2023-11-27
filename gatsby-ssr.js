@@ -2,11 +2,10 @@ import React from 'react';
 
 export const onRenderBody = ({ setHeadComponents }) => {
   setHeadComponents([
-    <link
-      key='Americane'
-      rel='stylesheet'
-      href='https://use.typekit.net/vxc2kem.css'
-    />,
+    // Typekit
+    <link key='Americane' rel='stylesheet' href='https://use.typekit.net/vxc2kem.css' />,
+
+    // Bootstrap
     <link
       key='Bootstrap'
       rel='stylesheet'
@@ -14,12 +13,13 @@ export const onRenderBody = ({ setHeadComponents }) => {
       integrity='sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM'
       crossOrigin='anonymous'
     />,
+
+    // Facebook Pixel
     <script
       key="facebook-pixel"
       dangerouslySetInnerHTML={{
         __html: `
-          !function(f,b,e,v,n,t,s)
-          {if(f.fbq)return;n=fbq=function(){n.callMethod?
+          !function(f,b,e,v,n,t,s){if(f.fbq)return;n=fbq=function(){n.callMethod?
           n.callMethod.apply(n,arguments):n.queue.push(arguments)};
           if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
           n.queue=[];t=b.createElement(e);t.async=!0;
@@ -31,9 +31,13 @@ export const onRenderBody = ({ setHeadComponents }) => {
         `,
       }}
     />,
-    <meta  key='ver' name="google-site-verification" content="onR0yqxmgJagS12-0c9tMRFgjic0UcXr07obONgPMGQ" />,
+
+    // Google Site Verification
+    <meta name="google-site-verification" content="onR0yqxmgJagS12-0c9tMRFgjic0UcXr07obONgPMGQ" />,
+
+    // Google Tag Manager
     <script
-    key='gtag-2'
+      key="gtm"
       dangerouslySetInnerHTML={{
         __html: `
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -44,9 +48,10 @@ export const onRenderBody = ({ setHeadComponents }) => {
         `,
       }}
     />,
-    <script key='tagmanager' async src="https://www.googletagmanager.com/gtag/js?id=UA-289314974-1"></script>,
+
+    // Google Analytics
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-289314974-1"></script>,
     <script
-    key='ga4'
       dangerouslySetInnerHTML={{
         __html: `
           window.dataLayer = window.dataLayer || [];
@@ -56,9 +61,10 @@ export const onRenderBody = ({ setHeadComponents }) => {
         `,
       }}
     />,
-    <script key='tag-4' async src="https://www.googletagmanager.com/gtag/js?id=G-JX359XRQK4"></script>,
+
+    // Additional Google Analytics
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JX359XRQK4"></script>,
     <script
-    key='ga4-2'
       dangerouslySetInnerHTML={{
         __html: `
           window.dataLayer = window.dataLayer || [];

@@ -642,7 +642,7 @@ const contentfulBadaniaData =
 					<Row>
 						<Col md='12'>
 							<EffectHeader>
-								<img src={ intl === 'pl' ? eye : eyeen} alt='' />
+								<img src={ userLanguage === 'pl' ? eye : eyeen} alt='' />
 								<div>
 									<h2>{contentfulZastosujDeliguardData.title}</h2>
 								
@@ -1104,7 +1104,7 @@ const contentfulBadaniaData =
 							<ContactInnerWrapper>
 								<h2>{contentfulKontaktIStopkaData.title}</h2>
 								<h3>
-								{ intl === 'pl' ? 'W przypadku pytań prosimy o wiadomość na adres' : "If you have any questions, please send us a message at:"}
+								{ userLanguage === 'pl' ? 'W przypadku pytań prosimy o wiadomość na adres' : "If you have any questions, please send us a message at:"}
          
 									
 								</h3>
